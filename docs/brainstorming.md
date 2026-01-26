@@ -13,7 +13,7 @@ kanban
       Streamline On/Offboarding project members
       Streamline Tools Access Administration
       Leverage Approval workflows
-  Project Oservability
+  Project Observability
     Track Progress
     Track Cost
     Highligh Delays/Risks/Issues
