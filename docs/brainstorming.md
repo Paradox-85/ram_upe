@@ -10,9 +10,9 @@ kanban
     Archive Project Data at project closeout
     Configure Common Data Environment 
   User Access Managemnent
-      Streamline On/Offboarding project members
-      Streamline Tools Access Administration
-      Leverage Approval workflows
+    Streamline On/Offboarding project members
+    Streamline Tools Access Administration
+    Leverage Approval workflows
   Project Observability
     Track Progress
     Track Cost
