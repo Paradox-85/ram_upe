@@ -1,7 +1,7 @@
 trigger:
   branches:
     include:
-      - '*'
+      - main
 
 pr: none
 
@@ -12,9 +12,10 @@ steps:
 - checkout: self
   persistCredentials: true
   fetchDepth: 0
+  clean: true
 
 - bash: |
-    set -e
+    set -euo pipefail
 
     git config --global user.name "Azure DevOps Mirror"
     git config --global user.email "adzv@ramboll.com"
@@ -24,10 +25,12 @@ steps:
     git remote remove github 2>/dev/null || true
     git remote add github https://$(GITHUB_USER):$(GITHUB_PAT)@github.com/Paradox-85/ram_upe.git
 
+    git fetch origin main --tags
     git checkout -B main origin/main
+
     git push github main:main --force
     git push github --tags --force
   displayName: Push main and tags to GitHub
   env:
-    GITHUB_PAT: $(GITHUB_PAT)
     GITHUB_USER: $(GITHUB_USER)
+    GITHUB_PAT: $(GITHUB_PAT)
