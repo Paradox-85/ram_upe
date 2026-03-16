@@ -24,9 +24,10 @@ steps:
     git remote remove github 2>/dev/null || true
     git remote add github https://$(GITHUB_USER):$(GITHUB_PAT)@github.com/Paradox-85/ram_upe.git
 
-    git fetch --all --tags
-    git push --mirror github
-  displayName: Mirror Azure DevOps repo to GitHub
+    git checkout -B main origin/main
+    git push github main:main --force
+    git push github --tags --force
+  displayName: Push main and tags to GitHub
   env:
     GITHUB_PAT: $(GITHUB_PAT)
     GITHUB_USER: $(GITHUB_USER)
