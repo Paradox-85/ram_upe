@@ -1,0 +1,2965 @@
+WEBVTT
+
+48a44b41-fbd3-45f4-933a-f6503891c260/6-0
+00:00:03.109 --> 00:00:09.536
+<v Olivier Doucet>I will present you with just a specific
+view that you have interest in a certain</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/6-1
+00:00:09.536 --> 00:00:13.344
+<v Olivier Doucet>context.
+So that's something we could implement</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/6-2
+00:00:13.344 --> 00:00:19.533
+<v Olivier Doucet>either by running automation through a
+bunch of this data models and whatnot,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/6-3
+00:00:19.533 --> 00:00:22.549
+<v Olivier Doucet>all of the format that we can support.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/8-0
+00:00:22.629 --> 00:00:26.723
+<v Olivier Doucet>And then generate,
+let's say a small data structure that is</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/8-1
+00:00:26.723 --> 00:00:31.363
+<v Olivier Doucet>extracting this information.
+And then maybe we need to refresh this</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/8-2
+00:00:31.363 --> 00:00:36.753
+<v Olivier Doucet>whenever the data changes and we can
+maybe even trigger it automatically with,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/8-3
+00:00:36.753 --> 00:00:40.302
+<v Olivier Doucet>you know,
+detection or we can rerun it periodically</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/8-4
+00:00:40.302 --> 00:00:41.189
+<v Olivier Doucet>when we need.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/9-0
+00:00:41.709 --> 00:00:49.029
+<v Olivier Doucet>And then we have this information,
+but it's not coupled or we can also have.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/10-0
+00:00:50.509 --> 00:00:54.324
+<v Olivier Doucet>Like some service,
+some layer of service that can</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/10-1
+00:00:54.324 --> 00:01:00.505
+<v Olivier Doucet>automatically query these things on the
+fly. Of course it won't be as efficient,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/10-2
+00:01:00.505 --> 00:01:04.778
+<v Olivier Doucet>but this sort of manifest or a view
+extraction of data,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/10-3
+00:01:04.778 --> 00:01:09.509
+<v Olivier Doucet>potentially we could have not just one,
+but different facets.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/13-0
+00:01:09.789 --> 00:01:16.413
+<v Olivier Doucet>That would cater for different use cases
+and different purpose or it can be just</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/11-0
+00:01:14.389 --> 00:01:14.789
+<v David Thomson>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/13-1
+00:01:16.413 --> 00:01:22.711
+<v Olivier Doucet>one if we can aggregate everything,
+but it all depends for me on what are we</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/12-0
+00:01:22.629 --> 00:01:23.389
+<v David Thomson>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/13-2
+00:01:22.711 --> 00:01:24.429
+<v Olivier Doucet>doing with this data.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/14-0
+00:01:25.189 --> 00:01:30.008
+<v Olivier Doucet>And what are the use cases?
+I think that would be useful and that</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/14-1
+00:01:30.008 --> 00:01:31.469
+<v Olivier Doucet>maybe that can help.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/16-0
+00:01:30.829 --> 00:01:35.414
+<v David Thomson>Yeah, of course.
+I I don't have that layer level of detail</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/16-1
+00:01:35.414 --> 00:01:40.544
+<v David Thomson>yet, so it's it's very hard,
+which is why we shouldn't, you know,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/15-0
+00:01:38.149 --> 00:01:38.629
+<v Olivier Doucet>Mhm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/16-2
+00:01:40.544 --> 00:01:43.109
+<v David Thomson>start building anything I expect.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/17-0
+00:01:44.909 --> 00:01:46.749
+<v David Thomson>That you know we we.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/20-0
+00:01:47.829 --> 00:01:53.266
+<v David Thomson>I'll come back to requirements because
+they're very almost like contradictory</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/20-1
+00:01:53.266 --> 00:01:58.843
+<v David Thomson>requirements somehow at the high level.
+So I think it's going to take longer to</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/20-2
+00:01:58.843 --> 00:02:03.514
+<v David Thomson>really identify, you know,
+the high priority use cases like why we</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/20-3
+00:02:03.514 --> 00:02:07.349
+<v David Thomson>need this data that I think as you guys
+already point.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/19-0
+00:02:05.149 --> 00:02:05.389
+<v Olivier Doucet>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/22-0
+00:02:07.389 --> 00:02:11.292
+<v David Thomson>Pointed out there's some other use cases
+where it's more obvious,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/22-1
+00:02:11.292 --> 00:02:14.307
+<v David Thomson>like project initialization,
+project provisioning.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/22-2
+00:02:14.307 --> 00:02:17.442
+<v David Thomson>I think that's much more clear. Basically,
+you know,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/22-3
+00:02:17.442 --> 00:02:20.812
+<v David Thomson>start the project in the right way with
+the right tools,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/22-4
+00:02:20.812 --> 00:02:24.893
+<v David Thomson>with the data in the right place.
+You know, that's that's, you know,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/21-0
+00:02:21.029 --> 00:02:21.309
+<v Olivier Doucet>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/22-5
+00:02:24.893 --> 00:02:26.549
+<v David Thomson>that's like much more clear.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/23-0
+00:02:27.189 --> 00:02:30.197
+<v David Thomson>But to me, I'm not, you know,
+completely clear.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/23-1
+00:02:30.197 --> 00:02:34.146
+<v David Thomson>Do we really need to extract all the data?
+But it's, you know,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/23-2
+00:02:34.146 --> 00:02:38.910
+<v David Thomson>I can only say it's case by case,
+but I don't understand those cases at the</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/24-0
+00:02:38.189 --> 00:02:42.060
+<v Olivier Doucet>Yeah,
+there was something else that I I had the</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/23-3
+00:02:38.910 --> 00:02:39.349
+<v David Thomson>moment.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/24-1
+00:02:42.060 --> 00:02:48.593
+<v Olivier Doucet>opportunity to discuss with some of my
+colleagues here since we spoke on Tuesday</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/24-2
+00:02:48.593 --> 00:02:55.287
+<v Olivier Doucet>and I I told them that I was involved in
+in this conversation we're having and you</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/24-3
+00:02:55.287 --> 00:02:57.949
+<v Olivier Doucet>know, we're trying to figure out.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/26-0
+00:02:57.949 --> 00:03:02.587
+<v Olivier Doucet>How best we can contribute and what's the
+most needed stuff.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/26-1
+00:03:02.587 --> 00:03:07.757
+<v Olivier Doucet>And one of them was almost a bit
+frustrated saying I've heard this,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/26-2
+00:03:07.757 --> 00:03:11.786
+<v Olivier Doucet>I don't know how many times we're trying
+to improve,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/26-3
+00:03:11.786 --> 00:03:17.109
+<v Olivier Doucet>but for him it was like we haven't even
+fixed level zero of aligning.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/25-0
+00:03:16.589 --> 00:03:17.029
+<v Andrei Aitzhanov>Mm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/28-0
+00:03:17.629 --> 00:03:20.849
+<v Olivier Doucet>On the standardization,
+even at the process level.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/28-1
+00:03:20.849 --> 00:03:25.964
+<v Olivier Doucet>So it's really difficult to start talking
+about a building anything if you don't</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/28-2
+00:03:25.964 --> 00:03:30.068
+<v Olivier Doucet>have alignment on, you know,
+how are you going to structure your</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/28-3
+00:03:30.068 --> 00:03:34.109
+<v Olivier Doucet>folders, what's the workflow?
+A lot of it is really high level,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/27-0
+00:03:32.429 --> 00:03:32.629
+<v David Thomson>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/28-4
+00:03:34.109 --> 00:03:36.509
+<v Olivier Doucet>but when it comes down to the project.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/29-0
+00:03:36.829 --> 00:03:42.642
+<v Olivier Doucet>People are often left, you know,
+deciding for themselves how they want to</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/29-1
+00:03:42.642 --> 00:03:48.534
+<v Olivier Doucet>do it within the discipline and then it
+doesn't really fit together at the</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/29-2
+00:03:48.534 --> 00:03:53.640
+<v Olivier Doucet>project level. So he was,
+he was a little bit frustrated because</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/29-3
+00:03:53.640 --> 00:03:56.469
+<v Olivier Doucet>for him it he thinks that UP should.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/31-0
+00:03:56.829 --> 00:04:00.820
+<v Olivier Doucet>First and foremost,
+we should have like a really good</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/31-1
+00:04:00.820 --> 00:04:05.625
+<v Olivier Doucet>alignment on how do we standardize and it
+can be just documents.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/31-2
+00:04:05.625 --> 00:04:10.578
+<v Olivier Doucet>It doesn't have to be any engine,
+it can be just some templates or</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/30-0
+00:04:07.149 --> 00:04:07.429
+<v David Thomson>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/31-3
+00:04:10.578 --> 00:04:11.909
+<v Olivier Doucet>recommendation on.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/33-0
+00:04:12.109 --> 00:04:15.860
+<v Olivier Doucet>What does it mean to implement this check
+in the discipline?</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/33-1
+00:04:15.860 --> 00:04:20.349
+<v Olivier Doucet>How do we deliver and all of this?
+So that was one of the feedback I got</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/32-0
+00:04:17.389 --> 00:04:17.829
+<v David Thomson>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/33-2
+00:04:20.349 --> 00:04:24.592
+<v Olivier Doucet>from from this conversation.
+I thought I would bring it back to this</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/33-3
+00:04:24.592 --> 00:04:28.589
+<v Olivier Doucet>meeting because we tend to go a little
+bit high level, you know?</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/34-0
+00:04:28.869 --> 00:04:31.469
+<v Olivier Doucet>All of this technicalities, but.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/35-0
+00:04:29.909 --> 00:04:34.109
+<v David Thomson>Yeah, it's it's absolutely right. Um.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/37-0
+00:04:36.109 --> 00:04:41.339
+<v David Thomson>You'll see I I started to break down high
+level the work streams and my colleagues</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/37-1
+00:04:41.339 --> 00:04:46.379
+<v David Thomson>actually started this and the that's very
+fair to say we we don't even have the</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/37-2
+00:04:46.379 --> 00:04:50.664
+<v David Thomson>basics which is really about process and
+and and project execution,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/36-0
+00:04:48.149 --> 00:04:48.429
+<v Olivier Doucet>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/37-3
+00:04:50.664 --> 00:04:52.429
+<v David Thomson>nothing to do with software.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/39-0
+00:04:52.829 --> 00:05:01.429
+<v David Thomson>That's a huge job that needs to be done
+and but what I started to realize is.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/38-0
+00:04:58.189 --> 00:04:59.029
+<v Olivier Doucet>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/40-0
+00:05:02.589 --> 00:05:05.669
+<v David Thomson>Instead of thinking about building the
+platform.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/45-0
+00:05:06.469 --> 00:05:12.292
+<v David Thomson>I think there are some like what we,
+I think Rambo calls it like tech enablers.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/45-1
+00:05:12.292 --> 00:05:17.388
+<v David Thomson>So I think there are some utilities,
+some bits of software, you know,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/41-0
+00:05:12.589 --> 00:05:13.189
+<v Olivier Doucet>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/45-2
+00:05:17.388 --> 00:05:22.920
+<v David Thomson>which will help to like the data,
+like the knowledge capture idea we talked</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/42-0
+00:05:19.629 --> 00:05:20.269
+<v Andrei Aitzhanov>Mhm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/45-3
+00:05:22.920 --> 00:05:26.269
+<v David Thomson>about on Tuesday.
+There's probably something.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/43-0
+00:05:23.669 --> 00:05:24.189
+<v Andrei Aitzhanov>No, no, no.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/46-0
+00:05:26.389 --> 00:05:32.585
+<v David Thomson>Things we can develop which will
+significantly maybe speed up the that</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/44-0
+00:05:27.709 --> 00:05:28.029
+<v Olivier Doucet>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/46-1
+00:05:32.585 --> 00:05:39.829
+<v David Thomson>process of of of documenting all of the
+basics and and aligning everybody on them.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/48-0
+00:05:41.509 --> 00:05:46.149
+<v David Thomson>So, but I'll I'll come back to that.
+But I totally agree. Yeah, Andrei.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/47-0
+00:05:44.749 --> 00:05:45.189
+<v Olivier Doucet>Mm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/49-0
+00:05:46.069 --> 00:05:50.342
+<v Andrei Aitzhanov>Yeah,
+just one point as well from my end that</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/49-1
+00:05:50.342 --> 00:05:57.681
+<v Andrei Aitzhanov>actually as per my experience in energy,
+I I see that all these huge documents</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/49-2
+00:05:57.681 --> 00:06:03.069
+<v Andrei Aitzhanov>with a lot of rules engineers are not
+following actually.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/51-0
+00:06:03.589 --> 00:06:10.276
+<v Andrei Aitzhanov>The best way to to implement this from my
+humble opinion that we need to implement</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/51-1
+00:06:10.276 --> 00:06:15.191
+<v Andrei Aitzhanov>all these templates,
+workflows and etcetera in the cap tools</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/51-2
+00:06:15.191 --> 00:06:20.429
+<v Andrei Aitzhanov>or or the instruments that engineers are
+using on a daily basis.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/50-0
+00:06:19.509 --> 00:06:20.029
+<v David Thomson>Mm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/53-0
+00:06:20.709 --> 00:06:24.553
+<v Andrei Aitzhanov>And then they don't have a choice to use
+another way.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/53-1
+00:06:24.553 --> 00:06:30.036
+<v Andrei Aitzhanov>They should follow these rules because
+it's what how tool is established and</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/53-2
+00:06:30.036 --> 00:06:33.240
+<v Andrei Aitzhanov>deployed in this particular VDI or
+computer.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/53-3
+00:06:33.240 --> 00:06:38.509
+<v Andrei Aitzhanov>That's my my feeling that if you will
+open the Revit, you need to select.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/54-0
+00:06:38.869 --> 00:06:44.019
+<v Andrei Aitzhanov>Template and then you don't have a choice
+to use another families or another forms</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/54-1
+00:06:44.019 --> 00:06:47.433
+<v Andrei Aitzhanov>or something like that.
+It's it's a very basic things,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/54-2
+00:06:47.433 --> 00:06:52.397
+<v Andrei Aitzhanov>but I think that this is what we need to
+keep in mind that we need to implement</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/54-3
+00:06:52.397 --> 00:06:53.949
+<v Andrei Aitzhanov>this into the individual.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/55-0
+00:06:54.149 --> 00:07:00.132
+<v Andrei Aitzhanov>Level to the CAD tools and yes,
+I see that for now we are talking about</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/55-1
+00:07:00.132 --> 00:07:07.030
+<v Andrei Aitzhanov>the AI and machine learning and another,
+but we don't have very fundamental things</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/55-2
+00:07:07.030 --> 00:07:10.189
+<v Andrei Aitzhanov>like a data model responsible metrics.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/56-0
+00:07:10.389 --> 00:07:16.438
+<v Andrei Aitzhanov>Work flows,
+who will do when and what and this kind</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/56-1
+00:07:16.438 --> 00:07:21.789
+<v Andrei Aitzhanov>of things. Yeah,
+this is very initial things.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/57-0
+00:07:17.389 --> 00:07:21.444
+<v David Thomson>Yeah, there's there's many things to do,
+unfortunately. I mean,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/57-1
+00:07:21.444 --> 00:07:24.867
+<v David Thomson>there's lots of pressure from up top,
+but then again,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/57-2
+00:07:24.867 --> 00:07:29.619
+<v David Thomson>I think they're kind of realistic on time
+frame. Like from my perspective,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/57-3
+00:07:29.619 --> 00:07:33.549
+<v David Thomson>they only expect me to get the governance
+in place this year.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/60-0
+00:07:33.629 --> 00:07:38.969
+<v David Thomson>But my product manager instinct is like I
+want to build because you put, you know,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/58-0
+00:07:38.429 --> 00:07:38.869
+<v Andrei Aitzhanov>Mm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/60-1
+00:07:38.969 --> 00:07:43.666
+<v David Thomson>sooner you put something in the hand of
+the user, you get some feedback,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/59-0
+00:07:41.869 --> 00:07:42.309
+<v Olivier Doucet>Mm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/60-2
+00:07:43.666 --> 00:07:47.398
+<v David Thomson>you iterate, you improve.
+So I still intend to, you know,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/60-3
+00:07:47.398 --> 00:07:52.481
+<v David Thomson>build something this year hopefully and
+and maybe it's project initialisation,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/60-4
+00:07:52.481 --> 00:07:53.189
+<v David Thomson>maybe it's.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/61-0
+00:07:53.469 --> 00:07:58.170
+<v David Thomson>But I'm pretty sure we need to build like
+a a. It's maybe not a tool,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/61-1
+00:07:58.170 --> 00:08:00.589
+<v David Thomson>but something around the data model.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/66-0
+00:08:01.069 --> 00:08:04.433
+<v Andrei Aitzhanov>Yeah, data module, dashboards,
+maybe templates.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/63-0
+00:08:01.189 --> 00:08:02.909
+<v Olivier Doucet>Dash dashboard also.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/62-0
+00:08:01.429 --> 00:08:01.509
+<v David Thomson>Uh.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/64-0
+00:08:03.269 --> 00:08:03.709
+<v David Thomson>Mm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/66-1
+00:08:04.433 --> 00:08:10.110
+<v Andrei Aitzhanov>I mean that at least the list of folders
+and subfolders in the ACC and the rules</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/65-0
+00:08:08.269 --> 00:08:08.549
+<v David Thomson>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/66-2
+00:08:10.110 --> 00:08:15.367
+<v Andrei Aitzhanov>who will have access to which folders.
+It's the very fundamental and basic</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/66-3
+00:08:15.367 --> 00:08:16.909
+<v Andrei Aitzhanov>things what we can do.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/67-0
+00:08:17.269 --> 00:08:22.267
+<v Andrei Aitzhanov>And the way how the new projects can be
+initiated, I mean that Revit templates,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/67-1
+00:08:22.267 --> 00:08:25.266
+<v Andrei Aitzhanov>if we are talking about buildings for
+instance,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/67-2
+00:08:25.266 --> 00:08:29.702
+<v Andrei Aitzhanov>we we also need to understand the pilot
+GBA. Yeah, what we will start,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/67-3
+00:08:29.702 --> 00:08:33.451
+<v Andrei Aitzhanov>where we will start.
+I think that's the buildings is a good</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/67-4
+00:08:33.451 --> 00:08:34.389
+<v Andrei Aitzhanov>candidate here.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/68-0
+00:08:34.949 --> 00:08:39.435
+<v Andrei Aitzhanov>And maybe we could standardize the
+workforce for buildings 1st and at least</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/68-1
+00:08:39.435 --> 00:08:44.157
+<v Andrei Aitzhanov>the way how they initiate new projects,
+how they are submitting the data to the</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/68-2
+00:08:44.157 --> 00:08:46.813
+<v Andrei Aitzhanov>clients,
+how they are validating the the BIM</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/68-3
+00:08:46.813 --> 00:08:51.535
+<v Andrei Aitzhanov>models before they will submit this to
+the clients and some kind of thing these</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/68-4
+00:08:51.535 --> 00:08:51.949
+<v Andrei Aitzhanov>things.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/69-0
+00:08:52.069 --> 00:08:53.869
+<v Andrei Aitzhanov>What I keep in mind?</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/71-0
+00:08:54.429 --> 00:09:00.421
+<v David Thomson>Yeah, Peter made it clear that, you know,
+buildings is the is a sort of logical</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/71-1
+00:09:00.421 --> 00:09:04.690
+<v David Thomson>place to start.
+I I just got a a slide deck from the UK.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/71-2
+00:09:04.690 --> 00:09:05.589
+<v David Thomson>Where is it?</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/70-0
+00:09:05.349 --> 00:09:06.349
+<v Andrei Aitzhanov>Mm-hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/75-0
+00:09:06.909 --> 00:09:13.193
+<v David Thomson>Which is pretty interesting like the
+results of implementing ACC across the</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/75-1
+00:09:13.193 --> 00:09:19.726
+<v David Thomson>the UK buildings organization and it's
+it's pretty it's like a big endorsement</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/75-2
+00:09:19.726 --> 00:09:25.349
+<v David Thomson>of ACC but nobody wanted to say that it
+was ACC but simply because.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/72-0
+00:09:21.269 --> 00:09:21.349
+<v Olivier Doucet>Hey.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/73-0
+00:09:21.989 --> 00:09:22.109
+<v Andrei Aitzhanov>OK.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/76-0
+00:09:25.469 --> 00:09:28.463
+<v David Thomson>Like they had a web viewer for the 3D
+model.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/74-0
+00:09:27.309 --> 00:09:27.469
+<v Olivier Doucet>OK.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/76-1
+00:09:28.463 --> 00:09:33.254
+<v David Thomson>This made a huge difference because
+people were collaborating in a in a</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/76-2
+00:09:33.254 --> 00:09:36.249
+<v David Thomson>consistent way, you know?
+But I think I can.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/76-3
+00:09:36.249 --> 00:09:40.109
+<v David Thomson>I'll make a PDF of this.
+I think I can share it with you.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/77-0
+00:09:41.029 --> 00:09:44.189
+<v David Thomson>I'll just double check there's nothing in
+it, but I haven't read it yet.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/80-0
+00:09:45.949 --> 00:09:50.319
+<v David Thomson>But yeah,
+it it looks like in a way the UK</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/78-0
+00:09:46.349 --> 00:09:46.629
+<v Olivier Doucet>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/80-1
+00:09:50.319 --> 00:09:56.215
+<v David Thomson>buildings organization kind of have done
+this POC anyway.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/80-2
+00:09:56.215 --> 00:10:00.789
+<v David Thomson>So that's that's what to build from I
+think.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/79-0
+00:09:58.309 --> 00:10:00.509
+<v Olivier Doucet>No, that's good to hear, yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/81-0
+00:10:01.509 --> 00:10:05.537
+<v David Thomson>Just to go back,
+so I I mentioned these work streams</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/81-1
+00:10:05.537 --> 00:10:11.693
+<v David Thomson>because at some point I will officially
+involve you in these work streams. Yeah,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/81-2
+00:10:11.693 --> 00:10:13.669
+<v David Thomson>that was it from Autodesk.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/82-0
+00:10:14.909 --> 00:10:17.909
+<v David Thomson>I put it in the in here.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/83-0
+00:10:18.349 --> 00:10:20.309
+<v Andrei Aitzhanov>Hey, the whoops. Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/85-0
+00:10:20.189 --> 00:10:24.897
+<v David Thomson>In the where is it now?
+I reorganized a bit our the loop.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/85-1
+00:10:24.897 --> 00:10:29.443
+<v David Thomson>So it's not DevOps,
+it's it's still loop at this point.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/84-0
+00:10:26.229 --> 00:10:26.549
+<v Olivier Doucet>Mm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/85-2
+00:10:29.443 --> 00:10:35.693
+<v David Thomson>I discussed it with Ronnie and my team
+this morning and and everybody was OK</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/85-3
+00:10:35.693 --> 00:10:36.749
+<v David Thomson>with it, but.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/88-0
+00:10:36.749 --> 00:10:41.890
+<v David Thomson>The team before I started had come up
+with these three pillars,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/88-1
+00:10:41.890 --> 00:10:45.666
+<v David Thomson>which was connected production eco
+ecosystems.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/88-2
+00:10:45.666 --> 00:10:48.799
+<v David Thomson>This is basically our vendor platforms.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/87-0
+00:10:48.829 --> 00:10:49.069
+<v Andrei Aitzhanov>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/89-0
+00:10:51.109 --> 00:10:55.351
+<v David Thomson>Data like production data basically and
+processes.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/89-1
+00:10:55.351 --> 00:11:02.089
+<v David Thomson>So these these were pretty close to work
+streams and people had actually started</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/89-2
+00:11:02.089 --> 00:11:05.749
+<v David Thomson>to execute on those work streams last
+year.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/91-0
+00:11:06.669 --> 00:11:10.169
+<v David Thomson>And they did some of the work,
+like this foundational work.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/91-1
+00:11:10.169 --> 00:11:14.019
+<v David Thomson>So they mapped, you know,
+what's all the software Rumble's using?</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/91-2
+00:11:14.019 --> 00:11:18.803
+<v David Thomson>Which are the ones we want to focus on?
+Which are the ones we want to get rid of?</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/91-3
+00:11:18.803 --> 00:11:21.429
+<v David Thomson>They mapped some of the processes in
+Camino.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/92-0
+00:11:21.869 --> 00:11:26.277
+<v David Thomson>I'll I'll come back to it,
+but basically I I added this work stream</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/90-0
+00:11:22.669 --> 00:11:23.109
+<v Andrei Aitzhanov>Mhm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/92-1
+00:11:26.277 --> 00:11:30.231
+<v David Thomson>around governance.
+So this is what this will be the focus of</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/92-2
+00:11:30.231 --> 00:11:31.269
+<v David Thomson>the workshop in.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/93-0
+00:11:32.909 --> 00:11:34.669
+<v Olivier Doucet>Two weeks in Copenega.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/95-0
+00:11:33.149 --> 00:11:36.554
+<v David Thomson>On 24th,
+I didn't invite you guys because I think</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/95-1
+00:11:36.554 --> 00:11:41.866
+<v David Thomson>it's not going to be too much technical
+or building. It's about requirements.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/95-2
+00:11:41.866 --> 00:11:46.837
+<v David Thomson>So and to put in place this governance.
+So Peter Hayman will will be the</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/94-0
+00:11:42.589 --> 00:11:43.349
+<v Olivier Doucet>It's fine.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/95-3
+00:11:46.837 --> 00:11:48.949
+<v David Thomson>president of the steering Cole.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/96-0
+00:11:49.469 --> 00:11:53.066
+<v David Thomson>Yeah,
+you could imagine every IDT director is</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/96-1
+00:11:53.066 --> 00:11:54.709
+<v David Thomson>involved somehow and.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/98-0
+00:11:56.109 --> 00:12:00.533
+<v David Thomson>There's these guys, Miko,
+who's setting up the stereoco for me.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/98-1
+00:12:00.533 --> 00:12:05.511
+<v David Thomson>So that's that's like work package one.
+We get that in place, you know,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/98-2
+00:12:05.511 --> 00:12:10.627
+<v David Thomson>first quarter is my my plan including,
+you know, some product management,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/97-0
+00:12:07.349 --> 00:12:07.829
+<v Andrei Aitzhanov>Mhm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/98-3
+00:12:10.627 --> 00:12:12.909
+<v David Thomson>this single source of truth here.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/99-0
+00:12:13.469 --> 00:12:18.007
+<v David Thomson>The other thing which is part of this,
+my colleague set up like a new teams site</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/99-1
+00:12:18.007 --> 00:12:22.042
+<v David Thomson>which is structured in the same way more
+or less with the work streams,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/99-2
+00:12:22.042 --> 00:12:25.909
+<v David Thomson>but we didn't share it yet,
+but that that will be the basis of this.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/100-0
+00:12:26.829 --> 00:12:33.391
+<v David Thomson>Yeah. So this one around the platforms,
+which is are owned by my team as well.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/100-1
+00:12:33.391 --> 00:12:39.703
+<v David Thomson>They're basically rolling out ACC.
+They're somebody's doing this job to map</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/100-2
+00:12:39.703 --> 00:12:46.349
+<v David Thomson>the connectivity between the platforms,
+like where do we need interoperability?</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/102-0
+00:12:46.429 --> 00:12:50.768
+<v David Thomson>Team and like how can we do file exchange
+or data exchange?</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/102-1
+00:12:50.768 --> 00:12:55.251
+<v David Thomson>So that's already started.
+Somebody in my team is or somebody</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/102-2
+00:12:55.251 --> 00:12:59.229
+<v David Thomson>working for somebody in my team is doing
+that already.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/101-0
+00:12:58.709 --> 00:12:59.189
+<v Andrei Aitzhanov>Mhm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/103-0
+00:13:00.109 --> 00:13:00.469
+<v David Thomson>Um.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/104-0
+00:13:01.949 --> 00:13:04.704
+<v David Thomson>Yeah,
+this one is about working with Autodesk</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/104-1
+00:13:04.704 --> 00:13:07.640
+<v David Thomson>to try and, you know,
+test their A I capability,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/104-2
+00:13:07.640 --> 00:13:12.672
+<v David Thomson>understand how we're going to use it and
+work together with them to make sure it's,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/104-3
+00:13:12.672 --> 00:13:15.069
+<v David Thomson>you know, the way that we want it to be.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/106-0
+00:13:15.949 --> 00:13:20.177
+<v Olivier Doucet>Do they? Sorry David,
+does Autodesk mention, sorry,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/105-0
+00:13:16.549 --> 00:13:16.949
+<v David Thomson>Um.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/106-1
+00:13:20.177 --> 00:13:26.357
+<v Olivier Doucet>any work on the MCP servers that they
+would implement on their way and that</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/106-2
+00:13:26.357 --> 00:13:30.749
+<v Olivier Doucet>they could make available for like
+Autodesk customer?</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/107-0
+00:13:31.309 --> 00:13:36.570
+<v Olivier Doucet>I know that for instance,
+Microsoft has open source one MCP server</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/107-1
+00:13:36.570 --> 00:13:40.026
+<v Olivier Doucet>that is crawling all of that
+documentation.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/107-2
+00:13:40.026 --> 00:13:46.309
+<v Olivier Doucet>If you're looking anything Microsoft,
+they have like dedicated agents that can.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/110-0
+00:13:46.749 --> 00:13:52.382
+<v Olivier Doucet>Or MCP that can extract data that could
+be something to challenge them with and</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/110-1
+00:13:52.382 --> 00:13:56.536
+<v Olivier Doucet>say you talk a lot about AI,
+but AI is is a lot about MCP.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/110-2
+00:13:56.536 --> 00:14:01.113
+<v Olivier Doucet>I think now in the agentic age,
+what's what are you doing there?</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/108-0
+00:13:58.069 --> 00:13:58.789
+<v David Thomson>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/110-3
+00:14:01.113 --> 00:14:05.549
+<v Olivier Doucet>Is there any because that that would be a
+really good to have.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/109-0
+00:14:02.589 --> 00:14:03.269
+<v David Thomson>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/112-0
+00:14:05.789 --> 00:14:09.897
+<v David Thomson>Yeah, I sorry,
+I thought I shared this with you guys.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/112-1
+00:14:09.897 --> 00:14:16.135
+<v David Thomson>I attended this A I workshop where they
+presented their different A I initiatives</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/112-2
+00:14:16.135 --> 00:14:21.765
+<v David Thomson>and and one of them MCP server.
+So they have this you can talk I think or</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/111-0
+00:14:17.389 --> 00:14:18.429
+<v Olivier Doucet>Mhm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/112-3
+00:14:21.765 --> 00:14:25.189
+<v David Thomson>you can have an agent you know talk
+through.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/116-0
+00:14:25.389 --> 00:14:30.772
+<v David Thomson>API to Revit and ACC.
+I think that's it at the moment.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/113-0
+00:14:29.909 --> 00:14:30.069
+<v Olivier Doucet>Right.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/114-0
+00:14:30.509 --> 00:14:30.749
+<v Olivier Doucet>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/116-1
+00:14:30.772 --> 00:14:33.709
+<v David Thomson>I'll send it to you. It's not.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/115-0
+00:14:32.749 --> 00:14:35.069
+<v Andrei Aitzhanov>Mm-hmm. But uh.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/117-0
+00:14:33.469 --> 00:14:35.589
+<v Olivier Doucet>Right. Thanks. Sorry for interrupting.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/120-0
+00:14:35.709 --> 00:14:41.754
+<v Andrei Aitzhanov>Yeah, Oliver,
+do you know the the cloud cloud code?</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/120-1
+00:14:41.754 --> 00:14:50.589
+<v Andrei Aitzhanov>I think you can develop yourself MCP
+server and connect cloud to the Revit.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/119-0
+00:14:47.709 --> 00:14:47.949
+<v Olivier Doucet>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/124-0
+00:14:51.149 --> 00:14:57.350
+<v Andrei Aitzhanov>Or another files through API through
+through Revit API that's possible.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/121-0
+00:14:54.589 --> 00:14:54.869
+<v Olivier Doucet>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/122-0
+00:14:55.749 --> 00:14:55.909
+<v David Thomson>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/124-1
+00:14:57.350 --> 00:15:04.069
+<v Andrei Aitzhanov>I I I know because I I saw some demos
+that when people developed chatbots for</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/124-2
+00:15:04.069 --> 00:15:05.189
+<v Andrei Aitzhanov>Revit models.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/125-0
+00:15:07.229 --> 00:15:10.149
+<v Andrei Aitzhanov>So I'm I'm pretty sure that it's possible,
+yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/123-0
+00:15:07.309 --> 00:15:07.789
+<v Olivier Doucet>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/128-0
+00:15:10.349 --> 00:15:14.000
+<v Olivier Doucet>Yeah, yeah, it definitely it is.
+I'm just thinking, you know,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/128-1
+00:15:14.000 --> 00:15:18.594
+<v Olivier Doucet>if they are also pushing AI always,
+maybe you know that's something that they</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/126-0
+00:15:14.989 --> 00:15:15.549
+<v Andrei Aitzhanov>Mm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/127-0
+00:15:16.749 --> 00:15:17.189
+<v Andrei Aitzhanov>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/128-2
+00:15:18.594 --> 00:15:22.540
+<v Olivier Doucet>could provide, you know,
+as part of the offer in the same way they</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/128-3
+00:15:22.540 --> 00:15:25.309
+<v Olivier Doucet>are exposing all of this well documented
+APIs.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/130-0
+00:15:25.629 --> 00:15:31.509
+<v Olivier Doucet>I think that should come with some
+dedicated MCP server that can be.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/131-0
+00:15:30.509 --> 00:15:34.449
+<v David Thomson>They yeah,
+I they offer this dedicated MCP server</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/129-0
+00:15:31.029 --> 00:15:31.589
+<v Andrei Aitzhanov>Mhm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/131-1
+00:15:34.449 --> 00:15:38.389
+<v David Thomson>and you'll you'll see in my report.
+I think they.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/134-0
+00:15:39.469 --> 00:15:43.780
+<v David Thomson>It's like a public one and I think we
+could just need to.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/132-0
+00:15:43.149 --> 00:15:43.629
+<v Olivier Doucet>Mhm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/134-1
+00:15:43.780 --> 00:15:48.909
+<v David Thomson>You can go to some part of their website
+and request access to that.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/133-0
+00:15:49.309 --> 00:15:49.469
+<v Olivier Doucet>MM.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/136-0
+00:15:50.749 --> 00:15:56.189
+<v David Thomson>I I I've got it in the documentation
+somewhere, so I'll forward that to you.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/135-0
+00:15:55.789 --> 00:15:56.149
+<v Olivier Doucet>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/136-1
+00:15:56.189 --> 00:15:59.580
+<v David Thomson>But yeah,
+this the whole topic of AI in digital</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/136-2
+00:15:59.580 --> 00:16:05.445
+<v David Thomson>design production, as I mentioned before,
+is like a big topic and we're gonna pick</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/136-3
+00:16:05.445 --> 00:16:05.869
+<v David Thomson>it up.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/137-0
+00:16:06.429 --> 00:16:08.913
+<v David Thomson>You know,
+more generally with the digital design</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/137-1
+00:16:08.913 --> 00:16:10.029
+<v David Thomson>and roduction charter.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/138-0
+00:16:11.389 --> 00:16:11.629
+<v Andrei Aitzhanov>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/139-0
+00:16:11.949 --> 00:16:16.594
+<v David Thomson>And it's, yeah, the three,
+I think there's three components like AI</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/139-1
+00:16:16.594 --> 00:16:21.170
+<v David Thomson>from the vendor when you know Autodesk
+make a chatbot for example,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/139-2
+00:16:21.170 --> 00:16:26.567
+<v David Thomson>they've got this AI assistant for Revit,
+which is just like they tuned and you</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/139-3
+00:16:26.567 --> 00:16:26.909
+<v David Thomson>know.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/140-0
+00:16:27.109 --> 00:16:32.530
+<v David Thomson>Probably put the rack implementation on a
+old LLM model and you can chat to Revit.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/140-1
+00:16:32.530 --> 00:16:37.690
+<v David Thomson>It's it's like a a little bit tuned model
+and then they have you know the more</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/140-2
+00:16:37.690 --> 00:16:43.047
+<v David Thomson>infrastructure approach where they make
+an NTP server and the services to connect</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/140-3
+00:16:43.047 --> 00:16:46.509
+<v David Thomson>it to their their different you know
+platform parts.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/141-0
+00:16:46.509 --> 00:16:50.759
+<v David Thomson>And then there's like, yeah,
+citizen developer stuff where like you</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/141-1
+00:16:50.759 --> 00:16:53.946
+<v David Thomson>said, the people will take public cloud,
+you know,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/141-2
+00:16:53.946 --> 00:16:58.509
+<v David Thomson>and use the API to to to speak to a a
+civil. I think water are doing it.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/141-3
+00:16:58.509 --> 00:17:01.509
+<v David Thomson>They're they're they showed me a demo of
+cloud.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/143-0
+00:17:02.429 --> 00:17:07.149
+<v David Thomson>Interrogating a Sybil's 3D model.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/142-0
+00:17:07.469 --> 00:17:07.709
+<v Olivier Doucet>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/144-0
+00:17:07.909 --> 00:17:08.629
+<v Andrei Aitzhanov>Mhm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/145-0
+00:17:08.589 --> 00:17:11.549
+<v David Thomson>So yeah, we that one's coming up the.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/147-0
+00:17:12.589 --> 00:17:16.523
+<v David Thomson>Data one.
+So the what I'm trying to do just now is</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/147-1
+00:17:16.523 --> 00:17:21.074
+<v David Thomson>to put a owner in place of each one of
+these work streams.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/146-0
+00:17:20.349 --> 00:17:20.669
+<v Olivier Doucet>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/147-2
+00:17:21.074 --> 00:17:23.389
+<v David Thomson>This one more or less is like.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/151-0
+00:17:25.389 --> 00:17:31.113
+<v David Thomson>Paul and Michael from my team,
+they're kind of in that position already</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/148-0
+00:17:26.069 --> 00:17:26.709
+<v Andrei Aitzhanov>Mhm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/149-0
+00:17:27.869 --> 00:17:28.309
+<v Andrei Aitzhanov>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/150-0
+00:17:29.069 --> 00:17:29.189
+<v Andrei Aitzhanov>OK.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/154-0
+00:17:30.349 --> 00:17:36.190
+<v Andrei Aitzhanov>Paul actually was responsible for data
+strategy preparation.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/151-1
+00:17:31.113 --> 00:17:31.829
+<v David Thomson>well and.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/154-1
+00:17:36.190 --> 00:17:42.798
+<v Andrei Aitzhanov>I think that two years ago at least one
+side I I I was joined Rambo.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/152-0
+00:17:37.709 --> 00:17:38.109
+<v David Thomson>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/154-2
+00:17:42.798 --> 00:17:46.629
+<v Andrei Aitzhanov>He was leading this this topic in Rambo.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/153-0
+00:17:43.269 --> 00:17:43.429
+<v David Thomson>Uh.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/155-0
+00:17:46.909 --> 00:17:47.509
+<v Andrei Aitzhanov>No.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/157-0
+00:17:47.069 --> 00:17:50.271
+<v David Thomson>Yeah,
+we we just discussed this today that</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/157-1
+00:17:50.271 --> 00:17:55.707
+<v David Thomson>there needs to be like a data strategy
+person in Rumble, but there's no,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/157-2
+00:17:55.707 --> 00:17:59.580
+<v David Thomson>you know,
+responsible for overall data strategy and</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/157-3
+00:17:59.580 --> 00:18:03.229
+<v David Thomson>I think they need to put that in place
+urgently.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/158-0
+00:18:03.349 --> 00:18:07.589
+<v David Thomson>Not just in the design tools,
+but you know, across the business.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/156-0
+00:18:03.949 --> 00:18:04.109
+<v Andrei Aitzhanov>Mm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/159-0
+00:18:08.549 --> 00:18:08.629
+<v David Thomson>Um.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/160-0
+00:18:10.149 --> 00:18:10.789
+<v Andrei Aitzhanov>No.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/161-0
+00:18:10.229 --> 00:18:13.069
+<v David Thomson>Yes.
+So this one that even I said let's try</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/161-1
+00:18:13.069 --> 00:18:17.201
+<v David Thomson>and do that within engineering and and
+design, but we we don't,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/161-2
+00:18:17.201 --> 00:18:22.237
+<v David Thomson>I don't know who the owner is and we
+agreed with Ronnie to work with you guys</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/161-3
+00:18:22.237 --> 00:18:24.949
+<v David Thomson>on this one at least as like contributors.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/162-0
+00:18:25.469 --> 00:18:30.589
+<v David Thomson>So maybe I have to own this like work
+stream in the in the in the short term.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/163-0
+00:18:33.229 --> 00:18:34.989
+<v David Thomson>Yeah, the these are.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/165-0
+00:18:34.109 --> 00:18:38.614
+<v Olivier Doucet>Geo data.
+I think Tia has also some some expertise</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/165-1
+00:18:38.614 --> 00:18:40.469
+<v Olivier Doucet>in that. Doesn't she?</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/164-0
+00:18:40.029 --> 00:18:40.789
+<v David Thomson>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/166-0
+00:18:42.229 --> 00:18:43.669
+<v Olivier Doucet>From.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/167-0
+00:18:51.549 --> 00:18:54.749
+<v Olivier Doucet>But yeah,
+happy to contribute on on on this, David.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/170-0
+00:18:55.629 --> 00:19:03.290
+<v Andrei Aitzhanov>Yeah, I I would also maybe,
+I'm not sure how many people we can</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/168-0
+00:18:56.709 --> 00:18:56.829
+<v David Thomson>OK.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/170-1
+00:19:03.290 --> 00:19:10.233
+<v Andrei Aitzhanov>invite, but yeah, for Aviva,
+we also have 3D model parts.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/170-2
+00:19:10.233 --> 00:19:11.909
+<v Andrei Aitzhanov>It's a Daniel.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/171-0
+00:19:12.269 --> 00:19:15.509
+<v Andrei Aitzhanov>Who's leading this this? Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/169-0
+00:19:12.669 --> 00:19:12.909
+<v David Thomson>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/172-0
+00:19:14.829 --> 00:19:18.005
+<v David Thomson>I saw he's has to reduce his hours on
+Aviva,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/172-1
+00:19:18.005 --> 00:19:20.829
+<v David Thomson>so maybe he has some spare hours for us.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/174-0
+00:19:22.429 --> 00:19:26.768
+<v Andrei Aitzhanov>Yeah, yeah, yeah, yeah, definitely.
+And he really,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/174-1
+00:19:26.768 --> 00:19:33.660
+<v Andrei Aitzhanov>he really involved in the AI part and for
+this MCP with the the back home. Yeah,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/174-2
+00:19:33.660 --> 00:19:37.829
+<v Andrei Aitzhanov>I think that he he understand all of this,
+yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/173-0
+00:19:33.869 --> 00:19:34.349
+<v David Thomson>Mhm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/177-0
+00:19:37.909 --> 00:19:43.964
+<v David Thomson>OK. This one is not very well formed.
+So my colleagues, OK, you know,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/175-0
+00:19:38.109 --> 00:19:39.109
+<v Andrei Aitzhanov>Yes.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/176-0
+00:19:40.709 --> 00:19:40.829
+<v Andrei Aitzhanov>Um.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/177-1
+00:19:43.964 --> 00:19:49.069
+<v David Thomson>Paul had started something,
+I think Diana and Michael had.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/178-0
+00:20:06.989 --> 00:20:08.389
+<v Andrei Aitzhanov>Mm-hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/181-0
+00:20:08.429 --> 00:20:14.829
+<v David Thomson>Like our class library driven, you know,
+data engineering, that kind of stuff.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/181-1
+00:20:14.829 --> 00:20:21.635
+<v David Thomson>For me it's I know it only from well from
+2 perspective like the Aviva approach and</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/179-0
+00:20:21.029 --> 00:20:21.509
+<v Andrei Aitzhanov>Mhm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/181-2
+00:20:21.635 --> 00:20:24.309
+<v David Thomson>then the PLM approach, but let's.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/180-0
+00:20:22.749 --> 00:20:23.429
+<v Andrei Aitzhanov>Mhm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/182-0
+00:20:24.589 --> 00:20:27.626
+<v David Thomson>This is like a big topic.
+We'll we'll come back to this one,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/182-1
+00:20:27.626 --> 00:20:29.469
+<v David Thomson>but there's definitely a work stream.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/185-0
+00:20:30.629 --> 00:20:34.198
+<v Andrei Aitzhanov>David,
+one small question before we go to this</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/184-0
+00:20:33.189 --> 00:20:33.429
+<v David Thomson>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/185-1
+00:20:34.198 --> 00:20:38.374
+<v Andrei Aitzhanov>next section.
+Do you do you do you already see the the</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/185-2
+00:20:38.374 --> 00:20:42.551
+<v Andrei Aitzhanov>tool or platform for aggregate all these
+requirements,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/185-3
+00:20:42.551 --> 00:20:45.589
+<v Andrei Aitzhanov>I mean data requirements from all GB as?</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/186-0
+00:20:45.869 --> 00:20:52.391
+<v Andrei Aitzhanov>Because you are I I can see that data
+models will be on the on some of the</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/186-1
+00:20:52.391 --> 00:20:59.261
+<v Andrei Aitzhanov>level of decomposition we will get the
+same entities like company your number.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/186-2
+00:20:59.261 --> 00:21:03.349
+<v Andrei Aitzhanov>I don't know it's relevant for all GPSI
+think.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/187-0
+00:21:03.709 --> 00:21:10.848
+<v Andrei Aitzhanov>But if we will go deeply to the specific
+things like transport or buildings or</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/187-1
+00:21:10.848 --> 00:21:15.457
+<v Andrei Aitzhanov>energy,
+then we will get a lot of specific things.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/187-2
+00:21:15.457 --> 00:21:20.789
+<v Andrei Aitzhanov>Do you think what kind of platform or
+tool we can use for?</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/189-0
+00:21:21.389 --> 00:21:28.136
+<v Andrei Aitzhanov>Aggregate this and I I'm thinking about a
+VYS and to be honest because I used</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/188-0
+00:21:27.669 --> 00:21:27.909
+<v David Thomson>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/189-1
+00:21:28.136 --> 00:21:32.029
+<v Andrei Aitzhanov>before and as per my experience it's
+really.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/193-0
+00:21:32.989 --> 00:21:39.029
+<v Andrei Aitzhanov>Powerful products Aviva ISM Information
+Standard Management tool. It's.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/190-0
+00:21:34.029 --> 00:21:34.429
+<v David Thomson>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/191-0
+00:21:34.149 --> 00:21:35.349
+<v Olivier Doucet>What is it? Sorry.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/192-0
+00:21:38.429 --> 00:21:38.829
+<v Olivier Doucet>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/194-0
+00:21:40.429 --> 00:21:42.549
+<v Andrei Aitzhanov>Yeah, but it's, yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/195-0
+00:21:40.429 --> 00:21:44.949
+<v David Thomson>Kind of does change management on
+information.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/196-0
+00:21:45.909 --> 00:21:46.269
+<v Andrei Aitzhanov>Standards.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/199-0
+00:21:46.509 --> 00:21:52.288
+<v David Thomson>Standards, which is is quite cool. Yeah,
+I mean I'm I'm open to anything this.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/199-1
+00:21:52.288 --> 00:21:56.824
+<v David Thomson>So when we run this work stream,
+you know one of the the sub,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/199-2
+00:21:56.824 --> 00:22:02.677
+<v David Thomson>you know work stream items will be do we
+need tech enablement like do we need a</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/198-0
+00:21:56.829 --> 00:21:57.069
+<v Andrei Aitzhanov>Topics.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/199-3
+00:22:02.677 --> 00:22:06.189
+<v David Thomson>tool to help us to do this,
+you know and do we.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/203-0
+00:22:06.269 --> 00:22:11.546
+<v David Thomson>Is there something we can buy or is it
+something we have to build or do we do in</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/200-0
+00:22:10.909 --> 00:22:11.149
+<v Olivier Doucet>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/201-0
+00:22:10.989 --> 00:22:12.949
+<v Andrei Aitzhanov>Yeah, yeah, yeah, yeah, yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/203-1
+00:22:11.546 --> 00:22:14.933
+<v David Thomson>Excel? You know,
+so I I think for all of these work</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/203-2
+00:22:14.933 --> 00:22:20.145
+<v David Thomson>streams there will be a tech enablement
+element which is like do we need a tool</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/202-0
+00:22:19.229 --> 00:22:20.709
+<v Andrei Aitzhanov>Mhm, no.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/203-3
+00:22:20.145 --> 00:22:21.709
+<v David Thomson>or something to help us?</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/205-0
+00:22:23.349 --> 00:22:26.439
+<v David Thomson>By the way,
+I don't like these work streams as they</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/204-0
+00:22:26.109 --> 00:22:26.389
+<v Olivier Doucet>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/205-1
+00:22:26.439 --> 00:22:30.955
+<v David Thomson>are, and I'll explain to you why,
+but that's that's how how they were given</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/205-2
+00:22:30.955 --> 00:22:33.807
+<v David Thomson>to me.
+So I said let's complete the the work in</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/205-3
+00:22:33.807 --> 00:22:37.789
+<v David Thomson>these work streams and then maybe we can
+move to a different kind.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/206-0
+00:22:38.269 --> 00:22:43.039
+<v David Thomson>So I added this one as well,
+platform and technology enablement.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/206-1
+00:22:43.039 --> 00:22:48.691
+<v David Thomson>So this is the discussion we're having
+and it it will turn into pods I guess</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/206-2
+00:22:48.691 --> 00:22:54.269
+<v David Thomson>wherever we need you know to to you know
+spin up a team to build something.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/208-0
+00:22:54.349 --> 00:22:58.155
+<v David Thomson>Or a team to, you know,
+implement a piece of software.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/208-1
+00:22:58.155 --> 00:23:03.069
+<v David Thomson>So I just put in there, you know,
+there's there's some tech enablement</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/208-2
+00:23:03.069 --> 00:23:07.360
+<v David Thomson>needed around the data model.
+Like where do we document this?</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/207-0
+00:23:06.269 --> 00:23:06.789
+<v Andrei Aitzhanov>Mhm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/208-3
+00:23:07.360 --> 00:23:11.029
+<v David Thomson>How do we manage it?
+How can we do that efficiently?</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/209-0
+00:23:12.429 --> 00:23:16.686
+<v David Thomson>I put in our, you know,
+our idea about gathering knowledge</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/209-1
+00:23:16.686 --> 00:23:21.232
+<v David Thomson>somehow. You know, again,
+we need to determine if this is high</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/209-2
+00:23:21.232 --> 00:23:24.985
+<v David Thomson>priority or not.
+I put in here specifically project</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/209-3
+00:23:24.985 --> 00:23:30.109
+<v David Thomson>initialization and provisioning as well.
+That's, you know, probably a.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/210-0
+00:23:30.189 --> 00:23:31.589
+<v David Thomson>Tech enablement topic.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/211-0
+00:23:33.549 --> 00:23:39.310
+<v David Thomson>Project data extraction and again it
+needs a discussion like which use cases</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/211-1
+00:23:39.310 --> 00:23:43.725
+<v David Thomson>does it support and a sort of open
+interoperability layer.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/211-2
+00:23:43.725 --> 00:23:48.589
+<v David Thomson>Several people talk to me, you know,
+but open BIM standards and.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/213-0
+00:23:48.669 --> 00:23:52.815
+<v David Thomson>Is probably the way to go if you if you
+want to be vendor agnostic,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/213-1
+00:23:52.815 --> 00:23:54.949
+<v David Thomson>you know with this interoerability.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/212-0
+00:23:54.149 --> 00:23:54.469
+<v Andrei Aitzhanov>Mm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/215-0
+00:23:56.509 --> 00:24:01.454
+<v David Thomson>So there's probably more there, but OK,
+I don't really like these because</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/214-0
+00:23:56.949 --> 00:23:57.029
+<v Olivier Doucet>It.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/215-1
+00:24:01.454 --> 00:24:05.597
+<v David Thomson>especially in this case,
+it's kind of talking about the tool,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/215-2
+00:24:05.597 --> 00:24:08.738
+<v David Thomson>sorry,
+the connected production ecosystems and</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/215-3
+00:24:08.738 --> 00:24:13.349
+<v David Thomson>not the outcome. So speaking to these,
+you know, senior managements.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/217-0
+00:24:14.109 --> 00:24:18.182
+<v David Thomson>For me,
+I prefer to do like a work stream based</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/217-1
+00:24:18.182 --> 00:24:24.207
+<v David Thomson>on our outcome. So for example,
+we need to deliver projects, you know,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/217-2
+00:24:24.207 --> 00:24:28.960
+<v David Thomson>really well, excellently.
+And then in order to do that,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/216-0
+00:24:26.869 --> 00:24:27.349
+<v Andrei Aitzhanov>Mhm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/217-3
+00:24:28.960 --> 00:24:32.949
+<v David Thomson>you know you end up with some tasks
+basically.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/218-0
+00:24:33.229 --> 00:24:38.372
+<v David Thomson>Which is like go and document all of the
+processes and come up with, you know,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/218-1
+00:24:38.372 --> 00:24:39.349
+<v David Thomson>best practices.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/219-0
+00:24:41.629 --> 00:24:46.482
+<v David Thomson>So it's it's kind of just flips the thing
+around saying instead of understanding</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/219-1
+00:24:46.482 --> 00:24:50.377
+<v David Thomson>processes we we make the work stream
+deliver excellent projects.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/219-2
+00:24:50.377 --> 00:24:54.871
+<v David Thomson>But in order to do that we need to
+understand our processes better and and</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/219-3
+00:24:54.871 --> 00:24:56.669
+<v David Thomson>come up with better processes.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/221-0
+00:24:56.949 --> 00:25:02.648
+<v David Thomson>So yeah, at some point I'll, you know,
+rename or transfer the work into these</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/221-1
+00:25:02.648 --> 00:25:07.909
+<v David Thomson>different work streams which are more
+like outcome based you could say.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/220-0
+00:25:08.269 --> 00:25:09.989
+<v Olivier Doucet>Totally agree, yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/222-0
+00:25:08.749 --> 00:25:10.589
+<v Andrei Aitzhanov>Yeah, yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/223-0
+00:25:09.349 --> 00:25:14.640
+<v David Thomson>And this is very much work and focus,
+but one topic I'd like your opinion on</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/223-1
+00:25:14.640 --> 00:25:17.389
+<v David Thomson>there there was an outcome, there was a.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/224-0
+00:25:18.789 --> 00:25:20.229
+<v David Thomson>I think a task.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/226-0
+00:25:22.749 --> 00:25:25.990
+<v David Thomson>Yeah,
+but real-time collaboration under the</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/226-1
+00:25:25.990 --> 00:25:30.926
+<v David Thomson>Autodesk, you know, umbrella and well,
+in my experience, you know,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/225-0
+00:25:27.469 --> 00:25:27.629
+<v Olivier Doucet>Mm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/226-2
+00:25:30.926 --> 00:25:35.861
+<v David Thomson>collaboration is is super,
+super important on every project over a</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/226-3
+00:25:35.861 --> 00:25:40.429
+<v David Thomson>certain size, you know,
+when it's like more than five people.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/227-0
+00:25:42.549 --> 00:25:47.435
+<v David Thomson>And well, in Aviva days, you know,
+we were very envious of Navisworks</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/227-1
+00:25:47.435 --> 00:25:52.322
+<v David Thomson>because we we always wanted a product
+like this. We had Aviva review,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/227-2
+00:25:52.322 --> 00:25:56.580
+<v David Thomson>but Navisworks, you know,
+was was like the single, you know,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/227-3
+00:25:56.580 --> 00:26:00.629
+<v David Thomson>everything when every company somehow
+used Navisworks to.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/229-0
+00:25:59.949 --> 00:26:05.149
+<v Andrei Aitzhanov>No, it's like a Microsoft Office, yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/228-0
+00:26:01.509 --> 00:26:02.829
+<v David Thomson>To collaborate, right?</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/230-0
+00:26:03.789 --> 00:26:08.547
+<v David Thomson>Yeah, and now, I mean, they didn't.
+I don't know if they made much money from</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/230-1
+00:26:08.547 --> 00:26:12.208
+<v David Thomson>that, but you know,
+it was like the defacto tool to look at</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/230-2
+00:26:12.208 --> 00:26:15.869
+<v David Thomson>your models because they supported,
+you know, every import.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/231-0
+00:26:14.909 --> 00:26:19.189
+<v Andrei Aitzhanov>Every import here 45 or 46 standards now.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/232-0
+00:26:18.029 --> 00:26:19.589
+<v David Thomson>Yeah, and then.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/234-0
+00:26:22.429 --> 00:26:27.627
+<v David Thomson>There's one line item there, but you know,
+have a a single way to do collaboration.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/234-1
+00:26:27.627 --> 00:26:31.155
+<v David Thomson>For me, again,
+it's the product manager thinking this is</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/234-2
+00:26:31.155 --> 00:26:35.983
+<v David Thomson>like if we do one thing that probably
+would bring the most benefit if you can</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/234-3
+00:26:35.983 --> 00:26:40.749
+<v David Thomson>come up with a unified way to collaborate
+regardless of which tools you use.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/236-0
+00:26:41.549 --> 00:26:45.740
+<v David Thomson>It it that feels like actually a really
+big win and OK,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/233-0
+00:26:41.749 --> 00:26:42.069
+<v Olivier Doucet>Mm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/236-1
+00:26:45.740 --> 00:26:50.305
+<v David Thomson>I I I need to dig further like where are
+we with this topic?</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/235-0
+00:26:45.989 --> 00:26:46.149
+<v Olivier Doucet>Mm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/236-2
+00:26:50.305 --> 00:26:54.720
+<v David Thomson>Is everybody using Navisworks anyway?
+So it's not a topic.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/236-3
+00:26:54.720 --> 00:27:00.109
+<v David Thomson>It sounds like people are using Autodesk
+Construction Cloud viewer now.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/237-0
+00:27:01.109 --> 00:27:01.429
+<v David Thomson>Um.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/238-0
+00:27:01.789 --> 00:27:03.909
+<v Olivier Doucet>Not everyone, but yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/240-0
+00:27:02.909 --> 00:27:09.307
+<v David Thomson>OK, but the people who have ACC,
+so because I saw this comments like I</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/239-0
+00:27:06.709 --> 00:27:06.949
+<v Olivier Doucet>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/240-1
+00:27:09.307 --> 00:27:16.426
+<v David Thomson>don't want to open Revit and you know
+damage the model or but as you guys know</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/240-2
+00:27:16.426 --> 00:27:18.589
+<v David Thomson>there's there's lots of.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/241-0
+00:27:18.589 --> 00:27:21.511
+<v David Thomson>Challenges around making collaboration
+work.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/241-1
+00:27:21.511 --> 00:27:24.109
+<v David Thomson>OI put that on as a work stream because.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/242-0
+00:27:25.349 --> 00:27:27.429
+<v David Thomson>Could be something that brings a lot of
+benefit.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/244-0
+00:27:28.109 --> 00:27:32.238
+<v Olivier Doucet>I think it's a really good point, David.
+And yeah,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/244-1
+00:27:32.238 --> 00:27:38.716
+<v Olivier Doucet>that's one one thing that can bring a lot
+of lot of value focusing on improving</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/244-2
+00:27:38.716 --> 00:27:44.790
+<v Olivier Doucet>collaboration. I see this, yeah,
+having sharing the information and having</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/244-3
+00:27:44.790 --> 00:27:48.029
+<v Olivier Doucet>this federated models easily accessible.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/243-0
+00:27:47.749 --> 00:27:47.989
+<v David Thomson>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/245-0
+00:27:48.109 --> 00:27:52.715
+<v Olivier Doucet>For everyone is really good.
+And also another point I wanted to</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/245-1
+00:27:52.715 --> 00:27:58.041
+<v Olivier Doucet>mention when I discussed with my
+colleague yesterday was this or actually</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/245-2
+00:27:58.041 --> 00:28:03.654
+<v Olivier Doucet>it was earlier this morning another
+colleague and he was he's implementing in</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/245-3
+00:28:03.654 --> 00:28:07.829
+<v Olivier Doucet>one of his projects some sort of
+dashboard or a big list.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/247-0
+00:28:08.029 --> 00:28:15.031
+<v Olivier Doucet>I think he uses a SharePoint list where
+all of the models that are worked on in</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/247-1
+00:28:15.031 --> 00:28:20.721
+<v Olivier Doucet>the project regardless of the discipline
+or area of the project,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/247-2
+00:28:20.721 --> 00:28:27.549
+<v Olivier Doucet>they're all listed with some attributes
+and that highlights the expectations.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/249-0
+00:28:27.549 --> 00:28:33.102
+<v Olivier Doucet>The date of delivery,
+which work package they belong to,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/246-0
+00:28:29.629 --> 00:28:29.909
+<v David Thomson>Mm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/249-1
+00:28:33.102 --> 00:28:41.190
+<v Olivier Doucet>what is the work breakdown structure and
+who has sort of ownership of it so people</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/248-0
+00:28:33.909 --> 00:28:34.069
+<v David Thomson>Mm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/249-2
+00:28:41.190 --> 00:28:42.749
+<v Olivier Doucet>can see at once.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/250-0
+00:28:42.829 --> 00:28:48.631
+<v Olivier Doucet>Like a big list and they don't have to
+navigate the folder structure or inside</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/250-1
+00:28:48.631 --> 00:28:52.303
+<v Olivier Doucet>ACC or whatever project hotel that you
+are using.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/250-2
+00:28:52.303 --> 00:28:58.032
+<v Olivier Doucet>So they have this aggregated view and
+then he's building a Power BI dashboard</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/250-3
+00:28:58.032 --> 00:29:00.309
+<v Olivier Doucet>on top of this SharePoint list.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/251-0
+00:29:00.509 --> 00:29:05.384
+<v Olivier Doucet>So that you can visualize all of the
+models and the the drawings or the assets</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/251-1
+00:29:05.384 --> 00:29:08.408
+<v Olivier Doucet>or artifacts that people are actually
+producing.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/251-2
+00:29:08.408 --> 00:29:13.530
+<v Olivier Doucet>You have like this centralized dashboard
+and it's classified according to whatever</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/251-3
+00:29:13.530 --> 00:29:18.282
+<v Olivier Doucet>you know metric that that makes sense.
+I I can't remember the details of it,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/251-4
+00:29:18.282 --> 00:29:19.949
+<v Olivier Doucet>but that he said is a huge.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/252-0
+00:29:20.069 --> 00:29:25.253
+<v Olivier Doucet>Improvement in in project collaboration.
+It has been received with a lot of</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/252-1
+00:29:25.253 --> 00:29:29.346
+<v Olivier Doucet>positivity and yeah,
+some projects where people are working</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/252-2
+00:29:29.346 --> 00:29:33.644
+<v Olivier Doucet>and they don't have this,
+they say it's it makes a difference.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/252-3
+00:29:33.644 --> 00:29:36.509
+<v Olivier Doucet>So I think this could be also one of this.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/253-0
+00:29:37.509 --> 00:29:37.669
+<v Olivier Doucet>1.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/254-0
+00:29:38.589 --> 00:29:44.229
+<v Olivier Doucet>Of the you know how to implement this
+sort of collaboration.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/255-0
+00:29:44.509 --> 00:29:45.829
+<v David Thomson>Maybe. Um.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/256-0
+00:29:45.629 --> 00:29:50.709
+<v Olivier Doucet>One one way of of of contributing,
+you know, to towards this achievement.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/258-0
+00:29:51.949 --> 00:29:55.406
+<v David Thomson>Yeah,
+maybe I'll make a a page on this topic</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/258-1
+00:29:55.406 --> 00:29:59.555
+<v David Thomson>and you can just drop some notes in there
+about that.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/258-2
+00:29:59.555 --> 00:30:05.549
+<v David Thomson>But it it sounds like it's I've yeah,
+I I I think it's a lot of stuff can be.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/257-0
+00:29:59.669 --> 00:30:00.229
+<v Olivier Doucet>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/259-0
+00:30:06.869 --> 00:30:08.789
+<v David Thomson>Done to improve this but.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/260-0
+00:30:09.709 --> 00:30:14.029
+<v David Thomson>Yeah, So what I I guess I ask you is that.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/261-0
+00:30:15.029 --> 00:30:18.180
+<v David Thomson>There's load, I think,
+loads of work to do around this</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/261-1
+00:30:18.180 --> 00:30:19.269
+<v David Thomson>foundational stuff.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/263-0
+00:30:22.109 --> 00:30:25.185
+<v David Thomson>And yeah,
+I would like to build something to to,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/263-1
+00:30:25.185 --> 00:30:27.069
+<v David Thomson>you know, bring some benefits.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/264-0
+00:30:28.469 --> 00:30:32.082
+<v David Thomson>Short term,
+so people see we're building something,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/264-1
+00:30:32.082 --> 00:30:37.781
+<v David Thomson>it's real, you know, they feel like, OK,
+UP is not not just a concept, it's it's,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/264-2
+00:30:37.781 --> 00:30:40.839
+<v David Thomson>you know,
+I have this place to go and yeah,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/264-3
+00:30:40.839 --> 00:30:46.469
+<v David Thomson>maybe in the short term we're not really
+going to start to build something, but.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/266-0
+00:30:46.549 --> 00:30:51.030
+<v David Thomson>Also think about tech enablement.
+So maybe we will build something,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/266-1
+00:30:51.030 --> 00:30:55.907
+<v David Thomson>but it's not the platform itself,
+it's these enablers that allow us to do</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/266-2
+00:30:55.907 --> 00:31:01.048
+<v David Thomson>the foundational work more quickly.
+But I I will put a big flag in the ground</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/265-0
+00:30:58.869 --> 00:30:59.309
+<v Olivier Doucet>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/266-3
+00:31:01.048 --> 00:31:06.189
+<v David Thomson>around collaboration because you know,
+it could be that's one thing we could.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/268-0
+00:31:06.309 --> 00:31:11.117
+<v David Thomson>You know, work on to take this,
+you know this idea of the SharePoint</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/268-1
+00:31:11.117 --> 00:31:15.229
+<v David Thomson>repository with.
+I mean it sounds it sounds really useful.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/267-0
+00:31:15.669 --> 00:31:15.829
+<v Olivier Doucet>H.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/270-0
+00:31:16.549 --> 00:31:19.195
+<v David Thomson>You know to to to productize that and
+roll it out,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/269-0
+00:31:17.029 --> 00:31:18.269
+<v Olivier Doucet>Oh yeah, and and.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/270-1
+00:31:19.195 --> 00:31:21.789
+<v David Thomson>you know that probably would have a huge
+benefit.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/271-0
+00:31:23.149 --> 00:31:24.429
+<v Olivier Doucet>Enable us here.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/272-0
+00:31:23.269 --> 00:31:27.789
+<v Andrei Aitzhanov>I have one idea actually.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/275-0
+00:31:28.629 --> 00:31:33.863
+<v Andrei Aitzhanov>What if we will try to use the list of
+deliverables that we are providing to our</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/275-1
+00:31:33.863 --> 00:31:37.094
+<v Andrei Aitzhanov>clients?
+This is usually our part of the contract</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/275-2
+00:31:37.094 --> 00:31:42.265
+<v Andrei Aitzhanov>with the client and we have to it's a
+it's a master document register something</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/274-0
+00:31:41.989 --> 00:31:42.229
+<v David Thomson>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/275-3
+00:31:42.265 --> 00:31:45.625
+<v Andrei Aitzhanov>for that.
+We need to specify what kind of documents</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/275-4
+00:31:45.625 --> 00:31:48.469
+<v Andrei Aitzhanov>we will deliver to our clients and then
+if.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/276-0
+00:31:48.469 --> 00:31:55.426
+<v Andrei Aitzhanov>We will identify from this huge list what
+kind of of documentation we can automate</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/276-1
+00:31:55.426 --> 00:32:01.630
+<v Andrei Aitzhanov>or we can structuralize or we can
+establish our tools for provide this in</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/276-2
+00:32:01.630 --> 00:32:04.229
+<v Andrei Aitzhanov>more proper way or more faster.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/277-0
+00:32:04.469 --> 00:32:08.565
+<v Andrei Aitzhanov>Something like that.
+Then I think that it's a kind of fast</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/277-1
+00:32:08.565 --> 00:32:12.662
+<v Andrei Aitzhanov>results that we can achieve because then
+we could say, OK,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/277-2
+00:32:12.662 --> 00:32:18.286
+<v Andrei Aitzhanov>because I can predict that engineers will
+ask why we are developing this because</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/277-3
+00:32:18.286 --> 00:32:23.216
+<v Andrei Aitzhanov>there are no any real value. Yeah,
+who will pay for that and etcetera.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/277-4
+00:32:23.216 --> 00:32:24.189
+<v Andrei Aitzhanov>It's a lot of.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/278-0
+00:32:24.229 --> 00:32:30.639
+<v Andrei Aitzhanov>But if we will provide them the the this
+I would say real documents that they</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/278-1
+00:32:30.639 --> 00:32:36.967
+<v Andrei Aitzhanov>could deliver like a data sheets or I
+don't know line list or something like</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/278-2
+00:32:36.967 --> 00:32:43.789
+<v Andrei Aitzhanov>that even it's it's it were developed or
+define it in not in the database centric.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/279-0
+00:32:43.989 --> 00:32:47.677
+<v Andrei Aitzhanov>Approach,
+but it's kind of automated Excel or</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/279-1
+00:32:47.677 --> 00:32:52.248
+<v Andrei Aitzhanov>something like that.
+But we will deliver this as a first</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/279-2
+00:32:52.248 --> 00:32:56.097
+<v Andrei Aitzhanov>results.
+People will see the benefits and value</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/279-3
+00:32:56.097 --> 00:33:00.909
+<v Andrei Aitzhanov>and then they will support us with the
+next steps and next.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/281-0
+00:33:01.189 --> 00:33:07.808
+<v Andrei Aitzhanov>Iterations without this huge work with
+the data models and etcetera. Yeah,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/280-0
+00:33:06.589 --> 00:33:06.789
+<v David Thomson>Yeah, I.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/281-1
+00:33:07.808 --> 00:33:09.309
+<v Andrei Aitzhanov>that's just idea.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/282-0
+00:33:08.629 --> 00:33:16.138
+<v David Thomson>I I think like both of these things.
+So this is our kind of page now platform</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/282-1
+00:33:16.138 --> 00:33:22.589
+<v David Thomson>and technology enablement, you know,
+put these ideas in there and.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/284-0
+00:33:24.429 --> 00:33:29.509
+<v David Thomson>Yeah, I I kind of like this idea.
+This is what I would expect that we take</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/284-1
+00:33:29.509 --> 00:33:34.859
+<v David Thomson>these ideas from either from like a GBA,
+somebody who's done something to make</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/284-2
+00:33:34.859 --> 00:33:39.669
+<v David Thomson>their life easier and we, you know,
+productize them and roll them out.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/283-0
+00:33:38.949 --> 00:33:40.469
+<v Andrei Aitzhanov>Mhm, mhm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/285-0
+00:33:41.109 --> 00:33:44.726
+<v David Thomson>Or like your kind of master deliverables
+management register,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/285-1
+00:33:44.726 --> 00:33:48.869
+<v David Thomson>something like this as well.
+That's these are these are things which I</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/285-2
+00:33:48.869 --> 00:33:53.361
+<v David Thomson>think can be effectively productized one
+way or another and then rolled out,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/285-3
+00:33:53.361 --> 00:33:55.229
+<v David Thomson>you know, under the UP umbrella.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/286-0
+00:33:56.149 --> 00:33:59.906
+<v David Thomson>And if they, you know,
+we need to find a balance of making</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/286-1
+00:33:59.906 --> 00:34:04.683
+<v David Thomson>incremental progress so people see
+something and there will be these these</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/286-2
+00:34:04.683 --> 00:34:08.950
+<v David Thomson>low hanging fruits, you know,
+as long as I can tie them, you know,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/286-3
+00:34:08.950 --> 00:34:12.389
+<v David Thomson>to an overarching story which is like, OK,
+these are.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/288-0
+00:34:12.709 --> 00:34:18.565
+<v David Thomson>Utilities. These are, you know,
+these are contributing to the project</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/288-1
+00:34:18.565 --> 00:34:21.829
+<v David Thomson>delivery excellence work stream, right?</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/290-0
+00:34:20.149 --> 00:34:25.172
+<v Andrei Aitzhanov>You bring very great idea David.
+I think that we can utilise already</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/287-0
+00:34:20.749 --> 00:34:21.069
+<v Olivier Doucet>Mm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/290-1
+00:34:25.172 --> 00:34:29.614
+<v Andrei Aitzhanov>existing prototypes,
+proof of concepts that we we have a lot</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/290-2
+00:34:29.614 --> 00:34:33.764
+<v Andrei Aitzhanov>in Rambo, we have a lot of these things.
+What we can do,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/289-0
+00:34:31.589 --> 00:34:31.829
+<v David Thomson>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/290-3
+00:34:33.764 --> 00:34:39.079
+<v Andrei Aitzhanov>we can analyze the pool of these
+prototypes and understand what they are</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/290-4
+00:34:39.079 --> 00:34:39.589
+<v Andrei Aitzhanov>really.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/292-0
+00:34:39.829 --> 00:34:46.769
+<v Andrei Aitzhanov>Can do and if they we can productize
+these tools like in my case I I used a</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/292-1
+00:34:46.769 --> 00:34:53.344
+<v Andrei Aitzhanov>specific tool for extract data from
+schematic drawings like tech to doc</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/291-0
+00:34:52.669 --> 00:34:52.909
+<v David Thomson>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/292-2
+00:34:53.344 --> 00:34:54.349
+<v Andrei Aitzhanov>scanner or.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/293-0
+00:34:55.029 --> 00:34:59.823
+<v Andrei Aitzhanov>Pin ID viewer and etcetera.
+I know that this is relevant for another</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/293-1
+00:34:59.823 --> 00:35:03.575
+<v Andrei Aitzhanov>project, yeah,
+but this is was developed only for one</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/293-2
+00:35:03.575 --> 00:35:08.161
+<v Andrei Aitzhanov>project and we then was this because it's
+just be used only once.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/293-3
+00:35:08.161 --> 00:35:12.469
+<v Andrei Aitzhanov>I see that we have a lot of this kind of
+cases and if we can.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/294-0
+00:35:12.869 --> 00:35:18.932
+<v Andrei Aitzhanov>Have a some kind of repository where we
+could list all these tools like your</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/294-1
+00:35:18.932 --> 00:35:24.208
+<v Andrei Aitzhanov>products Oliver BM bot. Yeah,
+or I know that Daniel also developed</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/294-2
+00:35:24.208 --> 00:35:30.429
+<v Andrei Aitzhanov>something and there are a lot of people
+who will develop something and we can.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/295-0
+00:35:30.789 --> 00:35:36.601
+<v Andrei Aitzhanov>Aggregate this and understand what we can
+reuse and productize and then provide</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/295-1
+00:35:36.601 --> 00:35:41.542
+<v Andrei Aitzhanov>this as a first result because it's a
+minimum efforts from our end.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/295-2
+00:35:41.542 --> 00:35:45.829
+<v Andrei Aitzhanov>We already have prototypes and this is
+quite big step for.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/298-0
+00:35:45.989 --> 00:35:51.933
+<v David Thomson>Yeah, I I asked Ronnie for this actually,
+because I said, is there a list of older,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/296-0
+00:35:47.789 --> 00:35:48.029
+<v Andrei Aitzhanov>People.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/298-1
+00:35:51.933 --> 00:35:56.816
+<v David Thomson>you know, our homemade products?
+And I think there is inside DPE and</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/298-2
+00:35:56.816 --> 00:35:59.789
+<v David Thomson>there's another one under tech governance.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/297-0
+00:35:58.589 --> 00:35:59.629
+<v Olivier Doucet>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/299-0
+00:36:01.549 --> 00:36:06.690
+<v David Thomson>But what I I can't do is like map them
+like where they used on the lifecycle or</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/299-1
+00:36:06.690 --> 00:36:09.389
+<v David Thomson>which kind of projects that they used for.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/300-0
+00:36:10.789 --> 00:36:15.509
+<v David Thomson>Yeah, I mean, I I think that's part of it.
+Ideally, you know, we would.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/302-0
+00:36:16.389 --> 00:36:21.268
+<v David Thomson>If we had unlimited time and budget,
+we would take these utilities and you</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/302-1
+00:36:21.268 --> 00:36:24.195
+<v David Thomson>know,
+make them on a a common tech stack and</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/302-2
+00:36:24.195 --> 00:36:27.448
+<v David Thomson>with a with a, you know,
+unified user experience.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/301-0
+00:36:27.109 --> 00:36:27.349
+<v Olivier Doucet>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/302-3
+00:36:27.448 --> 00:36:31.546
+<v David Thomson>But maybe it's not possible,
+but I'm I'm happy to work in both</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/302-4
+00:36:31.546 --> 00:36:34.669
+<v David Thomson>directions like we do this kind of
+distributed.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/304-0
+00:36:35.229 --> 00:36:39.909
+<v David Thomson>You know, point solutions,
+we really think it's is is global and</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/304-1
+00:36:39.909 --> 00:36:43.797
+<v David Thomson>then some things are more like on the
+platform level,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/303-0
+00:36:40.309 --> 00:36:40.549
+<v Olivier Doucet>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/304-2
+00:36:43.797 --> 00:36:49.629
+<v David Thomson>but I think a lot of it will be like tech
+enablement which is just like smaller.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/305-0
+00:36:50.309 --> 00:36:51.709
+<v David Thomson>Point solutions in the beginning.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/308-0
+00:36:52.949 --> 00:36:56.102
+<v Andrei Aitzhanov>Yeah,
+we're kind of micro services as this is</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/306-0
+00:36:55.269 --> 00:36:57.389
+<v David Thomson>Yeah, yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/308-1
+00:36:56.102 --> 00:37:01.037
+<v Andrei Aitzhanov>what we also discussed that our solution
+should be like a micro service</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/307-0
+00:36:59.909 --> 00:37:00.269
+<v David Thomson>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/308-2
+00:37:01.037 --> 00:37:05.219
+<v Andrei Aitzhanov>architecture and we can productise this
+as a micro services,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/308-3
+00:37:05.219 --> 00:37:10.429
+<v Andrei Aitzhanov>connect this to the unified API and then
+people will use it out-of-the-box.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/311-0
+00:37:10.789 --> 00:37:14.726
+<v Andrei Aitzhanov>Based on the best practices and I don't
+know,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/311-1
+00:37:14.726 --> 00:37:21.404
+<v Andrei Aitzhanov>it's looks logical to try to reuse and
+unify what you already have instead of</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/309-0
+00:37:19.989 --> 00:37:20.229
+<v David Thomson>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/311-2
+00:37:21.404 --> 00:37:24.229
+<v Andrei Aitzhanov>trying to redevelop something so.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/310-0
+00:37:21.629 --> 00:37:21.909
+<v David Thomson>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/314-0
+00:37:23.789 --> 00:37:29.104
+<v David Thomson>Absolutely. So yeah, again, predicted.
+Well, we would just talk,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/312-0
+00:37:25.189 --> 00:37:25.309
+<v Andrei Aitzhanov>Oh.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/313-0
+00:37:28.229 --> 00:37:28.709
+<v Andrei Aitzhanov>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/314-1
+00:37:29.104 --> 00:37:34.829
+<v David Thomson>but I really appreciate it.
+We just have to up to the hour, right or?</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/315-0
+00:37:35.109 --> 00:37:37.549
+<v Andrei Aitzhanov>Yeah, yes.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/316-0
+00:37:35.509 --> 00:37:37.869
+<v Olivier Doucet>Yeah, I can.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/319-0
+00:37:37.029 --> 00:37:44.470
+<v David Thomson>Oh yeah, I have. OK, but yeah, anything.
+Feel free to like add anything you want</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/319-1
+00:37:44.470 --> 00:37:48.880
+<v David Thomson>underneath here,
+like a ideas page or some some</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/317-0
+00:37:48.349 --> 00:37:48.909
+<v Andrei Aitzhanov>Mhm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/318-0
+00:37:48.829 --> 00:37:49.069
+<v Olivier Doucet>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/319-2
+00:37:48.880 --> 00:37:54.669
+<v David Thomson>description of this SharePoint approach
+and and how it's used.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/320-0
+00:37:53.709 --> 00:37:57.629
+<v Olivier Doucet>Yeah, I'll. I'll do that.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/322-0
+00:37:55.349 --> 00:37:59.173
+<v David Thomson>And if you have a new work stream,
+you know a sub work stream,</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/322-1
+00:37:59.173 --> 00:38:00.509
+<v David Thomson>just add that as well.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/321-0
+00:38:00.949 --> 00:38:01.389
+<v Olivier Doucet>Hmm.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/328-0
+00:38:01.109 --> 00:38:05.508
+<v Andrei Aitzhanov>OK, for sure.
+But at least if we can record and</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/323-0
+00:38:02.789 --> 00:38:03.429
+<v Olivier Doucet>Perfect.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/328-1
+00:38:05.508 --> 00:38:11.098
+<v Andrei Aitzhanov>recognise this session,
+I think that we can also extract the</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/324-0
+00:38:07.509 --> 00:38:07.869
+<v David Thomson>Yeah.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/328-2
+00:38:11.098 --> 00:38:15.589
+<v Andrei Aitzhanov>insights. Yeah. OK, yeah, OK, yeah,
+same to you.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/329-0
+00:38:11.109 --> 00:38:16.749
+<v David Thomson>Good stuff from it. All right, guys.
+Have a good one. Thanks again. Bye, bye.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/327-0
+00:38:14.749 --> 00:38:15.469
+<v Olivier Doucet>Thank you. Bye, bye.</v>
+
+48a44b41-fbd3-45f4-933a-f6503891c260/330-0
+00:38:16.269 --> 00:38:17.309
+<v Andrei Aitzhanov>Same to you. Bye bye.</v>
