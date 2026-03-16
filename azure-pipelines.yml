@@ -1,0 +1,32 @@
+trigger:
+  branches:
+    include:
+      - '*'
+
+pr: none
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- checkout: self
+  persistCredentials: true
+  fetchDepth: 0
+
+- bash: |
+    set -e
+
+    git config --global user.name "Azure DevOps Mirror"
+    git config --global user.email "adzv@ramboll.com"
+
+    cd "$(Build.SourcesDirectory)"
+
+    git remote remove github 2>/dev/null || true
+    git remote add github https://$(GITHUB_USER):$(GITHUB_PAT)@github.com/Paradox-85/ram_upe.git
+
+    git fetch --all --tags
+    git push --mirror github
+  displayName: Mirror Azure DevOps repo to GitHub
+  env:
+    GITHUB_PAT: $(GITHUB_PAT)
+    GITHUB_USER: $(GITHUB_USER)
