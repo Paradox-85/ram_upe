@@ -1,0 +1,3126 @@
+David Thomson: Said that the I think the general
+architecture he was thinking of is
+
+David Thomson: aligned with what we've done so far.
+But he said the difference between Mutt
+
+David Thomson: and Rambo was that um.
+
+David Thomson: Mott has in its GB as like effectively
+chapters,
+
+David Thomson: but for each discipline who executes the
+project.
+
+David Thomson: So project managers have a chapter,
+structural engineers have a chapter.
+
+David Thomson: Instrumentation have a chapter and
+globally they define like the best
+
+Andrei Aitzhanov: Mm.
+
+David Thomson: practice for structural design on all,
+you know, mock projects.
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: So and he said the problem is Rambo
+doesn't have this standardised way of
+
+Olivier Doucet: And.
+
+David Thomson: doing things.
+
+David Thomson: Like fully, you know,
+we're trying to do it in buildings,
+
+David Thomson: we're trying to do it, you know,
+Henning Larsen has it relatively good,
+
+David Thomson: but we we don't really have this like
+standard way of doing things.
+
+David Thomson: So this is like the, the, the,
+the workflows, the processes that we use.
+
+Olivier Doucet: And.
+
+David Thomson: And he said that was the first building
+block.
+
+David Thomson: And then like we discussed,
+they build this like mother of all data
+
+David Thomson: models which captured all these workflows
+and users and you know the steps.
+
+David Thomson: And then they build a.
+
+David Thomson: Yeah, like a a thin client, basically,
+you know,
+
+David Thomson: as an interface that gave you access to
+the tools and it it sounds very familiar,
+
+David Thomson: but.
+
+Andrei Aitzhanov: Mhm.
+
+Olivier Doucet: Mm.
+
+David Thomson: Yeah,
+so he he he's got really good input for
+
+Olivier Doucet: Yeah, that's quite.
+
+David Thomson: us. Um.
+
+Olivier Doucet: Yeah, the priorities and yeah,
+the the different functionalities for me
+
+Olivier Doucet: is really important.
+So I look forward to hearing from from
+
+Olivier Doucet: this workshop and what emerges as you
+know the main, the main component.
+
+Olivier Doucet: I think Mertz was listing some of this
+capability in his.
+
+Olivier Doucet: The answer and I think it was really good.
+It would be great to have people converge
+
+Olivier Doucet: towards what has the highest value and
+also one key element I think for having
+
+Olivier Doucet: this that I I read from his comments and
+I totally agree is having an approach
+
+Olivier Doucet: which.
+
+Olivier Doucet: Is gradual and iterative,
+and to have this successfully happening,
+
+Olivier Doucet: you need to have a group of people who is
+willing to test things as we go and to
+
+Olivier Doucet: adopt it from.
+
+Olivier Doucet: Early on,
+so making sure we just don't have a a a
+
+Olivier Doucet: team of people building it,
+but also on the other end people who are
+
+Olivier Doucet: actually ready to consume it and to use
+it and feed feedback and not be.
+
+Olivier Doucet: Frustrated in the beginning, of course,
+because that's the challenge.
+
+Olivier Doucet: People can be like, oh well,
+we're gonna test it.
+
+Olivier Doucet: And then it's first impression is, oh,
+this is this isn't doing much for me and
+
+Olivier Doucet: they lose patience and then as the
+builders of the solution.
+
+Olivier Doucet: We can't afford just being in a closed
+loop.
+
+Olivier Doucet: We have to have secured some people down
+the line who are able to test things and
+
+Olivier Doucet: maybe even pilot it a little bit in the
+projects.
+
+Olivier Doucet: And this is tricky when people are under
+pressure because of deliveries.
+
+David Thomson: Yeah.
+
+Olivier Doucet: They don't have time to toy with new tech
+and to to do this.
+
+Olivier Doucet: So I think this is probably something
+that you might have to, you know,
+
+Olivier Doucet: deal with David, I guess,
+and to make sure that we are solid also
+
+Olivier Doucet: on on on that side.
+
+David Thomson: Yeah, this is um.
+
+David Thomson: It seems to be one of my key findings.
+I I wrote in the our chat that.
+
+David Thomson: On the GBAS,
+they don't necessarily trust Ramble tech
+
+David Thomson: to be like an an enabler to them.
+So I discussed this with Peter and I said
+
+David Thomson: look,
+we have to make sure there's like a first
+
+David Thomson: of all a co-ownership.
+So UPE is owned by the GBAS.
+
+David Thomson: Let's say the DDP chapter, you know,
+the GBAS and Ramble tech,
+
+David Thomson: and I really want to do some kind of.
+
+David Thomson: Build teams which basically are a
+combination of ramble tech people or DDPE
+
+David Thomson: people and from the GP as and like you
+said, the challenge will be they're busy,
+
+Andrei Aitzhanov: GPS.
+
+David Thomson: they're they're running projects,
+but to like establish this kind of
+
+David Thomson: embedded.
+
+David Thomson: Concept where we embed, you know,
+solution architects or a I experts or
+
+David Thomson: whatever it is from Ramble Tech and they,
+you know,
+
+David Thomson: provide us with the business knowledge
+and and we're kind of joint accountable
+
+David Thomson: for each.
+
+David Thomson: You know,
+deliverable that that we we make.
+
+David Thomson: But what's really clear is there's more,
+unfortunately there's a little bit more,
+
+David Thomson: not political,
+but like governance and alignment to be
+
+David Thomson: done, you know,
+before we can kind of start going.
+
+David Thomson: But I did say to Ronnie and and Peter and
+and and Robin, I said, look,
+
+David Thomson: I want to put in place the teams,
+you know,
+
+David Thomson: at least start to identify what are the
+most high priority things to do.
+
+David Thomson: And Ronnie actually had on one of his
+slides, you know, project initialization.
+
+David Thomson: This, this came up a lot.
+
+David Thomson: Um, but yeah, I I would like to have.
+
+David Thomson: The teams in place and then you know make
+the request to have the the developers
+
+David Thomson: and and the resources from DPE.
+I have a budget it's something like 6,000,
+
+David Thomson: 000 Danish kroner,
+but I'm not I don't have full visibility
+
+David Thomson: is this budget.
+
+David Thomson: Just for DPE resources or.
+
+David Thomson: It seems like the product owners are like
+included in the price because they're
+
+Olivier Doucet: Hmm, yeah.
+
+David Thomson: paid for. Maybe things like UX designers,
+I think we have to pay for internally and
+
+Olivier Doucet: Yeah.
+
+David Thomson: of course DPE.
+
+David Thomson: So you you know you guys at some point
+will be like some official internal
+
+David Thomson: purchase order to have you,
+but I still want to proceed as much as we
+
+Andrei Aitzhanov: M.
+
+David Thomson: can to to form as much as we can before
+we get into like all these.
+
+David Thomson: Purchase orders and I don't know,
+it starts to get slower.
+
+Olivier Doucet: Yeah, I am.
+
+Olivier Doucet: Yeah, I agree. And things get official.
+Some something,
+
+Andrei Aitzhanov: Mhm.
+
+Olivier Doucet: some magic is lost somehow.
+
+David Thomson: Yeah, the the other one is um.
+
+David Thomson: This A I topic,
+so Peter brought it up as well.
+
+David Thomson: So there's as you know A I has been kind
+of looked at on a you know RAM GPT level
+
+David Thomson: or origami, some point solutions,
+some more general things you know like a
+
+David Thomson: chatbot,
+but it I don't get this visibility of
+
+David Thomson: what's going on around the digital design.
+
+David Thomson: Production.
+I I know there's some people working on
+
+David Thomson: some things,
+there's some things in DPE as well,
+
+David Thomson: but I don't have a good picture.
+So I'm trying to build up this picture of
+
+David Thomson: who's doing what, who needs what,
+because we have this big contract with
+
+David Thomson: Autodesk like a partnership agreement
+where we've paid for consultancy.
+
+David Thomson: And Ronnie's pushing me to say, you know,
+don't necessarily spend this consultancy
+
+David Thomson: on building, you know,
+like productivity applications, you know,
+
+David Thomson: try to be more strategic with this.
+
+David Thomson: And see if you can get Autodesk to
+deliver something more meaningful for the
+
+Olivier Doucet: And.
+
+David Thomson: UPE concept.
+
+David Thomson: O.
+
+Olivier Doucet: Did he?
+Did he say anything more specific about
+
+Olivier Doucet: that? Do you see what he has in mind or?
+
+David Thomson: Well.
+
+David Thomson: No, he didn't.
+But I don't know if you're aware of this
+
+David Thomson: together together for better outcomes
+initiative with Autodesk. So Michael,
+
+Andrei Aitzhanov: Yeah, you know.
+
+Olivier Doucet: Yeah.
+
+David Thomson: who works for me,
+is the product owner for those
+
+David Thomson: initiatives and it's like some of them
+are UPE related like project
+
+David Thomson: initialization.
+
+David Thomson: Um,
+some interoperability I think is in there.
+
+Olivier Doucet: Yeah.
+
+David Thomson: I have the list somewhere,
+but they're quite low level um
+
+David Thomson: initiatives and now.
+
+David Thomson: I would almost say like let's instead of
+doing 6 small things,
+
+David Thomson: maybe we need to do one big topic.
+And so the one topic that's come up from
+
+David Thomson: Mert was this idea of they call it a
+insight vault.
+
+David Thomson: Um,
+I don't know if I shared that with you,
+
+David Thomson: but he sent me this PowerPoint. Um.
+
+David Thomson: I'll share it with you.
+I I'll share it somehow through our our
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: our loop.
+Basically the in buildings they're trying
+
+David Thomson: to build this.
+
+David Thomson: Vault of project information.
+So the you know, the costs, the estimates,
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: the building standards,
+I think everything that's not like BIM
+
+David Thomson: data, like not the model and the metadata.
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: And then they want to use this to speed
+up their ability to do bids.
+
+Olivier Doucet: Mm.
+
+David Thomson: So he gives lots of examples of, you know,
+this bid engineer is like searching for
+
+David Thomson: four days, you know,
+to get the pricing for concrete for this
+
+David Thomson: bid and you know,
+all these kind of things.
+
+David Thomson: And they want to build this kind of
+project information vault.
+
+Olivier Doucet: And.
+
+Andrei Aitzhanov: Mhm.
+
+Olivier Doucet: Mm.
+
+David Thomson: Um.
+
+David Thomson: No.
+
+David Thomson: All of the the competitors seem to be
+trying to build the same thing.
+
+David Thomson: According to this Autodesk workshop I was
+at,
+
+David Thomson: everybody says we need this project best
+practices vault.
+
+David Thomson: So that's one potential idea to let
+Autodesk see if they want to work with us
+
+Olivier Doucet: Yeah.
+
+David Thomson: on this.
+
+Olivier Doucet: Thank you.
+
+David Thomson: But.
+
+Olivier Doucet: OK.
+
+David Thomson: But we kind of learn from that project
+and then build a open version of that
+
+David Thomson: ourselves. I'm not too sure,
+but we basically want to engage with
+
+Olivier Doucet: Yeah.
+
+Olivier Doucet: Yeah.
+
+David Thomson: Autodesk on on maybe a bigger AI type of
+project instead of.
+
+David Thomson: Um,
+improving incremental things on on like
+
+David Thomson: the product level.
+
+Olivier Doucet: Yeah, no, no, I get it.
+I think it makes sense.
+
+David Thomson: And I'll share these things with you,
+yeah.
+
+Olivier Doucet: You have to be a big, yeah. No,
+I just just wanted to say that my
+
+Andrei Aitzhanov: Mhm.
+
+Olivier Doucet: experience with Autodesk through the
+latest years has been that you have to be
+
+Olivier Doucet: also really careful because they have
+tendency to drag you where they want.
+
+Olivier Doucet: Want you to be. And so yeah,
+making it very clear, you know,
+
+Olivier Doucet: what we are looking for, what we are,
+what we want and making sure they are not
+
+Olivier Doucet: trying to push the agenda because they
+have done that a lot and they got into
+
+Olivier Doucet: that habit.
+
+Olivier Doucet: So I think it's important to to
+understand because in my view they
+
+David Thomson: Yeah, well.
+
+Olivier Doucet: haven't always acted in our best interest.
+So we need to make sure we are clear with
+
+Olivier Doucet: what we want and yeah.
+
+David Thomson: Yeah,
+I I I probably need your help to figure
+
+David Thomson: out what we want because, um,
+I don't have like a really good guidance
+
+David Thomson: for them at the moment,
+but it's it's coming up very quickly
+
+David Thomson: because we have a workshop next week with
+them to plan this partnership.
+
+David Thomson: And already we I gave some push back on
+the A I side of things and said no,
+
+David Thomson: I think the use cases we're looking at
+are like very granular like the ability
+
+David Thomson: to talk to the 3D model for example and
+and query the 3D model.
+
+Olivier Doucet: And.
+
+David Thomson: And I I'm trying to re-engage with them
+and say no,
+
+David Thomson: we need something a little bit more
+strategic that supports.
+
+Olivier Doucet: Mm.
+
+David Thomson: It's the UPE concept,
+but we're already doing the planning next
+
+David Thomson: week, so it's a bit,
+it's a bit time critical.
+
+Olivier Doucet: Mm.
+
+David Thomson: Yeah, I forgot what I was gonna say.
+
+Olivier Doucet: Yeah.
+
+Andrei Aitzhanov: Hmm.
+
+David Thomson: But oh, see, sorry. Yeah,
+I guess the most important one Ronnie
+
+Andrei Aitzhanov: Yeah.
+
+David Thomson: gave me very clear steerage.
+So I think you guys,
+
+David Thomson: because you've been involved in it,
+we don't feel like a huge value from the
+
+David Thomson: Datum POC so far and.
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: I think internally we agreed to stop this,
+but the Autodesk still wants to push
+
+David Thomson: ahead.
+They're actually proposing now a a POC
+
+Olivier Doucet: Of.
+
+David Thomson: for the energy GPA,
+but that basically I'll stop this and
+
+David Thomson: what I agreed with Paul.
+
+David Thomson: From partnerships is that we'll only
+continue with datum if we have like a
+
+Olivier Doucet: Yeah.
+
+David Thomson: customer project where it makes sense or
+a customer is asking for for that and
+
+Andrei Aitzhanov: Hmm.
+
+Andrei Aitzhanov: Mm-hmm.
+
+Olivier Doucet: Um.
+
+David Thomson: then we go to the next step.
+
+David Thomson: But I do have a general question for you
+guys like.
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: At the moment it's only a feeling.
+I'm not too sure if we need this
+
+David Thomson: information backbone to come from a
+vendor. I I think we need some concept,
+
+Olivier Doucet: Mm.
+
+David Thomson: you know,
+that takes the data out of the files.
+
+David Thomson: But I'm not too sure if either Aviva net
+or Datum is really fitting our needs
+
+David Thomson: there.
+
+Olivier Doucet: My my sense is that no,
+I think we should own this more and and
+
+Olivier Doucet: not have a vendor in charge of it.
+
+Andrei Aitzhanov: Yeah,
+I agree because I see that in our case in
+
+Andrei Aitzhanov: specifically in Rambo,
+we have very different GP as with very
+
+Andrei Aitzhanov: different types of data business
+workflows and and tools and data sources
+
+Andrei Aitzhanov: and.
+
+Andrei Aitzhanov: I don't see any solutions in the market
+that can utilise all of these different
+
+Andrei Aitzhanov: data sources in the same solution and
+I've even not also I've even not also not.
+
+David Thomson: Yeah.
+
+Andrei Aitzhanov: Let's see.
+
+Andrei Aitzhanov: Potentially it's not a product that we
+will cover all our use cases because I
+
+Andrei Aitzhanov: see that we have some legacy tools like
+Octopus.
+
+Andrei Aitzhanov: We have a lot of CAD tools including
+Revit, Autodesk, including Aviva tools.
+
+David Thomson: Mm.
+
+Olivier Doucet: Good.
+
+Andrei Aitzhanov: We have a databases,
+we have a documents and etcetera,
+
+Andrei Aitzhanov: etcetera.
+And I think that it's impossible to find
+
+Andrei Aitzhanov: some out-of-the-box solution that will
+cover all of this potential workforce and
+
+Andrei Aitzhanov: use cases for data import.
+
+Andrei Aitzhanov: So anyway,
+we need to build something internally as
+
+Andrei Aitzhanov: our internal backbone and build this GBA
+specific frameworks or GBA specific
+
+Andrei Aitzhanov: pipelines for utilized data for each of
+the.
+
+Andrei Aitzhanov: At least because it's really,
+really specific things and I don't think
+
+Andrei Aitzhanov: that any vendor can support us with that.
+So that's my.
+
+Olivier Doucet: But I think they they they would probably
+position themselves as they they have
+
+Olivier Doucet: exactly what we need.
+But for me this level of data we are
+
+David Thomson: Mhm.
+
+Olivier Doucet: talking about is kind of far from what
+they are.
+
+Olivier Doucet: They're coming from the design space and
+the coordination and what we want I think
+
+Olivier Doucet: is more generic than.
+
+Olivier Doucet: And that is assessed how to organize our
+data in a generic way so that we can
+
+Olivier Doucet: harvest it better and we can point our
+MCP server into. For me,
+
+Olivier Doucet: if we have to work with a partner,
+it would be more like a more generic
+
+Olivier Doucet: actor like Microsoft or something that OK,
+they help us with some.
+
+David Thomson: Yeah, yeah.
+
+Andrei Aitzhanov: Yeah, yeah, yeah, absolutely. Yeah.
+
+Olivier Doucet: So.
+
+Olivier Doucet: Maybe to put together an architecture for
+some sort of data lake for our data and
+
+Olivier Doucet: they have probably done that for many,
+many other companies and it's nothing
+
+David Thomson: Yeah, yeah.
+
+Olivier Doucet: specific to the construction industry.
+I think we are talking like such a high
+
+Olivier Doucet: level,
+so it doesn't have to be an actor of this
+
+Olivier Doucet: sector.
+
+Olivier Doucet: Might be better because they won't be
+biased towards nudging, nudging us into,
+
+Olivier Doucet: you know,
+using their licenses and and all of that.
+
+David Thomson: Yeah.
+
+Olivier Doucet: So I see a big conflict of interest by by
+using consultancy from Autodesk and other
+
+Olivier Doucet: partners because you always struggle to
+find line,
+
+Olivier Doucet: you know how much are they acting in our
+best?
+
+Olivier Doucet: Interest in how much are they trying to
+lock in lock us into the system so.
+
+David Thomson: So.
+
+David Thomson: I great to hear.
+I I personally agree with you.
+
+David Thomson: I think the challenge I've got is there's
+so much momentum around this Autodesk
+
+Olivier Doucet: I know.
+
+David Thomson: partnership. We have just paid.
+I had to sign the contract, you know,
+
+David Thomson: on my second week.
+So we've like already committed this
+
+David Thomson: money to Autodesk.
+
+David Thomson: So I I need to find the best way to use
+that consultancy.
+
+David Thomson: I'm not convinced that the current way of
+doing it's right. Um.
+
+Olivier Doucet: OK.
+
+David Thomson: You know,
+maybe I see it like it's this kind of.
+
+David Thomson: I don't know,
+maybe maybe it serves the bill,
+
+David Thomson: the building GBA quite well because
+they're pure Autodesk wall to wall or
+
+David Thomson: more or less. But yeah,
+so I think we'll need to put, you know,
+
+David Thomson: more shape on all of these components
+that we need to build.
+
+David Thomson: And then I think there'll be like this
+difficult discussion like how to justify
+
+David Thomson: the cost of.
+
+David Thomson: Building this, Peter seems very committed,
+but he's he's also very, you know,
+
+David Thomson: pro Autodesk and he's happy to spend the
+money on Autodesk because he feels like
+
+David Thomson: that gives us a competitive advantage to
+be so close to Autodesk.
+
+Olivier Doucet: Mm.
+
+David Thomson: And I'll need to persuade him that,
+you know,
+
+David Thomson: we need to do some things ourselves.
+This is the big topic as you know,
+
+David Thomson: like how much do you allow your vendor to
+do it or and and to be honest,
+
+Olivier Doucet: Mm.
+
+David Thomson: I guess you saw this news about the share
+price of Autodesk and Bentley.
+
+David Thomson: Um, diving because of Claude.
+
+Olivier Doucet: I haven't seen it. Sorry, what happened?
+
+David Thomson: So this, so this is super relevant.
+So basically the share price dived off a
+
+David Thomson: Cliff because Claude announced this legal
+bot. So basically nothing to do with AC,
+
+David Thomson: but the, you know, the stock market,
+the analysts basically said.
+
+Andrei Aitzhanov: Mm.
+
+Olivier Doucet: Um.
+
+David Thomson: Autodesk and Bentley's revenue would just
+continue to decline because you know as
+
+David Thomson: you know they're they're selling software
+that you know relies on you having lots
+
+David Thomson: of clicks and and and doing lots of
+things and the more efficient you'll
+
+Andrei Aitzhanov: Mhm, mhm, mhm.
+
+Andrei Aitzhanov: Mm.
+
+David Thomson: become at using.
+
+David Thomson: You know, tools, the less tokens you need.
+And this is actually reflected already in
+
+David Thomson: our our our licensing apparently that
+we're using slightly less because we're a
+
+Olivier Doucet: Mm.
+
+David Thomson: bit more efficient.
+So basically the market is betting that
+
+David Thomson: companies like Rambo will build their own.
+
+David Thomson: Platform and build their own MCP servers,
+A I data lake because it's it's so close
+
+David Thomson: to our intellectual property.
+It makes sense, right?
+
+Andrei Aitzhanov: Yeah.
+
+David Thomson: You don't want to give this to a vendor
+and and that's why basically they're
+
+Andrei Aitzhanov: Mhm.
+
+Andrei Aitzhanov: No.
+
+David Thomson: they're predicting these companies will
+of course they'll pump up the price.
+
+Olivier Doucet: Mm.
+
+David Thomson: Like Bentley,
+Bentley already asked us for 24% more
+
+David Thomson: than last year, just for no reason,
+just like that.
+
+Olivier Doucet: Wow, seriously.
+
+David Thomson: And Autodesk have been doing the same for
+years.
+
+David Thomson: So this for me is like the big topic
+inside DDP.
+
+David Thomson: You know our our vendors are going to
+screw us because their business model is
+
+David Thomson: disrupted.
+
+David Thomson: We should start spending, you know,
+less ultimately on our vendors and more
+
+David Thomson: on our own internal.
+But the problem is we're committed to
+
+Olivier Doucet: Oops.
+
+David Thomson: Autodesk and Bentley probably for the
+next three years,
+
+David Thomson: but we have to make this transition in
+the next three years, which is.
+
+Olivier Doucet: Mm.
+
+David Thomson: Yeah.
+
+David Thomson: Yeah.
+
+Olivier Doucet: And yeah, I I get your point, David.
+But I think that it should be more
+
+Olivier Doucet: narrowed on on very specific things that
+we can measure and evaluate because I'm
+
+Olivier Doucet: afraid if we go like in this fluffy,
+you know, make our AI already data vault,
+
+David Thomson: Maybe.
+
+Olivier Doucet: it's going to be such a fluffy thing and.
+
+Olivier Doucet: It's going to take forever to get some
+concrete things to evaluate.
+
+David Thomson: Yeah.
+
+Olivier Doucet: By the time you are there,
+they will be asking for more budgets to
+
+David Thomson: For the next year.
+
+Olivier Doucet: continue and we haven't been able to
+evaluate or to measure. Is this a success?
+
+Olivier Doucet: Is this a fail?
+I've seen this before and so I think we
+
+Olivier Doucet: have to be real specific on OK,
+these are the building blocks we
+
+Olivier Doucet: identified.
+
+Olivier Doucet: Would be best actually implemented by you
+because this is closer to your system,
+
+Olivier Doucet: but we have to have more of reflection on
+the overall architecture and have them
+
+Olivier Doucet: implement maybe these adapters and
+components of this additional layer on
+
+Olivier Doucet: top of the system.
+
+Olivier Doucet: Instead of taking ownership of the
+backbone, which I think we should own.
+
+David Thomson: Yeah, yeah. So with that in mind,
+do you have or maybe you can have a think
+
+David Thomson: about what some of those specific, yeah.
+
+Olivier Doucet: Yeah,
+I need to think about it a little bit.
+
+Olivier Doucet: But so I think what one thing that comes
+to mind, but it's really not going to be,
+
+Olivier Doucet: it's going to be peanuts compared to the
+the amount.
+
+Olivier Doucet: But it's around this automating the
+provisioning of all of this and the
+
+David Thomson: OK.
+
+Olivier Doucet: permission and all of this.
+
+Olivier Doucet: Things I know they have already templates
+that you can use for seeding new projects.
+
+Olivier Doucet: They have this approval workflows and all
+sorts of things like that that are
+
+Olivier Doucet: already embedded in the platform.
+
+Olivier Doucet: I I don't know if there could be a a
+layer,
+
+Olivier Doucet: a thin layer on top of that to implement
+a standardized way of.
+
+Olivier Doucet: Harnessing these templates and this
+ability,
+
+Olivier Doucet: they have API also that you can use to
+control to administrate a grant access to
+
+Olivier Doucet: user. They have a lot of APIs Autodesk,
+so we don't really use that.
+
+David Thomson: Hmm.
+
+Olivier Doucet: As much as we should, I think.
+So maybe if we define this,
+
+Olivier Doucet: let's say we have part of UB that's
+responsible for provisioning projects and
+
+Olivier Doucet: also managing onboarding, offboarding of.
+
+Olivier Doucet: Of people in the project.
+
+Olivier Doucet: At some point we want this when new
+person is added and access needs to be
+
+Olivier Doucet: granted to something.
+
+Olivier Doucet: We want to have a unique interface
+regardless of the vendor,
+
+Olivier Doucet: so do we need to actually?
+
+Olivier Doucet: Establish some some sort of.
+
+Olivier Doucet: High-level API that is our own way of
+saying we want to grant access to this
+
+David Thomson: Yeah.
+
+Olivier Doucet: role. I mean,
+maybe it's it's just a detail, you know,
+
+Olivier Doucet: in this ocean of abilities,
+but that's just one thing I can think of.
+
+David Thomson: It makes sense to me.
+It's probably at the end of the day,
+
+David Thomson: some kind of combination, but um.
+
+Olivier Doucet: What else could could it be?
+
+David Thomson: What?
+
+David Thomson: Yeah,
+when when you provision to Autodesk
+
+David Thomson: mandate like one cloud provider,
+do they is it always AWS or is it always
+
+David Thomson: Azure or are they flexible for example?
+
+Olivier Doucet: Sorry,
+what what they use themselves as AWSI
+
+David Thomson: Yeah, OK.
+
+Olivier Doucet: think.
+
+Olivier Doucet: But uh, yeah,
+that's that's what I will allow as far as
+
+Olivier Doucet: I know.
+
+Olivier Doucet: Um.
+
+David Thomson: All right, let let's come back to that.
+But I I I would like your input on,
+
+David Thomson: you know,
+what might those specific layers be or
+
+David Thomson: because I don't have good visibility of
+what those those are at the moment.
+
+Olivier Doucet: Mm.
+
+Olivier Doucet: No, but yeah, I'll think about it. Let's,
+let's discuss this further. We have,
+
+Olivier Doucet: we have a meeting also in a couple of
+days, right on on Thursday.
+
+David Thomson: But it's.
+
+David Thomson: Yeah.
+
+Andrei Aitzhanov: Yeah, without a risk in. Yeah, I think so.
+
+Olivier Doucet: Uh.
+
+David Thomson: So you did something around terms and
+definitions. Yeah, I've got it.
+
+Andrei Aitzhanov: So.
+
+Andrei Aitzhanov: Yeah, yeah,
+just to let's try to back to our main
+
+Andrei Aitzhanov: agenda and I actually try to update some
+of the pages in our whole environment.
+
+David Thomson: Yeah.
+
+Andrei Aitzhanov: So I I try to include the yeah,
+this section just to understand.
+
+Andrei Aitzhanov: What we are talking about because
+sometimes it's really difficult to to
+
+Andrei Aitzhanov: discuss something if you don't understand
+the the basic ideas and for sure it's
+
+Andrei Aitzhanov: it's just a proposal,
+it's not a statement, but what I tried.
+
+Andrei Aitzhanov: To say that actually a unified production
+environment,
+
+Andrei Aitzhanov: it's a kind of a global digital backbone
+for us, for Amble globally,
+
+Andrei Aitzhanov: for all Gbas and the main idea,
+at least for me, that that looks logical.
+
+Andrei Aitzhanov: To me that the main idea that it's kind
+of parameterized constructor that you can
+
+Andrei Aitzhanov: use for engineers, it's for engineers,
+it's not primary, it's for engineers.
+
+David Thomson: Mhm.
+
+Andrei Aitzhanov: Yeah,
+the idea that we need to reuse and
+
+Andrei Aitzhanov: utilize the the solutions and and.
+
+Andrei Aitzhanov: Best practices that we already had before
+in previous projects,
+
+Andrei Aitzhanov: but somehow we need to utilise and you
+need we need to incorporate this this
+
+Andrei Aitzhanov: knowledge into the common database.
+
+Andrei Aitzhanov: And use this as a framework for future
+projects.
+
+Andrei Aitzhanov: But the idea that it should be
+parameterized,
+
+Andrei Aitzhanov: sorry for my English parameterized
+solution that that's means that let's
+
+Andrei Aitzhanov: imagine that we have a client that wants
+to have a building.
+
+Andrei Aitzhanov: Commercial building like a commercial
+centre or data centre,
+
+Andrei Aitzhanov: but before with the previous client we
+had a similar project, yeah,
+
+Andrei Aitzhanov: but with a bit different parameters and a
+bit different conditions.
+
+Andrei Aitzhanov: And now based on the requirements from
+new client,
+
+Andrei Aitzhanov: we can utilize and reuse the previously
+used design,
+
+Andrei Aitzhanov: but based on the requirements of the new
+client, we can parameterize this and.
+
+Andrei Aitzhanov: Modify this,
+this and build another instance or
+
+Andrei Aitzhanov: individual project just to this client,
+but the core of this design and and all
+
+Andrei Aitzhanov: basic.
+
+Andrei Aitzhanov: Connections are now basic ideas and
+fundamental things will will be the same
+
+Andrei Aitzhanov: because we are using absolutely the same
+principles. I mean like construction,
+
+Andrei Aitzhanov: calculations, principles or.
+
+Andrei Aitzhanov: Positioning of the rooms in the building
+or something like that,
+
+Andrei Aitzhanov: that that's what I'm trying to say that
+it's it's kind of parametric tool or kind
+
+Andrei Aitzhanov: of parametric database,
+knowledge database that users and
+
+Andrei Aitzhanov: engineers can use.
+
+Andrei Aitzhanov: For build new design,
+but based on the previously defined
+
+Andrei Aitzhanov: building blocks or or parametric blocks,
+it's actually very similar that what you
+
+Andrei Aitzhanov: have in case if you want to have a car.
+
+Andrei Aitzhanov: And all of these huge companies like BMW
+or Mercedes,
+
+Andrei Aitzhanov: they they have a website and you can
+specify. I want, yeah, configure, yeah,
+
+Olivier Doucet: Configure.
+
+Andrei Aitzhanov: you want to have this engine with this
+power and this kind of internal design of
+
+David Thomson: Yeah.
+
+Andrei Aitzhanov: the of your car or outside.
+
+Andrei Aitzhanov: Side exterior and etcetera and you can
+configure this and and have your
+
+Andrei Aitzhanov: individual instance or individual car
+based on your request and then the idea
+
+Andrei Aitzhanov: that the the the platform.
+
+Andrei Aitzhanov: Will be absolutely the same,
+but this individual things will be
+
+Andrei Aitzhanov: parameterized based on the your request.
+That's what I'm also thinking as a very
+
+Andrei Aitzhanov: fundamental idea of this that we can try
+to to utilize and reuse already developed
+
+Andrei Aitzhanov: and already.
+
+Andrei Aitzhanov: Prepared building blocks that can be
+connected and then we can define another
+
+Olivier Doucet: Mm.
+
+Andrei Aitzhanov: project for this individual client. Yeah,
+yeah.
+
+Olivier Doucet: But there are, Andrei,
+already a lot of this parametric
+
+Olivier Doucet: computational design building blocks in
+in rubble we have.
+
+Olivier Doucet: I think what we're missing is maybe it's
+not at the same scale as you are talking
+
+Olivier Doucet: about it.
+You're talking about the project scale.
+
+Olivier Doucet: I'm thinking more, you know,
+within disciplines.
+
+Olivier Doucet: They have like specialized components to
+do this and that and I think already you
+
+Olivier Doucet: know having these existing things
+available,
+
+Olivier Doucet: made available through a single portal
+and connecting this and making it
+
+Olivier Doucet: available within the context of the
+discipline.
+
+Olivier Doucet: The way it was described by Mert,
+I like this gateway image where you log
+
+Olivier Doucet: in and depending on who you are and the
+discipline and what you then and the
+
+Andrei Aitzhanov: Mm-hmm. Yeah.
+
+Olivier Doucet: projects you are onto,
+you have this kind of central dashboard
+
+Olivier Doucet: that is the entry points to the different
+things and you can access also the
+
+Olivier Doucet: software components.
+
+Olivier Doucet: That we have already implemented.
+So having this software distribution and
+
+Olivier Doucet: suggestion is maybe already you know
+initial step because I don't know the way
+
+Olivier Doucet: you describe it at the scale of a project.
+
+Olivier Doucet: How much complexity?
+How much you can reuse?
+
+Olivier Doucet: You don't want to make it too rigid
+because then it becomes unusable.
+
+Olivier Doucet: How do you see this?
+What's the scale of this parameterization
+
+Oh.
+
+Olivier Doucet: you're talking about?
+
+Andrei Aitzhanov: Yeah,
+it depends on the type of the project for
+
+Andrei Aitzhanov: sure.
+But I can see that for instance for
+
+Andrei Aitzhanov: offshore substations projects,
+it's quite typical.
+
+Olivier Doucet: Yeah.
+
+Andrei Aitzhanov: It's quite typical because they have a,
+yes,
+
+Andrei Aitzhanov: that the positioning of the equipment on
+the site and the connections can be.
+
+Olivier Doucet: Hi.
+
+Andrei Aitzhanov: Different but the process foundation and
+process schema will will be the same and
+
+Olivier Doucet: Hmm.
+
+Andrei Aitzhanov: and for instance you can deliver to the
+client.
+
+Andrei Aitzhanov: The project in several iterations. Yeah,
+we've client wants to have substation at
+
+Andrei Aitzhanov: this in this place with these conditions
+and this power. Yeah,
+
+Andrei Aitzhanov: and you can define like a parametric
+request to to the UP that I want to build.
+
+Andrei Aitzhanov: This prototype or MVP based on this
+request and this conditions and then
+
+Andrei Aitzhanov: system will generate this I would say
+parametric design solution and then you
+
+Andrei Aitzhanov: can for sure digitalise this.
+It's kind of iteration.
+
+Andrei Aitzhanov: You you can build the first prototype and
+then you for sure you can data wise or
+
+Andrei Aitzhanov: you can reuse individual.
+I would say typical small components of
+
+Andrei Aitzhanov: this. For instance,
+you have a different types of connections
+
+Andrei Aitzhanov: of pipelines to the to the nozzles.
+
+Olivier Doucet: Hmm.
+
+Andrei Aitzhanov: Yeah.
+And based on your previous experience,
+
+Andrei Aitzhanov: we know exactly that this type of
+connections are not so good or it's quite
+
+Andrei Aitzhanov: expensive and we don't have enough
+proposals from the market.
+
+Andrei Aitzhanov: And engineers can ask that, OK,
+I want to connect my pipeline to this
+
+Andrei Aitzhanov: nozzle.
+So and then this tool can suggest or
+
+Andrei Aitzhanov: provide kind of options and or proposals
+what you can use based on the previous
+
+Andrei Aitzhanov: experience and that that's.
+
+Andrei Aitzhanov: Another level of knowledge, yeah,
+another level of typical solutions.
+
+Andrei Aitzhanov: And then you can go step by step to the
+from the high level to the this
+
+Andrei Aitzhanov: individual low level and aggregate all
+knowledge in the common database,
+
+Andrei Aitzhanov: but then it will be utilized and reused
+in the different levels of of the
+
+Andrei Aitzhanov: compositions.
+
+Andrei Aitzhanov: So, but I've worked before some two years.
+I worked in the buildings company,
+
+Andrei Aitzhanov: building structure company that they they
+did, they built the buildings,
+
+Andrei Aitzhanov: mass living buildings for.
+
+Andrei Aitzhanov: It's 25 levels of buildings, yeah,
+with very typical topology of the these
+
+Andrei Aitzhanov: buildings and and the idea was that you
+can actually define the place,
+
+Andrei Aitzhanov: you can define amount of levels and you
+can define how many.
+
+Andrei Aitzhanov: Spaces square meters you want to get from
+this building finally and then based on
+
+Andrei Aitzhanov: this this generate generic or sorry
+generative parametric engine will build
+
+Olivier Doucet: Yeah.
+
+Andrei Aitzhanov: and generate for you this building and
+then you can use it as a prototype for.
+
+Andrei Aitzhanov: Data wise, redefine the components,
+reconnect these components and etcetera.
+
+Andrei Aitzhanov: That's idea what I keep in mind that we
+can maybe try to reuse the same idea here
+
+Andrei Aitzhanov: because I see that the the biggest
+problem that.
+
+Andrei Aitzhanov: People don't really know what is the best
+solution for this kind of projects and
+
+Andrei Aitzhanov: every time what we are spending a lot of
+time for find the best practices,
+
+Andrei Aitzhanov: the best solutions for this specific one.
+
+Andrei Aitzhanov: But actually we did the same previously.
+Why we need to spend it again this time
+
+Andrei Aitzhanov: we can use what we we we did already this
+idea.
+
+Andrei Aitzhanov: But again it's just my my yeah what I
+keeping.
+
+David Thomson: I have some some some input.
+So this feels very the so because the so
+
+David Thomson: we're quite good at doing like parametric.
+They have like a parametric engine in
+
+David Thomson: their CAD tools,
+so it's very easy to do this kind of
+
+David Thomson: stuff and funnily enough I did
+substations.
+
+David Thomson: With this tool like for Hydro Quebec.
+So basically we had an Excel sheet with
+
+David Thomson: all the parameters external from CATIA
+and you could drive like different
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: layouts and all these kind of things.
+It was very advanced. This actually, um,
+
+David Thomson: I don't think this is the only way UBE
+works of course.
+
+David Thomson: But it's it's actually a good idea
+because Peter mentioned, I asked him,
+
+Andrei Aitzhanov: Yeah, yeah.
+
+David Thomson: I said what's going on like really high
+level across the GP as like what's,
+
+David Thomson: you know, what's what's our market like?
+And he said in buildings it's like race
+
+David Thomson: to the bottom.
+
+David Thomson: Commoditisation.
+So most of the building projects are,
+
+David Thomson: you know, like block of flats, you know,
+office block and you know,
+
+David Thomson: we we were walking down the road here.
+Everything just looks the same, like copy,
+
+David Thomson: paste, copy,
+paste with a different facade, right?
+
+David Thomson: Different windows, different details.
+
+Andrei Aitzhanov: Yeah, yeah, yeah.
+
+Olivier Doucet: Mhm.
+
+David Thomson: And we were like,
+why is this not like done with, you know,
+
+David Thomson: generative design already?
+Like it looks easy when you look at it.
+
+David Thomson: So actually this idea is not completely
+bad at all for the building's GBA because
+
+David Thomson: they're basically they're racing to the
+bottom on price.
+
+David Thomson: So they they just needed to.
+
+David Thomson: Deliver more projects for less money.
+That's the if you like the the
+
+Andrei Aitzhanov: Yeah.
+
+Olivier Doucet: Mm.
+
+David Thomson: overarching strategy.
+If it worked for energy as well,
+
+David Thomson: fantastic, you know,
+because ultimately I think energy's
+
+David Thomson: getting into this race to the bottom,
+at least in in renewables. Um.
+
+David Thomson: So we should keep this idea, Um, I think.
+
+David Thomson: The interesting thing is, you know, Peter,
+of course from his like limited
+
+David Thomson: technological view,
+he just thinks this is AI,
+
+David Thomson: but it's it's it's maybe not, you know,
+maybe it's it's it's parametric design.
+
+Olivier Doucet: Mm.
+
+Andrei Aitzhanov: Or machine learning. Thanks.
+
+David Thomson: Exactly. It's a machine learning.
+It's a bit of both. The thing is,
+
+Olivier Doucet: Or or both.
+
+Andrei Aitzhanov: Yeah.
+
+David Thomson: it's so let's keep this definitely let's
+keep this idea because I think it's
+
+Andrei Aitzhanov: Yep, that's.
+
+David Thomson: something to aim for,
+for at least for the building's GPA.
+
+David Thomson: The other thing, just so you know,
+like I'll add this on the on this page in
+
+David Thomson: the loop.
+
+David Thomson: But.
+
+David Thomson: You know,
+UPE for Peter is we maybe need to
+
+David Thomson: differentiate from UPE as the business
+initiative because I have loads of
+
+David Thomson: stakeholders like in terms of how we work
+process excellence.
+
+David Thomson: All all these things which are not really
+technical,
+
+Andrei Aitzhanov: Mm-hmm.
+
+David Thomson: but then there's the UPE platform.
+So I think we should probably try to use
+
+David Thomson: this terminology.
+We talk about UPE as the business
+
+David Thomson: initiative which delivers transformation.
+
+David Thomson: That's not even digital transformation,
+because some of it's about people and
+
+David Thomson: processes.
+Some of it is digital transformation,
+
+David Thomson: like parametric, you know, parametric,
+automatically generated buildings,
+
+David Thomson: something like that is is digital and we
+should start to refer to.
+
+Olivier Doucet: Mhm.
+
+David Thomson: The UPE platform as the thing that as the
+thing that we built at least in our
+
+Olivier Doucet: I agree.
+
+Olivier Doucet: Yeah.
+
+David Thomson: circles because it gets confusing because
+at the moment I'm only engaging on the
+
+Olivier Doucet: Yeah.
+
+David Thomson: UPE business initiative level with the
+stakeholders.
+
+Olivier Doucet: Yeah.
+
+David Thomson: But I I want to build like the team to
+make the platform as well so.
+
+Olivier Doucet: Right. So I think we need a name for it.
+What's the UP platform?
+
+David Thomson: Yeah.
+
+Olivier Doucet: Is it just UP platform or it's a?
+
+David Thomson: Let's get, yeah, well, let's again,
+we can have a competition.
+
+David Thomson: If you come up with a good name,
+very happy because I need to put this on
+
+Olivier Doucet: OK.
+
+David Thomson: the product lifecycle.
+There's this you probably know about this,
+
+David Thomson: the product lifecycle process.
+
+David Thomson: So do I need to name these things
+explicitly?
+
+Olivier Doucet: Yeah, yeah, of course.
+And I think it you need a name for the
+
+Olivier Doucet: the platform or let's call it the UP
+platform for now.
+
+David Thomson: Yeah.
+
+Olivier Doucet: And then this will be I think made of
+several modules that can grow.
+
+Olivier Doucet: So I think each module within the
+platform becomes its own product.
+
+David Thomson: Yeah.
+
+Olivier Doucet: So I think and already already now I
+think we can identify such products and
+
+David Thomson: And.
+
+Olivier Doucet: and those that can be built in connection
+with with together with our partners like
+
+Olivier Doucet: Autodesk you mentioned we have some
+budget what kind of product.
+
+Olivier Doucet: Can we be together with them or can we
+even fully delegate to them? I don't know.
+
+David Thomson: Yeah.
+
+David Thomson: Yeah, take your time.
+I think have a proper think about that.
+
+David Thomson: And I will too. Um.
+
+Olivier Doucet: Yeah.
+
+Andrei Aitzhanov: Yeah,
+and I also would would show you this.
+
+David Thomson: Oh, on this note,
+because I have a meeting with Microsoft
+
+David Thomson: because I I realized it's like a key
+partner and basically I'll introduce this
+
+David Thomson: concept of UPE and I will bring you guys
+into this conversation,
+
+David Thomson: but once I identify the right people in
+Microsoft.
+
+Olivier Doucet: Sounds good.
+
+Andrei Aitzhanov: OK, no.
+
+David Thomson: This is dead. Azure Digital Twins is dead.
+We were trying to use it in the last
+
+Andrei Aitzhanov: Hmm.
+
+David Thomson: company,
+but Microsoft more or less killed it.
+
+David Thomson: They dropped it.
+
+Andrei Aitzhanov: Oh, really? OK.
+
+Olivier Doucet: Yeah.
+
+Andrei Aitzhanov: OK.
+
+David Thomson: For over a year.
+So that's the problem with Microsoft.
+
+Olivier Doucet: Mm.
+
+Andrei Aitzhanov: Oh.
+
+David Thomson: Well, like everybody you know, NVIDIA,
+but this Azure Digital twins.
+
+Andrei Aitzhanov: Yeah.
+
+Andrei Aitzhanov: Uh.
+
+David Thomson: It was quite interesting because it would
+like build this model from raw data.
+
+David Thomson: As far as I understood you kind of would
+build an ontology from data you you fed
+
+Olivier Doucet: Mm.
+
+David Thomson: it but.
+
+Andrei Aitzhanov: Yeah, yeah, yeah,
+that's was idea that they they are using
+
+Andrei Aitzhanov: open modelling language for build the
+ontology of your data and then you can
+
+Andrei Aitzhanov: utilise this in the common platform.
+And another idea that I really like is
+
+Andrei Aitzhanov: that it it's a platform.
+
+Andrei Aitzhanov: Uh.
+
+Andrei Aitzhanov: That you can customer and you can use
+independently of the markets.
+
+Andrei Aitzhanov: It's it's a kind of universal platform
+for any of the markets.
+
+Olivier Doucet: Yeah.
+
+Andrei Aitzhanov: That's also a good idea.
+
+David Thomson: But yeah,
+I I I didn't have a bad experience with
+
+Andrei Aitzhanov: OK, but yeah.
+
+David Thomson: Microsoft, but it's is.
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: I had the same conclusion, you know,
+like let's use Microsoft because it's
+
+David Thomson: gonna be around for a while,
+whereas but actually not they they drop
+
+David Thomson: things and and then they they they come
+up with a new concept to replace it as
+
+Andrei Aitzhanov: OK.
+
+Olivier Doucet: Yeah.
+
+Andrei Aitzhanov: Um, OK, OK.
+
+Olivier Doucet: I mean,
+when I said that it was more about the
+
+David Thomson: well quite often.
+
+Olivier Doucet: fundamentals building blocks,
+I wasn't thinking of building too much on
+
+David Thomson: Yeah.
+
+Olivier Doucet: top of something specific,
+but at least what we are all already
+
+Olivier Doucet: using in our ecosystem.
+
+Olivier Doucet: You know,
+to the team's environment and this
+
+David Thomson: Yep, Yep.
+
+Olivier Doucet: product, but it's true, you know,
+they can also kill them. Yeah,
+
+David Thomson: But less likely because they're they're
+used by millions of people.
+
+Olivier Doucet: that's likely.
+
+Olivier Doucet: It's OK.
+
+Olivier Doucet: But yeah,
+your point to David about this EP,
+
+Andrei Aitzhanov: No.
+
+Olivier Doucet: EP at the business level and how can we
+bake our processes and how we work into a
+
+Olivier Doucet: platform.
+I think this is a really powerful thing
+
+Olivier Doucet: and that's probably a.
+
+Olivier Doucet: Something that business is really keen on
+to make these processes more as far as I
+
+Olivier Doucet: understand to tell me if if this is maybe
+a wrong perception,
+
+Olivier Doucet: but I think is that to be seen as a?
+
+Olivier Doucet: As a as a priority or something really
+important or?
+
+David Thomson: Yeah,
+I I I personally think it's it's
+
+David Thomson: important.
+So one of the things I've seen on several
+
+David Thomson: slides is is like make the digital twin
+of the business like there's a very high
+
+David Thomson: level statement.
+
+David Thomson: But um.
+
+Olivier Doucet: Mm.
+
+David Thomson: Yeah, Mert confirmed this as well.
+So basically he said, yeah,
+
+David Thomson: we we started kind of with this data
+model. We we mapped out, you know,
+
+David Thomson: who does what and how,
+which tools do they use?
+
+David Thomson: Where does the data go?
+
+Olivier Doucet: Hey.
+
+David Thomson: And I think you've heard of the Camino
+project.
+
+David Thomson: So it's like mapping the production
+processes.
+
+Olivier Doucet: Yeah.
+
+David Thomson: There's a small team working on a Camino
+copilot, they call it.
+
+David Thomson: So basically they've connected it to LLM.
+
+David Thomson: And a rag implementation, I think,
+where they can take a PDF and extract a
+
+David Thomson: process from it and then write this
+process in XML.
+
+David Thomson: And at the moment it's hallucinating like
+hell.
+
+David Thomson: But I said, you know,
+I said what's important is first to make
+
+David Thomson: we we do need to capture our business
+processes and our our production
+
+David Thomson: processes and even like the user
+processes down to like the application
+
+David Thomson: level.
+It's generally not a bad thing to do.
+
+David Thomson: But you need to make it scalable.
+So like having somebody model this and
+
+David Thomson: you know,
+it takes them like 10 hours to to write
+
+David Thomson: down a process today is, you know,
+it's not gonna work, so.
+
+David Thomson: I'd seen companies before just like
+recording with screen grabs,
+
+Olivier Doucet: Yeah, yeah.
+
+David Thomson: like how they, you know, make a a drawing,
+how they do a Revit model, design, review,
+
+David Thomson: whatever,
+and just record everything and then point
+
+David Thomson: the AI at this video and get it to
+translate the video into steps.
+
+David Thomson: So, you know,
+I said that's where we need to be with
+
+Olivier Doucet: Mm.
+
+David Thomson: capturing knowledge.
+So I think a lot of people agree that
+
+David Thomson: somehow capturing knowledge is a good
+thing.
+
+David Thomson: And I think you can do a lot with AI,
+like basically, you know,
+
+David Thomson: speak to the A I make.
+
+David Thomson: Video of things and you can do quite
+detailed things if you can get it to be
+
+David Thomson: reliable. And I said, yeah, you for me,
+you need to capture,
+
+Olivier Doucet: Mm.
+
+David Thomson: you know who does what, which role,
+you know, is it a a project manager?
+
+David Thomson: Is this a design coordinator or design
+manager?
+
+David Thomson: Is it a structural detail or whatever?
+
+David Thomson: You need to capture the process,
+of course,
+
+David Thomson: the steps and which tools are used.
+So this is Revit, this is Autodesk Civil,
+
+David Thomson: this is Aviva instrumentation,
+and you need to capture, you know,
+
+Olivier Doucet: Mm.
+
+David Thomson: what data is produced and where does it
+go.
+
+David Thomson: So this is a pin ID.
+It goes into this file directory.
+
+Olivier Doucet: Mm.
+
+David Thomson: This is a, you know, a Revit model.
+It goes into ACC under the project main,
+
+David Thomson: you know, it's all this stuff I think.
+
+David Thomson: It makes sense to do what I said to Peter.
+I said I said I I think this makes sense
+
+David Thomson: to do regardless of how you implement the
+UPE. This is like a background work.
+
+Olivier Doucet: And.
+
+David Thomson: So that's one component I I look at the
+moment I have the.
+
+David Thomson: Product owner for Camino.
+So I'm trying to redirect her work to
+
+David Thomson: start to make a more frictionless capture
+of processes. And yeah,
+
+Olivier Doucet: Mm.
+
+David Thomson: if there's any more details you think we
+need rather than the tools,
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: the deliverables,
+you know where the data goes.
+
+David Thomson: Um.
+
+David Thomson: Then let me know.
+But we we haven't captured the processes
+
+David Thomson: at that level of detail yet,
+so this is still work in progress.
+
+Andrei Aitzhanov: Mhm.
+
+Andrei Aitzhanov: Maybe it's also another idea that I keep
+in mind that we might use some kind of
+
+Andrei Aitzhanov: recording or capturing a tool for record
+the actions by individual actions by user.
+
+Andrei Aitzhanov: For instance, I'm construction engineer.
+I'm doing something.
+
+David Thomson: Mm.
+
+Andrei Aitzhanov: I'm exporting my model to IC.
+I'm importing this to Revit or something
+
+Andrei Aitzhanov: like that and I'm doing some some kind of
+calculations in Excel and all of the
+
+David Thomson: OK.
+
+Andrei Aitzhanov: sections can can be recorded by this tool.
+We can get some kind of XML or Jason
+
+Andrei Aitzhanov: structure file and then reuse it for.
+
+Andrei Aitzhanov: Get knowledge the typical way how we can
+do something some yeah execute this
+
+David Thomson: It's a good.
+
+Andrei Aitzhanov: process.
+It's a good idea because then we could
+
+Olivier Doucet: Yeah.
+
+Andrei Aitzhanov: could utilize it but without this
+spending a lot of hours for get this
+
+Andrei Aitzhanov: knowledge from verbally from the people.
+Yeah we just we can just get it.
+
+Olivier Doucet: Yeah,
+I was thinking the same actually when you
+
+Andrei Aitzhanov: It.
+
+Olivier Doucet: were describing David, like for instance,
+you would have like a small plug in and
+
+David Thomson: Hmm.
+
+Olivier Doucet: sitting in in the different design tools.
+We have the all of this capability for
+
+Olivier Doucet: being extended by add-ons and that would
+be sort of a little spy, you know,
+
+David Thomson: Yeah.
+
+Olivier Doucet: checking what it.
+
+Andrei Aitzhanov: No.
+
+David Thomson: That's the first UPE product.
+
+Olivier Doucet: Doing and.
+
+Andrei Aitzhanov: Yeah, yeah.
+
+Olivier Doucet: Extracting and and feeding our our our
+database,
+
+Olivier Doucet: our internal database that then our MCP
+server can feed off.
+
+Olivier Doucet: And of course this has to be a little bit
+anonymized data,
+
+Olivier Doucet: but we can just record you know the
+discipline of the person.
+
+Olivier Doucet: Maybe you know the country they're in and
+a few indicators that give us context
+
+Olivier Doucet: about what they're doing.
+Maybe the project their own, you know,
+
+Olivier Doucet: that could be interesting.
+And if we have like this sort of top
+
+Olivier Doucet: metadata,
+then we can start to have data we can
+
+Olivier Doucet: leverage. But to do this,
+I think we need something even more to
+
+Olivier Doucet: bootstrap.
+
+Olivier Doucet: This is this concept of the project
+context.
+
+Olivier Doucet: You need to when you start your project
+you need to have some sort of launcher or
+
+David Thomson: Mm.
+
+Olivier Doucet: the portal like Mert describes it maybe
+where you have upfront identified who is
+
+Olivier Doucet: working in what.
+
+Olivier Doucet: The the type of the discipline and the
+type of work of the person actually the
+
+Olivier Doucet: user using the the system and I think
+this is the initial effort is to create
+
+Olivier Doucet: this basic database for identifying
+activity.
+
+Olivier Doucet: On our network so that we can map the
+data somewhere.
+
+David Thomson: It sounds like it.
+I think we discussed it last time as well
+
+David Thomson: that that was a good starting point to
+put like a very minimal data model in
+
+David Thomson: place. So it knows what a project is,
+what a discipline is, what a role is.
+
+Andrei Aitzhanov: Mhm, no.
+
+David Thomson: Where is the user working? Uh, maybe.
+Maybe that's a good thing to start to
+
+Olivier Doucet: Mm.
+
+David Thomson: define in in the loop.
+What would the the basic?
+
+Olivier Doucet: Yeah,
+and and we have the CRM with all of the
+
+Andrei Aitzhanov: No.
+
+Olivier Doucet: projects already.
+We have the the Azure and try ID with all
+
+David Thomson: Yeah.
+
+Olivier Doucet: of the users where we have already you
+know the where people sit in the which
+
+David Thomson: Yeah, yeah.
+
+Olivier Doucet: department.
+So I think we can derive already a lot of
+
+Olivier Doucet: data.
+
+Olivier Doucet: Without having people to to fill in
+anything.
+
+David Thomson: I obviously the the spy bot is is like
+probably controversial,
+
+David Thomson: but I will discuss this with yeah,
+there's several people seem to be
+
+David Thomson: interested in this knowledge capture
+knowledge management idea.
+
+Olivier Doucet: 2.
+
+Andrei Aitzhanov: No.
+
+David Thomson: I'm I'm working on a project is is like
+you know the the robotic modes just
+
+David Thomson: repeating the the process so.
+
+Olivier Doucet: Yeah.
+
+David Thomson: Yeah, I love it.
+Maybe that's maybe that those two
+
+David Thomson: elements are maybe like the first UPE
+product which is the the spy bot and
+
+David Thomson: build the network of information
+automatically.
+
+Olivier Doucet: Yeah.
+
+David Thomson: The the the good thing is because we're
+starting late, you know, like compared to.
+
+Andrei Aitzhanov: Yeah.
+
+Olivier Doucet: Hello.
+
+David Thomson: Mut um,
+you know we we have some of these or
+
+David Thomson: these tools should be easier to to make
+um.
+
+David Thomson: OK. How much time do you guys have?
+I'm OK actually today, but.
+
+Olivier Doucet: I can. I can stretch it a bit more.
+I don't have anything, uh, just behind.
+
+Olivier Doucet: So if you want to to extend a bit,
+it's fine, yeah.
+
+David Thomson: I.
+
+Andrei Aitzhanov: Yeah, I me too.
+
+David Thomson: So I think it's still very helpful.
+We're having really good discussions.
+
+David Thomson: I don't know if you guys want to put more
+structure in it or you think it's still
+
+David Thomson: healthy to to just discuss generally the
+one thing.
+
+David Thomson: I did agree to do this.
+I spoke to the person responsible for UX
+
+David Thomson: in Rumble Tech, Marina,
+and I told her about this.
+
+Andrei Aitzhanov: Mhm.
+
+Olivier Doucet: OK.
+
+David Thomson: Originally I wanted to map out like the.
+
+David Thomson: As is executing project compared to the
+to be executing project,
+
+David Thomson: you know after you have UPE this this is
+what Mert sent me.
+
+Olivier Doucet: Yeah.
+
+David Thomson: I I asked him if he had an opinion about
+you know how.
+
+David Thomson: What's the to be picture?
+And that's what he sent me in response.
+
+Olivier Doucet: OK.
+
+David Thomson: But actually, um, Robin,
+my boss and Marina said we should do some
+
+David Thomson: research in the GBAs where we take one or
+two projects and we just like to talk to.
+
+David Thomson: Well, not even us,
+but basically the UX team do interviews
+
+David Thomson: to the project users and say, you know,
+talk me through doing this project and
+
+Olivier Doucet: And.
+
+David Thomson: you know where the pain points and you
+know what do you do step by step so we
+
+David Thomson: can we can use that team.
+
+David Thomson: Um, to do this kind of initial research?
+
+David Thomson: And maybe I'm thinking we could even use
+that research session to say, well, like,
+
+David Thomson: would you be OK if a, you know,
+spybot was on your shoulder or something
+
+David Thomson: like this, but.
+
+Olivier Doucet: Hmm, yeah.
+
+David Thomson: So we, yeah,
+basically we can do this UXR as well as
+
+David Thomson: part of this initiative.
+
+Andrei Aitzhanov: Yeah.
+
+Olivier Doucet: For me, I'll be honest with you,
+this UX thing,
+
+Olivier Doucet: if if it's today assessing the as is,
+it makes sense,
+
+Olivier Doucet: but the to be given that we are not even
+sure you know what what capability we are,
+
+Olivier Doucet: we want to prioritize and what things.
+
+Olivier Doucet: I'm afraid that if you start putting UX,
+it's going to go in all directions and it
+
+David Thomson: It's it should be to be.
+
+Olivier Doucet: might be a waste of resources so.
+
+David Thomson: Yeah.
+
+David Thomson: It should be the to be story and it it
+should be very limited.
+
+Olivier Doucet: Yeah.
+
+David Thomson: It shouldn't be too big. No,
+like not a giant project,
+
+David Thomson: not not hundreds of users,
+just just very small.
+
+Olivier Doucet: Mm-hmm.
+
+David Thomson: OK.
+
+David Thomson: Um.
+
+David Thomson: Maybe I I just want to share with you
+since you're on.
+
+David Thomson: Um, this workshop? Uh,
+let me bring up the agenda.
+
+Olivier Doucet: The one you you mentioned in in on 24th
+of Feb or something, yeah.
+
+David Thomson: Yeah.
+So the I'll just share that with you so
+
+David Thomson: you can see, so you have some visibility.
+
+David Thomson: So basically Robin encouraged me to do
+this and the the heads of DDP are very
+
+David Thomson: keen to meet each other because they
+don't get to travel much apparently or
+
+David Thomson: not during this restricted travel.
+
+Olivier Doucet: Yeah.
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: So.
+
+David Thomson: Yeah,
+basically those guys are the main
+
+David Thomson: stakeholders, the heads of DDP, Marquetta,
+David,
+
+Olivier Doucet: Mhm.
+
+David Thomson: I think everybody can come apart from
+David Cassano because he's in the US.
+
+Olivier Doucet: Hmm.
+
+David Thomson: So these guys will be on site.
+
+David Thomson: Um, the head.
+The directors have been invited,
+
+David Thomson: but they're like optional.
+
+David Thomson: And then basically the key goals are to
+align on these key requirements again.
+
+Olivier Doucet: Mhm.
+
+David Thomson: I mean,
+I don't have them documented in one place,
+
+David Thomson: unfortunately. I have bits and pieces,
+but it's not really clear. The yeah,
+
+David Thomson: the main outcome, if you like,
+is to agree on this governance model.
+
+David Thomson: So Peter Hayman already agreed to be the
+president of the steering committee.
+
+Olivier Doucet: Mhm.
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: And then I think what the heads of G,
+what the heads of DDP have been telling
+
+David Thomson: me is that we have agreed this layer
+model.
+
+David Thomson: Have you seen this diagram where the UPE
+should be some of it should be like,
+
+Olivier Doucet: Yeah.
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: you know, globally delivered?
+
+David Thomson: And some of it should be GBA specific.
+
+Olivier Doucet: OK.
+
+David Thomson: And they want to agree on like how do we
+govern, you know,
+
+David Thomson: what's global and what's GPA specific.
+So we have to put basically the the
+
+David Thomson: structure around that.
+
+Olivier Doucet: I've seen this and let me say I thought
+it was a bit. I mean,
+
+Olivier Doucet: I like the idea obviously.
+I think it's great idea to be able to
+
+Olivier Doucet: modularize and to to adapt, you know,
+depending on the needs.
+
+Olivier Doucet: But I think it was strange that we had,
+we are discussing this before even we are.
+
+Olivier Doucet: We have identified the the,
+the capabilities that we want because
+
+Olivier Doucet: once you have said, OK,
+this is what we want to implement,
+
+Olivier Doucet: then you can say OK, this part,
+maybe it has to be there.
+
+David Thomson: Yeah.
+
+Olivier Doucet: This doesn't make sense.
+So maybe it's outside of the bundle,
+
+Olivier Doucet: you know, for certain GBA or for.
+
+Olivier Doucet: So to me,
+it sounds a bit strange that I think we
+
+Olivier Doucet: are one step too far ahead.
+We haven't covered enough to.
+
+David Thomson: Hey babe.
+
+Olivier Doucet: And sorry if I'm brutally honest, David.
+Yeah, yeah, yeah.
+
+David Thomson: Brutally honest is is very good at this
+stage. It's it saves time.
+
+Olivier Doucet: So, uh, I would,
+I would think maybe it's good that, uh,
+
+Olivier Doucet: you know, uh, this uh.
+
+Olivier Doucet: Focus on on the.
+
+Olivier Doucet: Identifying you know those those
+different capabilities before we can say
+
+Olivier Doucet: in which in which GBA they should fall.
+
+David Thomson: Yeah,
+I suspect this decision about layers was
+
+David Thomson: done to keep like everybody happy.
+
+Olivier Doucet: Yeah, OK, yeah.
+But then then it's it's good, it's good.
+
+Olivier Doucet: But it I don't know how how effective it
+is to to.
+
+Olivier Doucet: To move things forward in a way,
+I think this should be said that yeah,
+
+Olivier Doucet: it's a granted that it's not gonna be A1
+size for fit all and that it's going to
+
+David Thomson: Yeah.
+
+Olivier Doucet: be constraining,
+but then how useful that is.
+
+Olivier Doucet: At this point I was sort of questioning
+it a little bit.
+
+Olivier Doucet: I think it's a bit of a distraction I
+would say,
+
+Olivier Doucet: but I think it's an important point,
+I agree,
+
+Olivier Doucet: but I wouldn't have too much focus on
+that.
+
+David Thomson: Yeah, that's that's good. Uh, good input.
+
+Olivier Doucet: OK.
+
+David Thomson: But basically my my goal was like
+establish this operating model,
+
+David Thomson: get the get you know one more shot of of
+requirements,
+
+David Thomson: give them a chance to do their homework
+and say this is what we need.
+
+Olivier Doucet: OK.
+
+David Thomson: I mean at the moment I have very high
+level things like Eric is saying we need
+
+David Thomson: to be more data-driven and put in place
+the BIM standards in a.
+
+David Thomson: Consistent way,
+but for me that's like a GBA issue.
+
+Olivier Doucet: Mhm.
+
+David Thomson: They need to do that within their GPA,
+but some other things like we can't do
+
+Olivier Doucet: Hmm.
+
+David Thomson: global work share because people are
+using different tools. OK,
+
+David Thomson: that's then something which is a kind of
+global topic.
+
+David Thomson: But they're not really about capability,
+they're just about these these business
+
+Olivier Doucet: Oh.
+
+David Thomson: initiatives which are needed as a
+precursor to UPE. Actually,
+
+David Thomson: like if we don't have standardized
+workflows and standardized ways of
+
+Olivier Doucet: Mm.
+
+David Thomson: governing projects.
+
+David Thomson: Then you can, you know you can.
+
+David Thomson: I think that's like pre work.
+It's a prerequisite, so anyway.
+
+Olivier Doucet: There has been some work done in in in in
+the GBA. I think.
+
+Olivier Doucet: I think if you press Eric, he will,
+he will give you something. Yeah, yeah,
+
+David Thomson: Yeah.
+
+David Thomson: He's giving me a lot.
+He's giving me a lot.
+
+Olivier Doucet: but.
+
+Olivier Doucet: I I thought I could agree with him a
+little bit on that because OK,
+
+Olivier Doucet: it's not just BIM.
+I mean every project needs to have like a
+
+Olivier Doucet: properly documented and you know,
+naming convention and all of this or at
+
+Olivier Doucet: least one way of defining some
+specification.
+
+Olivier Doucet: I don't think any any discipline is.
+
+David Thomson: Yeah.
+
+Olivier Doucet: Would benefit from having a chaotic
+nonstandardized way of delivering.
+
+Olivier Doucet: So for me this would apply across GBA,
+wouldn't it?
+
+David Thomson: Yeah,
+I think that's it sits with the GB AS.
+
+David Thomson: Yeah, Peter Hayman said that himself.
+He said, you know, David, you, you, you,
+
+David Thomson: you kind of need to wait for the GB AS to
+do some of their harmonisation work and
+
+David Thomson: consolidation work before you can.
+
+Olivier Doucet: Mm.
+
+David Thomson: Probably roll out, you know,
+the concept of UPE. Um.
+
+Olivier Doucet: But if you have,
+let's say if you as a platform,
+
+Olivier Doucet: if you provide a mechanism for a
+different GBA to define their standard,
+
+Olivier Doucet: that's that's I think in that sense I
+think as a platform you could.
+
+Olivier Doucet: Have a underlying underlying mechanism
+that technically will be used by everyone,
+
+David Thomson: Enable it, yeah.
+
+David Thomson: Hmm.
+
+Olivier Doucet: but then you let Gbas or even project you
+know,
+
+Olivier Doucet: configure it and tweak it if they need to.
+
+Olivier Doucet: But the mechanism is is baked in and you
+can harness it.
+
+Olivier Doucet: You just need to configure it and maybe
+you get a template when you initialize
+
+Olivier Doucet: your project.
+So it comes predefined according to you
+
+Olivier Doucet: know what's been agreed to be the the
+standard for a project this size or this
+
+Olivier Doucet: and that.
+So you have predefined templates.
+
+Olivier Doucet: And we can seed the the, the, the,
+the setup for the project in certain ways,
+
+Olivier Doucet: but you can always go in and tweak and
+change things if you want to use
+
+Olivier Doucet: different ways and maybe sometimes we
+have to because the client is enforcing.
+
+Olivier Doucet: No ways. So it should be possible,
+but that's for me, yeah.
+
+David Thomson: Yeah,
+I think this is what Eric has in mind is,
+
+David Thomson: is that we enforce it or provide the
+tools to enforce it.
+
+Olivier Doucet: Mm.
+
+David Thomson: Anyway, this is this is like the agenda.
+I I said you can, um, add to this agenda,
+
+David Thomson: provide feedback.
+They've not done much yet. Um.
+
+David Thomson: And then the second one is around digital
+design and production.
+
+David Thomson: Which is more.
+
+David Thomson: About AI and innovation,
+because it seems like those innovation
+
+David Thomson: topics are kind of external at the moment
+and done in the GBA and they're not
+
+David Thomson: getting the support from Bramble Tech.
+
+Olivier Doucet: Mhm.
+
+David Thomson: I can send this to you and we'll record
+it as well. Yeah, that's fine.
+
+Olivier Doucet: OK.
+
+Olivier Doucet: I took a screenshot now,
+so I have I have a copy, but yeah,
+
+Olivier Doucet: thanks for sharing.
+I really appreciate it.
+
+David Thomson: Yeah.
+
+David Thomson: Um.
+
+Andrei Aitzhanov: No.
+
+David Thomson: I don't think there's anything else.
+I think I'll. Oh,
+
+David Thomson: one more thing I've got going on is um.
+
+David Thomson: We we don't have very good processes for,
+well, we've got,
+
+David Thomson: I think the normal ADO processes for
+managing A backlog and doing the,
+
+David Thomson: you know, the Sprint execution.
+But something I feel I mentioned this
+
+Olivier Doucet: Mm.
+
+David Thomson: before is we don't have a very good.
+
+David Thomson: Tool for doing this kind of platform
+building which is is going to have
+
+David Thomson: multiple products effectively under the
+platform.
+
+David Thomson: So I'm testing this tool aha which is
+what I used in Aviva which is like a a
+
+David Thomson: road mapping.
+
+David Thomson: And yeah, it's mostly a road mapping tool,
+but it allows you to, you know,
+
+David Thomson: like to put in very complex products or a
+portfolio of products and track, you know,
+
+David Thomson: how these different products or features
+or initiatives need to work together.
+
+David Thomson: So I haven't done it yet,
+but my idea is to put in an example of
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: UPE and then we'll kind of use this and
+and demonstrate it to the business and
+
+Olivier Doucet: OK.
+
+David Thomson: say.
+
+David Thomson: We we need this kind of tool to help us
+manage this very complex type of product.
+
+David Thomson: I I I think this I've discovered there's
+a portfolio governance group as well in
+
+David Thomson: rumble tech and they need this tool.
+There's the product lifecycle to people
+
+Olivier Doucet: And.
+
+David Thomson: as well.
+They need this tool and then the product
+
+David Thomson: owners as well so that.
+
+David Thomson: That's part of the work I'm doing to try
+and like improve the process in in
+
+David Thomson: product management as well,
+but I'll try to use UP as an example.
+
+David Thomson: So I'll I'll do like a first draft,
+but I'll probably need you guys input to
+
+David Thomson: say maybe you know where we think this
+split of capabilities is or products.
+
+David Thomson: Further down the line,
+but I'll refer basically to what we've
+
+David Thomson: got in the the loop already.
+
+Olivier Doucet: Yeah,
+but you you mentioned a specific product
+
+Andrei Aitzhanov: Mhm.
+
+Olivier Doucet: that you you want to use for this, David.
+
+David Thomson: Yeah, I'll show you. It's it's called aha.
+Um.
+
+Andrei Aitzhanov: It's actually the name of the EDW on
+shell.
+
+Andrei Aitzhanov: They are using also the same abbreviation.
+
+David Thomson: Who is using it?
+
+Andrei Aitzhanov: It's Shell.
+Shell developed cells EDW internally
+
+David Thomson: Oh yeah.
+
+Andrei Aitzhanov: based on, I don't know,
+it's Microsoft database,
+
+Andrei Aitzhanov: SQL database and it's name of absolutely
+the same. Aha as you mentioned, yeah.
+
+Olivier Doucet: No.
+
+David Thomson: Hmm.
+
+Andrei Aitzhanov: Same abbreviation.
+
+David Thomson: I just typed in my Aviva e-mail address
+by mistake.
+
+Olivier Doucet: I'll have to get the power here.
+
+Andrei Aitzhanov: That's it.
+
+David Thomson: The Hobbit.
+
+David Thomson: Am I sharing my screen?
+
+Olivier Doucet: Uh, not yet, no.
+
+Andrei Aitzhanov: No.
+
+David Thomson: Hang on.
+
+David Thomson: I don't worry.
+What I'll do is I'll make a small video
+
+David Thomson: and I'll send it to anybody who's like
+interested in this.
+
+Olivier Doucet: Mhm.
+
+David Thomson: I'm struggling with the password just now.
+I think I need a coffee.
+
+Olivier Doucet: Yeah, sounds good. But uh, don't worry.
+Uh, you can. Yeah, you can send it later.
+
+Olivier Doucet: I was just curious. It's not urgent.
+
+David Thomson: Yeah,
+it's a very nice tool like basically
+
+David Thomson: allows you to connect all your strategic
+initiatives to like products and features
+
+David Thomson: in your ADO environment and then you can
+kind of measure like are we making
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: progress towards the strategic goal.
+
+David Thomson: And yeah, basically in Aviva,
+they were using it because, you know,
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: they're trying to develop this integrated
+engineering and design,
+
+David Thomson: but actually underneath that concept is
+individual products, right,
+
+David Thomson: that have a product owner.
+
+David Thomson: So in order to make the whole thing move
+along together,
+
+Olivier Doucet: Mhm.
+
+David Thomson: they really struggled to do that in like,
+you know, Jira, DevOps,
+
+David Thomson: whatever kind of agile development
+management platform and it has has been
+
+Olivier Doucet: Mm.
+
+David Thomson: like developed specifically to.
+
+David Thomson: Solve this problem is.
+
+David Thomson: Like this if you want to Google it like
+it.
+
+Olivier Doucet: Right. Yeah, I will look it up.
+
+David Thomson: Yep.
+
+Olivier Doucet: I'm normally quite skeptical towards the
+the new shiny tool,
+
+Olivier Doucet: but it sounds like they have.
+They have cracked something important
+
+Olivier Doucet: here.
+
+David Thomson: Yeah, it's not. It's not so new anymore.
+I mean,
+
+David Thomson: Aviva was using it I guess seven years
+ago. It's quite the stuff. To be honest,
+
+Olivier Doucet: Oh, well.
+
+David Thomson: it they got this problem where they tried
+to put too much features in it and then
+
+David Thomson: now it looks quite clunky. You know,
+it was quite streamlined and simple
+
+David Thomson: before and now it's like too many buttons,
+too many.
+
+David Thomson: Too much going on,
+but it's pretty powerful and I think
+
+Olivier Doucet: Mm.
+
+David Thomson: Ramboll needs.
+Normally I would say just like copy the
+
+David Thomson: concepts and do it like manually in
+notion or something like this.
+
+Olivier Doucet: OK.
+
+David Thomson: You don't need to buy the software to do
+this.
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: But I think Rambo could benefit from
+having this for a few years, but.
+
+Olivier Doucet: Yeah.
+
+David Thomson: You can have a look at it and I'll I'll
+set up this demo environment.
+
+Olivier Doucet: So.
+
+Andrei Aitzhanov: Yeah,
+and interesting because looks like a
+
+Olivier Doucet: Sounds good.
+
+Andrei Aitzhanov: mirror.
+
+David Thomson: It has basically it has Miro inside it,
+but if you do like your product features,
+
+David Thomson: you know as a whiteboard,
+it converts them into like database
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: objects as features and then you can link
+you know the feature to a business
+
+Olivier Doucet: Mm.
+
+Andrei Aitzhanov: Mm.
+
+David Thomson: objective or an initiative.
+
+David Thomson: And yeah,
+it's like data centric way of working
+
+David Thomson: basically.
+
+Olivier Doucet: Sounds like also good for PDP.
+We can connect the the the PDP goals of
+
+Andrei Aitzhanov: Have you?
+
+David Thomson: Oh yeah.
+
+Olivier Doucet: from from the top down.
+
+Andrei Aitzhanov: Yeah.
+
+David Thomson: I hate this system.
+That's what I I I know.
+
+David Thomson: I started using this PDP system and it's
+it's like, uh, very clunky.
+
+Olivier Doucet: Yeah.
+
+Andrei Aitzhanov: Yeah, yeah. OK, nice.
+
+Olivier Doucet: All right.
+
+David Thomson: All right. Yeah.
+Sorry we didn't get too much further on
+
+David Thomson: our agenda,
+but maybe we can get back to like more
+
+David Thomson: frequent meetings and we can go through
+our our plan.
+
+Olivier Doucet: I think it was meaningful conversation
+and yeah.
+
+Andrei Aitzhanov: Yeah, yeah, yeah.
+
+Andrei Aitzhanov: Yeah,
+anyway I recorded transcription of the
+
+Andrei Aitzhanov: session and my idea that I will use AI
+for translate this and organise this in
+
+Andrei Aitzhanov: more shorter version and then I will
+include this into into the loop as a.
+
+David Thomson: Yeah.
+
+David Thomson: That's great.
+
+Andrei Aitzhanov: Yeah,
+it's some minutes of meetings or
+
+Andrei Aitzhanov: something like that. Yeah, that's.
+I think that that's important. Yeah. OK.
+
+David Thomson: Perfect. Thank you very much.
+
+David Thomson: All right, guys, have a good one.
+I'm going to get out this tiny box here.
+
+Olivier Doucet: Yes, thank you.
+
+Olivier Doucet: Yeah, enjoy.
+
+David Thomson: It's hot.
+
+David Thomson: See you guys. Have a good one. Bye, bye.
+

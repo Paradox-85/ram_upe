@@ -1,0 +1,1688 @@
+Olivier Doucet: I will present you with just a specific
+view that you have interest in a certain
+
+Olivier Doucet: context.
+So that's something we could implement
+
+Olivier Doucet: either by running automation through a
+bunch of this data models and whatnot,
+
+Olivier Doucet: all of the format that we can support.
+
+Olivier Doucet: And then generate,
+let's say a small data structure that is
+
+Olivier Doucet: extracting this information.
+And then maybe we need to refresh this
+
+Olivier Doucet: whenever the data changes and we can
+maybe even trigger it automatically with,
+
+Olivier Doucet: you know,
+detection or we can rerun it periodically
+
+Olivier Doucet: when we need.
+
+Olivier Doucet: And then we have this information,
+but it's not coupled or we can also have.
+
+Olivier Doucet: Like some service,
+some layer of service that can
+
+Olivier Doucet: automatically query these things on the
+fly. Of course it won't be as efficient,
+
+Olivier Doucet: but this sort of manifest or a view
+extraction of data,
+
+Olivier Doucet: potentially we could have not just one,
+but different facets.
+
+Olivier Doucet: That would cater for different use cases
+and different purpose or it can be just
+
+David Thomson: Hmm.
+
+Olivier Doucet: one if we can aggregate everything,
+but it all depends for me on what are we
+
+David Thomson: Yeah.
+
+Olivier Doucet: doing with this data.
+
+Olivier Doucet: And what are the use cases?
+I think that would be useful and that
+
+Olivier Doucet: maybe that can help.
+
+David Thomson: Yeah, of course.
+I I don't have that layer level of detail
+
+David Thomson: yet, so it's it's very hard,
+which is why we shouldn't, you know,
+
+Olivier Doucet: Mhm.
+
+David Thomson: start building anything I expect.
+
+David Thomson: That you know we we.
+
+David Thomson: I'll come back to requirements because
+they're very almost like contradictory
+
+David Thomson: requirements somehow at the high level.
+So I think it's going to take longer to
+
+David Thomson: really identify, you know,
+the high priority use cases like why we
+
+David Thomson: need this data that I think as you guys
+already point.
+
+Olivier Doucet: Hmm.
+
+David Thomson: Pointed out there's some other use cases
+where it's more obvious,
+
+David Thomson: like project initialization,
+project provisioning.
+
+David Thomson: I think that's much more clear. Basically,
+you know,
+
+David Thomson: start the project in the right way with
+the right tools,
+
+David Thomson: with the data in the right place.
+You know, that's that's, you know,
+
+Olivier Doucet: Hmm.
+
+David Thomson: that's like much more clear.
+
+David Thomson: But to me, I'm not, you know,
+completely clear.
+
+David Thomson: Do we really need to extract all the data?
+But it's, you know,
+
+David Thomson: I can only say it's case by case,
+but I don't understand those cases at the
+
+Olivier Doucet: Yeah,
+there was something else that I I had the
+
+David Thomson: moment.
+
+Olivier Doucet: opportunity to discuss with some of my
+colleagues here since we spoke on Tuesday
+
+Olivier Doucet: and I I told them that I was involved in
+in this conversation we're having and you
+
+Olivier Doucet: know, we're trying to figure out.
+
+Olivier Doucet: How best we can contribute and what's the
+most needed stuff.
+
+Olivier Doucet: And one of them was almost a bit
+frustrated saying I've heard this,
+
+Olivier Doucet: I don't know how many times we're trying
+to improve,
+
+Olivier Doucet: but for him it was like we haven't even
+fixed level zero of aligning.
+
+Andrei Aitzhanov: Mm.
+
+Olivier Doucet: On the standardization,
+even at the process level.
+
+Olivier Doucet: So it's really difficult to start talking
+about a building anything if you don't
+
+Olivier Doucet: have alignment on, you know,
+how are you going to structure your
+
+Olivier Doucet: folders, what's the workflow?
+A lot of it is really high level,
+
+David Thomson: Yeah.
+
+Olivier Doucet: but when it comes down to the project.
+
+Olivier Doucet: People are often left, you know,
+deciding for themselves how they want to
+
+Olivier Doucet: do it within the discipline and then it
+doesn't really fit together at the
+
+Olivier Doucet: project level. So he was,
+he was a little bit frustrated because
+
+Olivier Doucet: for him it he thinks that UP should.
+
+Olivier Doucet: First and foremost,
+we should have like a really good
+
+Olivier Doucet: alignment on how do we standardize and it
+can be just documents.
+
+Olivier Doucet: It doesn't have to be any engine,
+it can be just some templates or
+
+David Thomson: Yeah.
+
+Olivier Doucet: recommendation on.
+
+Olivier Doucet: What does it mean to implement this check
+in the discipline?
+
+Olivier Doucet: How do we deliver and all of this?
+So that was one of the feedback I got
+
+David Thomson: Hmm.
+
+Olivier Doucet: from from this conversation.
+I thought I would bring it back to this
+
+Olivier Doucet: meeting because we tend to go a little
+bit high level, you know?
+
+Olivier Doucet: All of this technicalities, but.
+
+David Thomson: Yeah, it's it's absolutely right. Um.
+
+David Thomson: You'll see I I started to break down high
+level the work streams and my colleagues
+
+David Thomson: actually started this and the that's very
+fair to say we we don't even have the
+
+David Thomson: basics which is really about process and
+and and project execution,
+
+Olivier Doucet: Yeah.
+
+David Thomson: nothing to do with software.
+
+David Thomson: That's a huge job that needs to be done
+and but what I started to realize is.
+
+Olivier Doucet: Yeah.
+
+David Thomson: Instead of thinking about building the
+platform.
+
+David Thomson: I think there are some like what we,
+I think Rambo calls it like tech enablers.
+
+David Thomson: So I think there are some utilities,
+some bits of software, you know,
+
+Olivier Doucet: Yeah.
+
+David Thomson: which will help to like the data,
+like the knowledge capture idea we talked
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: about on Tuesday.
+There's probably something.
+
+Andrei Aitzhanov: No, no, no.
+
+David Thomson: Things we can develop which will
+significantly maybe speed up the that
+
+Olivier Doucet: Hmm.
+
+David Thomson: process of of of documenting all of the
+basics and and aligning everybody on them.
+
+David Thomson: So, but I'll I'll come back to that.
+But I totally agree. Yeah, Andrei.
+
+Olivier Doucet: Mm.
+
+Andrei Aitzhanov: Yeah,
+just one point as well from my end that
+
+Andrei Aitzhanov: actually as per my experience in energy,
+I I see that all these huge documents
+
+Andrei Aitzhanov: with a lot of rules engineers are not
+following actually.
+
+Andrei Aitzhanov: The best way to to implement this from my
+humble opinion that we need to implement
+
+Andrei Aitzhanov: all these templates,
+workflows and etcetera in the cap tools
+
+Andrei Aitzhanov: or or the instruments that engineers are
+using on a daily basis.
+
+David Thomson: Mm.
+
+Andrei Aitzhanov: And then they don't have a choice to use
+another way.
+
+Andrei Aitzhanov: They should follow these rules because
+it's what how tool is established and
+
+Andrei Aitzhanov: deployed in this particular VDI or
+computer.
+
+Andrei Aitzhanov: That's my my feeling that if you will
+open the Revit, you need to select.
+
+Andrei Aitzhanov: Template and then you don't have a choice
+to use another families or another forms
+
+Andrei Aitzhanov: or something like that.
+It's it's a very basic things,
+
+Andrei Aitzhanov: but I think that this is what we need to
+keep in mind that we need to implement
+
+Andrei Aitzhanov: this into the individual.
+
+Andrei Aitzhanov: Level to the CAD tools and yes,
+I see that for now we are talking about
+
+Andrei Aitzhanov: the AI and machine learning and another,
+but we don't have very fundamental things
+
+Andrei Aitzhanov: like a data model responsible metrics.
+
+Andrei Aitzhanov: Work flows,
+who will do when and what and this kind
+
+Andrei Aitzhanov: of things. Yeah,
+this is very initial things.
+
+David Thomson: Yeah, there's there's many things to do,
+unfortunately. I mean,
+
+David Thomson: there's lots of pressure from up top,
+but then again,
+
+David Thomson: I think they're kind of realistic on time
+frame. Like from my perspective,
+
+David Thomson: they only expect me to get the governance
+in place this year.
+
+David Thomson: But my product manager instinct is like I
+want to build because you put, you know,
+
+Andrei Aitzhanov: Mm.
+
+David Thomson: sooner you put something in the hand of
+the user, you get some feedback,
+
+Olivier Doucet: Mm.
+
+David Thomson: you iterate, you improve.
+So I still intend to, you know,
+
+David Thomson: build something this year hopefully and
+and maybe it's project initialisation,
+
+David Thomson: maybe it's.
+
+David Thomson: But I'm pretty sure we need to build like
+a a. It's maybe not a tool,
+
+David Thomson: but something around the data model.
+
+Andrei Aitzhanov: Yeah, data module, dashboards,
+maybe templates.
+
+Olivier Doucet: Dash dashboard also.
+
+David Thomson: Uh.
+
+David Thomson: Mm.
+
+Andrei Aitzhanov: I mean that at least the list of folders
+and subfolders in the ACC and the rules
+
+David Thomson: Yeah.
+
+Andrei Aitzhanov: who will have access to which folders.
+It's the very fundamental and basic
+
+Andrei Aitzhanov: things what we can do.
+
+Andrei Aitzhanov: And the way how the new projects can be
+initiated, I mean that Revit templates,
+
+Andrei Aitzhanov: if we are talking about buildings for
+instance,
+
+Andrei Aitzhanov: we we also need to understand the pilot
+GBA. Yeah, what we will start,
+
+Andrei Aitzhanov: where we will start.
+I think that's the buildings is a good
+
+Andrei Aitzhanov: candidate here.
+
+Andrei Aitzhanov: And maybe we could standardize the
+workforce for buildings 1st and at least
+
+Andrei Aitzhanov: the way how they initiate new projects,
+how they are submitting the data to the
+
+Andrei Aitzhanov: clients,
+how they are validating the the BIM
+
+Andrei Aitzhanov: models before they will submit this to
+the clients and some kind of thing these
+
+Andrei Aitzhanov: things.
+
+Andrei Aitzhanov: What I keep in mind?
+
+David Thomson: Yeah, Peter made it clear that, you know,
+buildings is the is a sort of logical
+
+David Thomson: place to start.
+I I just got a a slide deck from the UK.
+
+David Thomson: Where is it?
+
+Andrei Aitzhanov: Mm-hmm.
+
+David Thomson: Which is pretty interesting like the
+results of implementing ACC across the
+
+David Thomson: the UK buildings organization and it's
+it's pretty it's like a big endorsement
+
+David Thomson: of ACC but nobody wanted to say that it
+was ACC but simply because.
+
+Olivier Doucet: Hey.
+
+Andrei Aitzhanov: OK.
+
+David Thomson: Like they had a web viewer for the 3D
+model.
+
+Olivier Doucet: OK.
+
+David Thomson: This made a huge difference because
+people were collaborating in a in a
+
+David Thomson: consistent way, you know?
+But I think I can.
+
+David Thomson: I'll make a PDF of this.
+I think I can share it with you.
+
+David Thomson: I'll just double check there's nothing in
+it, but I haven't read it yet.
+
+David Thomson: But yeah,
+it it looks like in a way the UK
+
+Olivier Doucet: Hmm.
+
+David Thomson: buildings organization kind of have done
+this POC anyway.
+
+David Thomson: So that's that's what to build from I
+think.
+
+Olivier Doucet: No, that's good to hear, yeah.
+
+David Thomson: Just to go back,
+so I I mentioned these work streams
+
+David Thomson: because at some point I will officially
+involve you in these work streams. Yeah,
+
+David Thomson: that was it from Autodesk.
+
+David Thomson: I put it in the in here.
+
+Andrei Aitzhanov: Hey, the whoops. Yeah.
+
+David Thomson: In the where is it now?
+I reorganized a bit our the loop.
+
+David Thomson: So it's not DevOps,
+it's it's still loop at this point.
+
+Olivier Doucet: Mm.
+
+David Thomson: I discussed it with Ronnie and my team
+this morning and and everybody was OK
+
+David Thomson: with it, but.
+
+David Thomson: The team before I started had come up
+with these three pillars,
+
+David Thomson: which was connected production eco
+ecosystems.
+
+David Thomson: This is basically our vendor platforms.
+
+Andrei Aitzhanov: Hmm.
+
+David Thomson: Data like production data basically and
+processes.
+
+David Thomson: So these these were pretty close to work
+streams and people had actually started
+
+David Thomson: to execute on those work streams last
+year.
+
+David Thomson: And they did some of the work,
+like this foundational work.
+
+David Thomson: So they mapped, you know,
+what's all the software Rumble's using?
+
+David Thomson: Which are the ones we want to focus on?
+Which are the ones we want to get rid of?
+
+David Thomson: They mapped some of the processes in
+Camino.
+
+David Thomson: I'll I'll come back to it,
+but basically I I added this work stream
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: around governance.
+So this is what this will be the focus of
+
+David Thomson: the workshop in.
+
+Olivier Doucet: Two weeks in Copenega.
+
+David Thomson: On 24th,
+I didn't invite you guys because I think
+
+David Thomson: it's not going to be too much technical
+or building. It's about requirements.
+
+David Thomson: So and to put in place this governance.
+So Peter Hayman will will be the
+
+Olivier Doucet: It's fine.
+
+David Thomson: president of the steering Cole.
+
+David Thomson: Yeah,
+you could imagine every IDT director is
+
+David Thomson: involved somehow and.
+
+David Thomson: There's these guys, Miko,
+who's setting up the stereoco for me.
+
+David Thomson: So that's that's like work package one.
+We get that in place, you know,
+
+David Thomson: first quarter is my my plan including,
+you know, some product management,
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: this single source of truth here.
+
+David Thomson: The other thing which is part of this,
+my colleague set up like a new teams site
+
+David Thomson: which is structured in the same way more
+or less with the work streams,
+
+David Thomson: but we didn't share it yet,
+but that that will be the basis of this.
+
+David Thomson: Yeah. So this one around the platforms,
+which is are owned by my team as well.
+
+David Thomson: They're basically rolling out ACC.
+They're somebody's doing this job to map
+
+David Thomson: the connectivity between the platforms,
+like where do we need interoperability?
+
+David Thomson: Team and like how can we do file exchange
+or data exchange?
+
+David Thomson: So that's already started.
+Somebody in my team is or somebody
+
+David Thomson: working for somebody in my team is doing
+that already.
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: Um.
+
+David Thomson: Yeah,
+this one is about working with Autodesk
+
+David Thomson: to try and, you know,
+test their A I capability,
+
+David Thomson: understand how we're going to use it and
+work together with them to make sure it's,
+
+David Thomson: you know, the way that we want it to be.
+
+Olivier Doucet: Do they? Sorry David,
+does Autodesk mention, sorry,
+
+David Thomson: Um.
+
+Olivier Doucet: any work on the MCP servers that they
+would implement on their way and that
+
+Olivier Doucet: they could make available for like
+Autodesk customer?
+
+Olivier Doucet: I know that for instance,
+Microsoft has open source one MCP server
+
+Olivier Doucet: that is crawling all of that
+documentation.
+
+Olivier Doucet: If you're looking anything Microsoft,
+they have like dedicated agents that can.
+
+Olivier Doucet: Or MCP that can extract data that could
+be something to challenge them with and
+
+Olivier Doucet: say you talk a lot about AI,
+but AI is is a lot about MCP.
+
+Olivier Doucet: I think now in the agentic age,
+what's what are you doing there?
+
+David Thomson: Yeah.
+
+Olivier Doucet: Is there any because that that would be a
+really good to have.
+
+David Thomson: Yeah.
+
+David Thomson: Yeah, I sorry,
+I thought I shared this with you guys.
+
+David Thomson: I attended this A I workshop where they
+presented their different A I initiatives
+
+David Thomson: and and one of them MCP server.
+So they have this you can talk I think or
+
+Olivier Doucet: Mhm.
+
+David Thomson: you can have an agent you know talk
+through.
+
+David Thomson: API to Revit and ACC.
+I think that's it at the moment.
+
+Olivier Doucet: Right.
+
+Olivier Doucet: Hmm.
+
+David Thomson: I'll send it to you. It's not.
+
+Andrei Aitzhanov: Mm-hmm. But uh.
+
+Olivier Doucet: Right. Thanks. Sorry for interrupting.
+
+Andrei Aitzhanov: Yeah, Oliver,
+do you know the the cloud cloud code?
+
+Andrei Aitzhanov: I think you can develop yourself MCP
+server and connect cloud to the Revit.
+
+Olivier Doucet: Hmm.
+
+Andrei Aitzhanov: Or another files through API through
+through Revit API that's possible.
+
+Olivier Doucet: Hmm.
+
+David Thomson: Yeah.
+
+Andrei Aitzhanov: I I I know because I I saw some demos
+that when people developed chatbots for
+
+Andrei Aitzhanov: Revit models.
+
+Andrei Aitzhanov: So I'm I'm pretty sure that it's possible,
+yeah.
+
+Olivier Doucet: Hmm.
+
+Olivier Doucet: Yeah, yeah, it definitely it is.
+I'm just thinking, you know,
+
+Olivier Doucet: if they are also pushing AI always,
+maybe you know that's something that they
+
+Andrei Aitzhanov: Mm.
+
+Andrei Aitzhanov: Hmm.
+
+Olivier Doucet: could provide, you know,
+as part of the offer in the same way they
+
+Olivier Doucet: are exposing all of this well documented
+APIs.
+
+Olivier Doucet: I think that should come with some
+dedicated MCP server that can be.
+
+David Thomson: They yeah,
+I they offer this dedicated MCP server
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: and you'll you'll see in my report.
+I think they.
+
+David Thomson: It's like a public one and I think we
+could just need to.
+
+Olivier Doucet: Mhm.
+
+David Thomson: You can go to some part of their website
+and request access to that.
+
+Olivier Doucet: MM.
+
+David Thomson: I I I've got it in the documentation
+somewhere, so I'll forward that to you.
+
+Olivier Doucet: Yeah.
+
+David Thomson: But yeah,
+this the whole topic of AI in digital
+
+David Thomson: design production, as I mentioned before,
+is like a big topic and we're gonna pick
+
+David Thomson: it up.
+
+David Thomson: You know,
+more generally with the digital design
+
+David Thomson: and roduction charter.
+
+Andrei Aitzhanov: Hmm.
+
+David Thomson: And it's, yeah, the three,
+I think there's three components like AI
+
+David Thomson: from the vendor when you know Autodesk
+make a chatbot for example,
+
+David Thomson: they've got this AI assistant for Revit,
+which is just like they tuned and you
+
+David Thomson: know.
+
+David Thomson: Probably put the rack implementation on a
+old LLM model and you can chat to Revit.
+
+David Thomson: It's it's like a a little bit tuned model
+and then they have you know the more
+
+David Thomson: infrastructure approach where they make
+an NTP server and the services to connect
+
+David Thomson: it to their their different you know
+platform parts.
+
+David Thomson: And then there's like, yeah,
+citizen developer stuff where like you
+
+David Thomson: said, the people will take public cloud,
+you know,
+
+David Thomson: and use the API to to to speak to a a
+civil. I think water are doing it.
+
+David Thomson: They're they're they showed me a demo of
+cloud.
+
+David Thomson: Interrogating a Sybil's 3D model.
+
+Olivier Doucet: Hmm.
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: So yeah, we that one's coming up the.
+
+David Thomson: Data one.
+So the what I'm trying to do just now is
+
+David Thomson: to put a owner in place of each one of
+these work streams.
+
+Olivier Doucet: Hmm.
+
+David Thomson: This one more or less is like.
+
+David Thomson: Paul and Michael from my team,
+they're kind of in that position already
+
+Andrei Aitzhanov: Mhm.
+
+Andrei Aitzhanov: Yeah.
+
+Andrei Aitzhanov: OK.
+
+Andrei Aitzhanov: Paul actually was responsible for data
+strategy preparation.
+
+David Thomson: well and.
+
+Andrei Aitzhanov: I think that two years ago at least one
+side I I I was joined Rambo.
+
+David Thomson: Yeah.
+
+Andrei Aitzhanov: He was leading this this topic in Rambo.
+
+David Thomson: Uh.
+
+Andrei Aitzhanov: No.
+
+David Thomson: Yeah,
+we we just discussed this today that
+
+David Thomson: there needs to be like a data strategy
+person in Rumble, but there's no,
+
+David Thomson: you know,
+responsible for overall data strategy and
+
+David Thomson: I think they need to put that in place
+urgently.
+
+David Thomson: Not just in the design tools,
+but you know, across the business.
+
+Andrei Aitzhanov: Mm.
+
+David Thomson: Um.
+
+Andrei Aitzhanov: No.
+
+David Thomson: Yes.
+So this one that even I said let's try
+
+David Thomson: and do that within engineering and and
+design, but we we don't,
+
+David Thomson: I don't know who the owner is and we
+agreed with Ronnie to work with you guys
+
+David Thomson: on this one at least as like contributors.
+
+David Thomson: So maybe I have to own this like work
+stream in the in the in the short term.
+
+David Thomson: Yeah, the these are.
+
+Olivier Doucet: Geo data.
+I think Tia has also some some expertise
+
+Olivier Doucet: in that. Doesn't she?
+
+David Thomson: Yeah.
+
+Olivier Doucet: From.
+
+Olivier Doucet: But yeah,
+happy to contribute on on on this, David.
+
+Andrei Aitzhanov: Yeah, I I would also maybe,
+I'm not sure how many people we can
+
+David Thomson: OK.
+
+Andrei Aitzhanov: invite, but yeah, for Aviva,
+we also have 3D model parts.
+
+Andrei Aitzhanov: It's a Daniel.
+
+Andrei Aitzhanov: Who's leading this this? Yeah.
+
+David Thomson: Hmm.
+
+David Thomson: I saw he's has to reduce his hours on
+Aviva,
+
+David Thomson: so maybe he has some spare hours for us.
+
+Andrei Aitzhanov: Yeah, yeah, yeah, yeah, definitely.
+And he really,
+
+Andrei Aitzhanov: he really involved in the AI part and for
+this MCP with the the back home. Yeah,
+
+Andrei Aitzhanov: I think that he he understand all of this,
+yeah.
+
+David Thomson: Mhm.
+
+David Thomson: OK. This one is not very well formed.
+So my colleagues, OK, you know,
+
+Andrei Aitzhanov: Yes.
+
+Andrei Aitzhanov: Um.
+
+David Thomson: Paul had started something,
+I think Diana and Michael had.
+
+Andrei Aitzhanov: Mm-hmm.
+
+David Thomson: Like our class library driven, you know,
+data engineering, that kind of stuff.
+
+David Thomson: For me it's I know it only from well from
+2 perspective like the Aviva approach and
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: then the PLM approach, but let's.
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: This is like a big topic.
+We'll we'll come back to this one,
+
+David Thomson: but there's definitely a work stream.
+
+Andrei Aitzhanov: David,
+one small question before we go to this
+
+David Thomson: Yeah.
+
+Andrei Aitzhanov: next section.
+Do you do you do you already see the the
+
+Andrei Aitzhanov: tool or platform for aggregate all these
+requirements,
+
+Andrei Aitzhanov: I mean data requirements from all GB as?
+
+Andrei Aitzhanov: Because you are I I can see that data
+models will be on the on some of the
+
+Andrei Aitzhanov: level of decomposition we will get the
+same entities like company your number.
+
+Andrei Aitzhanov: I don't know it's relevant for all GPSI
+think.
+
+Andrei Aitzhanov: But if we will go deeply to the specific
+things like transport or buildings or
+
+Andrei Aitzhanov: energy,
+then we will get a lot of specific things.
+
+Andrei Aitzhanov: Do you think what kind of platform or
+tool we can use for?
+
+Andrei Aitzhanov: Aggregate this and I I'm thinking about a
+VYS and to be honest because I used
+
+David Thomson: Hmm.
+
+Andrei Aitzhanov: before and as per my experience it's
+really.
+
+Andrei Aitzhanov: Powerful products Aviva ISM Information
+Standard Management tool. It's.
+
+David Thomson: Yeah.
+
+Olivier Doucet: What is it? Sorry.
+
+Olivier Doucet: Hmm.
+
+Andrei Aitzhanov: Yeah, but it's, yeah.
+
+David Thomson: Kind of does change management on
+information.
+
+Andrei Aitzhanov: Standards.
+
+David Thomson: Standards, which is is quite cool. Yeah,
+I mean I'm I'm open to anything this.
+
+David Thomson: So when we run this work stream,
+you know one of the the sub,
+
+David Thomson: you know work stream items will be do we
+need tech enablement like do we need a
+
+Andrei Aitzhanov: Topics.
+
+David Thomson: tool to help us to do this,
+you know and do we.
+
+David Thomson: Is there something we can buy or is it
+something we have to build or do we do in
+
+Olivier Doucet: Hmm.
+
+Andrei Aitzhanov: Yeah, yeah, yeah, yeah, yeah.
+
+David Thomson: Excel? You know,
+so I I think for all of these work
+
+David Thomson: streams there will be a tech enablement
+element which is like do we need a tool
+
+Andrei Aitzhanov: Mhm, no.
+
+David Thomson: or something to help us?
+
+David Thomson: By the way,
+I don't like these work streams as they
+
+Olivier Doucet: Hmm.
+
+David Thomson: are, and I'll explain to you why,
+but that's that's how how they were given
+
+David Thomson: to me.
+So I said let's complete the the work in
+
+David Thomson: these work streams and then maybe we can
+move to a different kind.
+
+David Thomson: So I added this one as well,
+platform and technology enablement.
+
+David Thomson: So this is the discussion we're having
+and it it will turn into pods I guess
+
+David Thomson: wherever we need you know to to you know
+spin up a team to build something.
+
+David Thomson: Or a team to, you know,
+implement a piece of software.
+
+David Thomson: So I just put in there, you know,
+there's there's some tech enablement
+
+David Thomson: needed around the data model.
+Like where do we document this?
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: How do we manage it?
+How can we do that efficiently?
+
+David Thomson: I put in our, you know,
+our idea about gathering knowledge
+
+David Thomson: somehow. You know, again,
+we need to determine if this is high
+
+David Thomson: priority or not.
+I put in here specifically project
+
+David Thomson: initialization and provisioning as well.
+That's, you know, probably a.
+
+David Thomson: Tech enablement topic.
+
+David Thomson: Project data extraction and again it
+needs a discussion like which use cases
+
+David Thomson: does it support and a sort of open
+interoperability layer.
+
+David Thomson: Several people talk to me, you know,
+but open BIM standards and.
+
+David Thomson: Is probably the way to go if you if you
+want to be vendor agnostic,
+
+David Thomson: you know with this interoerability.
+
+Andrei Aitzhanov: Mm.
+
+David Thomson: So there's probably more there, but OK,
+I don't really like these because
+
+Olivier Doucet: It.
+
+David Thomson: especially in this case,
+it's kind of talking about the tool,
+
+David Thomson: sorry,
+the connected production ecosystems and
+
+David Thomson: not the outcome. So speaking to these,
+you know, senior managements.
+
+David Thomson: For me,
+I prefer to do like a work stream based
+
+David Thomson: on our outcome. So for example,
+we need to deliver projects, you know,
+
+David Thomson: really well, excellently.
+And then in order to do that,
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: you know you end up with some tasks
+basically.
+
+David Thomson: Which is like go and document all of the
+processes and come up with, you know,
+
+David Thomson: best practices.
+
+David Thomson: So it's it's kind of just flips the thing
+around saying instead of understanding
+
+David Thomson: processes we we make the work stream
+deliver excellent projects.
+
+David Thomson: But in order to do that we need to
+understand our processes better and and
+
+David Thomson: come up with better processes.
+
+David Thomson: So yeah, at some point I'll, you know,
+rename or transfer the work into these
+
+David Thomson: different work streams which are more
+like outcome based you could say.
+
+Olivier Doucet: Totally agree, yeah.
+
+Andrei Aitzhanov: Yeah, yeah.
+
+David Thomson: And this is very much work and focus,
+but one topic I'd like your opinion on
+
+David Thomson: there there was an outcome, there was a.
+
+David Thomson: I think a task.
+
+David Thomson: Yeah,
+but real-time collaboration under the
+
+David Thomson: Autodesk, you know, umbrella and well,
+in my experience, you know,
+
+Olivier Doucet: Mm.
+
+David Thomson: collaboration is is super,
+super important on every project over a
+
+David Thomson: certain size, you know,
+when it's like more than five people.
+
+David Thomson: And well, in Aviva days, you know,
+we were very envious of Navisworks
+
+David Thomson: because we we always wanted a product
+like this. We had Aviva review,
+
+David Thomson: but Navisworks, you know,
+was was like the single, you know,
+
+David Thomson: everything when every company somehow
+used Navisworks to.
+
+Andrei Aitzhanov: No, it's like a Microsoft Office, yeah.
+
+David Thomson: To collaborate, right?
+
+David Thomson: Yeah, and now, I mean, they didn't.
+I don't know if they made much money from
+
+David Thomson: that, but you know,
+it was like the defacto tool to look at
+
+David Thomson: your models because they supported,
+you know, every import.
+
+Andrei Aitzhanov: Every import here 45 or 46 standards now.
+
+David Thomson: Yeah, and then.
+
+David Thomson: There's one line item there, but you know,
+have a a single way to do collaboration.
+
+David Thomson: For me, again,
+it's the product manager thinking this is
+
+David Thomson: like if we do one thing that probably
+would bring the most benefit if you can
+
+David Thomson: come up with a unified way to collaborate
+regardless of which tools you use.
+
+David Thomson: It it that feels like actually a really
+big win and OK,
+
+Olivier Doucet: Mm.
+
+David Thomson: I I I need to dig further like where are
+we with this topic?
+
+Olivier Doucet: Mm.
+
+David Thomson: Is everybody using Navisworks anyway?
+So it's not a topic.
+
+David Thomson: It sounds like people are using Autodesk
+Construction Cloud viewer now.
+
+David Thomson: Um.
+
+Olivier Doucet: Not everyone, but yeah.
+
+David Thomson: OK, but the people who have ACC,
+so because I saw this comments like I
+
+Olivier Doucet: Yeah.
+
+David Thomson: don't want to open Revit and you know
+damage the model or but as you guys know
+
+David Thomson: there's there's lots of.
+
+David Thomson: Challenges around making collaboration
+work.
+
+David Thomson: OI put that on as a work stream because.
+
+David Thomson: Could be something that brings a lot of
+benefit.
+
+Olivier Doucet: I think it's a really good point, David.
+And yeah,
+
+Olivier Doucet: that's one one thing that can bring a lot
+of lot of value focusing on improving
+
+Olivier Doucet: collaboration. I see this, yeah,
+having sharing the information and having
+
+Olivier Doucet: this federated models easily accessible.
+
+David Thomson: Yeah.
+
+Olivier Doucet: For everyone is really good.
+And also another point I wanted to
+
+Olivier Doucet: mention when I discussed with my
+colleague yesterday was this or actually
+
+Olivier Doucet: it was earlier this morning another
+colleague and he was he's implementing in
+
+Olivier Doucet: one of his projects some sort of
+dashboard or a big list.
+
+Olivier Doucet: I think he uses a SharePoint list where
+all of the models that are worked on in
+
+Olivier Doucet: the project regardless of the discipline
+or area of the project,
+
+Olivier Doucet: they're all listed with some attributes
+and that highlights the expectations.
+
+Olivier Doucet: The date of delivery,
+which work package they belong to,
+
+David Thomson: Mm.
+
+Olivier Doucet: what is the work breakdown structure and
+who has sort of ownership of it so people
+
+David Thomson: Mm.
+
+Olivier Doucet: can see at once.
+
+Olivier Doucet: Like a big list and they don't have to
+navigate the folder structure or inside
+
+Olivier Doucet: ACC or whatever project hotel that you
+are using.
+
+Olivier Doucet: So they have this aggregated view and
+then he's building a Power BI dashboard
+
+Olivier Doucet: on top of this SharePoint list.
+
+Olivier Doucet: So that you can visualize all of the
+models and the the drawings or the assets
+
+Olivier Doucet: or artifacts that people are actually
+producing.
+
+Olivier Doucet: You have like this centralized dashboard
+and it's classified according to whatever
+
+Olivier Doucet: you know metric that that makes sense.
+I I can't remember the details of it,
+
+Olivier Doucet: but that he said is a huge.
+
+Olivier Doucet: Improvement in in project collaboration.
+It has been received with a lot of
+
+Olivier Doucet: positivity and yeah,
+some projects where people are working
+
+Olivier Doucet: and they don't have this,
+they say it's it makes a difference.
+
+Olivier Doucet: So I think this could be also one of this.
+
+Olivier Doucet: 1.
+
+Olivier Doucet: Of the you know how to implement this
+sort of collaboration.
+
+David Thomson: Maybe. Um.
+
+Olivier Doucet: One one way of of of contributing,
+you know, to towards this achievement.
+
+David Thomson: Yeah,
+maybe I'll make a a page on this topic
+
+David Thomson: and you can just drop some notes in there
+about that.
+
+David Thomson: But it it sounds like it's I've yeah,
+I I I think it's a lot of stuff can be.
+
+Olivier Doucet: Yeah.
+
+David Thomson: Done to improve this but.
+
+David Thomson: Yeah, So what I I guess I ask you is that.
+
+David Thomson: There's load, I think,
+loads of work to do around this
+
+David Thomson: foundational stuff.
+
+David Thomson: And yeah,
+I would like to build something to to,
+
+David Thomson: you know, bring some benefits.
+
+David Thomson: Short term,
+so people see we're building something,
+
+David Thomson: it's real, you know, they feel like, OK,
+UP is not not just a concept, it's it's,
+
+David Thomson: you know,
+I have this place to go and yeah,
+
+David Thomson: maybe in the short term we're not really
+going to start to build something, but.
+
+David Thomson: Also think about tech enablement.
+So maybe we will build something,
+
+David Thomson: but it's not the platform itself,
+it's these enablers that allow us to do
+
+David Thomson: the foundational work more quickly.
+But I I will put a big flag in the ground
+
+Olivier Doucet: Hmm.
+
+David Thomson: around collaboration because you know,
+it could be that's one thing we could.
+
+David Thomson: You know, work on to take this,
+you know this idea of the SharePoint
+
+David Thomson: repository with.
+I mean it sounds it sounds really useful.
+
+Olivier Doucet: H.
+
+David Thomson: You know to to to productize that and
+roll it out,
+
+Olivier Doucet: Oh yeah, and and.
+
+David Thomson: you know that probably would have a huge
+benefit.
+
+Olivier Doucet: Enable us here.
+
+Andrei Aitzhanov: I have one idea actually.
+
+Andrei Aitzhanov: What if we will try to use the list of
+deliverables that we are providing to our
+
+Andrei Aitzhanov: clients?
+This is usually our part of the contract
+
+Andrei Aitzhanov: with the client and we have to it's a
+it's a master document register something
+
+David Thomson: Hmm.
+
+Andrei Aitzhanov: for that.
+We need to specify what kind of documents
+
+Andrei Aitzhanov: we will deliver to our clients and then
+if.
+
+Andrei Aitzhanov: We will identify from this huge list what
+kind of of documentation we can automate
+
+Andrei Aitzhanov: or we can structuralize or we can
+establish our tools for provide this in
+
+Andrei Aitzhanov: more proper way or more faster.
+
+Andrei Aitzhanov: Something like that.
+Then I think that it's a kind of fast
+
+Andrei Aitzhanov: results that we can achieve because then
+we could say, OK,
+
+Andrei Aitzhanov: because I can predict that engineers will
+ask why we are developing this because
+
+Andrei Aitzhanov: there are no any real value. Yeah,
+who will pay for that and etcetera.
+
+Andrei Aitzhanov: It's a lot of.
+
+Andrei Aitzhanov: But if we will provide them the the this
+I would say real documents that they
+
+Andrei Aitzhanov: could deliver like a data sheets or I
+don't know line list or something like
+
+Andrei Aitzhanov: that even it's it's it were developed or
+define it in not in the database centric.
+
+Andrei Aitzhanov: Approach,
+but it's kind of automated Excel or
+
+Andrei Aitzhanov: something like that.
+But we will deliver this as a first
+
+Andrei Aitzhanov: results.
+People will see the benefits and value
+
+Andrei Aitzhanov: and then they will support us with the
+next steps and next.
+
+Andrei Aitzhanov: Iterations without this huge work with
+the data models and etcetera. Yeah,
+
+David Thomson: Yeah, I.
+
+Andrei Aitzhanov: that's just idea.
+
+David Thomson: I I think like both of these things.
+So this is our kind of page now platform
+
+David Thomson: and technology enablement, you know,
+put these ideas in there and.
+
+David Thomson: Yeah, I I kind of like this idea.
+This is what I would expect that we take
+
+David Thomson: these ideas from either from like a GBA,
+somebody who's done something to make
+
+David Thomson: their life easier and we, you know,
+productize them and roll them out.
+
+Andrei Aitzhanov: Mhm, mhm.
+
+David Thomson: Or like your kind of master deliverables
+management register,
+
+David Thomson: something like this as well.
+That's these are these are things which I
+
+David Thomson: think can be effectively productized one
+way or another and then rolled out,
+
+David Thomson: you know, under the UP umbrella.
+
+David Thomson: And if they, you know,
+we need to find a balance of making
+
+David Thomson: incremental progress so people see
+something and there will be these these
+
+David Thomson: low hanging fruits, you know,
+as long as I can tie them, you know,
+
+David Thomson: to an overarching story which is like, OK,
+these are.
+
+David Thomson: Utilities. These are, you know,
+these are contributing to the project
+
+David Thomson: delivery excellence work stream, right?
+
+Andrei Aitzhanov: You bring very great idea David.
+I think that we can utilise already
+
+Olivier Doucet: Mm.
+
+Andrei Aitzhanov: existing prototypes,
+proof of concepts that we we have a lot
+
+Andrei Aitzhanov: in Rambo, we have a lot of these things.
+What we can do,
+
+David Thomson: Hmm.
+
+Andrei Aitzhanov: we can analyze the pool of these
+prototypes and understand what they are
+
+Andrei Aitzhanov: really.
+
+Andrei Aitzhanov: Can do and if they we can productize
+these tools like in my case I I used a
+
+Andrei Aitzhanov: specific tool for extract data from
+schematic drawings like tech to doc
+
+David Thomson: Hmm.
+
+Andrei Aitzhanov: scanner or.
+
+Andrei Aitzhanov: Pin ID viewer and etcetera.
+I know that this is relevant for another
+
+Andrei Aitzhanov: project, yeah,
+but this is was developed only for one
+
+Andrei Aitzhanov: project and we then was this because it's
+just be used only once.
+
+Andrei Aitzhanov: I see that we have a lot of this kind of
+cases and if we can.
+
+Andrei Aitzhanov: Have a some kind of repository where we
+could list all these tools like your
+
+Andrei Aitzhanov: products Oliver BM bot. Yeah,
+or I know that Daniel also developed
+
+Andrei Aitzhanov: something and there are a lot of people
+who will develop something and we can.
+
+Andrei Aitzhanov: Aggregate this and understand what we can
+reuse and productize and then provide
+
+Andrei Aitzhanov: this as a first result because it's a
+minimum efforts from our end.
+
+Andrei Aitzhanov: We already have prototypes and this is
+quite big step for.
+
+David Thomson: Yeah, I I asked Ronnie for this actually,
+because I said, is there a list of older,
+
+Andrei Aitzhanov: People.
+
+David Thomson: you know, our homemade products?
+And I think there is inside DPE and
+
+David Thomson: there's another one under tech governance.
+
+Olivier Doucet: Hmm.
+
+David Thomson: But what I I can't do is like map them
+like where they used on the lifecycle or
+
+David Thomson: which kind of projects that they used for.
+
+David Thomson: Yeah, I mean, I I think that's part of it.
+Ideally, you know, we would.
+
+David Thomson: If we had unlimited time and budget,
+we would take these utilities and you
+
+David Thomson: know,
+make them on a a common tech stack and
+
+David Thomson: with a with a, you know,
+unified user experience.
+
+Olivier Doucet: Hmm.
+
+David Thomson: But maybe it's not possible,
+but I'm I'm happy to work in both
+
+David Thomson: directions like we do this kind of
+distributed.
+
+David Thomson: You know, point solutions,
+we really think it's is is global and
+
+David Thomson: then some things are more like on the
+platform level,
+
+Olivier Doucet: Hmm.
+
+David Thomson: but I think a lot of it will be like tech
+enablement which is just like smaller.
+
+David Thomson: Point solutions in the beginning.
+
+Andrei Aitzhanov: Yeah,
+we're kind of micro services as this is
+
+David Thomson: Yeah, yeah.
+
+Andrei Aitzhanov: what we also discussed that our solution
+should be like a micro service
+
+David Thomson: Yeah.
+
+Andrei Aitzhanov: architecture and we can productise this
+as a micro services,
+
+Andrei Aitzhanov: connect this to the unified API and then
+people will use it out-of-the-box.
+
+Andrei Aitzhanov: Based on the best practices and I don't
+know,
+
+Andrei Aitzhanov: it's looks logical to try to reuse and
+unify what you already have instead of
+
+David Thomson: Hmm.
+
+Andrei Aitzhanov: trying to redevelop something so.
+
+David Thomson: Yeah.
+
+David Thomson: Absolutely. So yeah, again, predicted.
+Well, we would just talk,
+
+Andrei Aitzhanov: Oh.
+
+Andrei Aitzhanov: Yeah.
+
+David Thomson: but I really appreciate it.
+We just have to up to the hour, right or?
+
+Andrei Aitzhanov: Yeah, yes.
+
+Olivier Doucet: Yeah, I can.
+
+David Thomson: Oh yeah, I have. OK, but yeah, anything.
+Feel free to like add anything you want
+
+David Thomson: underneath here,
+like a ideas page or some some
+
+Andrei Aitzhanov: Mhm.
+
+Olivier Doucet: Yeah.
+
+David Thomson: description of this SharePoint approach
+and and how it's used.
+
+Olivier Doucet: Yeah, I'll. I'll do that.
+
+David Thomson: And if you have a new work stream,
+you know a sub work stream,
+
+David Thomson: just add that as well.
+
+Olivier Doucet: Hmm.
+
+Andrei Aitzhanov: OK, for sure.
+But at least if we can record and
+
+Olivier Doucet: Perfect.
+
+Andrei Aitzhanov: recognise this session,
+I think that we can also extract the
+
+David Thomson: Yeah.
+
+Andrei Aitzhanov: insights. Yeah. OK, yeah, OK, yeah,
+same to you.
+
+David Thomson: Good stuff from it. All right, guys.
+Have a good one. Thanks again. Bye, bye.
+
+Olivier Doucet: Thank you. Bye, bye.
+
+Andrei Aitzhanov: Same to you. Bye bye.
+

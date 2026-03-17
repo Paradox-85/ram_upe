@@ -1,0 +1,1486 @@
+David Thomson: As well.
+And some companies have this challenge to
+
+David Thomson: hand over the data into the construction
+phase.
+
+David Thomson: So I think that's some kind of
+requirement. How important is it?
+
+David Thomson: I'm not too sure.
+
+David Thomson: Um.
+
+David Thomson: But yeah,
+we we should like keep a note of that.
+
+David Thomson: I think it's it could come up.
+I mean we should build this in a way
+
+David Thomson: which is, you know,
+future proof for that scenario.
+
+Olivier Doucet: Mm.
+
+David Thomson: The other thing that came up with the
+architecture GBA was.
+
+David Thomson: They said, you know,
+they do the architecture,
+
+David Thomson: but then they use other parts of Rambo
+for the structure or the MEP.
+
+David Thomson: And sometimes they it doesn't need to be
+Rambo, they will use Arup even.
+
+David Thomson: So I wonder if this is less important,
+but you know some of these big mega
+
+David Thomson: projects will be executed.
+
+David Thomson: With other partners.
+So just like Aviva projects,
+
+Olivier Doucet: Mm.
+
+David Thomson: you need this ability to talk and
+exchange with the other, you know,
+
+David Thomson: engineering contractors as well.
+
+Olivier Doucet: Yeah,
+I think that's that's something that can
+
+Olivier Doucet: happen that we are being dictated.
+You know,
+
+David Thomson: Mhm.
+
+Olivier Doucet: we have to use this system because of a
+partner or a client. So that's a really,
+
+Olivier Doucet: really good thing to have in mind.
+We don't have full control of the
+
+Olivier Doucet: environment.
+
+David Thomson: Yeah.
+
+Olivier Doucet: Always.
+
+Andrei Aitzhanov: Another idea that I keep in mind that
+regards master data management.
+
+Andrei Aitzhanov: I don't know if it's also should be
+presented on the what what section,
+
+Andrei Aitzhanov: but the idea that we can integrate all
+our.
+
+Andrei Aitzhanov: Reference data into common database and
+then reuse it for our projects. Yeah,
+
+Andrei Aitzhanov: but it's some kind of, I don't know.
+
+Andrei Aitzhanov: Yeah,
+reference database for extract and
+
+Andrei Aitzhanov: collect our.
+
+Andrei Aitzhanov: Best practices and and our reference data.
+Wicker materials, piping materials,
+
+David Thomson: Mm.
+
+Andrei Aitzhanov: fluids.
+
+Andrei Aitzhanov: And another information that we have
+select a legacy from the previous
+
+Andrei Aitzhanov: projects,
+but we can reuse it in the future or
+
+Andrei Aitzhanov: maybe we can review it and consider this
+as a part of our best practices or
+
+Andrei Aitzhanov: something like that. So that's.
+
+David Thomson: I think all all all these topics are are
+relevant and we should, you know,
+
+David Thomson: take a note of them.
+It could be that some of them are more
+
+David Thomson: relevant for individual GPAS and maybe
+they already have some process or some
+
+David Thomson: tooling.
+
+David Thomson: In in the in place. Um.
+
+David Thomson: I I think this is so the the reason I
+need to be a bit careful is the UPE could
+
+David Thomson: do everything in my mind, you know,
+should do everything.
+
+David Thomson: But I think some GBAs will argue why are
+we paying for that? You know,
+
+David Thomson: we manage our materials or our standards
+perfectly well. We don't, we don't.
+
+David Thomson: Don't need another, you know,
+another thing on top,
+
+Olivier Doucet: Hmm.
+
+David Thomson: even if they maybe don't manage it in the
+most data centric way.
+
+Olivier Doucet: Yeah.
+
+David Thomson: But they will claim, you know,
+we have this already.
+
+Olivier Doucet: Mm.
+
+David Thomson: It's a working process.
+We don't need because I don't know if
+
+David Thomson: they will have to pay for this yet,
+but at some point we might start asking
+
+David Thomson: them to pay for it, you know?
+
+Andrei Aitzhanov: Yeah, definitely, but.
+
+David Thomson: So.
+
+Olivier Doucet: Yeah.
+
+Olivier Doucet: Typical uh setup.
+
+Andrei Aitzhanov: And maybe one philosophic question from
+your perspective and your understanding
+
+David Thomson: Yeah.
+
+Andrei Aitzhanov: point of view,
+how it should work in principle?
+
+Andrei Aitzhanov: Is it kind of platform?
+
+Andrei Aitzhanov: Or web application or or I don't know
+some central database that project people.
+
+Andrei Aitzhanov: I mean that project team from transport
+or from energy can use for initiate new
+
+Andrei Aitzhanov: project for instance I am energy.
+
+Andrei Aitzhanov: Guy from substation project, yeah,
+and I know that for this kind of projects
+
+Andrei Aitzhanov: I always using the same naming rules or
+same workflows and et cetera, et cetera,
+
+Andrei Aitzhanov: these kind of things.
+
+Andrei Aitzhanov: How it will work in principle? Yeah,
+I just will open the, I don't know,
+
+Andrei Aitzhanov: portfolio with the list of types of the
+projects.
+
+Andrei Aitzhanov: Will click on the interface that I want
+to initiate new project.
+
+Andrei Aitzhanov: Then I will initiate this project and all
+connected templates, reports, workflows.
+
+Andrei Aitzhanov: To be automatically deployed for my
+project in SharePoint teams as a Kanban
+
+Andrei Aitzhanov: board. I don't know,
+it's just like examples here.
+
+Andrei Aitzhanov: I also will automatically deploy Aviva
+database template project.
+
+Andrei Aitzhanov: Maybe Revits and and this IC structure
+and etcetera. So what do you think?
+
+Andrei Aitzhanov: How it should work?
+Just maybe we can also based on this we
+
+Andrei Aitzhanov: can understand what we should include in
+the scope.
+
+Andrei Aitzhanov: Uh, because that's.
+
+David Thomson: Yeah, I.
+
+David Thomson: It's a very good question. Yeah,
+I think the maybe the most basic.
+
+David Thomson: Worm is, yeah,
+some kind of web interface portal you go
+
+David Thomson: to you.
+It has this basic data model that we
+
+David Thomson: talked about last time.
+You know what what's a project,
+
+David Thomson: what are the disciplines,
+what are the geographical areas,
+
+David Thomson: what are the standards associated with it?
+So some kind of data model there.
+
+David Thomson: And you say make a new project, it knows.
+Then you know behind the scenes it knows
+
+David Thomson: what databases, what CDE,
+what repositories, what tools to set up.
+
+David Thomson: That was my that was my initial thought,
+you know,
+
+Andrei Aitzhanov: No.
+
+David Thomson: some kind of web interface to kind of
+kick things off.
+
+Andrei Aitzhanov: Mm-hmm.
+
+Olivier Doucet: Mm-hmm. Yeah.
+
+David Thomson: And maybe this web interface needs to be.
+It needs to be built in a way that
+
+David Thomson: there's something good in there that
+forces you, not forces you,
+
+David Thomson: but encourages you to use this.
+
+David Thomson: Anytime you're doing any work,
+so let's say you want to start the day's
+
+Andrei Aitzhanov: Hmm.
+
+David Thomson: work,
+you go into the UPE dashboard and it says
+
+David Thomson: OK,
+you're working on this work package or
+
+David Thomson: whatever task it is,
+and then you from there you fire off
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: Revit or Aviva or whatever.
+
+David Thomson: Um, but I was.
+I was also having a little bit of this.
+
+David Thomson: A little bit not mature thought like
+maybe does that change and become more
+
+David Thomson: like an agent that's running all the time
+and knows what you're what you're doing,
+
+David Thomson: what you're working on and it becomes
+like less more like this invisible
+
+David Thomson: computing.
+
+David Thomson: Type of concept where it's not in your
+face,
+
+David Thomson: but I think the practical thing to do is,
+you know, some kind of.
+
+David Thomson: Dashboard tool that you log into in the
+morning and it's it guides you and you
+
+David Thomson: have it, you know,
+running on the on the on the background
+
+David Thomson: and something more like that I think is
+the practical thing to build.
+
+Andrei Aitzhanov: David,
+did you work with the the soul to the
+
+Andrei Aitzhanov: experience platform before?
+Because what you are talking about,
+
+David Thomson: Yeah, I did. I did, yeah.
+
+Andrei Aitzhanov: it's very similar for the 2D experience
+concept that you have widgets.
+
+David Thomson: Yeah.
+
+David Thomson: Yeah.
+
+Andrei Aitzhanov: In the web interface and you can
+customize it based on the type of the
+
+Andrei Aitzhanov: your project and then you can click on
+the dashboard with the plannings,
+
+Andrei Aitzhanov: dashboard with the connect connected to
+the cut tools dashboard to the connected
+
+Andrei Aitzhanov: documents and then you can navigate to
+the specific engineering tools document.
+
+Andrei Aitzhanov: Management system planning to and do your
+real daily work here.
+
+Andrei Aitzhanov: That's I think that it's very similar to
+the or another system concept.
+
+Andrei Aitzhanov: You have common entry point,
+you can control the metrics of the
+
+Andrei Aitzhanov: project, you can and you can predefine it.
+You have a predefined.
+
+Andrei Aitzhanov: Define the templates of your I would say
+widgets and and your instruments that you
+
+Andrei Aitzhanov: are using on daily basis.
+So exactly what you need to use this this
+
+David Thomson: Yeah, we we should definitely look,
+look at that. Have you seen that, Olivier?
+
+Andrei Aitzhanov: day for and let's understand.
+
+Olivier Doucet: No, I haven't.
+Not sure what we are discussing.
+
+David Thomson: It's I I was there.
+I'll try to find some video for you cause
+
+David Thomson: I was there from the beginning when they
+developed this thing and the first
+
+David Thomson: version was very different they they
+because it's a very 3D orientated company.
+
+Olivier Doucet: Mhm.
+
+David Thomson: They believed the entry point to the work
+should be the 3D model, right?
+
+David Thomson: Which wasn't a bad idea.
+So they developed a nice rendering
+
+Olivier Doucet: Um.
+
+David Thomson: technology. You open the model in like a,
+you know, Navis works like a cache mode,
+
+David Thomson: very lightweight model,
+and then you went into your job. But then.
+
+David Thomson: In the process industry,
+they realized when you're doing diagrams
+
+David Thomson: and system design, you don't have 3D,
+right? Like a lot of the work is just 2D,
+
+Olivier Doucet: Yeah.
+
+Olivier Doucet: So you create a dependency on like things
+that you don't need.
+
+David Thomson: so.
+
+David Thomson: Yeah, so they they changed the paradigm.
+So in the beginning it was the 3D model
+
+David Thomson: as the entry point and then they kind of
+changed it into like a record player,
+
+David Thomson: this rotating disk and you had like they
+use this thing, functional, logical.
+
+David Thomson: Physical something else.
+It's like systems engineering approach.
+
+David Thomson: So you start with requirements,
+then you do functional design,
+
+Olivier Doucet: Hmm.
+
+David Thomson: logical design, physical design, mechanic,
+whatever it was.
+
+David Thomson: So that's actually not too bad a paradigm
+like the systems engineering approach.
+
+Olivier Doucet: Hmm.
+
+David Thomson: Start from requirements,
+then you have functional design.
+
+David Thomson: Design, then detailed design,
+then construction design, whatever.
+
+David Thomson: But yeah,
+that's how they stopped when I was there.
+
+David Thomson: They basically stopped and I think now 3D
+experience,
+
+Olivier Doucet: Mm.
+
+David Thomson: we'll probably find some video Andrei,
+which is like more.
+
+David Thomson: Yeah,
+LinkedIn to everything these days like
+
+David Thomson: document management system, PLM, um,
+simulation, so.
+
+Andrei Aitzhanov: Yeah, it's a trip. Yeah, yeah.
+
+Olivier Doucet: What is this called?
+
+David Thomson: This is 3D experience is is their naming
+for this and they know it's access to all
+
+David Thomson: their hundreds of applications behind the
+scenes.
+
+Olivier Doucet: Yeah.
+
+Andrei Aitzhanov: Yeah, yeah.
+
+David Thomson: But it's it's typical clunky,
+the so sort of.
+
+David Thomson: Not I was going to say French,
+but French in the way that Charles de
+
+Olivier Doucet: Um.
+
+David Thomson: Gaulle Terminal One is, you know, special.
+
+Olivier Doucet: Ha ha.
+
+Olivier Doucet: Yeah.
+
+Andrei Aitzhanov: Yeah, but As for me,
+this is really comprehensive solution.
+
+Andrei Aitzhanov: Yeah, from 1 aspect,
+but at the same time it's very flexible
+
+Andrei Aitzhanov: and what I really like,
+I worked in the source system.
+
+Andrei Aitzhanov: Many years ago, but yeah, yeah,
+that's I I know internal kitchen,
+
+David Thomson: Yeah.
+
+Andrei Aitzhanov: but that what's what I observed that
+actually you can customise the user
+
+Andrei Aitzhanov: interface as per.
+
+Andrei Aitzhanov: Rows you you have a matrix of the rows
+for the project for the for for the
+
+David Thomson: Hmm.
+
+Andrei Aitzhanov: template and you can define that for this
+for for engineer we need to represent 3D
+
+Andrei Aitzhanov: model viewer with a connected PBS or GPS.
+You can also connect documents.
+
+Andrei Aitzhanov: List of MDR for instance,
+master document register and and
+
+Andrei Aitzhanov: properties and etcetera etcetera.
+So for project manager it's not make
+
+Andrei Aitzhanov: sense to have this detailed engineers
+engineering deliverables widgets but you
+
+Andrei Aitzhanov: need to have.
+
+Andrei Aitzhanov: Chart. I forget the name of this.
+It's Gantt. Gantt's chart. Yeah, yeah,
+
+David Thomson: The project plan, the Power BI stuff.
+Yeah, Gantt charts.
+
+Andrei Aitzhanov: yeah, yeah, yeah, yeah, yeah.
+This kind of things.
+
+Andrei Aitzhanov: And then you can identify what is
+important for for which kind of users.
+
+Andrei Aitzhanov: And then by default if you will
+authorized in this system,
+
+Andrei Aitzhanov: you will see exactly what is relevant for
+you and then you can track your metrics
+
+David Thomson: And.
+
+Andrei Aitzhanov: or your specific.
+
+Andrei Aitzhanov: Deliverables.
+So here and and and yeah that's also part
+
+Andrei Aitzhanov: of the through the experience but it they
+they they have some kind of it's a
+
+Andrei Aitzhanov: compass I I think I believe they use this
+yeah yeah yeah that that's just to switch
+
+David Thomson: Yeah, they call it.
+
+Andrei Aitzhanov: to different kind of tools you can.
+
+Andrei Aitzhanov: Select 3D model tools.
+You can select documents,
+
+Andrei Aitzhanov: document management tools and et cetera,
+et cetera. But it's a.
+
+Olivier Doucet: So is this is this a launcher type of
+application like where you start?
+
+Olivier Doucet: It's like the the sort of a homepage for
+a engineer and then you you launch the
+
+Andrei Aitzhanov: Bing.
+
+Olivier Doucet: different applications from there.
+Is that kind of the idea of this what
+
+Andrei Aitzhanov: Some something like, yeah, something like,
+but actually most of the applications are
+
+Olivier Doucet: we're looking at or?
+
+Andrei Aitzhanov: integrated into this platform.
+It's a it's all web widgets and web
+
+David Thomson: Mm.
+
+Andrei Aitzhanov: applications.
+
+Andrei Aitzhanov: They have a CATIA,
+they have a SolidWorks as a separate
+
+Olivier Doucet: Mm.
+
+Andrei Aitzhanov: tools and this is for sure you need to
+install as a desktop application. Yeah,
+
+Andrei Aitzhanov: but for widgets for viewers,
+it's fully integrated into web.
+
+David Thomson: Mm.
+
+Olivier Doucet: I mean.
+
+Andrei Aitzhanov: So it's not different. Yeah, Yep.
+
+David Thomson: I think their strategy was to make,
+you know,
+
+David Thomson: Katia into a web app as well or or maybe
+Solidworks. They start with that, but.
+
+Olivier Doucet: Mm.
+
+Andrei Aitzhanov: Yeah, yeah, yeah, I think so. I think so.
+Yeah.
+
+Andrei Aitzhanov: I don't know exactly the status here.
+
+David Thomson: Right.
+
+David Thomson: I think this is interesting because for
+does so.
+
+David Thomson: I don't know how much you know about them,
+Olivier,
+
+David Thomson: but they they try to have like everything.
+They they try to have like really,
+
+Olivier Doucet: A little bit.
+
+David Thomson: really the the mother of all platforms.
+So you never need to leave their
+
+Olivier Doucet: Mm.
+
+David Thomson: ecosystem.
+
+David Thomson: And I think they do have most parts,
+you know, they acquired, who was it?
+
+David Thomson: Ansys, they, you know,
+they they have two or three mechanical
+
+David Thomson: design tools,
+two or three product lifecycle management
+
+Olivier Doucet: Mm.
+
+David Thomson: tools, simulation,
+you know they they they try to keep you
+
+David Thomson: inside their ecosystem which.
+
+Olivier Doucet: Hmm.
+
+David Thomson: You know, customers hate so.
+
+Olivier Doucet: Yeah, I mean,
+Autodesk is doing that as well to some
+
+Olivier Doucet: extent.
+
+David Thomson: Everybody's trying to do this and I
+always, you know,
+
+Olivier Doucet: Yeah.
+
+David Thomson: I thought that's not very attractive for
+customers because nobody wants to put all
+
+David Thomson: their eggs in one basket really.
+But for the UPE,
+
+David Thomson: it's actually quite appropriate, you know,
+to the idea of.
+
+Olivier Doucet: Mm.
+
+David Thomson: You know one entry point and and widgets
+and the fact that you know our our
+
+David Thomson: suppliers are are are making more and
+more kind of web-based tools or you know
+
+David Thomson: maybe ACC needs to appear inside that
+framework and you just have a small
+
+Olivier Doucet: Yeah.
+
+David Thomson: toolbar at the top you know from UPE.
+
+David Thomson: Um, please, I was going to just ask you,
+what do you think about the how this
+
+Olivier Doucet: I have a different opinion actually.
+
+Olivier Doucet: So for me,
+I would like to maybe step back a little
+
+David Thomson: should work?
+
+Olivier Doucet: bit.
+I'm not too focused on what it looks like
+
+Andrei Aitzhanov: OK.
+
+Olivier Doucet: necessarily at this point.
+I think it's a bit early to try to tackle
+
+Olivier Doucet: the visual aspect and all of that.
+I was more and that's what I tried to
+
+David Thomson: Hmm.
+
+Olivier Doucet: start with on the what, you know,
+these different features.
+
+Olivier Doucet: Features and once we have these different
+capabilities,
+
+David Thomson: Yeah.
+
+Olivier Doucet: because I think there is so much to cover,
+you can't possibly cram everything in one
+
+Olivier Doucet: use interface.
+So I believe in depending who you are and
+
+Olivier Doucet: what you do on the project,
+if you are one of the persons who is
+
+Olivier Doucet: supposed to work on this provisioning or
+deprovisioning.
+
+Olivier Doucet: Sort of control plane.
+Then you probably have a dedicated page
+
+Olivier Doucet: that most engineers will never see
+because it's not like everyone who is
+
+David Thomson: Yeah, yeah.
+
+Olivier Doucet: going to be granted permission to go
+ahead and provision an environment.
+
+Olivier Doucet: So that is going to be its own thing I
+guess.
+
+Olivier Doucet: It might well be served by the same UP
+web application,
+
+Olivier Doucet: but it would be like a reserved page
+altogether.
+
+Olivier Doucet: A reserved module for the engineers who
+are working on the project.
+
+Olivier Doucet: Definitely.
+I think there should be some sort of
+
+Olivier Doucet: landing page where you can see the
+different applications depending on what
+
+Olivier Doucet: discipline you are identified as,
+and all of this data is kind of already
+
+Olivier Doucet: in our.
+
+Olivier Doucet: Azure Entra ID.
+We have a lot we can derive from where
+
+Olivier Doucet: people are sitting some capability.
+We don't need to necessarily go and tag
+
+David Thomson: Mhm.
+
+Olivier Doucet: everyone,
+but having a bunch of tools that you
+
+Olivier Doucet: expect a certain person to work with.
+
+Olivier Doucet: With.
+
+Olivier Doucet: And also having the context of the
+project. So if I'm like, I don't know,
+
+Olivier Doucet: landscape architect and I work at the
+moment on let's say five different
+
+Olivier Doucet: projects,
+I want this like maybe a drop down.
+
+Olivier Doucet: You know at the top with all of the
+projects that I work with and I can
+
+Olivier Doucet: select OK now I'm gonna work on this
+project and when I do that the context of
+
+Olivier Doucet: my application changes and if I start
+maybe some application or I'm already
+
+Olivier Doucet: injecting this is the project ID for this
+project.
+
+Olivier Doucet: So if I wanna open ACC or if I wanna open
+AutoCAD,
+
+Olivier Doucet: maybe it takes me directly to this
+project and it can seed the environment
+
+Olivier Doucet: with the project context.
+So some sort of launcher.
+
+Olivier Doucet: That allows you to select which project
+you want to work on,
+
+Olivier Doucet: but you can maybe have also an aggregated
+view when it comes to your schedule if
+
+Olivier Doucet: you want to see you know how am I doing
+with my time,
+
+Olivier Doucet: my deadlines and all of that.
+
+Olivier Doucet: But now we are leaning more into the
+planning delivery aspect of it.
+
+Olivier Doucet: So it's all about what do we want to
+prioritize and what and yeah,
+
+Olivier Doucet: more of the back end,
+how things will look. I mean, yeah,
+
+Olivier Doucet: maybe we have to do that because that's
+what.
+
+Olivier Doucet: People relate to I'm more of a back end
+person,
+
+Olivier Doucet: so I think more in terms of what needs to
+be there to happen. But yeah,
+
+Andrei Aitzhanov: Building books. Yeah, I built. Yeah, I'm.
+
+Olivier Doucet: I appreciate it's good to have also a
+presentation to get some buy in, you know.
+
+David Thomson: It's it's a good it's a good team with
+this back end and and and front end focus
+
+David Thomson: because yeah that's exactly what's needed.
+I I agree you know the the UI kind of
+
+David Thomson: comes later but.
+
+David Thomson: Um, one thing.
+
+David Thomson: That it helps to, let's say, get buy-in,
+you know,
+
+David Thomson: on this is like imagine this is how
+you're running the project.
+
+Olivier Doucet: Yeah, yeah, I get that.
+
+David Thomson: But I think what you described is
+actually pretty close to the 3D
+
+David Thomson: experience idea. You know,
+you have a contextual dashboard.
+
+Andrei Aitzhanov: Yeah, no.
+
+David Thomson: Role, you know, role based.
+If you're a project manager will show you
+
+David Thomson: or if you're an admin,
+you know will show you predominantly the
+
+David Thomson: tools you need.
+If you're an architect on a project,
+
+David Thomson: that will show you a different view and I
+think it is good.
+
+Olivier Doucet: Mm.
+
+David Thomson: We we should think about, you know,
+what is the experience of using this
+
+David Thomson: upfront,
+because sometimes that can determine a
+
+David Thomson: lot about the architecture. But yeah,
+I I think that was a good discussion to
+
+Olivier Doucet: Um.
+
+David Thomson: have, at least to put in our minds.
+
+Andrei Aitzhanov: Yeah,
+maybe it makes sense to discuss how we
+
+Andrei Aitzhanov: can collect and integrate our results of
+our discussion in the chart. Oliver,
+
+Andrei Aitzhanov: I think that we can continue use your.
+
+Andrei Aitzhanov: Your file? Yeah, that's.
+
+Olivier Doucet: Yeah, exactly. You did.
+You did post some points last week and we
+
+Olivier Doucet: should definitely address those. So yeah.
+
+David Thomson: Quick question,
+do we need like a common working space to
+
+Andrei Aitzhanov: No.
+
+David Thomson: put these files and our discussions?
+
+Olivier Doucet: Right.
+So I started actually and I I'm sorry
+
+Olivier Doucet: because I I forgot to to communicate to
+that David. But yes, this files I was,
+
+David Thomson: Open.
+
+Olivier Doucet: I mean it's not so much for now.
+I can share it again what we were looking
+
+Olivier Doucet: at last week. So this brainstorming.
+
+Olivier Doucet: Data.
+Actually I have put it in a very minimal
+
+Olivier Doucet: Git repository that I can actually expose
+this as a wiki and I'm currently hosting
+
+David Thomson: OK.
+
+Olivier Doucet: it inside Azure DevOps and I think I can
+give you some access to this.
+
+Olivier Doucet: And send you a link and you can tell me
+if you if you are able to to access so I
+
+David Thomson: OK,
+I I should have a ADO like a full access
+
+Olivier Doucet: think.
+
+David Thomson: to that because I'm a product manager,
+so I haven't tried it yet, but I I should.
+
+Olivier Doucet: Yeah.
+
+Olivier Doucet: I can, I can, yeah,
+try to fix that quickly and see if I'm
+
+Olivier Doucet: able actually to to set that up because I
+think.
+
+Andrei Aitzhanov: Is it in? Is it in Azure?
+OK and maybe we have some kind of tool
+
+Andrei Aitzhanov: for work with the MD files in Azure or we
+have to use Visual Studio Codes for
+
+Andrei Aitzhanov: modify this. Oliver,
+what do you think is it?
+
+Olivier Doucet: Yeah,
+maybe maybe this is a bit too code
+
+Olivier Doucet: oriented.
+I don't know if if you because I started
+
+Olivier Doucet: like this using like this repo and you
+know just basic MD file that can be
+
+Andrei Aitzhanov: No.
+
+Olivier Doucet: rendered.
+
+Olivier Doucet: But for maybe you know docs or or
+whatever,
+
+Andrei Aitzhanov: Uh, OK.
+
+Olivier Doucet: we could also have like a SharePoint or
+something.
+
+Andrei Aitzhanov: No, no, no.
+I I I see that it's suggested in a text
+
+Andrei Aitzhanov: file. We can modify. Yeah, yeah,
+we can modify in text format, yeah.
+
+Olivier Doucet: This is just text, yeah, and I can.
+I think I can create a here wiki.
+
+Olivier Doucet: I can probably add create a project wiki
+or publish code as wiki.
+
+Andrei Aitzhanov: Mm-hmm.
+
+Olivier Doucet: I think that's what you do.
+And then I'm supposed to pick a was it a
+
+Andrei Aitzhanov: Mhm.
+
+Olivier Doucet: folder?
+
+Olivier Doucet: Oh yeah, I think it does it.
+
+Andrei Aitzhanov: Yeah,
+I think that it's a great idea that we
+
+Andrei Aitzhanov: can publish our transcriptions and
+recordings of the session and another
+
+Andrei Aitzhanov: point that I can try to extract text from
+our conversation and also try to use LOM
+
+Andrei Aitzhanov: for summarize and maybe get some.
+
+Andrei Aitzhanov: Kind of yeah comments and that we can use
+for integrating to the this this diagram.
+
+Olivier Doucet: Mm.
+
+Andrei Aitzhanov: So we we need to maybe we also need to
+discuss the the principles here how we're
+
+David Thomson: M.
+
+Andrei Aitzhanov: going to work in and integrate our ideas
+into the document.
+
+Andrei Aitzhanov: And how we can represent this finally to
+the and other people. That's also ideal,
+
+Olivier Doucet: Um.
+
+Andrei Aitzhanov: but we can use MD for now as a as a
+source file.
+
+David Thomson: Yeah.
+
+Andrei Aitzhanov: And then finally once we will discuss and
+integrate all our ideas,
+
+Andrei Aitzhanov: we can transfer this to the PowerPoint
+presentation or I don't know anything.
+
+Andrei Aitzhanov: Else just to represent this for the
+another users, yeah.
+
+Olivier Doucet: Mm.
+
+David Thomson: I wanted to show you something.
+
+Andrei Aitzhanov: That's.
+
+Andrei Aitzhanov: Oh.
+
+Olivier Doucet: Yeah, go ahead.
+
+David Thomson: So just so you know,
+because it's it's going on there,
+
+Andrei Aitzhanov: Sure.
+
+David Thomson: can I share my screen a second?
+It's it's good we do this admin stuff.
+
+Olivier Doucet: Yeah, yeah, go ahead.
+
+David Thomson: So I I was very frustrated that the
+information about UP is like not very
+
+David Thomson: accessible.
+It's it's spread out all over the place.
+
+David Thomson: So I I learned this from the last two
+jobs.
+
+Andrei Aitzhanov: Hmm.
+
+David Thomson: The the previous start-up was using
+Notion and this is something called
+
+David Thomson: Microsoft Loop which is like a copy of of
+Notion.
+
+Andrei Aitzhanov: Mhm, no.
+
+David Thomson: And basically I I put you know I I will
+put everything in here for for my team at
+
+David Thomson: least.
+
+David Thomson: It might be good if we just combine
+together, but.
+
+Olivier Doucet: Mhm.
+
+Andrei Aitzhanov: Mhm.
+
+Andrei Aitzhanov: Yeah.
+
+Olivier Doucet: Absolutely. I mean,
+we can use this as well.
+
+Andrei Aitzhanov: Yeah, yeah, yeah.
+
+David Thomson: So this is like the intention of this is
+I will share this not with all ramble but
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: with IDT leads head of DDP at that level
+so that you know we have here like what
+
+David Thomson: is UPE?
+
+David Thomson: I've got something about the the
+governance, the scope.
+
+David Thomson: The reason I did this is I have to
+deliver a road map next Wednesday for UPE,
+
+Andrei Aitzhanov: Yeah.
+
+David Thomson: which is like backwards.
+I'm not really in a position to give a
+
+David Thomson: road map.
+
+Olivier Doucet: It it's a yeah, it's really short.
+
+David Thomson: But I started to, yeah,
+I started to make this multi generational
+
+David Thomson: platform plan. It's it's basically covers.
+If you look at these rows,
+
+David Thomson: it's like what's the platform state,
+what's the underlying technology so.
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: You know,
+something about the platforms we use.
+
+Olivier Doucet: Mm.
+
+David Thomson: Microsoft is in here,
+information backbone process and
+
+David Thomson: standards governance and then the core
+UPE capabilities.
+
+David Thomson: I actually took what we did on the last
+session and I've, you know,
+
+David Thomson: I've got some of those things in here.
+
+David Thomson: Then I'm going to make sure the
+requirements are from the GPAS here.
+
+David Thomson: The idea is they they add their
+requirements there.
+
+David Thomson: I don't need to chase them if that works.
+And then like I'm using this for the
+
+Olivier Doucet: Awesome.
+
+David Thomson: project,
+basically a sort of project management of
+
+David Thomson: the whole thing.
+
+David Thomson: So we could and like technical strategy
+and architecture is more or less what
+
+Andrei Aitzhanov: It's.
+
+David Thomson: we've been working on.
+So I could just give you access to that
+
+David Thomson: and we can start to add.
+We could just put a link to your MD file
+
+David Thomson: in there.
+
+Olivier Doucet: Yeah, definitely I can.
+I I was experiencing some issues now,
+
+Andrei Aitzhanov: No, that's.
+
+Olivier Doucet: but I'll fix that and then it will be
+actually published.
+
+Olivier Doucet: So I can give you a link even and if you
+go there,
+
+David Thomson: Yeah, that's fine.
+
+Olivier Doucet: I think everyone should be able to to
+view it, not necessarily edit,
+
+Olivier Doucet: but at least they will be able to to
+consume it.
+
+Andrei Aitzhanov: Mhm. OK.
+
+David Thomson: Yeah, I mean,
+I my team is not very technical,
+
+David Thomson: the people who report to me and I kind of
+consider you guys like as the solution
+
+David Thomson: architects, like so far unofficial,
+but that that's how I consider you sort
+
+David Thomson: of in the team.
+
+Olivier Doucet: Mm.
+
+David Thomson: And um.
+
+Andrei Aitzhanov: Yeah.
+
+David Thomson: Yeah,
+so maybe I just give you access to this
+
+David Thomson: and we can use this like a wiki.
+
+Andrei Aitzhanov: Yeah, yeah, yeah, yeah.
+It's very similar to confluence concept.
+
+Olivier Doucet: Yeah.
+
+David Thomson: Yeah, Confluence,
+Confluence and and Notions is very
+
+Andrei Aitzhanov: Similar now.
+
+David Thomson: similar and you know everything is nice
+because you can it's fully integrated in
+
+David Thomson: the Microsoft. So you can turn this,
+you can turn each thing into like into a
+
+Andrei Aitzhanov: Microsoft.
+
+David Thomson: component and then you can share an
+e-mail and.
+
+David Thomson: Teams and chats and it's it's the same
+thing referred to behind the scenes.
+
+Andrei Aitzhanov: Mhm.
+
+David Thomson: It's like database approach to text.
+
+Olivier Doucet: Let's use this.
+I think it's awesome because I I I heard
+
+Andrei Aitzhanov: Yeah.
+
+Andrei Aitzhanov: Yeah.
+
+Olivier Doucet: about it,
+but I have never had a chance to really
+
+Olivier Doucet: play with it, so yeah, happy to to use it.
+
+Andrei Aitzhanov: No, no, it's very powerful thing. Yeah.
+And this is another good idea that I
+
+Andrei Aitzhanov: don't know if we can connect this to the
+Microsoft Teams schedule scheduler or or
+
+Andrei Aitzhanov: something like that just to have Kanban
+board and we can use these for.
+
+David Thomson: Yeah.
+
+Andrei Aitzhanov: Or like a sprint sessions. Yeah,
+we have a not now maybe,
+
+David Thomson: Yeah.
+
+Andrei Aitzhanov: but in the future,
+once we will get some dedicated tasks,
+
+Andrei Aitzhanov: we can define who will do of what and we
+can integrate here as well these things.
+
+David Thomson: Yeah.
+
+Andrei Aitzhanov: Yeah, it's working.
+
+David Thomson: Yeah,
+this is the only problem I had with this
+
+Andrei Aitzhanov: Very, very nice.
+
+David Thomson: because you have Kanban as loop
+components,
+
+David Thomson: but it's it's not the same as the
+Microsoft Tasks Planner. Sorry.
+
+Andrei Aitzhanov: Mm.
+
+Olivier Doucet: Oh.
+
+Andrei Aitzhanov: Uh, OK, OK, OK, OK.
+
+David Thomson: So this is where Microsoft screwed up
+like they you can actually take a planner
+
+Olivier Doucet: Mm.
+
+Andrei Aitzhanov: Uh huh.
+
+David Thomson: board and and paste it in here as a
+component so that that works but we we
+
+David Thomson: figure out.
+But you can see it's got everything you
+
+David Thomson: need. I shared it with you.
+
+Andrei Aitzhanov: No.
+
+David Thomson: Already this thing here.
+
+Andrei Aitzhanov: Yeah, perfect. Perfect. Yeah,
+that's really nice. OK,
+
+Olivier Doucet: Perfect. Thank you, David.
+
+David Thomson: Alright.
+
+Andrei Aitzhanov: so maybe then we can finalised for now.
+So because I have to go, but.
+
+Olivier Doucet: No.
+
+David Thomson: Yeah, and.
+
+Andrei Aitzhanov: Yep.
+
+David Thomson: And maybe Olivier,
+I don't know if you had any next thoughts,
+
+David Thomson: but we we could just delay till the next
+session.
+
+Olivier Doucet: Yeah, yeah, we can take it.
+I just wanted to react on on your point
+
+David Thomson: I think it's good to do some of this
+admin.
+
+Olivier Doucet: earlier about the GBA is that they should
+feel included and not like something
+
+Olivier Doucet: global is going to be imposed on them and
+I think it's a very,
+
+David Thomson: Yeah.
+
+Olivier Doucet: very good concern to have,
+but at the same time I think.
+
+Olivier Doucet: We should use use and ask them,
+you know what what do you have good that
+
+David Thomson: Yeah.
+
+Olivier Doucet: we can reuse because it's it's also about
+taking what works and maybe reusing for
+
+Olivier Doucet: other GPS.
+
+Olivier Doucet: And and not they were around so.
+
+David Thomson: So I.
+
+David Thomson: Yeah,
+the the final kind of piece of
+
+David Thomson: information is I will run a a kick off
+for the GPAS basically in Copenhagen the
+
+David Thomson: week of the 16th of February.
+Probably it's some people on site,
+
+David Thomson: some people remote.
+
+David Thomson: So I haven't planned it yet,
+but that that's intention is to bring
+
+David Thomson: those,
+I think it's IDT directors and then the
+
+David Thomson: the head office DDP will will invite
+directly.
+
+Andrei Aitzhanov: M.
+
+David Thomson: And the idea is I think because there's
+been some history,
+
+David Thomson: we'll just try to restart the process and
+say, OK, is everybody aligned?
+
+David Thomson: Um.
+
+Olivier Doucet: Mm.
+
+David Thomson: But that's, you know,
+I said I I haven't really told too many
+
+Andrei Aitzhanov: OK.
+
+David Thomson: people,
+but I think we should run what we're
+
+David Thomson: doing in parallel because for me,
+like I said,
+
+David Thomson: it's basically like solution architecture
+is being done and even if there's some
+
+David Thomson: changes on the high level.
+
+David Thomson: I don't think it changes these
+fundamental capabilities and the the
+
+David Thomson: architecture like,
+so it's it's good that we get ahead with
+
+Olivier Doucet: Mhm.
+
+David Thomson: this this work as well. But yeah, Andre,
+good luck delivering your your things.
+
+Andrei Aitzhanov: Yeah, thank you. Thank you guys. Yeah.
+But I I think that it's really important
+
+Andrei Aitzhanov: to have this retrospective session with
+the ITS because then we could at least
+
+Andrei Aitzhanov: refresh the status.
+I understand what they did before because
+
+David Thomson: Yeah.
+
+Andrei Aitzhanov: I know that there are a lot of
+initiatives internally in G Base and
+
+Andrei Aitzhanov: nobody else can.
+
+Andrei Aitzhanov: Explain what they are doing.
+So we need to exchange and and
+
+David Thomson: Yeah.
+
+Andrei Aitzhanov: synchronize our understanding what we are
+doing together. Yeah,
+
+Andrei Aitzhanov: that's very important.
+I fully agree with that, yeah.
+
+Olivier Doucet: Thank you. Yeah. Bye-bye.
+
