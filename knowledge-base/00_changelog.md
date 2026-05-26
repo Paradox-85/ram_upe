@@ -42,7 +42,9 @@ files_affected:
 - Refreshed `reports/stakeholder_brief_2026-05-26.md` — Status changed to `draft` (pending review). One-page narrative on DDDM for UPE. Plain-language master/fork/prototype explanation. Exactly three colleague decisions requested. References `../demo_script.md`.
 
 **Prototypes:**
-- Refreshed `prototypes/sprint-01_project_initialization/prototype_prompt.md` — Self-contained prompt for v0.dev/Replit/Claude. Exactly 5 demo screens (Wizard, Metadata Form, Team & Access, Provisioning Dashboard, Project Landing Page). Explicitly labeled as design validation prototype, not production code. `estimated_setup_duration` noted as UI display field, not canonical entity attribute.
+- `prototypes/sprint-01_project_initialization/prototype_prompt.md` — moved to
+  `feature/m01-project-initialization`. Not present on `main`.
+  Will enter `main` after PR #1 is approved and merged.
 
 **Index & Changelog:**
 - Updated `00_index.md` — status/type/owner/purpose corrected for all refreshed files. Statistics updated (draft count now 4, approved count now 6).
@@ -74,17 +76,17 @@ files_affected:
 - `architecture/decisions/ADR-0001-docs-as-data.md` — Decision to use Markdown+Mermaid+Git as source of truth
 
 **Module M01 — Project Initialization & Provisioning:**
-- `modules/m01_project_initialization/index.md` — Module purpose, scope, dependencies, status
-- `modules/m01_project_initialization/requirements.md` — 25+ requirements with stable IDs (business, functional, non-functional)
-- `modules/m01_project_initialization/data_model.md` — 13 entities with Mermaid ERD
-- `modules/m01_project_initialization/workflows.md` — State machine, flowchart, failure/recovery workflow
-- `modules/m01_project_initialization/api_spec.md` — REST API endpoints, events, error codes
-- `modules/m01_project_initialization/backlog.md` — MVP tasks, review tasks, demo tasks
+> ⚠️ M01 module artifacts were initially created on `main` and subsequently moved
+> to branch `feature/m01-project-initialization` per DDDM branching principles.
+> They will re-enter `main` after [PR #1](https://github.com/Paradox-85/ram_upe/pull/1)
+> is approved by the Architecture Review.
+> Files: `modules/m01_project_initialization/` (6 files), `backlog/forks/`,
+> `sessions/2026-05-26_m01_...`, `prototypes/sprint-01_project_initialization/`
 
 **Working Materials:**
-- `backlog/forks/project-intialization-module.md` — Demo fork with hypotheses, deltas, open questions, merge checklist
-- `sessions/2026-05-26_m01_project_initialization_llm_session.md` — LLM session log with decisions and output artifacts
-- `prototypes/sprint-01_project_initialization/prototype_prompt.md` — UI prototype prompt for v0.dev/Replit/Claude
+> ⚠️ All working materials for M01 (backlog/forks, sessions, prototypes) were
+> moved to branch `feature/m01-project-initialization`.
+> See restructure entry (2026-05-26) above and [PR #1](https://github.com/Paradox-85/ram_upe/pull/1).
 
 **Reports & Demo:**
 - `reports/stakeholder_brief_2026-05-26.md` — Stakeholder brief with demo flow and decisions requested
