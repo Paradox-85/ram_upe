@@ -1,15 +1,30 @@
 ---
 id: fork-m01-initialization
 type: fork
-status: draft
+status: in-review
 owner: "@module-owner-m01"
 version: 0.1
 last_updated: 2026-05-26
 parent: master.md
 fork_of: ../../master.md
 target_module: m01_project_initialization
-merge_target: ../../modules/m01_project_initialization/
+merge_target: main
 tags: [fork, m01, project-initialization, demo]
+branch: feature/m01-project-initialization
+merge_via: Pull Request
+---
+
+## Branch Context
+
+This file is the design brief for branch `feature/m01-project-initialization`.
+All module artifacts in this branch are work-in-progress.
+
+**Merge path:**
+1. Complete merge checklist below
+2. Architecture review session (Pull Request review)
+3. Approved changes merge to `main` via PR
+4. `master.md` updated on `main` to reflect M01 as `approved`
+
 ---
 
 # Fork: Project Initialization Module (Working Draft)
