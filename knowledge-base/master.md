@@ -128,7 +128,7 @@ graph TB
 
 | Module | Domain | Owner | Status | Phase |
 |---|---|---|---|---|
-| **M01** | Project Initialization & Provisioning | @module-owner-m01 | `in-review-demo` | Phase 1 |
+| **M01** | Project Initialization & Provisioning | @module-owner-m01 | `draft` | Phase 1 |
 | M02 | User & Access Management | @module-owner-m02 | `idea` | Phase 1 |
 | M03 | Project Planning & Delivery | @module-owner-m03 | `idea` | Phase 1 |
 | M04 | Data Quality & Validation | @module-owner-m04 | `idea` | Phase 2 |
@@ -142,6 +142,9 @@ graph TB
 | M12 | Monitoring & Operations | @module-owner-m12 | `idea` | Phase 3 |
 | M13 | Technology Enablement | @module-owner-m13 | `idea` | Phase 1-2 |
 | M14 | Special Domains | @module-owner-m14 | `idea` | Phase 3 |
+
+**M01 is currently in active design on branch `feature/m01-project-initialization`.
+Review via Pull Request before merge to main.**
 
 ---
 

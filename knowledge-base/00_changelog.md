@@ -14,6 +14,20 @@ tags: [changelog, history]
 All notable changes to the UPE Knowledge Base are documented here.
 
 ---
+date: 2026-05-26
+type: restructure
+author: "@chief-architect"
+summary: "Moved M01 work-in-progress to feature branch. Main now contains only approved artifacts. Correct Git branching model adopted per DDDM principles."
+files_affected:
+  - knowledge-base/master.md
+  - knowledge-base/00_index.md
+  - knowledge-base/00_changelog.md
+  - knowledge-base/modules/m01_project_initialization/ (moved to feature branch)
+  - knowledge-base/backlog/forks/ (moved to feature branch)
+  - knowledge-base/sessions/ (moved to feature branch)
+---
+
+---
 
 ## [1.0.1] — 2026-05-26
 

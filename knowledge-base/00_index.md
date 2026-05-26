@@ -37,34 +37,8 @@ Every file in the `knowledge-base/` repository is listed here. No orphan files.
 
 ---
 
-## Module M01 — Project Initialization & Provisioning
-
-| Path | Artifact Type | Status | Owner | Purpose |
-|---|---|---|---|---|
-| `modules/m01_project_initialization/index.md` | Module | `in-review-demo` | @module-owner-m01 | Module overview, scope, dependencies, metrics |
-| `modules/m01_project_initialization/requirements.md` | Requirements | `in-review-demo` | @module-owner-m01 | 25+ business/functional/non-functional requirements with stable IDs |
-| `modules/m01_project_initialization/data_model.md` | Data Model | `in-review-demo` | @module-owner-m01 | 13 entities with Mermaid ERD and attribute tables |
-| `modules/m01_project_initialization/workflows.md` | Workflow | `in-review-demo` | @module-owner-m01 | State machine, flowchart, step details, failure/recovery flow |
-| `modules/m01_project_initialization/api_spec.md` | API Spec | `in-review-demo` | @module-owner-m01 | REST endpoints, events, error codes, external dependencies |
-| `modules/m01_project_initialization/backlog.md` | Backlog | `in-review-demo` | @module-owner-m01 | MVP tasks, review tasks, demo tasks, definition of done |
-
----
-
-## Backlog & Forks
-
-| Path | Artifact Type | Status | Owner | Purpose |
-|---|---|---|---|---|
-| `backlog/forks/project-intialization-module.md` | Fork | `draft` | @module-owner-m01 | Working fork for M01 — hypotheses, deltas, open questions, merge checklist |
-
-> **Note:** Filename preserves the original typo (`intialization`) from task specification. Canonical spelling: `project-initialization`.
-
----
-
-## Sessions
-
-| Path | Artifact Type | Status | Owner | Purpose |
-|---|---|---|---|---|
-| `sessions/2026-05-26_m01_project_initialization_llm_session.md` | Session Log | `approved` | @module-owner-m01 | LLM session log: prompt, decisions, review notes, artifacts, follow-ups |
+> **No module, fork, or session artifacts are currently approved on `main`.**
+> M01 work-in-progress lives on branch `feature/m01-project-initialization` and will enter `main` via Pull Request.
 
 ---
 
@@ -89,16 +63,22 @@ Every file in the `knowledge-base/` repository is listed here. No orphan files.
 
 | Metric | Count |
 |---|---|
-| Total files | 19 |
+| Total files | 11 |
 | Architecture files | 3 |
-| Module files (M01) | 6 |
-| Fork files | 1 |
-| Session logs | 1 |
+| Module files (M01) | 0 |
+| Fork files | 0 |
+| Session logs | 0 |
 | Prototype prompts | 1 |
 | Reports | 1 |
 | Demo scripts | 1 |
 | Root files (index, principles, glossary, changelog, master) | 5 |
 | Files with `approved` status | 6 |
-| Files with `in-review-demo` status | 6 |
+| Files with `in-review-demo` status | 0 |
 | Files with `accepted` status | 1 |
 | Files with `draft` status | 4 |
+
+## Active Feature Branches
+
+| Branch | Module | Status | PR |
+|--------|--------|--------|----|
+| `feature/m01-project-initialization` | M01 Project Initialization | `in-review-demo` | [Open PR →] |
