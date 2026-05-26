@@ -1,13 +1,24 @@
 ---
 id: prototype-sprint01-m01
 type: prototype
-status: draft
+status: in-progress
 owner: "@module-owner-m01"
 version: 0.1
 last_updated: 2026-05-26
 parent: ../../modules/m01_project_initialization/index.md
+branch_note: >
+  This is the canonical working copy on feature/m01-project-initialization.
+  Derived from: modules/m01_project_initialization/data_model.md,
+  requirements.md, and architecture/module_interfaces.md.
+  Will be merged to main via PR #1 after architecture review.
+  PR: https://github.com/Paradox-85/ram_upe/pull/1
 tags: [prototype, m01, ui, prompt, sprint-01]
 ---
+
+> 📝 **Canonical working copy** on branch `feature/m01-project-initialization`.
+> Derived from approved architecture artifacts in `modules/m01_project_initialization/`
+> and `architecture/module_interfaces.md`.
+> Will enter `main` after [PR #1](https://github.com/Paradox-85/ram_upe/pull/1) is approved.
 
 # Prototype Prompt — Sprint 01: M01 Project Initialization
 
