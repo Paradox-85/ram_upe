@@ -1,13 +1,26 @@
 ---
 id: prototype-sprint01-m01
 type: prototype
-status: draft
+status: demo-only
 owner: "@module-owner-m01"
 version: 0.1
 last_updated: 2026-05-26
 parent: ../../modules/m01_project_initialization/index.md
-tags: [prototype, m01, ui, prompt, sprint-01]
+branch_note: >
+  This file exists on `main` for stakeholder demo purposes ONLY.
+  Module M01 has not been approved yet. See PR #1 for active review.
+  Canonical working copy lives on branch feature/m01-project-initialization.
+  This file will be replaced after PR #1 is merged — do not edit this copy.
+  PR: https://github.com/Paradox-85/ram_upe/pull/1
+tags: [prototype, m01, ui, prompt, sprint-01, demo-only]
 ---
+
+> ⚠️ **DEMO-ONLY COPY — not the canonical working artifact.**
+> Module M01 has not yet been merged to `main`.
+> See [PR #1](https://github.com/Paradox-85/ram_upe/pull/1) for active architecture review.
+> Canonical version lives on branch
+> [`feature/m01-project-initialization`](https://github.com/Paradox-85/ram_upe/tree/feature/m01-project-initialization/knowledge-base/prototypes).
+> After PR #1 is merged, this file will be replaced by the feature branch version.
 
 # Prototype Prompt — Sprint 01: M01 Project Initialization
 
