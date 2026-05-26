@@ -10,5 +10,11 @@
     "title": "Read Repo IDX File List",
     "created": "2026-05-26T07:20:04.308Z",
     "completed": null
+  },
+  "create-upe-architecture-artifacts": {
+    "status": "in-progress",
+    "title": "Create UPE Architecture Artifacts",
+    "created": "2026-05-26T09:27:47.018Z",
+    "completed": null
   }
 }

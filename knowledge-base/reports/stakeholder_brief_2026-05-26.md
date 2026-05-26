@@ -1,97 +1,78 @@
 ---
 id: stakeholder-brief-2026-05-26
 type: report
-status: approved
+status: draft
 owner: "@chief-architect"
-version: 1.0
+version: 0.1
 last_updated: 2026-05-26
-parent: master.md
+parent: ../master.md
 tags: [report, stakeholder, brief, demo]
 ---
 
-> ⚠️ **This is a derived snapshot generated on 2026-05-26. For current authoritative knowledge, refer to `master.md` and `modules/`.**
+> ⚠️ **This is a derived snapshot generated on 2026-05-26. For current authoritative knowledge, refer to [../master.md](../master.md) and [../modules/](../modules/).**
 
-# Stakeholder Brief — UPE Knowledge Repository Demo
+# Stakeholder Brief — DDDM for Unified Project Execution
 
-**Date:** 2026-05-26  
-**Audience:** UPE Architecture Team, Product Owners, GBA Leads  
-**Purpose:** Introduce the LLM-Native Product Design Framework and demonstrate it on Module M01 (Project Initialization)
+**Date:** 2026-05-26
+**Status:** Draft (pending review)
+**Audience:** Architects and module owners attending the demo session
 
 ---
 
-## Why This Framework Matters
+## Why DDDM Matters for Unified Project Execution
 
-Traditional product specifications have fundamental problems:
+We are building UPE (Unified Project Execution) — a coordination and intelligence layer that connects CRM, ERP, CDE, and collaboration tools into a single delivery platform. The design is complex, spans 14 functional domains, and must evolve through continuous dialogue between architects, module owners, and AI assistants.
 
-| Problem | Traditional Specs | DDDM (Our Approach) |
+Traditional specification documents fail us: Word files go stale, Visio diagrams drift from reality, and Confluence pages become write-only graveyards. We need a design method that keeps pace with our thinking.
+
+**DDDM (Dialogue-Driven Design Method)** replaces document-centric design with a living knowledge base. Every requirement, every data entity, every interface contract, every architecture decision lives as structured Markdown in a Git-style repository. Mermaid diagrams are embedded directly in the text — they update when the knowledge updates. AI sessions are logged as first-class artifacts.
+
+The result: a knowledge base that is always current, always queryable, and always ready for the next design dialogue.
+
+---
+
+## Key Concepts (in plain language)
+
+| Concept | What it means |
+|---|---|
+| **Master** | The reviewed, shared truth. Like the `main` branch in Git — protected, approved, canonical. Contains all requirements, data models, and decisions that the team has agreed on. |
+| **Fork** | A safe working copy for a module owner to explore changes, propose new requirements, or test hypotheses. Like a feature branch — you can experiment freely without affecting the shared truth. |
+| **Prototype** | A clickable mock-up generated from the knowledge base to validate ideas with stakeholders. It is NOT the source of truth — the knowledge base is. If the prototype and the knowledge base disagree, the knowledge base wins. |
+
+---
+
+## What We Will Show in the Demo
+
+We will walk through the M01 (Project Initialization & Provisioning) module as a complete example of DDDM in action:
+
+1. **The knowledge base** — how requirements, data models, workflows, and interface contracts are organised as structured Markdown with YAML metadata and Mermaid diagrams.
+2. **The fork workflow** — how a module owner proposes changes without affecting the shared truth.
+3. **A generated prototype prompt** — how the knowledge base produces a ready-to-use prompt for building clickable UI mock-ups.
+4. **Interface contracts** — how seven integration boundaries with CRM, ERP, HR, M365, CDE, Template Library, and Knowledge Graph are specified.
+
+For the detailed demo flow and timing, see [../demo_script.md](../demo_script.md).
+
+---
+
+## Decisions Requested from Colleagues
+
+| # | Decision | Why Now |
 |---|---|---|
-| **Staleness** | Documents become outdated the moment they're written | Knowledge lives in a living repository, updated with every session |
-| **Siloed ownership** | One person writes, others comment | Module owners work in forks, review together, merge to master |
-| **No traceability** | "Who decided what, when?" is unclear | Every decision has a stable ID, an ADR, and a changelog entry |
-| **LLM-hostile** | Word/PDF can't be used in AI sessions | Markdown is the native language of LLMs — design happens in dialogue |
-| **Manual diagrams** | Visio diagrams drift from reality | Mermaid diagrams live with the data they describe |
-| **Reports as source** | Stakeholder decks become "the spec" | Reports are derived snapshots — master is always truth |
-
-**The bottom line:** We replace document-centric design with **data-first, dialogue-driven design** where the knowledge base IS the product design, and all documents/diagrams/reports are rendered from it.
-
----
-
-## Master vs. Fork: How It Works
-
-### Master (`master.md` + `modules/`)
-- Contains **approved, canonical** knowledge
-- Only updated through the review/merge process
-- Like `main` branch in Git — protected
-
-### Fork (`backlog/forks/`)
-- Contains **working hypotheses and proposed changes**
-- Module owners create forks to explore ideas
-- Like a feature branch — safe to experiment
-
-### The Cycle
-1. **Module owner creates a fork** → explores design via LLM sessions
-2. **Fork is submitted for review** → architect + peers evaluate
-3. **Merge gate checks** → completeness, traceability, interface impact
-4. **Approved changes merge to master** → knowledge base evolves
-5. **Reports generated from master** → always current, always consistent
-
----
-
-## Demo Flow for Review Session
-
-### What You'll See Today
-
-1. **`master.md`** — The integration picture: 14 domains, layered architecture, module registry
-2. **`architecture/module_interfaces.md`** — 7 interface contracts for M01, showing how UPE connects to CRM, ERP, HR, M365, CDE
-3. **M01 Module Slice** — Complete module with requirements (25+ IDs), data model (13 entities), workflow (state machine), API spec
-4. **Fork Demo** — A working fork showing how a module owner proposes changes before merge
-5. **Prototype Prompt** — A ready-to-use prompt for generating an MVP UI from the knowledge base
-6. **Session Log** — Transparent record of how this knowledge was created (LLM session)
-
----
-
-## Decisions Requested from Stakeholders
-
-| # | Decision | Options | Recommendation |
-|---|---|---|---|
-| 1 | **Adopt DDDM as the product design methodology?** | Yes / No / Pilot | Recommend: Pilot with M01 and one other module |
-| 2 | **Tool for knowledge base rendering?** | Obsidian / Azure DevOps Wiki / GitHub / VS Code | Recommend: Obsidian for authoring, GitHub for collaboration |
-| 3 | **Provisioning: parallel or sequential?** | Parallel (faster) / Sequential (safer) | Recommend: Parallel with rollback capability |
-| 4 | **Knowledge Graph in MVP scope?** | Yes / No / Sprint 2 | Recommend: Sprint 2 (reduce MVP risk) |
-| 5 | **Template ownership model?** | Central (architect team) / Distributed (GBA owners) | Recommend: Distributed with central review |
+| 1 | **Adopt this framework as the working method for UPE design?** | We need to commit to a consistent methodology before scaling to M02–M05. A pilot with M01 has validated the approach. |
+| 2 | **Assign module owners for M02–M05?** | Each module needs a designated owner who can create forks, run LLM design sessions, and submit for merge review. Without owners, knowledge base evolution stalls. |
+| 3 | **Agree on branching convention and review cadence?** | We need to decide: naming conventions for forks, how often merge reviews happen, and who approves. This ensures the knowledge base evolves in a controlled, predictable rhythm. |
 
 ---
 
 ## Next Steps
 
-1. **This week:** Review master.md and M01 module artifacts, provide feedback
-2. **Next week:** Decision on DDDM adoption
-3. **Week 3:** Generate UI prototype from prototype_prompt.md
-4. **Week 4:** Stakeholder demo with clickable prototype
-5. **Month 2:** Sprint 1 implementation begins
+1. **This session:** Review this brief, attend the demo, discuss the three decisions above.
+2. **This week:** Provide feedback on [../master.md](../master.md) and M01 artifacts.
+3. **Week 2:** Confirm decisions and assign module owners.
+4. **Week 3–4:** Sprint 1 implementation begins; UI prototype generated from prototype prompt.
 
 ---
 
-**Document Type:** Derived Snapshot (NOT source of truth)  
-**Generated from:** `knowledge-base/master.md` and `knowledge-base/modules/m01_project_initialization/`  
-**For questions:** Contact @chief-architect
+**Document Type:** Derived Snapshot (NOT source of truth)
+**Generated from:** [../master.md](../master.md) and [../modules/m01_project_initialization/](../modules/m01_project_initialization/)
+**Contact:** @chief-architect

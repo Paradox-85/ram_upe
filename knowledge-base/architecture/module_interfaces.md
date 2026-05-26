@@ -1,31 +1,33 @@
 ---
 id: module-interfaces
 type: architecture
-status: in-review-demo
+status: draft
 owner: "@chief-architect"
 version: 1.0
 last_updated: 2026-05-26
-parent: master.md
+parent: ../master.md
 tags: [interfaces, m01, integration, contracts]
 ---
 
 # Module Interface Contracts — M01 Project Initialization
 
-This document defines first-level interface contracts for Module M01 (Project Initialization & Provisioning). Each contract specifies the data exchange boundary between UPE and an external system during project initialization.
+This document defines interface contracts for **Module M01 (Project Initialization & Provisioning)** — the Phase 1 demo module. All payload shapes are simplified and aligned to the canonical data model defined in [../modules/m01_project_initialization/data_model.md](../modules/m01_project_initialization/data_model.md).
+
+> **Scope note:** M01 is the demo module. These contracts represent the integration boundary between UPE and external systems during project creation and provisioning. Payloads are simplified for the MVP phase.
 
 ---
 
 ## Interface Registry
 
-| Interface ID | Name | Producer | Consumer | Trigger |
+| Interface ID | Name | Direction | Owner | Status |
 |---|---|---|---|---|
-| IF-M01-CRM-001 | Opportunity → Project Seed | CRM | UPE M01 | Opportunity won |
-| IF-M01-HR-001 | Users & Org Units | Azure AD / Workday | UPE M01 | On-demand / Project creation |
-| IF-M01-ERP-001 | Project Codes & Cost Context | Maconomy | UPE M01 | Project creation |
-| IF-M01-M365-001 | Collaboration Spaces | UPE M01 | Teams / SharePoint / Planner | Template provisioning step |
-| IF-M01-CDE-001 | CDE Workspace Provisioning | UPE M01 | ACC / ProjectWise | Template provisioning step |
-| IF-M01-TEMPLATE-001 | Project Template Selection | Standards Library | UPE M01 | Template selection in wizard |
-| IF-M01-KG-001 | Knowledge Graph Context | UPE Knowledge Graph | UPE M01 | Similarity query on creation |
+| `IF-M01-CRM-001` | Opportunity → Project Seed Data | CRM → UPE | @module-owner-m01 | `active` |
+| `IF-M01-HR-001` | Users & Org Hierarchy | Azure AD / Workday → UPE | @module-owner-m01 | `active` |
+| `IF-M01-ERP-001` | Project Codes & Cost Context | ERP / Maconomy → UPE | @module-owner-m01 | `active` |
+| `IF-M01-M365-001` | Collaboration Spaces | UPE → Teams / SharePoint / Planner | @module-owner-m01 | `active` |
+| `IF-M01-CDE-001` | CDE Workspace Provisioning | UPE → ACC / ProjectWise | @module-owner-m01 | `active` |
+| `IF-M01-TEMPLATE-001` | Project Template Selection | Template Library → UPE | @module-owner-m01 | `active` |
+| `IF-M01-KG-001` | Knowledge Graph Context | Knowledge Graph → UPE | @module-owner-m01 | `deferred to Sprint 2` |
 
 ---
 
@@ -33,13 +35,13 @@ This document defines first-level interface contracts for Module M01 (Project In
 
 | Field | Value |
 |---|---|
-| **Purpose** | Create a project seed from a won CRM opportunity |
-| **Producer** | CRM (e.g., Salesforce, Dynamics 365) |
-| **Consumer** | UPE M01 — Project Creation Service |
+| **Direction** | CRM → UPE M01 |
 | **Trigger** | Opportunity status changes to "Won" or PM triggers manually |
-| **Protocol** | REST API (webhook or poll) |
+| **Owner** | @module-owner-m01 |
+| **Status** | `active` |
 
-### Key Payload Fields
+### Payload
+
 ```json
 {
   "opportunity_id": "string",
@@ -50,6 +52,7 @@ This document defines first-level interface contracts for Module M01 (Project In
   "gbu": "string",
   "disciplines": ["string"],
   "estimated_value": "decimal",
+  "currency": "string",
   "location": "string",
   "expected_start_date": "date",
   "pm_contact_email": "string",
@@ -58,29 +61,31 @@ This document defines first-level interface contracts for Module M01 (Project In
 ```
 
 ### Output
-- `project_seed_id` created in UPE
-- Status: `seed_created`
 
-### Failure Modes
-| Failure | Handling |
+- `project_seed_id` created in UPE
+- Status transitions to `seed_created`
+
+### Error Handling
+
+| Condition | Response |
 |---|---|
-| Opportunity data incomplete | Return validation error with missing fields list |
-| Duplicate opportunity detected | Warn and request confirmation |
+| Opportunity data incomplete | `400 Validation Error` — list missing fields |
+| Duplicate opportunity detected | `409 Conflict` — warn and request confirmation |
 | CRM API unavailable | Queue for retry (max 3 attempts, 5-min intervals) |
 
 ---
 
-## IF-M01-HR-001: Users & Org Units
+## IF-M01-HR-001: Users, Org Hierarchy & Skills
 
 | Field | Value |
 |---|---|
-| **Purpose** | Retrieve user profiles, org units, skills for project team setup |
-| **Producer** | Azure AD / Workday |
-| **Consumer** | UPE M01 — Team Assembly Service |
-| **Trigger** | On-demand during project creation wizard |
-| **Protocol** | Microsoft Graph API / Workday REST API |
+| **Direction** | Azure AD / Workday → UPE M01 |
+| **Trigger** | On-demand during project creation wizard (team assembly step) |
+| **Owner** | @module-owner-m01 |
+| **Status** | `active` |
 
-### Key Payload Fields
+### Payload
+
 ```json
 {
   "user_id": "string (Azure AD ObjectId)",
@@ -97,13 +102,15 @@ This document defines first-level interface contracts for Module M01 (Project In
 ```
 
 ### Output
+
 - User available for assignment to project roles
 - Org hierarchy resolved for approval routing
 
-### Failure Modes
-| Failure | Handling |
+### Error Handling
+
+| Condition | Response |
 |---|---|
-| User not found in Azure AD | Return "user not found", suggest manual entry |
+| User not found in Azure AD | `404 Not Found` — suggest manual entry |
 | Stale data from Workday | Cache with 24h TTL, flag for refresh |
 | API rate limiting | Exponential backoff |
 
@@ -113,15 +120,18 @@ This document defines first-level interface contracts for Module M01 (Project In
 
 | Field | Value |
 |---|---|
-| **Purpose** | Obtain project code, cost center, billing context from ERP |
-| **Producer** | Maconomy |
-| **Consumer** | UPE M01 — Project Code Assignment |
-| **Trigger** | Project creation (after seed data accepted) |
-| **Protocol** | REST API |
+| **Direction** | ERP / Maconomy → UPE M01 |
+| **Trigger** | Project creation — after seed data accepted |
+| **Owner** | @module-owner-m01 |
+| **Status** | `active` |
 
-### Key Payload Fields
+### Payload
+
 ```json
 {
+  "project_id": "string",
+  "opportunity_id": "string",
+  "idempotency_key": "string (derived from project_id + opportunity_id)",
   "project_code": "string",
   "cost_center": "string",
   "billing_type": "string (T&M | Fixed | Hybrid)",
@@ -132,16 +142,26 @@ This document defines first-level interface contracts for Module M01 (Project In
 }
 ```
 
-### Output
-- Project linked to ERP financial context
-- Cost tracking enabled
+### Retry & Idempotency
 
-### Failure Modes
-| Failure | Handling |
+- **Idempotency key** is derived from `project_id` + `opportunity_id` — every retry sends the same key.
+- **Max retries:** 3 attempts with exponential backoff (5s, 30s, 120s).
+- **Duplicate handling:** If the ERP returns an existing project code matching the `idempotency_key`, treat it as **success** — compare returned `project_code` and `cost_center`; if they match the original request, return `200 OK` (no side effects).
+- **Partial failure:** If project code is created but cost center assignment fails, mark provisioning task as `retrying` and retry only the failed step.
+
+### Output
+
+- Project linked to ERP financial context
+- Cost tracking enabled via `project_code` + `cost_center`
+
+### Error Handling
+
+| Condition | Response |
 |---|---|
-| Maconomy unavailable | Queue project as `pending_financial`, retry on schedule |
-| Code already exists | Error, request alternative code |
-| Invalid cost center | Return validation error |
+| Maconomy unavailable | Queue as `pending_financial`, retry on schedule |
+| Code already exists (non-idempotent request) | `409 Conflict` — request alternative code |
+| Invalid cost center | `400 Validation Error` |
+| Idempotent duplicate (matching key + data) | `200 OK` — treat as success |
 
 ---
 
@@ -149,13 +169,13 @@ This document defines first-level interface contracts for Module M01 (Project In
 
 | Field | Value |
 |---|---|
-| **Purpose** | Create Teams team, SharePoint site, Planner board for new project |
-| **Producer** | UPE M01 — Provisioning Orchestrator |
-| **Consumer** | Microsoft Teams / SharePoint / Planner |
+| **Direction** | UPE M01 → Microsoft Teams / SharePoint / Planner |
 | **Trigger** | Provisioning workflow step in project creation |
-| **Protocol** | Microsoft Graph API |
+| **Owner** | @module-owner-m01 |
+| **Status** | `active` |
 
-### Key Payload Fields
+### Payload
+
 ```json
 {
   "project_id": "string",
@@ -170,7 +190,7 @@ This document defines first-level interface contracts for Module M01 (Project In
       "role": "string (owner | member)"
     }
   ],
-  "channels": [
+  "default_channels": [
     {
       "name": "string",
       "description": "string"
@@ -179,14 +199,18 @@ This document defines first-level interface contracts for Module M01 (Project In
 }
 ```
 
+> **Note:** `default_channels` are sourced from the selected `ProjectTemplate` entity's `default_channels` attribute (see [data_model.md](../modules/m01_project_initialization/data_model.md)). The provisioning orchestrator creates a Teams channel for each entry.
+
 ### Output
-- Teams team created with channels per template
+
+- Teams team created with channels per template's `default_channels`
 - SharePoint site provisioned with folder structure
 - Planner board created with initial tasks
 - All URLs stored in project record
 
-### Failure Modes
-| Failure | Handling |
+### Error Handling
+
+| Condition | Response |
 |---|---|
 | Teams provisioning timeout | Retry up to 3 times; log partial state |
 | Naming collision | Append suffix, notify PM |
@@ -198,13 +222,13 @@ This document defines first-level interface contracts for Module M01 (Project In
 
 | Field | Value |
 |---|---|
-| **Purpose** | Create CDE workspace (ACC or ProjectWise) for new project |
-| **Producer** | UPE M01 — Provisioning Orchestrator |
-| **Consumer** | Autodesk ACC / Bentley ProjectWise |
+| **Direction** | UPE M01 → ACC / ProjectWise |
 | **Trigger** | Provisioning workflow step after M365 provisioning |
-| **Protocol** | ACC API / ProjectWise API |
+| **Owner** | @module-owner-m01 |
+| **Status** | `active` |
 
-### Key Payload Fields
+### Payload
+
 ```json
 {
   "project_id": "string",
@@ -223,13 +247,15 @@ This document defines first-level interface contracts for Module M01 (Project In
 ```
 
 ### Output
+
 - CDE workspace URL
-- Folder structure created
+- Folder structure created per template
 - Access policies applied per template
 - CDE workspace linked to project record
 
-### Failure Modes
-| Failure | Handling |
+### Error Handling
+
+| Condition | Response |
 |---|---|
 | ACC API unavailable | Queue for retry; allow project to proceed in `partial` state |
 | Template not found | List available templates; request manual selection |
@@ -241,13 +267,13 @@ This document defines first-level interface contracts for Module M01 (Project In
 
 | Field | Value |
 |---|---|
-| **Purpose** | Select appropriate project template based on type, class, GBA |
-| **Producer** | UPE Standards / Template Library |
-| **Consumer** | UPE M01 — Project Creation Wizard |
+| **Direction** | Template Library → UPE M01 |
 | **Trigger** | User selects project type/class in creation wizard |
-| **Protocol** | Internal API |
+| **Owner** | @module-owner-m01 |
+| **Status** | `active` |
 
-### Key Payload Fields
+### Payload
+
 ```json
 {
   "template_id": "string",
@@ -260,16 +286,22 @@ This document defines first-level interface contracts for Module M01 (Project In
   "tool_configuration": "object",
   "standards_set_ref": "string",
   "default_roles": ["string"],
-  "default_workflows": ["string"]
+  "default_channels": ["string"],
+  "estimated_setup_duration": "string (e.g. '15 min')"
 }
 ```
 
+> **Note:** `estimated_setup_duration` is a display metadata field provided by the Template Library interface for the creation wizard UI. It is **not** a canonical attribute of the `ENT-ProjectTemplate` entity in the approved data model. See [data_model.md](../modules/m01_project_initialization/data_model.md) for the canonical attribute list.
+
 ### Output
+
 - Template loaded into creation wizard
 - Pre-populated configuration for all provisioning steps
+- Estimated duration displayed to PM
 
-### Failure Modes
-| Failure | Handling |
+### Error Handling
+
+| Condition | Response |
 |---|---|
 | No template for project type | Offer "blank" template with minimal defaults |
 | Template version conflict | Use latest approved version |
@@ -280,13 +312,15 @@ This document defines first-level interface contracts for Module M01 (Project In
 
 | Field | Value |
 |---|---|
-| **Purpose** | Query knowledge graph for similar projects, reusable standards, context |
-| **Producer** | UPE Knowledge Graph |
-| **Consumer** | UPE M01 — Project Creation Wizard |
+| **Direction** | Knowledge Graph → UPE M01 |
 | **Trigger** | PM requests similar project suggestions during creation |
-| **Protocol** | Internal API (GraphRAG) |
+| **Owner** | @module-owner-m01 |
+| **Status** | `deferred to Sprint 2` |
 
-### Key Payload Fields
+> **Important:** This interface is **non-blocking**. The project creation flow must complete successfully even if the Knowledge Graph is unavailable or not yet implemented. The wizard should gracefully hide the similarity panel when this interface is not active.
+
+### Payload
+
 ```json
 {
   "query": {
@@ -302,6 +336,7 @@ This document defines first-level interface contracts for Module M01 (Project In
 ```
 
 ### Output
+
 ```json
 {
   "similar_projects": [
@@ -323,43 +358,77 @@ This document defines first-level interface contracts for Module M01 (Project In
 }
 ```
 
-### Failure Modes
-| Failure | Handling |
+### Error Handling
+
+| Condition | Response |
 |---|---|
-| Knowledge graph unavailable | Skip suggestions; proceed without (non-blocking) |
-| No similar projects found | Return empty list; suggest browsing template library |
+| Knowledge Graph unavailable | Skip suggestions; proceed without (non-blocking) |
+| No similar projects found | Return empty list; suggest browsing Template Library |
 
 ---
 
-## Cross-Interface Sequence
+## Provisioning Sequence Diagram
+
+The following diagram shows the complete project initialization flow across all seven M01 interfaces:
 
 ```mermaid
 sequenceDiagram
     participant PM as Project Manager
-    participant Wizard as UPE Creation Wizard
+    participant Wizard as UPE Wizard
     participant CRM as CRM
-    participant HR as Azure AD / Workday
-    participant ERP as Maconomy
-    participant Template as Template Library
+    participant TL as Template Library
     participant KG as Knowledge Graph
-    participant M365 as Teams / SharePoint
+    participant ERP as ERP / Maconomy
+    participant HR as Azure AD / Workday
+    participant Orch as Provisioning Orchestrator
+    participant M365 as Teams / SharePoint / Planner
     participant CDE as ACC / ProjectWise
 
     PM->>Wizard: Start Project Creation
-    Wizard->>CRM: IF-M01-CRM-001 (Get opportunity data)
-    CRM-->>Wizard: Seed data
-    Wizard->>Template: IF-M01-TEMPLATE-001 (Get template)
-    Template-->>Wizard: Template config
-    Wizard->>KG: IF-M01-KG-001 (Similar projects)
-    KG-->>Wizard: Suggestions
+
+    rect rgb(230, 245, 255)
+        Note over Wizard,CRM: Step 1 — Seed & Template
+        Wizard->>CRM: IF-M01-CRM-001 (Get opportunity data)
+        CRM-->>Wizard: Seed data (client, type, GBU)
+        Wizard->>TL: IF-M01-TEMPLATE-001 (Get template)
+        TL-->>Wizard: Template config + estimated_setup_duration
+    end
+
+    rect rgb(245, 230, 255)
+        Note over Wizard,KG: Step 1b — Similar Projects (deferred)
+        Wizard->>KG: IF-M01-KG-001 (Similar projects query)
+        KG-->>Wizard: Suggestions (non-blocking, optional)
+    end
+
     PM->>Wizard: Confirm & Submit
-    Wizard->>ERP: IF-M01-ERP-001 (Create project code)
-    ERP-->>Wizard: Project code
-    Wizard->>HR: IF-M01-HR-001 (Resolve team members)
-    HR-->>Wizard: User profiles
-    Wizard->>M365: IF-M01-M365-001 (Provision collaboration)
-    M365-->>Wizard: Teams/SharePoint URLs
-    Wizard->>CDE: IF-M01-CDE-001 (Provision CDE workspace)
-    CDE-->>Wizard: Workspace URL
+
+    rect rgb(255, 245, 230)
+        Note over Wizard,HR: Step 2 — Project Code & Team
+        Wizard->>ERP: IF-M01-ERP-001 (Create project code)
+        Note right of ERP: idempotency_key = project_id + opportunity_id
+        ERP-->>Wizard: project_code + cost_center
+        Wizard->>HR: IF-M01-HR-001 (Resolve team members)
+        HR-->>Wizard: User profiles + org hierarchy
+    end
+
+    rect rgb(230, 255, 230)
+        Note over Wizard,CDE: Step 3 — Provisioning (orchestrated)
+        Wizard->>Orch: Start provisioning job
+        Orch->>M365: IF-M01-M365-001 (Provision collaboration)
+        M365-->>Orch: Teams + SharePoint + Planner URLs
+        Orch->>CDE: IF-M01-CDE-001 (Provision CDE workspace)
+        CDE-->>Orch: CDE workspace URL
+        Orch-->>Wizard: Provisioning complete
+    end
+
     Wizard-->>PM: Project Active ✅
 ```
+
+---
+
+## References
+
+- **Canonical Data Model:** [../modules/m01_project_initialization/data_model.md](../modules/m01_project_initialization/data_model.md)
+- **M01 Requirements:** [../modules/m01_project_initialization/requirements.md](../modules/m01_project_initialization/requirements.md)
+- **Architecture Overview:** [arch_overview.md](arch_overview.md)
+- **UPE Master:** [../master.md](../master.md)

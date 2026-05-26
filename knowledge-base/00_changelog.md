@@ -15,6 +15,34 @@ All notable changes to the UPE Knowledge Base are documented here.
 
 ---
 
+## [1.0.1] — 2026-05-26
+
+### Added / Updated — Architecture Artifact Completion Session
+
+**Architecture:**
+- Refreshed `architecture/arch_overview.md` — 7-layer stack (Authoring Tools → CDE → Integration/iPaaS → Orchestration → Enterprise Data/AI → Enterprise Systems → Collaboration UX), hybrid build-vs-buy strategy, Azure/open-standards principles, Mermaid component diagram. Status: `draft`.
+- Refreshed `architecture/module_interfaces.md` — 7 M01 interface contracts with full payload shapes, error handling, ERP retry + idempotency (`idempotency_key`), M365 `default_channels`, Template Library `estimated_setup_duration`, KG deferred to Sprint 2. Mermaid provisioning sequence diagram. Status: `draft`.
+- Refreshed `architecture/decisions/ADR-0001-docs-as-data.md` — Aligned to exact requested ADR format: status Accepted, context/decision/consequences/alternatives, review date 2026-08-26, Mermaid flowchart, relative references. Parent changed to `../arch_overview.md`.
+
+**Reports:**
+- Refreshed `reports/stakeholder_brief_2026-05-26.md` — Status changed to `draft` (pending review). One-page narrative on DDDM for UPE. Plain-language master/fork/prototype explanation. Exactly three colleague decisions requested. References `../demo_script.md`.
+
+**Prototypes:**
+- Refreshed `prototypes/sprint-01_project_initialization/prototype_prompt.md` — Self-contained prompt for v0.dev/Replit/Claude. Exactly 5 demo screens (Wizard, Metadata Form, Team & Access, Provisioning Dashboard, Project Landing Page). Explicitly labeled as design validation prototype, not production code. `estimated_setup_duration` noted as UI display field, not canonical entity attribute.
+
+**Index & Changelog:**
+- Updated `00_index.md` — status/type/owner/purpose corrected for all refreshed files. Statistics updated (draft count now 4, approved count now 6).
+- Added this `1.0.1` changelog entry.
+
+### Alignment Notes
+- All internal links use relative paths from each file's location.
+- No new `REQ-*` or `ENT-*` identifiers were invented.
+- All seven interface IDs (`IF-M01-CRM-001` through `IF-M01-KG-001`) match the requested list exactly.
+- Terminology aligns with `00_glossary.md`: Unified Project Execution, CDE, knowledge graph, master, fork, merge, ADR.
+- `estimated_setup_duration` is treated as Template Library interface/prototype display metadata, not a canonical data model attribute.
+
+---
+
 ## [1.0.0] — 2026-05-26
 
 ### Added — Initial Demo Repository Creation
