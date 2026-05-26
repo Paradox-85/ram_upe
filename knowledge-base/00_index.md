@@ -37,16 +37,20 @@ Every file in the `knowledge-base/` repository is listed here. No orphan files.
 
 ---
 
-> **No module, fork, or session artifacts are currently approved on `main`.**
-> M01 work-in-progress lives on branch `feature/m01-project-initialization` and will enter `main` via Pull Request.
+## Module M01 — Project Initialization & Provisioning
+
+> ⚠️ M01 artifacts are under active development on branch
+> `feature/m01-project-initialization`.
+> They will appear in this index after
+> [PR #1](https://github.com/Paradox-85/ram_upe/pull/1) is approved and merged.
 
 ---
 
 ## Prototypes
 
-| Path | Artifact Type | Status | Owner | Purpose |
-|---|---|---|---|---|
-| `prototypes/sprint-01_project_initialization/prototype_prompt.md` | Prototype Prompt | `draft` | @module-owner-m01 | Self-contained UI prototype prompt for v0.dev/Replit/Claude — 5 demo screens (wizard, metadata, team, provisioning, landing) |
+| Branch | Path | Status | Note |
+|--------|------|--------|------|
+| `feature/m01-project-initialization` | `prototypes/sprint-01_project_initialization/prototype_prompt.md` | `in-progress` | Moved from main. Enters main after PR #1 merge. |
 
 ---
 
@@ -63,19 +67,20 @@ Every file in the `knowledge-base/` repository is listed here. No orphan files.
 
 | Metric | Count |
 |---|---|
-| Total files | 11 |
+| Total files | 10 |
 | Architecture files | 3 |
 | Module files (M01) | 0 |
 | Fork files | 0 |
 | Session logs | 0 |
-| Prototype prompts | 1 |
+| Prototype prompts | 0 |
 | Reports | 1 |
 | Demo scripts | 1 |
 | Root files (index, principles, glossary, changelog, master) | 5 |
+| Files on feature branch (pending PR #1 review) | 9 |
 | Files with `approved` status | 6 |
 | Files with `in-review-demo` status | 0 |
 | Files with `accepted` status | 1 |
-| Files with `draft` status | 4 |
+| Files with `draft` status | 3 |
 
 ## Active Feature Branches
 
