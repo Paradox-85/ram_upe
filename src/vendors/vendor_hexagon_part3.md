@@ -3,7 +3,7 @@
 # SOURCE: vendor_hexagon\SmartPlant Foundation Help.pdf
 ---
 
-> [!] Быстрое извлечение (Heavy PDF)
+> [!] Quick extraction (Heavy PDF)
 
 SmartPlant Foundation Help
 Hexagon Documentation

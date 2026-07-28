@@ -701,7 +701,7 @@ Learn more at www.aveva.com
 # SOURCE: vendor_aveva\AP Consultoria_ Digital Transformation in Engineering - AVEVA UE and AI for Multidisciplinary Projects.pdf
 ---
 
-> [!] Быстрое извлечение (Heavy PDF)
+> [!] Quick extraction (Heavy PDF)
 
 DIGITAL TRANSFORMATION IN ENGINEERING: 
 INTEGRATING AVEVA UNIFIED ENGINEERING 
@@ -49643,7 +49643,7 @@ P
 # SOURCE: vendor_aveva\AVEVA NET Workhub and Dashboard Installation Guide 5.1.8.pdf
 ---
 
-> [!] Быстрое извлечение (Heavy PDF)
+> [!] Quick extraction (Heavy PDF)
 
 AVEVA NET Workhub and Dashboard
 Installation Guide

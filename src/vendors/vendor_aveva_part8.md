@@ -84652,7 +84652,7 @@ the trademarks of their respective holders.
 # SOURCE: vendor_aveva\AVEVA_ Digital project execution solutions for maximizing capital project success.pdf
 ---
 
-> [!] Быстрое извлечение (Heavy PDF)
+> [!] Quick extraction (Heavy PDF)
 
 Digital Project Execution solutions for 
 Maximizing Capital Project Success
@@ -94537,7 +94537,7 @@ Supply Chain)
 # SOURCE: vendor_aveva\AVEVA_ Unlocking your Industrial Digital Twin.pdf
 ---
 
-> [!] Быстрое извлечение (Heavy PDF)
+> [!] Quick extraction (Heavy PDF)
 
 Unlocking your Industrial 
 Digital Twin
@@ -95753,7 +95753,7 @@ www.aveva.com
 # SOURCE: vendor_aveva\Boliden_ Insights of a conveyor.pdf
 ---
 
-> [!] Быстрое извлечение (Heavy PDF)
+> [!] Quick extraction (Heavy PDF)
 
 Presented by:
 Boliden: Insights of a conveyor
@@ -97629,7 +97629,7 @@ Questions
 # SOURCE: vendor_aveva\Challenges, opportunities and best practices in _Digital LNG_.pdf
 ---
 
-> [!] Быстрое извлечение (Heavy PDF)
+> [!] Quick extraction (Heavy PDF)
 
 Franz Field
 April 2025
@@ -104860,12 +104860,12 @@ Support of MoC process (Brownfield)
 <!-- Slide number: 4 -->
 # Business case
 
-![Рисунок 3](Рисунок3.jpg)
+![Figure 3](Figure3.jpg)
 
 <!-- Slide number: 5 -->
 # Business case
 
-![Рисунок 4](Рисунок4.jpg)
+![Figure 4](Figure4.jpg)
 
 <!-- Slide number: 6 -->
 # Business case
@@ -104883,17 +104883,17 @@ This  is a MUST for next 30 years of Plant Operation
 <!-- Slide number: 7 -->
 # Data Flow – Reference Data
 
-![Рисунок 3](Рисунок3.jpg)
+![Figure 3](Figure3.jpg)
 
 <!-- Slide number: 8 -->
 # Data Flow – Document Data
 
-![Рисунок 3](Рисунок3.jpg)
+![Figure 3](Figure3.jpg)
 
 <!-- Slide number: 9 -->
 # Data Flow – Key Documents & 3D Models
 
-![Рисунок 4](Рисунок4.jpg)
+![Figure 4](Figure4.jpg)
 
 <!-- Slide number: 10 -->
 # Products in the solution
@@ -112356,7 +112356,7 @@ INDEFF 31
 # SOURCE: vendor_aveva\ISM Training_Workbook_Exercises V1.9.pdf
 ---
 
-> [!] Быстрое извлечение (Heavy PDF)
+> [!] Quick extraction (Heavy PDF)
 
  
  

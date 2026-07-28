@@ -39816,7 +39816,7 @@ Thank you
 # SOURCE: vendor_aveva\Sumitomo_  Efforts to Improve Design and Manufacturing Process Efficiency Using AVEVA and AVEVA Engineering Trial.pdf
 ---
 
-> [!] Быстрое извлечение (Heavy PDF)
+> [!] Quick extraction (Heavy PDF)
 
 October 16, 2024
 Sum itom o Heavy Industries Marine ＆Engineering Co., Ltd.

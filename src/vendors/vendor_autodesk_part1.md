@@ -703,7 +703,7 @@ Privacy | Do not sell or share my personal information | Cookie preferences | Re
 # SOURCE: vendor_autodesk\datum360-all.pdf
 ---
 
-> [!] Быстрое извлечение (Heavy PDF)
+> [!] Quick extraction (Heavy PDF)
 
 SEARCH
 Search documentation...

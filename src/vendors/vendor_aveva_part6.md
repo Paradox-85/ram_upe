@@ -3,7 +3,7 @@
 # SOURCE: vendor_aveva\avevatm_engineering_2-19-2026.pdf
 ---
 
-> [!] Быстрое извлечение (Heavy PDF)
+> [!] Quick extraction (Heavy PDF)
 
 AVEVA™ Engineering 
 15.7.3

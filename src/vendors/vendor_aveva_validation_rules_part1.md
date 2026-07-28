@@ -5827,12 +5827,12 @@ Drain Lift Station 1
 Industrial and Storm
 Water Lift Station 2 3
 (0-SRL-002 0-SRL-003)
-// План Проверок и
-Испытаний - Модуль -
-КНС
-Нефтезагрязненных
-Стоков 1 (0-SRL-001) и
-КНС Производс
+// Verification plan and
+Tests - Module -
+CNBC
+Petroleum contaminated
+Stack 1 (0-SRL-001) and
+CNS Productions
 18-SEP-18
 
 18-SEP-18
@@ -5968,13 +5968,13 @@ Open Drain Lift Station 1
 Industrial and Storm
 Water Lift Station 2 3
 (0-SRL-002 0-SRL-003)
-// Заказная
-Спецификация -
-Модуль - КНС
-Нефтезагрязненных
-Стоков 1 (0-SRL-001) и
-КНС
-Производственно-Д
+// Ordered
+Specification -
+Module - CNS
+Petroleum contaminated
+Stack 1 (0-SRL-001) and
+CNBC
+Production-D
 18-SEP-18
 
 18-SEP-18
@@ -6161,13 +6161,13 @@ Open Drain Lift Station 1
 Industrial and Storm
 Water Lift Station 2 3
 (0-SRL-002 0-SRL-003)
-// Объем Поставки -
-Модуль - КНС
-Нефтезагрязненных
-Стоков 1 (0-SRL-001) и
-КНС
-Производственно-Дож
-девых Сток
+// Volume of supply -
+Module - CNS
+Petroleum contaminated
+Stack 1 (0-SRL-001) and
+CNBC
+Production-Doge
+Stoke
 18-SEP-18
 
 18-SEP-18
@@ -6358,8 +6358,8 @@ Datasheet of Pumps
 Contaminated Open
 Drain Lift Station 1
 (0-SRL-001) //
-Опросный лист на
-насосы (062-P-001A
+Questionnaire on
+pumps (062-P-001A)
 18-SEP-18
 
 18-SEP-18
@@ -6496,12 +6496,12 @@ Datasheet of Pump
 Industrial and Storm
 Water Lift Station 2
 (0-SRL-002) //
-Опросный Лист на
-Насос (062-P-002A
+Question sheet on
+Pump (062-P-002A)
 062-P-002B
-062-P-002C) для КНС
-Производственно-Дож
-девых Стоков 2
+062-P-002C for CNS
+Production-Doge
+virgin Stokes 2
 (0-SRL-002)
 18-SEP-18
 
@@ -6687,11 +6687,11 @@ Datasheet of Drain
 Drum (062-U-001) for
 Contaminated Open
 Drain Lift Station 1 //
-Опросный Лист на
-Дренажную Емкость
-(062-U-001) для КНС
-Нефтезагрязненных
-Стоков 1
+Question sheet on
+Drainage capacity
+(062-U-001) for CNS
+Petroleum contaminated
+Stack 1
 18-SEP-18
 
 18-SEP-18
@@ -6875,11 +6875,11 @@ Datasheet of Drain
 Drum (062-U-002) for
 Industrial and Storm
 Water Lift Station 2 //
-Опросный Лист на
-Дренажную Ёмкость
-(062-U-002) для КНС
-Производственно-Дож
-девых Стоков 2
+Question sheet on
+Drainage capacity
+(062-U-002) for CNS
+Production-Doge
+virgin Stokes 2
 18-SEP-18
 
 18-SEP-18
@@ -7016,12 +7016,12 @@ Datasheet of Pumps
 Industrial and Storm
 Water Lift Station 3
 (0-SRL-003) //
-Опросный Лист на
-Насосы (062-P-003A
+Question sheet on
+Pumps (062-P-003A)
 062-P-003B
-062-P-003C) для КНС
-Производственно-Дож
-девых Стоков 3
+062-P-003C for INS
+Production-Doge
+virgin Stokes 3
 (0-SRL-003)
 18-SEP-18
 
@@ -7207,11 +7207,11 @@ Datasheet of Drain
 Drum (062-U-003) for
 Industrial and Storm
 Water Lift Station 3 //
-Опросный Лист на
-Дренажную Ёмкость
-(062-U-003) для КНС
-Производственно-Дож
-девых Стоков 3
+Question sheet on
+Drainage capacity
+(062-U-003) for CNS
+Production-Doge
+virgin Stokes 3
 18-SEP-18
 
 18-SEP-18
@@ -7397,13 +7397,13 @@ Datasheet of Drain
 Drum Complete
 Installation (062-U-004)
 for Industrial and Storm
-Water // Опросный
-Лист на Емкость
-Комплектной
-Установки (062-U-004)
-для
-Производственно-Дож
-девой Канализации
+Water// Interview
+Sheet on Capacity
+Complete
+Installations (062-U-004)
+for
+Production-Doge
+virgin
 18-SEP-18
 
 18-SEP-18
@@ -7530,13 +7530,13 @@ Datasheet of Pumps
 Complete Installation
 (062-U-004) Industrial
 and Storm Water //
-Опросный Лист на
-Насосы (062-P-004A и
-062-P-004B) для
-Комплектной
-Установки (062-U-004)
-Проиводственно-Дожд
-евой Канализации
+Question sheet on
+Pumps (062-P-004A and
+062-P-004B for
+Complete
+Installations (062-U-004)
+Production rain
+escaping
 18-SEP-18
 
 Page
@@ -7728,13 +7728,13 @@ Datasheet of Drain
 Drum Complete
 Installation (062-U-005)
 for Industrial and Storm
-Water // Опросный
-Лист на Емкость
-Комплектной
-Установки (062-U-005)
-для
-Производственно-Дож
-девой Канализации
+Water// Interview
+Sheet on Capacity
+Complete
+Installations (062-U-005)
+for
+Production-Doge
+virgin
 18-SEP-18
 
 18-SEP-18
@@ -7918,13 +7918,13 @@ Datasheet of Pumps
 Complete Installation
 (062-U-005) Industrial
 and Storm Water //
-Опросный Лист на
-Насосы (062-Р-005А и
-062-P-005B) для
-Комплектной
-Установки (062-U-005)
-Производственно-Дож
-девой Канализации
+Question sheet on
+Pumps (062-P-005A and
+062-P-005B for
+Complete
+Installations (062-U-005)
+Production-Doge
+virgin
 18-SEP-18
 
 18-SEP-18
@@ -8060,13 +8060,13 @@ Datasheet of Drain
 Drum Complete
 Installation (062-U-006)
 for Industrial and Storm
-Water // Опросный
-Лист на Емкость
-Комплектной
-Установки (062-U-006)
-для
-Производственно-Дож
-девой Канализации
+Water// Interview
+Sheet on Capacity
+Complete
+Installations (062-U-006)
+for
+Production-Doge
+virgin
 18-SEP-18
 
 Page
@@ -8259,11 +8259,11 @@ NE-062-PR-DTS-5055-
 Datasheet of Drain
 Drum (062-V-003) for
 Industrial and Storm
-Water // Опросный
-Лист на Емкость
-(062-V-003) для
-Производственно-Дож
-девой Канализации
+Water// Interview
+Sheet on Capacity
+(062-V-003) for
+Production-Doge
+virgin
 18-SEP-18
 
 18-SEP-18
@@ -8449,11 +8449,11 @@ NE-062-PR-DTS-5056-
 Datasheet of Drain
 Drum (062-V-004) for
 Industrial and Storm
-Water // Опросный
-Лист на Емкость
-(062-V-004) для
-Производственно-Дож
-девой Канализации
+Water// Interview
+Sheet on Capacity
+(062-V-004) for
+Production-Doge
+virgin
 18-SEP-18
 
 18-SEP-18
@@ -8637,13 +8637,13 @@ Datasheet of Pumps
 Complete Installation
 (062-U-006) Industrial
 and Storm Water //
-Опросный Лист на
-Насосы (062-P-006A и
-062-P-006B) для
-Комплектной
-Установки (062-U-006)
-Производственно-Дож
-девой Канализации
+Question sheet on
+Pumps (062-P-006A and
+062-P-006B for
+Complete
+Installations (062-U-006)
+Production-Doge
+virgin
 18-SEP-18
 
 18-SEP-18
@@ -8822,15 +8822,15 @@ Utility Line List -
 Systems 062 - Industrial
 and Storm Waste Water
 Systems Onshore //
-Перечень
-Трубопроводов
-Вспомогательных
-Систем Системы 062
-Системы Дождевой И
-Производственной
-Канализации
-Береговые
-Сооружения
+List
+Pipelines
+Auxiliary
+Systems 062
+Rain & Systems
+Production
+Sewerage
+Coastal
+Facilities
 18-SEP-18
 
 18-SEP-18
@@ -8968,11 +8968,11 @@ Piping and
 Instrumentation
 Diagram Storm Water
 Runoffs Disposal
-System // Схема
-Технологическая и
-Автоматизации.
-Система Дождевой
-Канализации
+System // Scheme
+Technology and
+Automation.
+Rain system
+Sewerage
 18-SEP-18
 
 Page
@@ -9157,12 +9157,12 @@ Piping and
 Instrumentation
 Diagram Industrial
 Waste Water Disposal
-System // Схема
-Технологическая и
-Автоматизации
-Система
-Производственной
-Канализации
+System // Scheme
+Technology and
+Automation
+System system
+Production
+Sewerage
 18-SEP-18
 
 18-SEP-18
@@ -9349,12 +9349,12 @@ Instrumentation
 Diagram Industrial and
 Storm Water Runoffs
 Disposal System //
-Схема
-Технологическая и
-Автоматизации
-Система
-Промышленно-Ливнев
-ой Канализации
+Schema.
+Technology and
+Automation
+System system
+Industrial-Livnev
+The sewers.
 18-SEP-18
 
 18-SEP-18
@@ -9491,8 +9491,8 @@ Drain Lift Station 1
 Industrial and Storm
 Water Lift Station 2 3
 (0-SRL-002 0-SRL-003)
-// ЗАМЕНЕН
-документом
+// Replaced
+document
 3000-F-NE-062-ME-PLN
 -5001-00 -
 
@@ -9687,11 +9687,11 @@ Drain Lift Station 1
 Industrial and Storm
 Water Lift Station 2 3
 (0-SRL-002 0-SRL-003)
-// ЗАМЕНЕН
-документом
+// Replaced
+document
 3000-F-NE-062-ME-RE
-Q-5046-00 - Модуль -
-КНС Нефтезагрязнен
+Q-5046-00 - Module -
+CNC Oil is polluted
 18-SEP-18
 
 18-SEP-18
@@ -9876,11 +9876,11 @@ Drain Lift Station 1
 Industrial and Storm
 Water Lift Station 2 3
 (0-SRL-002 0-SRL-003)
-// ЗАМЕНЕН
-Документом
+// Replaced
+Documented
 3000-F-NE-062-ME-RE
-Q-5047-00 - Объем
-Пос
+Q-5047-00 - Volume
+Pos.
 18-SEP-18
 
 18-SEP-18
@@ -10069,10 +10069,10 @@ NE-062-PR-UFD-5038-
 
 Diagram of Onsite
 Storm Water Runoffs
-Network // Схема Сетей
-Дождевой
-Канализации на
-Территории Площадки
+Network // Network diagram
+Rainy
+The sewers
+Site areas
 18-SEP-18
 
 18-SEP-18
@@ -10261,10 +10261,10 @@ GA-10000006 - PBS Code
 
 Diagram of Onsite
 Industrial and Storm
-Water // Схема Сетей
-Производственной
-Канализации На
-Территории Площадки
+Water // Networks scheme
+Production
+Sewages B
+Site areas
 18-SEP-18
 
 18-SEP-18
@@ -10410,10 +10410,10 @@ NE-062-PR-UFD-5040-
 
 Diagram of Onsite
 Contaminated Open
-Drain // Схема Сетей
-Производственно-Дож
-девой Канализации на
-Территории Площадки
+Drain//Scheme of Networks
+Production-Doge
+maiden sewage
+Site areas
 18-SEP-18
 
 18-SEP-18
@@ -10598,12 +10598,12 @@ CANCELLED - Central
 Control Building
 Diagram of Indoor
 Industrial and Storm
-Sewer // Здание
-Центральной
-Операторной Схема
-Внутренней Сети
-Промышленной и
-Ливневой Канализации
+Sewer // Building
+central
+Operating diagram
+Internal Network
+Industrial and
+Storm sewerage
 18-SEP-18
 
 18-SEP-18

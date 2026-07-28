@@ -4279,7 +4279,7 @@ organisations do not apply to AVEVA. ABP/RLF/16.
 # SOURCE: vendor_hexagon\Brochure_SmartPlant_OwnerOperator_ENG.pdf
 ---
 
-> [!] Быстрое извлечение (Heavy PDF)
+> [!] Quick extraction (Heavy PDF)
 
 SMARTPLANT
  ® 
@@ -4710,7 +4710,7 @@ are trademarks of their respective owners.
 # SOURCE: vendor_hexagon\BIM2011.pdf
 ---
 
-> [!] Быстрое извлечение (Heavy PDF)
+> [!] Quick extraction (Heavy PDF)
 
 BIM – информационная модель здания: 
 пора или не пора 
@@ -25987,7 +25987,7 @@ Copyright© Hexagon AB and/or its subsidiaries and affiliates. All rights reserv
 # SOURCE: vendor_hexagon\HxGN SDx Help.pdf
 ---
 
-> [!] Быстрое извлечение (Heavy PDF)
+> [!] Quick extraction (Heavy PDF)
 
 HxGN SDx Help
 Hexagon Documentation
@@ -42150,7 +42150,7 @@ DSPE1-PE-200130A - Updated Enterprise Work Process for Piping and Equipment Desi
 # SOURCE: vendor_hexagon\pnst-fda--47.pdf
 ---
 
-> [!] Быстрое извлечение (Heavy PDF)
+> [!] Quick extraction (Heavy PDF)
 
 Министерство транспорта Российской Федерации 
 ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ 

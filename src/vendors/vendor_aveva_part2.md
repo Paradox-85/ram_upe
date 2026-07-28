@@ -3,7 +3,7 @@
 # SOURCE: vendor_aveva\avevatm_asset_information_management_10-27-2025.pdf
 ---
 
-> [!] Быстрое извлечение (Heavy PDF)
+> [!] Quick extraction (Heavy PDF)
 
 AVEVA™ Asset Information Management 
 © 2015-2025 AVEVA Group Limited and its subsidiaries. All rights reserved. 

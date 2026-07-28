@@ -3,7 +3,7 @@
 # SOURCE: vendor_hexagon\HxGN SDx2 Help.pdf
 ---
 
-> [!] Быстрое извлечение (Heavy PDF)
+> [!] Quick extraction (Heavy PDF)
 
 HxGN SDx2 Help
 Hexagon Documentation

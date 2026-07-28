@@ -22,7 +22,7 @@ tags: [demo, script, stakeholder, presentation]
 ## Part 1: The Problem with Traditional Specs (3 minutes)
 
 **Slide/Talking Points:**
-- Traditional ТЗ (specifications) are dead on arrival — written once, outdated immediately
+- Traditional technical specifications are dead on arrival — written once, outdated immediately
 - Engineers don't read 50-page Word documents
 - Diagrams in Visio are disconnected from the actual design
 - No way to track WHO decided WHAT and WHEN
