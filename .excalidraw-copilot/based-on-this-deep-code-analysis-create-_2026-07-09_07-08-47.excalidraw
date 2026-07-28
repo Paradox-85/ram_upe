@@ -1,0 +1,20 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "excalidraw-copilot",
+  "elements": [],
+  "appState": {
+    "viewBackgroundColor": "#ffffff",
+    "gridSize": null
+  },
+  "metadata": {
+    "prompt": "Based on this deep code analysis, create an ARCHITECTURE DIAGRAM showing the real structure of this codebase.\n\n## Project Structure\n\n## Components\n\n## Detected Architecture Patterns\n\n## Internal Depen",
+    "pipeline": "mermaid",
+    "model": "gpt-5.3-codex",
+    "timestamp": 1783580927054,
+    "nodeCount": 0,
+    "connectionCount": 0
+  },
+  "mermaidSyntax": "flowchart TB\n    subgraph L1[\"Entry Layer\"]\n        EP1[\"App Entry (service)\"]\n        EP2[\"Server Boot (service)\"]\n    end\n\n    subgraph L2[\"Controller Layer\"]\n        C1[\"Routes Mod (service)\"]\n        C2[\"HTTP Ctrl (service)\"]\n        C3[\"Auth Ctrl (service)\"]\n        C4[\"Health Ctrl (service)\"]\n    end\n\n    subgraph L3[\"Service Layer\"]\n        S1[\"Biz Service (logic)\"]\n        S2[\"Auth Service (logic)\"]\n        S3[\"Domain Svc (logic)\"]\n        S4[\"Integ Svc (logic)\"]\n    end\n\n    subgraph L4[\"Model Layer\"]\n        M1[\"Models Set (entity)\"]\n        M2[\"Entities Set (entity)\"]\n        M3[\"Domain Ent (entity)\"]\n    end\n\n    subgraph L5[\"External Layer\"]\n        D1[\"PostgreSQL (database)\"]\n        D2[\"MongoDB (database)\"]\n        R1[\"Redis Cache (cache)\"]\n        Q1[\"Kafka Bus (queue)\"]\n        Q2[\"RabbitMQ Bus (queue)\"]\n        X1[\"External APIs (external)\"]\n    end\n\n    EP1 --> C1\n    EP1 --> C2\n    EP2 --> C3\n    EP2 --> C4\n\n    C1 -->|\"route call\"| S1\n    C2 --> S1\n    C3 --> S2\n    C4 --> S3\n\n    S1 --> M1\n    S2 --> M2\n    S3 --> M3\n    S4 --> M1\n\n    M1 -->|\"persist\"| D1\n    M1 --> D2\n    M2 --> R1\n    M2 --> X1\n    M3 -.-> Q1\n    M3 -.-> Q2\n\n    style EP1 fill:#dbeafe,stroke:#3b82f6,color:#1e40af\n    style EP2 fill:#dbeafe,stroke:#3b82f6,color:#1e40af\n    style C1 fill:#dbeafe,stroke:#3b82f6,color:#1e40af\n    style C2 fill:#dbeafe,stroke:#3b82f6,color:#1e40af\n    style C3 fill:#f3e8ff,stroke:#a855f7,color:#6b21a8\n    style C4 fill:#dbeafe,stroke:#3b82f6,color:#1e40af\n    style S1 fill:#dbeafe,stroke:#3b82f6,color:#1e40af\n    style S2 fill:#f3e8ff,stroke:#a855f7,color:#6b21a8\n    style S3 fill:#dbeafe,stroke:#3b82f6,color:#1e40af\n    style S4 fill:#dbeafe,stroke:#3b82f6,color:#1e40af\n    style M1 fill:#dcfce7,stroke:#22c55e,color:#166534\n    style M2 fill:#dcfce7,stroke:#22c55e,color:#166534\n    style M3 fill:#dcfce7,stroke:#22c55e,color:#166534\n    style D1 fill:#dcfce7,stroke:#22c55e,color:#166534\n    style D2 fill:#dcfce7,stroke:#22c55e,color:#166534\n    style R1 fill:#fef3c7,stroke:#f59e0b,color:#92400e\n    style Q1 fill:#fef3c7,stroke:#f59e0b,color:#92400e\n    style Q2 fill:#fef3c7,stroke:#f59e0b,color:#92400e\n    style X1 fill:#fce7f3,stroke:#ec4899,color:#9d174d",
+  "files": {}
+}
