@@ -1,0 +1,921 @@
+model_format: ontology-lite
+model_version: "0.1"
+
+document:
+  id: assessment.upe.strategy.v1
+  title: "Unified Production Environment strategic assessment"
+  created: "2026-07-31"
+  status: proposed
+  purpose: >-
+    Answer the UPE vision questions about contradictions, low-hanging fruits,
+    parallel workstreams, risks, and additional standards or technologies.
+  interpretation: >-
+    This file is an ontology-lite analytical source model with a controlled
+    vocabulary, stable IDs, typed relationships, and validation rules. It is
+    retained alongside the Open Knowledge Format bundle derived from it.
+  source_boundary:
+    prompt: _plan/main.md
+    context_root: knowledge-base/raw-input
+  scope_notes:
+    - "This is a strategic assessment and phased work decomposition."
+    - "It is not a detailed target architecture, procurement decision, delivery estimate, or RACI."
+    - "Named products are replaceable implementation candidates, not logical requirements."
+    - "Microsoft Fabric or OneLake is not proposed as a replacement CDE."
+    - "Microsoft Lists may hold operational state in an early pilot without owning workflow behavior."
+  direct_answers:
+    contradictions: "The vision is coherent, but contains nine design tensions that require explicit boundaries and decision rights."
+    low_hanging_fruits: "Start with the vocabulary, golden-path project, desired-state template, onboarding pilot, and a narrow delivery workflow pilot."
+    workstreams: "Run eight workstreams, gated by a small shared operating-model contract and measured pilot outcomes."
+    risks: "The largest risks are platform overreach, unclear ownership, state duplication, access leakage, low adoption, and standards that remain documentation only."
+    additions: "Add lightweight contracts for schemas, APIs, events, processes, provenance, identity, observability, and BIM coordination as needs arise."
+
+vocabulary:
+  element_types:
+    - VisionPrinciple
+    - Contradiction
+    - Opportunity
+    - Workstream
+    - Risk
+    - Recommendation
+    - Standard
+    - Technology
+    - Outcome
+  relationship_types:
+    - addresses
+    - mitigates
+    - depends_on
+    - enables
+    - conflicts_with
+    - informed_by
+    - implements
+    - measured_by
+  priorities: [critical, high, medium, low]
+  maturity_stages: [foundation, pilot, scale, optimize]
+  statuses: [proposed, accepted, deferred, rejected]
+  likelihoods: [low, medium, high]
+  impacts: [low, medium, high, critical]
+
+elements:
+  # Evaluation principles
+  - id: principle.architecture.what_how_separation
+    type: VisionPrinciple
+    name: "Separate what from how"
+    description: "Describe desired outcomes and contracts independently from replaceable implementations."
+    basis: evidence
+    source_refs: [_plan/main.md, knowledge-base/raw-input/project-startup.excalidraw]
+
+  - id: principle.scope.project_centricity
+    type: VisionPrinciple
+    name: "Project centricity"
+    description: "Organize production capabilities around project delivery while integrating with enterprise capabilities through explicit contracts."
+    basis: evidence
+    source_refs: [_plan/main.md, knowledge-base/raw-input/UPE-vision.md]
+
+  - id: principle.data.open_portability
+    type: VisionPrinciple
+    name: "Open and portable data"
+    description: "Treat information as the durable asset and preserve usable exports independent of a vendor license."
+    basis: evidence
+    source_refs: [_plan/main.md, knowledge-base/raw-input/UPE-vision.md]
+
+  - id: principle.governance.lifecycle_fidelity
+    type: VisionPrinciple
+    name: "Lifecycle-aware governance"
+    description: "Require minimal metadata during exploration and strengthen validation, traceability, and approvals as information matures."
+    basis: evidence
+    source_refs: [knowledge-base/raw-input/UPE-vision.md, knowledge-base/raw-input/iso-19650.md]
+
+  - id: principle.ecosystem.microsoft_first_tool_agnostic
+    type: VisionPrinciple
+    name: "Microsoft-first, tool-agnostic"
+    description: "Exploit the existing Microsoft ecosystem while keeping logical models and interfaces portable across CDEs and engineering tools."
+    basis: evidence
+    source_refs: [_plan/main.md, knowledge-base/raw-input/iso-19650.md]
+
+  - id: principle.automation.human_accountability
+    type: VisionPrinciple
+    name: "Human accountability for consequential decisions"
+    description: "Automation and AI may recommend or execute bounded actions, while named roles remain accountable for approvals and exceptions."
+    basis: evidence
+    source_refs: [_plan/main.md, knowledge-base/raw-input/UPE-vision.md]
+
+  - id: principle.delivery.progressive_maturity
+    type: VisionPrinciple
+    name: "Progressive maturity"
+    description: "Deliver narrow usable pilots first and replace temporary state holders or interfaces when complexity justifies it."
+    basis: evidence
+    source_refs: [knowledge-base/raw-input/event-driven work management system.md, knowledge-base/raw-input/minimal-idp.md]
+
+  # Contradictions and design tensions
+  - id: contradiction.architecture.standardization_flexibility
+    type: Contradiction
+    name: "Standardization versus project flexibility"
+    description: "A universal environment can suppress valid client, geography, industry, and discipline variation unless standards define a small invariant core plus governed extensions."
+    resolution: "Version a minimum core contract and permit project overlays with explicit ownership and compatibility rules."
+    severity: high
+    basis: evidence
+    source_refs: [_plan/main.md, knowledge-base/raw-input/interviews-summary.md]
+
+  - id: contradiction.architecture.sovereignty_vendor_depth
+    type: Contradiction
+    name: "Sovereignty versus deep vendor integration"
+    description: "Microsoft-first delivery and tier-one vendor APIs create value but can conflict with portability and sovereign operation."
+    resolution: "Own canonical contracts, require export paths, and isolate vendor adapters behind stable interfaces."
+    severity: high
+    basis: evidence
+    source_refs: [_plan/main.md, knowledge-base/raw-input/risks.md]
+
+  - id: contradiction.state.static_dynamic
+    type: Contradiction
+    name: "Git desired state versus dynamic operational state"
+    description: "Project configuration is suitable for Git, while memberships, approvals, delivery states, and events change continuously."
+    resolution: "Keep versioned desired state in Git and operational state in fit-for-purpose services, linked by stable IDs and reconciliation status."
+    severity: high
+    basis: evidence
+    source_refs: [_plan/main.md, knowledge-base/raw-input/project-startup.excalidraw]
+
+  - id: contradiction.information.single_truth_distributed_cdes
+    type: Contradiction
+    name: "Single source of truth versus distributed CDEs"
+    description: "Client-mandated platforms prevent one physical repository from being authoritative for every information container."
+    resolution: "Define authority per data class and maintain a common information register rather than centralizing every file."
+    severity: high
+    basis: evidence
+    source_refs: [knowledge-base/raw-input/interviews-summary.md, knowledge-base/raw-input/iso-19650.md]
+
+  - id: contradiction.workflow.embedded_central_state
+    type: Contradiction
+    name: "Artifact-embedded state versus central workflow authority"
+    description: "Process properties inside BIM artifacts improve context but duplicate centrally managed workflow state and can become stale."
+    resolution: "Embed the stable delivery ID and a labeled state snapshot; keep transition authority and history in the workflow service."
+    severity: high
+    basis: evidence
+    source_refs: [knowledge-base/raw-input/working-in-projects.md, knowledge-base/raw-input/event-driven work management system.md]
+
+  - id: contradiction.governance.empowerment_guardrails
+    type: Contradiction
+    name: "Citizen empowerment versus enterprise guardrails"
+    description: "Low-code freedom conflicts with security, lifecycle support, cost allocation, and production reliability when no golden paths exist."
+    resolution: "Provide pre-approved templates, environments, connectors, ownership metadata, observability, and expiry policies."
+    severity: high
+    basis: evidence
+    source_refs: [_plan/main.md, knowledge-base/raw-input/minimal-idp.md]
+
+  - id: contradiction.scope.platform_ambition_modularity
+    type: Contradiction
+    name: "Platform ambition versus modular delivery"
+    description: "UPE spans provisioning, IAM, workflows, CDEs, data, AI, and engineering tools, creating a credible monolith and coordination risk."
+    resolution: "Treat UPE as a governed portfolio of capabilities with thin shared contracts, independent products, and explicit service ownership."
+    severity: critical
+    basis: evidence
+    source_refs: [_plan/main.md, knowledge-base/raw-input/upe-foundations.md, knowledge-base/raw-input/risks.md]
+
+  - id: contradiction.ai.speed_trust
+    type: Contradiction
+    name: "AI adoption speed versus trusted knowledge"
+    description: "Rapid agent experimentation can outpace source curation, access control, evaluation, provenance, and accountability."
+    resolution: "Gate production agents on curated sources, permission-aware retrieval, evaluation, auditability, and named owners."
+    severity: high
+    basis: evidence
+    source_refs: [knowledge-base/raw-input/interviews-summary.md, knowledge-base/raw-input/UPE-vision.md, knowledge-base/raw-input/risks.md]
+
+  - id: contradiction.scope.project_enterprise_boundary
+    type: Contradiction
+    name: "Project ownership versus enterprise data integration"
+    description: "UPE excludes corporate domains but still needs cost, resource, portfolio, and Fabric data, leaving authority and funding boundaries unclear."
+    resolution: "Agree domain ownership and integration contracts with enterprise architecture before selecting shared platforms."
+    severity: high
+    basis: evidence
+    source_refs: [_plan/main.md, knowledge-base/raw-input/risks.md, knowledge-base/raw-input/iso-19650.md]
+
+  # Ranked low-hanging fruits
+  - id: opportunity.foundation.ontology_lite_contract
+    type: Opportunity
+    name: "Publish the minimum UPE vocabulary and schema"
+    rank: 1
+    maturity: foundation
+    effort: low
+    value: high
+    first_increment: "Versioned YAML definitions for Project, Role, WorkPackage, Delivery, Process, Checklist, InformationContainer, Platform, and typed relationships."
+    exit_criterion: "Two pilot teams can exchange and validate the same sample project without interpretation meetings."
+    basis: evidence
+    source_refs: [knowledge-base/raw-input/business-process-capture-format.md, knowledge-base/raw-input/working-in-projects.md]
+
+  - id: opportunity.delivery.golden_path_project
+    type: Opportunity
+    name: "Create a golden-path sample project"
+    rank: 2
+    maturity: foundation
+    effort: low
+    value: high
+    first_increment: "A realistic sample with machine-readable delivery plan, roles, checks, folder states, naming, and platform mappings."
+    exit_criterion: "A new project team can understand expected setup and deliveries from the sample alone."
+    basis: evidence
+    source_refs: [knowledge-base/raw-input/interviews-summary.md]
+
+  - id: opportunity.startup.git_desired_state
+    type: Opportunity
+    name: "Pilot a clone-and-override project repository"
+    rank: 3
+    maturity: pilot
+    effort: low
+    value: high
+    first_increment: "Project metadata, key roles, data-platform choices, folder structures, and access mappings validated in CI."
+    exit_criterion: "A pilot project generates an approved setup plan from the repository with no manual re-keying."
+    basis: evidence
+    source_refs: [_plan/main.md, knowledge-base/raw-input/project-startup.excalidraw]
+
+  - id: opportunity.identity.onboarding_pilot
+    type: Opportunity
+    name: "Automate one onboarding and offboarding path"
+    rank: 4
+    maturity: pilot
+    effort: medium
+    value: high
+    first_increment: "Request, PM approval, project-role assignment, one platform access grant, evidence log, and removal on exit."
+    exit_criterion: "Median onboarding time falls while every grant retains approver, role, scope, and expiry evidence."
+    basis: evidence
+    source_refs: [_plan/main.md, knowledge-base/raw-input/interviews-summary.md]
+
+  - id: opportunity.workflow.lists_validation_pilot
+    type: Opportunity
+    name: "Pilot delivery checklists with backend validation"
+    rank: 5
+    maturity: pilot
+    effort: medium
+    value: high
+    first_increment: "One delivery type, one discipline pair, requested transitions, self-check, cross-check, approval, and Teams feedback."
+    exit_criterion: "Users complete the process without bypassing rules and invalid transitions receive actionable feedback."
+    basis: evidence
+    source_refs: [knowledge-base/raw-input/event-driven work management system.md, knowledge-base/raw-input/working-in-projects.md]
+
+  - id: opportunity.bim.property_validation
+    type: Opportunity
+    name: "Standardize one process property set and validation path"
+    rank: 6
+    maturity: pilot
+    effort: medium
+    value: high
+    first_increment: "Stable delivery ID, snapshot status, validation timestamp, IDS rules, and one IFC export mapping."
+    exit_criterion: "The pilot eliminates repeated manual property population and identifies stale snapshots."
+    basis: evidence
+    source_refs: [_plan/main.md, knowledge-base/raw-input/interviews-summary.md]
+
+  - id: opportunity.cde.common_information_register
+    type: Opportunity
+    name: "Build a cross-CDE information register"
+    rank: 7
+    maturity: pilot
+    effort: medium
+    value: high
+    first_increment: "Map exports from two CDEs to common WIP, Shared, Published, and Archived metadata states."
+    exit_criterion: "Portfolio reporting resolves each record to its authoritative CDE without copying the source file."
+    basis: evidence
+    source_refs: [knowledge-base/raw-input/interviews-summary.md, knowledge-base/raw-input/iso-19650.md]
+
+  - id: opportunity.ai.curated_retrieval
+    type: Opportunity
+    name: "Pilot curated permission-aware knowledge retrieval"
+    rank: 8
+    maturity: pilot
+    effort: medium
+    value: medium
+    first_increment: "One bounded handbook corpus with owners, access labels, citations, freshness dates, evaluation questions, and usage telemetry."
+    exit_criterion: "The pilot meets an agreed grounded-answer threshold with no unauthorized source disclosure."
+    basis: evidence
+    source_refs: [knowledge-base/raw-input/interviews-summary.md, knowledge-base/raw-input/UPE-vision.md]
+
+  # Parallel workstreams
+  - id: workstream.foundation.operating_model
+    type: Workstream
+    name: "Operating model, vocabulary, and architecture governance"
+    priority: critical
+    maturity: foundation
+    scope: "Own capability boundaries, IDs, vocabularies, schemas, extension rules, decision records, and enterprise architecture alignment."
+    first_deliverable: "Minimum UPE contract v0.1 and architecture decision forum."
+    dependencies: []
+    owner_to_identify: "UPE product lead with enterprise architecture and information management."
+    basis: synthesis
+    source_refs: [_plan/main.md, knowledge-base/raw-input/business-process-capture-format.md, knowledge-base/raw-input/risks.md]
+
+  - id: workstream.startup.provisioning
+    type: Workstream
+    name: "Project startup and platform provisioning"
+    priority: high
+    maturity: pilot
+    scope: "Turn approved desired-state project templates into auditable setup tasks and adapters for selected platforms."
+    first_deliverable: "Clone-and-override repository plus a dry-run provisioning report for one project type."
+    dependencies: [workstream.foundation.operating_model]
+    owner_to_identify: "Project technology and platform engineering product owner."
+    basis: synthesis
+    source_refs: [_plan/main.md, knowledge-base/raw-input/project-startup.excalidraw]
+
+  - id: workstream.delivery.digital_thread
+    type: Workstream
+    name: "Delivery planning, workflows, and digital thread"
+    priority: high
+    maturity: pilot
+    scope: "Model work packages, deliveries, dependencies, checklists, transitions, approvals, events, and artifact identifiers."
+    first_deliverable: "One end-to-end delivery-type pilot using Lists as UI/state and backend-owned transition rules."
+    dependencies: [workstream.foundation.operating_model]
+    owner_to_identify: "Project delivery product owner with discipline representatives."
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/working-in-projects.md, knowledge-base/raw-input/event-driven work management system.md]
+
+  - id: workstream.identity.project_access
+    type: Workstream
+    name: "Identity, onboarding, offboarding, and project roles"
+    priority: high
+    maturity: pilot
+    scope: "Define project roles, approvals, platform mappings, joiner-mover-leaver events, expiry, recertification, and evidence."
+    first_deliverable: "One role-based onboarding and offboarding flow spanning Teams and one project platform."
+    dependencies: [workstream.foundation.operating_model]
+    owner_to_identify: "Identity governance owner with project operations."
+    basis: synthesis
+    source_refs: [_plan/main.md, knowledge-base/raw-input/interviews-summary.md]
+
+  - id: workstream.information.cde_interoperability
+    type: Workstream
+    name: "CDE interoperability and ISO 19650 information management"
+    priority: high
+    maturity: pilot
+    scope: "Define authoritative sources, common information-register metadata, state mappings, requirements traceability, and exchange validation."
+    first_deliverable: "Two-CDE metadata mapping and portfolio information-health dashboard."
+    dependencies: [workstream.foundation.operating_model]
+    owner_to_identify: "Information management owner with BIM and data platform leads."
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/iso-19650.md, knowledge-base/raw-input/interviews-summary.md]
+
+  - id: workstream.platform.production_toolbox
+    type: Workstream
+    name: "Production toolbox and citizen-development golden paths"
+    priority: medium
+    maturity: foundation
+    scope: "Curate templates, APIs, MCP servers, automation patterns, environments, observability, support tiers, and cost guardrails."
+    first_deliverable: "Catalog of three supported solution patterns with ownership and production-readiness checks."
+    dependencies: [workstream.foundation.operating_model]
+    owner_to_identify: "Internal developer platform product owner."
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/upe-foundations.md, knowledge-base/raw-input/minimal-idp.md]
+
+  - id: workstream.ai.knowledge_agents
+    type: Workstream
+    name: "Knowledge governance and AI or agent enablement"
+    priority: medium
+    maturity: pilot
+    scope: "Curate sources, enforce permissions, define agent and skill registries, evaluate quality, record provenance, and monitor use and cost."
+    first_deliverable: "One bounded retrieval pilot and registry entry with evaluation and retirement criteria."
+    dependencies: [workstream.foundation.operating_model, workstream.identity.project_access, workstream.platform.production_toolbox]
+    owner_to_identify: "Knowledge product owner with AI platform and information security."
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/interviews-summary.md, knowledge-base/raw-input/risks.md]
+
+  - id: workstream.adoption.value_management
+    type: Workstream
+    name: "Adoption, portfolio value, and change management"
+    priority: high
+    maturity: foundation
+    scope: "Select pilots, baseline measures, support users, collect feedback, publish outcomes, and stop or scale products based on evidence."
+    first_deliverable: "Pilot scorecard, baseline, adoption plan, and quarterly portfolio review."
+    dependencies: [workstream.foundation.operating_model]
+    owner_to_identify: "UPE portfolio owner with project leadership and finance."
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/UPE-vision.md, knowledge-base/raw-input/interviews-summary.md]
+
+  # Risk register
+  - id: risk.governance.ea_misalignment
+    type: Risk
+    name: "Enterprise architecture misalignment"
+    likelihood: medium
+    impact: high
+    early_indicator: "Competing canonical models, duplicated platforms, or unresolved ownership of Fabric and project data."
+    mitigation: "Agree domain boundaries, decision rights, and integration contracts before shared platform commitments."
+    accountable_workstream: workstream.foundation.operating_model
+    basis: evidence
+    source_refs: [_plan/main.md, knowledge-base/raw-input/risks.md]
+
+  - id: risk.architecture.monolith_overreach
+    type: Risk
+    name: "Monolith and platform overreach"
+    likelihood: high
+    impact: critical
+    early_indicator: "Pilots wait for a central platform or releases require coordinated changes across unrelated capabilities."
+    mitigation: "Fund capability products independently and share only versioned contracts, identity, telemetry, and governance."
+    accountable_workstream: workstream.foundation.operating_model
+    basis: evidence
+    source_refs: [knowledge-base/raw-input/risks.md, knowledge-base/raw-input/upe-foundations.md]
+
+  - id: risk.architecture.vendor_lock_in
+    type: Risk
+    name: "Vendor lock-in"
+    likelihood: high
+    impact: high
+    early_indicator: "Critical project data or process definitions cannot be exported without proprietary licenses or manual reconstruction."
+    mitigation: "Require canonical exports, adapter boundaries, data exit tests, and procurement clauses for access and extraction."
+    accountable_workstream: workstream.information.cde_interoperability
+    basis: evidence
+    source_refs: [_plan/main.md, knowledge-base/raw-input/risks.md]
+
+  - id: risk.ai.agent_fragmentation
+    type: Risk
+    name: "Agent and skill fragmentation"
+    likelihood: high
+    impact: high
+    early_indicator: "Duplicate agents use inconsistent prompts, permissions, tools, or knowledge sources with no named owner."
+    mitigation: "Maintain a registry, reusable skill contracts, evaluation gates, ownership, versions, and retirement rules."
+    accountable_workstream: workstream.ai.knowledge_agents
+    basis: evidence
+    source_refs: [knowledge-base/raw-input/risks.md, knowledge-base/raw-input/upe-foundations.md]
+
+  - id: risk.ai.missed_opportunity
+    type: Risk
+    name: "Missing the AI opportunity"
+    likelihood: medium
+    impact: high
+    early_indicator: "Governance design continues without bounded experiments or measured engineering use cases."
+    mitigation: "Run small evaluated pilots in parallel with governance and scale only proven use cases."
+    accountable_workstream: workstream.ai.knowledge_agents
+    basis: evidence
+    source_refs: [knowledge-base/raw-input/risks.md, knowledge-base/raw-input/interviews-summary.md]
+
+  - id: risk.model.schema_overdesign
+    type: Risk
+    name: "Schema overdesign"
+    likelihood: high
+    impact: high
+    early_indicator: "Vocabulary debates delay pilots or most fields remain empty and extension requests bypass governance."
+    mitigation: "Start with the minimum concepts needed by two pilots and evolve through versioned examples and compatibility tests."
+    accountable_workstream: workstream.foundation.operating_model
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/business-process-capture-format.md]
+
+  - id: risk.data.poor_quality
+    type: Risk
+    name: "Poor source and metadata quality"
+    likelihood: high
+    impact: high
+    early_indicator: "Missing IDs, owners, classifications, revisions, or approvals require recurring manual correction."
+    mitigation: "Validate at capture, assign data owners, expose quality scores, and tighten gates with lifecycle fidelity."
+    accountable_workstream: workstream.information.cde_interoperability
+    basis: evidence
+    source_refs: [knowledge-base/raw-input/UPE-vision.md, knowledge-base/raw-input/interviews-summary.md]
+
+  - id: risk.state.stale_duplication
+    type: Risk
+    name: "Stale duplicated state"
+    likelihood: high
+    impact: high
+    early_indicator: "Git, Lists, CDEs, dashboards, and model properties show different delivery or access states."
+    mitigation: "Declare authority per field, use stable IDs, timestamp projections, reconcile differences, and display staleness."
+    accountable_workstream: workstream.delivery.digital_thread
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/working-in-projects.md, knowledge-base/raw-input/project-startup.excalidraw]
+
+  - id: risk.events.loops_races
+    type: Risk
+    name: "Event loops and race conditions"
+    likelihood: medium
+    impact: high
+    early_indicator: "Repeated notifications, reverted updates, duplicate approvals, or non-deterministic delivery states."
+    mitigation: "Use idempotency keys, event origin, correlation IDs, optimistic concurrency, retries, and dead-letter handling."
+    accountable_workstream: workstream.delivery.digital_thread
+    basis: evidence
+    source_refs: [knowledge-base/raw-input/event-driven work management system.md]
+
+  - id: risk.security.permission_leakage
+    type: Risk
+    name: "Permission leakage across clients and joint ventures"
+    likelihood: medium
+    impact: critical
+    early_indicator: "Access mappings lack scope or expiry, retrieval returns unauthorized sources, or offboarding remains incomplete."
+    mitigation: "Use least privilege, project-scoped roles, approval evidence, expiry, recertification, and permission-trimmed retrieval."
+    accountable_workstream: workstream.identity.project_access
+    basis: evidence
+    source_refs: [_plan/main.md, knowledge-base/raw-input/interviews-summary.md]
+
+  - id: risk.platform.citizen_sprawl
+    type: Risk
+    name: "Citizen-development sprawl"
+    likelihood: high
+    impact: high
+    early_indicator: "Unowned flows, unsupported connectors, unmanaged environments, or business-critical personal automations."
+    mitigation: "Offer golden paths, ownership metadata, environment tiers, DLP, inventory, telemetry, and automatic expiry."
+    accountable_workstream: workstream.platform.production_toolbox
+    basis: evidence
+    source_refs: [_plan/main.md, knowledge-base/raw-input/minimal-idp.md]
+
+  - id: risk.integration.api_license_limits
+    type: Risk
+    name: "API and license constraints"
+    likelihood: high
+    impact: high
+    early_indicator: "A planned workflow depends on unavailable APIs, rate limits, premium connectors, or contractually restricted exports."
+    mitigation: "Run capability and license spikes before committing, cache safely, degrade gracefully, and retain manual fallback procedures."
+    accountable_workstream: workstream.startup.provisioning
+    basis: synthesis
+    source_refs: [_plan/main.md, knowledge-base/raw-input/interviews-summary.md]
+
+  - id: risk.adoption.low_usage
+    type: Risk
+    name: "Low adoption"
+    likelihood: high
+    impact: critical
+    early_indicator: "Users maintain shadow spreadsheets, bypass checks, or perceive governance as extra work."
+    mitigation: "Co-design with project teams, embed controls in existing work, measure task time, and remove steps that add no demonstrated value."
+    accountable_workstream: workstream.adoption.value_management
+    basis: evidence
+    source_refs: [knowledge-base/raw-input/interviews-summary.md]
+
+  - id: risk.operating_model.unclear_ownership
+    type: Risk
+    name: "Unclear product ownership and support"
+    likelihood: high
+    impact: critical
+    early_indicator: "No team owns incidents, schemas, adapters, deprecation, or funding after a pilot."
+    mitigation: "Assign product owners, service tiers, support paths, lifecycle budgets, and retirement criteria before production use."
+    accountable_workstream: workstream.adoption.value_management
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/minimal-idp.md]
+
+  - id: risk.finops.cost_growth
+    type: Risk
+    name: "Uncontrolled cloud and AI cost growth"
+    likelihood: medium
+    impact: high
+    early_indicator: "Usage cannot be attributed to projects or use cases and idle services persist without owners."
+    mitigation: "Require cost tags, quotas, budgets, usage telemetry, unit-cost KPIs, and automatic idle-resource review."
+    accountable_workstream: workstream.platform.production_toolbox
+    basis: evidence
+    source_refs: [_plan/main.md, knowledge-base/raw-input/minimal-idp.md]
+
+  - id: risk.governance.standards_shelfware
+    type: Risk
+    name: "Standards become shelfware"
+    likelihood: high
+    impact: high
+    early_indicator: "Standards exist only as documents, exceptions are invisible, and projects manually recreate templates and checks."
+    mitigation: "Publish executable schemas, templates, validators, examples, conformance reports, and a measured exception process."
+    accountable_workstream: workstream.foundation.operating_model
+    basis: evidence
+    source_refs: [_plan/main.md, knowledge-base/raw-input/interviews-summary.md]
+
+  # Recommended standards and replaceable technologies
+  - id: standard.data.json_schema
+    type: Standard
+    name: "JSON Schema for YAML and JSON contracts"
+    adoption: recommended_now
+    problem_solved: "Machine validation, defaults, enums, versions, and editor assistance for project and process definitions."
+    caution: "Keep semantic cross-record rules outside the schema when they become difficult to explain."
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/business-process-capture-format.md]
+
+  - id: standard.integration.openapi
+    type: Standard
+    name: "OpenAPI"
+    adoption: recommended_now
+    problem_solved: "Stable, testable contracts for commands and queries across add-ins, Teams interfaces, services, and vendor adapters."
+    caution: "Do not expose vendor-specific models as the canonical domain API."
+    basis: synthesis
+    source_refs: [_plan/main.md]
+
+  - id: standard.events.asyncapi_cloudevents
+    type: Standard
+    name: "AsyncAPI and CloudEvents"
+    adoption: recommended_when_eventing_scales
+    problem_solved: "Discoverable event contracts with consistent identity, source, type, time, correlation, and payload schemas."
+    caution: "A documented event catalog is more important than adopting every feature."
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/event-driven work management system.md]
+
+  - id: standard.process.bpmn_dmn
+    type: Standard
+    name: "BPMN and DMN"
+    adoption: evaluate
+    problem_solved: "Portable visualization of human workflows and explicit decision tables for complex transition rules."
+    caution: "Use only where business users need richer semantics than the simple state-machine DSL."
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/working-in-projects.md]
+
+  - id: standard.architecture.archimate_exchange
+    type: Standard
+    name: "ArchiMate Exchange Format"
+    adoption: evaluate
+    problem_solved: "Traceability from UPE capabilities and processes to applications, data objects, and technology services."
+    caution: "Keep the operational YAML model simpler than the enterprise architecture repository."
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/business-process-capture-format.md]
+
+  - id: standard.knowledge.jsonld_shacl
+    type: Standard
+    name: "JSON-LD, RDF, and SHACL"
+    adoption: defer_until_graph_need
+    problem_solved: "Linked semantics, federation, inference, and graph validation when cross-domain relationships outgrow ontology-lite YAML."
+    caution: "Do not introduce a knowledge graph before concrete queries and interoperability needs justify its complexity."
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/business-process-capture-format.md]
+
+  - id: standard.provenance.w3c_prov_openlineage
+    type: Standard
+    name: "W3C PROV and OpenLineage"
+    adoption: evaluate
+    problem_solved: "Traceability of information transformations, validations, AI sources, outputs, and responsible actors."
+    caution: "Adopt a minimal provenance profile and avoid recording low-value noise."
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/UPE-vision.md]
+
+  - id: standard.identity.oauth_oidc_scim_policy
+    type: Standard
+    name: "OAuth 2.0, OpenID Connect, SCIM, and policy as code"
+    adoption: recommended_now
+    problem_solved: "Portable authentication, delegated authorization, identity lifecycle integration, and testable access policy."
+    caution: "Platform role models still require explicit mappings and recertification."
+    basis: synthesis
+    source_refs: [_plan/main.md, knowledge-base/raw-input/interviews-summary.md]
+
+  - id: standard.observability.opentelemetry
+    type: Standard
+    name: "OpenTelemetry"
+    adoption: recommended_now
+    problem_solved: "Vendor-neutral traces, metrics, and logs across APIs, workflows, events, agents, and adapters."
+    caution: "Define project and use-case dimensions without placing sensitive content in telemetry."
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/minimal-idp.md]
+
+  - id: standard.bim.bcf_cobie_classification
+    type: Standard
+    name: "BCF, COBie, ISO 12006, and IEC/ISO 81346"
+    adoption: selective
+    problem_solved: "Open issue exchange, structured asset handover, construction classification, and reference designation where project context requires them."
+    caution: "Select per use case; they are complements, not a universal combined model."
+    basis: synthesis
+    source_refs: [_plan/main.md, knowledge-base/raw-input/iso-19650.md]
+
+  - id: standard.bim.ifc_bsdd_ids
+    type: Standard
+    name: "IFC, bSDD, and IDS"
+    adoption: continue_and_operationalize
+    problem_solved: "Open model exchange, shared data dictionaries, and machine-readable information requirements and validation."
+    caution: "Test round trips and vendor mappings against representative project data."
+    basis: evidence
+    source_refs: [_plan/main.md, knowledge-base/raw-input/interviews-summary.md]
+
+  - id: technology.delivery.gitops_iac
+    type: Technology
+    name: "GitOps with Bicep or Terraform adapters"
+    layer: how
+    replaceability: required
+    purpose: "Review and reconcile desired project configuration while keeping provisioning implementations swappable."
+    candidates: [GitHub, Azure DevOps, Bicep, Terraform]
+    basis: synthesis
+    source_refs: [_plan/main.md, knowledge-base/raw-input/project-startup.excalidraw]
+
+  - id: technology.workflow.progressive_m365
+    type: Technology
+    name: "Progressive M365 workflow surface"
+    layer: how
+    replaceability: required
+    purpose: "Use familiar interfaces early, with Microsoft Lists as UI/state, Teams for interaction, and backend-owned behavior."
+    candidates: [Microsoft Lists, Teams, Power Apps, Power Automate, Azure Functions]
+    basis: evidence
+    source_refs: [knowledge-base/raw-input/event-driven work management system.md]
+
+  - id: technology.information.optional_fabric_layer
+    type: Technology
+    name: "Optional Fabric information-management layer"
+    layer: how
+    replaceability: required
+    purpose: "Aggregate project metadata and portfolio measures across CDEs without claiming authority over every source file."
+    candidates: [Microsoft Fabric, OneLake, Power BI]
+    basis: evidence
+    source_refs: [knowledge-base/raw-input/iso-19650.md]
+
+  - id: technology.integration.adapter_runtime
+    type: Technology
+    name: "Modular adapter and event runtime"
+    layer: how
+    replaceability: required
+    purpose: "Isolate platform APIs, execute bounded workflow behavior, and publish portable events with retries and audit evidence."
+    candidates: [Azure Functions, App Service, Kubernetes, Service Bus, Event Grid]
+    basis: synthesis
+    source_refs: [_plan/main.md, knowledge-base/raw-input/event-driven work management system.md]
+
+  # Outcomes and KPIs
+  - id: outcome.startup.lead_time
+    type: Outcome
+    name: "Project setup lead time"
+    measure: "Median business days from approved setup request to usable project environment."
+    direction: decrease
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/interviews-summary.md]
+
+  - id: outcome.identity.onboarding_lead_time
+    type: Outcome
+    name: "Onboarding and offboarding lead time"
+    measure: "Median time to approved access and median time to revoke access after an exit event."
+    direction: decrease
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/interviews-summary.md]
+
+  - id: outcome.delivery.machine_readable_coverage
+    type: Outcome
+    name: "Machine-readable delivery-plan coverage"
+    measure: "Percentage of pilot projects with validated work packages, deliveries, roles, dependencies, and deadlines."
+    direction: increase
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/interviews-summary.md]
+
+  - id: outcome.quality.automation_rate
+    type: Outcome
+    name: "Automated standards-check coverage"
+    measure: "Percentage of applicable checks executed automatically with recorded results."
+    direction: increase
+    basis: synthesis
+    source_refs: [_plan/main.md, knowledge-base/raw-input/interviews-summary.md]
+
+  - id: outcome.quality.first_pass
+    type: Outcome
+    name: "First-pass quality"
+    measure: "Percentage of reviewed deliveries accepted without avoidable rework."
+    direction: increase
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/UPE-vision.md]
+
+  - id: outcome.workflow.approval_time
+    type: Outcome
+    name: "Approval cycle time"
+    measure: "Median elapsed time and overdue percentage for review and approval steps."
+    direction: decrease
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/interviews-summary.md]
+
+  - id: outcome.information.metadata_completeness
+    type: Outcome
+    name: "CDE metadata completeness"
+    measure: "Percentage of registered information containers with owner, state, revision, suitability, source link, and timestamps."
+    direction: increase
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/iso-19650.md]
+
+  - id: outcome.platform.reuse_rate
+    type: Outcome
+    name: "Reuse rate"
+    measure: "Percentage of new solutions and projects using approved templates, APIs, skills, schemas, or adapters."
+    direction: increase
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/minimal-idp.md]
+
+  - id: outcome.adoption.active_usage
+    type: Outcome
+    name: "Active adoption"
+    measure: "Percentage of target project roles completing core workflows through supported UPE paths."
+    direction: increase
+    basis: synthesis
+    source_refs: [knowledge-base/raw-input/interviews-summary.md]
+
+  - id: outcome.finops.unit_cost
+    type: Outcome
+    name: "Cost per active project or use case"
+    measure: "Attributed monthly platform and AI cost divided by active projects or evaluated use cases."
+    direction: control
+    basis: synthesis
+    source_refs: [_plan/main.md, knowledge-base/raw-input/minimal-idp.md]
+
+  - id: outcome.portability.export_coverage
+    type: Outcome
+    name: "Vendor-neutral export coverage"
+    measure: "Percentage of critical data classes with tested, documented, license-independent export and re-import paths."
+    direction: increase
+    basis: synthesis
+    source_refs: [_plan/main.md, knowledge-base/raw-input/UPE-vision.md]
+
+relationships:
+  # Contradictions against principles
+  - { type: conflicts_with, source: contradiction.architecture.standardization_flexibility, target: principle.scope.project_centricity }
+  - { type: conflicts_with, source: contradiction.architecture.sovereignty_vendor_depth, target: principle.data.open_portability }
+  - { type: conflicts_with, source: contradiction.state.static_dynamic, target: principle.architecture.what_how_separation }
+  - { type: conflicts_with, source: contradiction.information.single_truth_distributed_cdes, target: principle.data.open_portability }
+  - { type: conflicts_with, source: contradiction.workflow.embedded_central_state, target: principle.governance.lifecycle_fidelity }
+  - { type: conflicts_with, source: contradiction.governance.empowerment_guardrails, target: principle.delivery.progressive_maturity }
+  - { type: conflicts_with, source: contradiction.scope.platform_ambition_modularity, target: principle.architecture.what_how_separation }
+  - { type: conflicts_with, source: contradiction.ai.speed_trust, target: principle.automation.human_accountability }
+  - { type: conflicts_with, source: contradiction.scope.project_enterprise_boundary, target: principle.scope.project_centricity }
+
+  # Opportunities and owning workstreams
+  - { type: implements, source: workstream.foundation.operating_model, target: opportunity.foundation.ontology_lite_contract }
+  - { type: implements, source: workstream.adoption.value_management, target: opportunity.delivery.golden_path_project }
+  - { type: implements, source: workstream.startup.provisioning, target: opportunity.startup.git_desired_state }
+  - { type: implements, source: workstream.identity.project_access, target: opportunity.identity.onboarding_pilot }
+  - { type: implements, source: workstream.delivery.digital_thread, target: opportunity.workflow.lists_validation_pilot }
+  - { type: implements, source: workstream.delivery.digital_thread, target: opportunity.bim.property_validation }
+  - { type: implements, source: workstream.information.cde_interoperability, target: opportunity.cde.common_information_register }
+  - { type: implements, source: workstream.ai.knowledge_agents, target: opportunity.ai.curated_retrieval }
+
+  # Workstream sequencing
+  - { type: depends_on, source: workstream.startup.provisioning, target: workstream.foundation.operating_model }
+  - { type: depends_on, source: workstream.delivery.digital_thread, target: workstream.foundation.operating_model }
+  - { type: depends_on, source: workstream.identity.project_access, target: workstream.foundation.operating_model }
+  - { type: depends_on, source: workstream.information.cde_interoperability, target: workstream.foundation.operating_model }
+  - { type: depends_on, source: workstream.platform.production_toolbox, target: workstream.foundation.operating_model }
+  - { type: depends_on, source: workstream.ai.knowledge_agents, target: workstream.identity.project_access }
+  - { type: depends_on, source: workstream.ai.knowledge_agents, target: workstream.platform.production_toolbox }
+  - { type: depends_on, source: workstream.adoption.value_management, target: workstream.foundation.operating_model }
+  - { type: enables, source: workstream.foundation.operating_model, target: workstream.startup.provisioning }
+  - { type: enables, source: workstream.foundation.operating_model, target: workstream.delivery.digital_thread }
+  - { type: enables, source: workstream.foundation.operating_model, target: workstream.identity.project_access }
+  - { type: enables, source: workstream.foundation.operating_model, target: workstream.information.cde_interoperability }
+
+  # Workstream risk accountability and mitigation
+  - { type: mitigates, source: workstream.foundation.operating_model, target: risk.governance.ea_misalignment }
+  - { type: mitigates, source: workstream.foundation.operating_model, target: risk.architecture.monolith_overreach }
+  - { type: mitigates, source: workstream.information.cde_interoperability, target: risk.architecture.vendor_lock_in }
+  - { type: mitigates, source: workstream.ai.knowledge_agents, target: risk.ai.agent_fragmentation }
+  - { type: mitigates, source: workstream.ai.knowledge_agents, target: risk.ai.missed_opportunity }
+  - { type: mitigates, source: workstream.foundation.operating_model, target: risk.model.schema_overdesign }
+  - { type: mitigates, source: workstream.information.cde_interoperability, target: risk.data.poor_quality }
+  - { type: mitigates, source: workstream.delivery.digital_thread, target: risk.state.stale_duplication }
+  - { type: mitigates, source: workstream.delivery.digital_thread, target: risk.events.loops_races }
+  - { type: mitigates, source: workstream.identity.project_access, target: risk.security.permission_leakage }
+  - { type: mitigates, source: workstream.platform.production_toolbox, target: risk.platform.citizen_sprawl }
+  - { type: mitigates, source: workstream.startup.provisioning, target: risk.integration.api_license_limits }
+  - { type: mitigates, source: workstream.adoption.value_management, target: risk.adoption.low_usage }
+  - { type: mitigates, source: workstream.adoption.value_management, target: risk.operating_model.unclear_ownership }
+  - { type: mitigates, source: workstream.platform.production_toolbox, target: risk.finops.cost_growth }
+  - { type: mitigates, source: workstream.foundation.operating_model, target: risk.governance.standards_shelfware }
+
+  # Standards and technologies addressing needs
+  - { type: addresses, source: standard.data.json_schema, target: contradiction.architecture.standardization_flexibility }
+  - { type: addresses, source: standard.integration.openapi, target: contradiction.architecture.sovereignty_vendor_depth }
+  - { type: addresses, source: standard.events.asyncapi_cloudevents, target: risk.events.loops_races }
+  - { type: addresses, source: standard.process.bpmn_dmn, target: contradiction.workflow.embedded_central_state }
+  - { type: addresses, source: standard.architecture.archimate_exchange, target: risk.governance.ea_misalignment }
+  - { type: addresses, source: standard.knowledge.jsonld_shacl, target: contradiction.ai.speed_trust }
+  - { type: addresses, source: standard.provenance.w3c_prov_openlineage, target: risk.state.stale_duplication }
+  - { type: addresses, source: standard.identity.oauth_oidc_scim_policy, target: risk.security.permission_leakage }
+  - { type: addresses, source: standard.observability.opentelemetry, target: risk.operating_model.unclear_ownership }
+  - { type: addresses, source: standard.bim.bcf_cobie_classification, target: contradiction.information.single_truth_distributed_cdes }
+  - { type: addresses, source: standard.bim.ifc_bsdd_ids, target: risk.architecture.vendor_lock_in }
+  - { type: implements, source: technology.delivery.gitops_iac, target: principle.architecture.what_how_separation }
+  - { type: implements, source: technology.workflow.progressive_m365, target: principle.delivery.progressive_maturity }
+  - { type: implements, source: technology.information.optional_fabric_layer, target: principle.ecosystem.microsoft_first_tool_agnostic }
+  - { type: implements, source: technology.integration.adapter_runtime, target: principle.data.open_portability }
+
+  # Workstream measures
+  - { type: measured_by, source: workstream.foundation.operating_model, target: outcome.delivery.machine_readable_coverage }
+  - { type: measured_by, source: workstream.foundation.operating_model, target: outcome.portability.export_coverage }
+  - { type: measured_by, source: workstream.startup.provisioning, target: outcome.startup.lead_time }
+  - { type: measured_by, source: workstream.identity.project_access, target: outcome.identity.onboarding_lead_time }
+  - { type: measured_by, source: workstream.delivery.digital_thread, target: outcome.quality.automation_rate }
+  - { type: measured_by, source: workstream.delivery.digital_thread, target: outcome.quality.first_pass }
+  - { type: measured_by, source: workstream.delivery.digital_thread, target: outcome.workflow.approval_time }
+  - { type: measured_by, source: workstream.information.cde_interoperability, target: outcome.information.metadata_completeness }
+  - { type: measured_by, source: workstream.information.cde_interoperability, target: outcome.portability.export_coverage }
+  - { type: measured_by, source: workstream.platform.production_toolbox, target: outcome.platform.reuse_rate }
+  - { type: measured_by, source: workstream.platform.production_toolbox, target: outcome.finops.unit_cost }
+  - { type: measured_by, source: workstream.ai.knowledge_agents, target: outcome.platform.reuse_rate }
+  - { type: measured_by, source: workstream.ai.knowledge_agents, target: outcome.finops.unit_cost }
+  - { type: measured_by, source: workstream.adoption.value_management, target: outcome.adoption.active_usage }
+
+rules:
+  - id: rule.element.unique_stable_id
+    description: "Every element ID must be unique, lowercase, stable, and match ^[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$."
+    severity: error
+
+  - id: rule.element.allowed_type
+    description: "Every element type must be declared in vocabulary.element_types."
+    severity: error
+
+  - id: rule.relationship.allowed_type
+    description: "Every relationship type must be declared in vocabulary.relationship_types."
+    severity: error
+
+  - id: rule.relationship.valid_endpoints
+    description: "Every relationship source and target must resolve to an element ID in this document."
+    severity: error
+
+  - id: rule.provenance.source_boundary
+    description: "Evidence references must be _plan/main.md or descendants of knowledge-base/raw-input; synthesis must be labeled."
+    severity: error
+
+  - id: rule.workstream.explicit_dependencies
+    description: "Every Workstream must declare dependencies, including an empty list for a root workstream."
+    severity: error
+
+  - id: rule.workstream.measured
+    description: "Every Workstream must have at least one measured_by relationship to an Outcome."
+    severity: error
+
+  - id: rule.risk.mitigation_and_owner
+    description: "Every Risk must define an early indicator, mitigation, accountable workstream, and incoming mitigates relationship."
+    severity: error
+
+  - id: rule.architecture.what_how_boundary
+    description: "Product names may occur only in evidence, candidate mappings, or elements explicitly marked layer: how and replaceability: required."
+    severity: error
+
+  - id: rule.information.explicit_authority
+    description: "Any implementation that duplicates state must identify the authoritative field owner and expose projection freshness."
+    severity: warning
+
+  - id: rule.pilot.exit_criterion
+    description: "Every Opportunity must define a testable exit criterion before scale funding."
+    severity: error
