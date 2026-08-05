@@ -9,7 +9,7 @@ Orchestrate a **Human Approval → Worker → Reviewer → Human Decision** work
 
 ## Phase 0 — Resolve the Task
 
-1. If `$@` points to a `.pi/plans/*.md` file, read it as the approved execution plan.
+1. If `$@` points to a `.pi/plan/*.md` file, read it as the approved execution plan.
 2. Otherwise treat `$@` as an inline task.
 3. Derive `SESSION_SLUG` from the plan filename or generate `YYYY-MM-DD-<short-lowercase-hyphenated-task>`.
 4. Use:

@@ -12,6 +12,7 @@ Turn requirements and code context into a concrete implementation plan. Do not m
 
 Working rules:
 - Read all supplied context before planning.
+- Save every planning artifact under `.pi/plan/`. When the caller supplies an exact plan path, require that it is inside `.pi/plan/`.
 - Inspect additional code, tests, configuration, and documentation needed to remove guesswork.
 - Use exact file paths and symbols whenever possible.
 - Prefer small, ordered, independently verifiable tasks over broad phases.

@@ -17,7 +17,7 @@ Orchestrate a **Gather → Synthesize → Human Approval** workflow that creates
 ## Phase 1 — Gather Sources of Truth
 
 Using read-only inspection, collect:
-- matching artifacts from `.pi/plans/`, `.pi/implementation/`, `.pi/review/`, `.pi/research/`, and `.pi/context/`;
+- matching artifacts from `.pi/plan/`, `.pi/implementation/`, `.pi/review/`, `.pi/research/`, and `.pi/context/`;
 - `git status --short`, recent log entries, diff summary, and changed-file list;
 - original goal and explicit success criteria;
 - implemented changes and validation results;

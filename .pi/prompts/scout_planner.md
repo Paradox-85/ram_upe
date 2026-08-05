@@ -14,7 +14,7 @@ Orchestrate a **Scout → Context → Plan → Human Approval** workflow for the
 3. Use these artifact paths:
    - research: `.pi/research/<SESSION_SLUG>-<topic>.md`;
    - merged context: `.pi/context/<SESSION_SLUG>-context.md`;
-   - plan: `.pi/plans/<SESSION_SLUG>-plan.md`.
+   - plan: `.pi/plan/<SESSION_SLUG>-plan.md`.
 4. Do not modify application source code in this workflow.
 
 ## Phase 1 — Parallel Scouting
@@ -51,7 +51,7 @@ Preserve citations and contradictions. Do not silently resolve ambiguous product
 
 ## Phase 3 — Planning
 
-Launch a foreground `planner` agent with the complete merged context and original goal. Require it to save the plan to `.pi/plans/<SESSION_SLUG>-plan.md`.
+Launch a foreground `planner` agent with the complete merged context and original goal. Require it to save the plan to `.pi/plan/<SESSION_SLUG>-plan.md`.
 
 The plan must contain concrete tasks, exact files, dependencies, acceptance criteria, validation commands, risks, and unresolved decisions. If the planner fails or produces no artifact, stop and offer `retry`, `direct`, or `abort`; do not invent that the planning phase succeeded.
 
