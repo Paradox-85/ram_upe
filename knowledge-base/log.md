@@ -18,7 +18,7 @@ upe:
 Record of batches as the bundle was deployed (harness `20260810-074805-upe-harmonization`). **Status:** draft; log entries track mutations in creation order.
 
 ## 2026-08-10 — bundle deployment
-1. **Raw migration.** Moved 73 tracked artifacts (legacy `knowledge-base/**`, `docs/**`, `src/**`, `prompts/**`) into `raw-input/` via `git mv` (path-preserving), after removing the byte-identical duplicate `docs/deployment-pi-coding-agent.md`. Legacy `.plans/**` moved to existing track under `.pi/plan/legacy/`. Root `docs/`, `src/`, `prompts/` removed; `nul` confirmed absent.
+1. **Raw migration.** Moved 73 tracked artifacts (legacy `knowledge-base/**`, `docs/**`, `src/**`, `prompts/**`) into `raw-input/` via `git mv` (path-preserving), after removing the byte-identical duplicate `docs/deployment-pi-coding-agent.md`. Legacy plan store moved to existing track under `.pi/plan/legacy/`. Root `docs/`, `src/`, `prompts/` removed; `nul` confirmed absent.
 2. **OKF shell + governance.** Created `index.md`, `log.md`, `governance/{principles,glossary,metadata-profile,terminology-aliases}.md` (all `draft`).
 3. **Domains.** Created 14 candidate functional-domain records M01–M14 (`type: domain`, `upe.id M01…M14`, draft).
 4. **Capabilities.** Extracted 100+ source-backed capability records from raw functional-block/eference sources.
