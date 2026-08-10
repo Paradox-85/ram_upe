@@ -27,6 +27,7 @@ Record of batches as the bundle was deployed (harness `20260810-074805-upe-harmo
 7. **Labs.** Created empty `labs/README.md` framework + manifest template.
 8. **Navigation.** Rewrote root `README.md` (KB-first); aligned `AGENTS.md` navigation wording; updated `index.md`/`log.md` per batch.
 9. **Usage guide.** Added `governance/usage-guide.md` (draft): navigation, frontmatter contract, authoring workflow, lab usage, common validation commands (markdownlint / check_links / check_frontmatter / okflint pointers), agent operating rules, pre-merge checklist, troubleshooting. Linked from `index.md`.
+10. **Usage guide v2.** Expanded `governance/usage-guide.md`: basis/version section (OKF v0.2, upstream repo, DDD.md, legacy DDDM, raw corpus), directory-tree detail (usage-guide listed), new §8 "Injection & query via custom Pi skills (planned)" — kb-inject/kb-query subcommands, injection map (raw-input / concepts / checkpoint), approved-decisions predicate, implementation principles (PyYAML, OKF v0.2 field alignment); sections renumbered to 12.
 
 ## Conventions
 - OKF path-as-ID; bundle-relative links; `upe.id` only for existing DDDM stable IDs.

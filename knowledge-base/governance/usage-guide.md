@@ -1,7 +1,7 @@
 ---
 type: governance
 title: Knowledge Base Usage Guide
-description: "Practical guide for humans and agents: how to navigate, read, author, validate, and evolve the Unified Project Execution knowledge bundle (OKF + DDD organization)."
+description: "Practical guide for humans and agents: bundle basis/version, structure, frontmatter contract, authoring, injection and query via custom Pi skills (kb-inject/kb-query, planned), validation, ADR and lab workflows, agent rules."
 tags: [governance, usage, guide, okf, ddd, navigation, authoring, validation]
 sources:
   - raw-input/knowledge-base/raw-input/DDD.md
@@ -36,6 +36,18 @@ Two golden rules:
 1. **KB-first** — knowledge is captured once here and referenced from everywhere else. No other directory (docs, labs, `.pi`) may introduce an architectural fact absent from the KB.
 2. **Raw is immutable** — `raw-input/**` is historical evidence. Never edit raw files, even to fix links or the legacy product name.
 
+### 1.1 Basis, version and provenance
+
+The bundle was **redeployed from scratch** (harness `20260810-074805-upe-harmonization`, 2026-08-10) on these foundations:
+
+| Foundation | Detail |
+|---|---|
+| **Upstream format repo** | `GoogleCloudPlatform/knowledge-catalog` → `okf/SPEC.md` — **Open Knowledge Format v0.2** (Apache-2.0). Only structure/conventions adopted; **no upstream content copied** (attribution in `log.md`). Conformance: 3 rules (parseable frontmatter, non-empty `type`, reserved filenames); consumers tolerate broken links/unknown types/missing fields. |
+| **DDD input** | `knowledge-base/raw-input/DDD.md` — architect-approved (2026-08-10): the chain `Domains → Capabilities → Problems → Use Cases → Events → Solution Candidates → Reusable Modules` + 5 focus concepts. |
+| **Legacy DDDM corpus** | Old `knowledge-base/` (00_*.md, master.md, architecture, prompts) → source of stable IDs (`M01–M14`, `ADR-0001`), the authoritative lifecycle (`idea→draft→in-review→approved→superseded→deprecated`), 14 functional domains, 175+ capabilities — preserved verbatim under `raw-input/`. |
+| **Raw evidence** | 73 immutable files (`raw-input/knowledge-base/…`, `raw-input/docs/…`, `raw-input/src/…`, `raw-input/prompts/…`) backing every concept via `sources:`. |
+| **Governance** | Frozen spec §9 (draft-only, no promotion without explicit user approval, CI deferred), `AGENTS.md` approval boundaries, `governance/metadata-profile.md` as the single metadata authority. |
+
 ## 2. Directory structure
 
 ```
@@ -46,6 +58,7 @@ knowledge-base/
 │   ├── principles.md                # operating principles (KB-first, raw immutability, draft-only)
 │   ├── glossary.md                  # ubiquitous language
 │   ├── metadata-profile.md          # THE metadata contract (fields, types, lifecycle, relations)
+│   ├── usage-guide.md               # this file — how to use the bundle
 │   └── terminology-aliases.md       # legacy/ambiguous spellings → canonical terms
 ├── architecture/                    # master architecture view (draft integration view)
 │   ├── master.md                    # integration view over concepts + decisions + raw sources
@@ -160,13 +173,61 @@ git grep -nE '(^|[^[:alnum:]_])\.plans/' -- . ':!knowledge-base/raw-input/**' ':
 - `markdown-link-check`: add `"replacementPatterns": [{"pattern": "^/", "replacement": "{{BASEURL}}/"}]` for root-relative links.
 - `okfcli/okf` (Go) and `playcode/okf-lint` (cross-links + staleness) as alternatives.
 
-## 8. Architecture decisions (ADR)
+## 8. Injection & query via custom Pi skills (planned)
+
+> **Status: PLANNED, not yet implemented.** Injection and deterministic query will be provided by two **project-scoped custom Pi skills** — `kb-inject` and `kb-query` — living in `.pi/skills/` (design per plan `.pi/plan/20260810-095945-kb-access-plan.md`; activation via `/skill:kb-inject` / `/skill:kb-query`). Until they land, use the manual workflow of §5 and grep triage of §4.
+
+### 8.1 Where things go (injection map)
+
+| Input | Destination | What we get |
+|---|---|---|
+| New raw material (file) | `knowledge-base/raw-input/<approved-subpath>/<name>` (bytes unchanged, `--dry-run` preview) | sha256 recorded, overwrite refused, checkpoint entry, `NEWPATH=` stdout line |
+| Staged raw evidence | (reference in `sources:`) | immutable provenance for the concept |
+| New concept/ADR | `knowledge-base/<collection>/<slug>.md` (allowed: domains, capabilities, problems, use-cases, events, solution-candidates, architecture/decisions) | draft-only OKF+`upe:` record with required sections |
+| State/checkpoint | `.pi/temp/kb-state.json` (gitignored) | `{"version":1,"updated_at",paths:[{path,sha256}]}` |
+
+### 8.2 `kb-inject` subcommands (planned)
+
+```bash
+python .pi/skills/kb-inject/scripts/kb_inject.py stage \
+  --input <local-file> --dest knowledge-base/raw-input/<subpath> --dry-run   # preview: dest + sha256
+python .pi/skills/kb-inject/scripts/kb_inject.py stage \
+  --input <local-file> --dest knowledge-base/raw-input/<subpath>             # write (no overwrite)
+python .pi/skills/kb-inject/scripts/kb_inject.py scaffold \
+  --type capability --title "…" --slug <slug> --source raw-input/<path> --owner @<owner>
+python .pi/skills/kb-inject/scripts/kb_inject.py validate    # frontmatter contract checks
+python .pi/skills/kb-inject/scripts/kb_inject.py status      # counts per collection/type/lifecycle + last checkpoint
+```
+Rules: `stage` never transforms bytes and never overwrites; `scaffold` emits only `status: draft` / `upe.lifecycle: idea|draft` / `verified: false` and refuses wrong types, existing targets, raw targets, and paths outside `knowledge-base`; **no auto-approval, no auto-index/log** (index/log stay human-maintained, see §5 step 7).
+
+### 8.3 `kb-query` subcommands (planned)
+
+```bash
+python .pi/skills/kb-query/scripts/query_kb.py --root knowledge-base \
+  --under <dir> --type <t> --lifecycle <l> --status <s> --tag <t> [--text "<term>"] [--json]
+python .pi/skills/kb-query/scripts/query_kb.py --root knowledge-base --check-index   # index.md covers all active records
+# Approved/agreed architectural decisions (canonical predicate — empty until approvals exist):
+python .pi/skills/kb-query/scripts/query_kb.py --root knowledge-base \
+  --under architecture/decisions --type decision --lifecycle approved --status stable --json
+# Historic (non-authoritative) evidence, e.g. ADR-0001:
+python .pi/skills/kb-query/scripts/query_kb.py --root knowledge-base \
+  --include-raw --under raw-input/knowledge-base/architecture/decisions --type decision --status accepted --json
+```
+Behavior: scans only `*.md` **headers** (in-memory frontmatter index, bodies never opened), excludes `raw-input/**` by default, returns compact records (`id`, path, title, description, type, status, lifecycle, sources) as Markdown or UTF-8 JSON plus `answer_type` (`direct`/`list`/`gap`) and `should_read` paths. It is read-only and never validates or mutates the bundle. **An empty result for the approved predicate is correct** — promotion is a gated human act, not a query outcome.
+
+### 8.4 Implementation principles (frozen design)
+
+- Parsing: PyYAML `yaml.safe_load` on the first frontmatter document; UTF-8 end-to-end (Cyrillic-safe); JSON with `ensure_ascii=False`; parse errors reported with the file path.
+- Patterns mirror the master-KB `scripts/kb` (sha256 + JSON checkpoint, stdout contract) and `obsidian-wiki`'s *schema/workflow* (in-memory header index, tiered query answers) — **but field names stay OKF v0.2** (`sources`, `verified`, `status`, `stale_after`) + UPE `upe:`; obsidian-wiki's v0.1 trust vocabulary (`base_confidence`, `[[wikilinks]]`) is intentionally NOT adopted.
+- Skills are project-scoped (`.pi/skills/`), self-contained (no new pip deps beyond PyYAML), and structured as one `kb.py`-style entry per skill so a future promotion to a root `scripts/kb` CLI is a pure wrapper change.
+
+## 9. Architecture decisions (ADR)
 
 - Decisions are recorded in `architecture/decisions/` as `ADR-{NNNN}` records using `decisions/adr-template.md` (sections: Context, Options, Decision, Consequences, Evidence, Status, Open questions).
 - Historical `ADR-0001` (docs-as-data) lives in raw (`raw-input/knowledge-base/architecture/decisions/ADR-0001-docs-as-data.md`) and is referenced from `decisions/adr-0001-history.md` via `derived-from`.
 - Decision lifecycle: `idea/hypothesis → research/option → ADR draft → lab evidence → review → accepted/rejected → master architecture & docs update`.
 
-## 9. Agent operating rules (summary)
+## 10. Agent operating rules (summary)
 
 1. **Read before writing:** `AGENTS.md` → `knowledge-base/index.md` → `governance/principles.md` + `governance/glossary.md` → `architecture/master.md`/`context-map.md` → the relevant concept.
 2. **Temporary work goes to `.pi/`** (research, context, plans, reviews) — never into the KB.
@@ -175,7 +236,7 @@ git grep -nE '(^|[^[:alnum:]_])\.plans/' -- . ':!knowledge-base/raw-input/**' ':
 5. **Before merging a change:** all §7 checks pass; `index.md`/`log.md` updated; affected architecture views/decisions updated; raw untouched.
 6. **Obsolete knowledge:** mark `upe.lifecycle: superseded|deprecated` (gated) or record the replacement relation — never delete evidence.
 
-## 10. Pre-merge checklist (humans)
+## 11. Pre-merge checklist (humans)
 
 - [ ] Frontmatter complete and conforming (§3); `type` present; `upe.id` unique if set
 - [ ] `sources:` link to real raw evidence; body links resolve (bundle-relative)
@@ -186,7 +247,7 @@ git grep -nE '(^|[^[:alnum:]_])\.plans/' -- . ':!knowledge-base/raw-input/**' ':
 - [ ] No `.pi/**` artifacts staged in the commit (except the frozen `.pi/plan/legacy/**` exception)
 - [ ] Raw files untouched
 
-## 11. Troubleshooting
+## 12. Troubleshooting
 
 | Symptom | Cause / fix |
 |---|---|
