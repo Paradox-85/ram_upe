@@ -3,7 +3,9 @@
 .pi/checkpoints/
 .pi/context/
 .pi/implementation/
-.pi/plan/
+.pi/plan/*
+!.pi/plan/legacy/
+!.pi/plan/legacy/**
 .pi/report/
 .pi/research/
 .pi/review/

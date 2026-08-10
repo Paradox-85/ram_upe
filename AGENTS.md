@@ -9,9 +9,9 @@ This repository is the central governed, OKF-based Knowledge Base and architectu
 The repository is currently under structural audit. Existing paths remain current facts; any target structure described in audit or planning artifacts is a proposal until explicitly approved and migrated.
 
 ## Current and Proposed Locations
-- Treat the checked-out repository tree and Git history as the current structure.
-- The current knowledge area may still use `knowledge-base/`; do not assume a proposed `kb/` tree exists.
-- Treat current `docs/` content as provisionally classified until approval and KB traceability are evidenced.
+- Navigation authority: **README → AGENTS → `knowledge-base/index.md` → `knowledge-base/governance/` → `knowledge-base/architecture/master.md` → `knowledge-base/architecture/context-map.md` → `knowledge-base/raw-input/`**.
+- The canonical KB lives under `knowledge-base/` (OKF + DDD collections). Do not assume a `kb/` tree exists.
+- Legacy `docs/`, `src/`, `prompts/` content is preserved verbatim under `knowledge-base/raw-input/` as immutable evidence (raw, not authority).
 - Store agent research, context, and plans under `.pi/`; these are operational artifacts, not architectural authority.
 - Proposed migrations, taxonomies, and directory contracts belong in audit or plan artifacts until approved.
 

@@ -1,0 +1,30 @@
+---
+type: capability
+title: Ability to show notifications/alerts
+description: Source-backed capability statement extracted from the UPE Functional Blocks v1 pool.
+tags: [capability, functional-block]
+sources:
+  - raw-input/docs/UPE_Functional_Blocks_v1.md
+generated: 2026-08-10T07:48:05Z
+verified: false
+status: draft
+stale_after: 2027-08-10
+upe:
+  lifecycle: draft
+  owner: "@chief-architect"
+  relations:
+    - type: derived-from
+      target: raw-input/docs/UPE_Functional_Blocks_v1.md
+  functional_block: 9.1 Project Portal & Navigation
+---
+
+# Ability to show notifications/alerts
+
+## Normalized source statement
+> Ability to show notifications/alerts
+
+## Source
+Functional block **9.1 Project Portal & Navigation** in [`raw-input/docs/UPE_Functional_Blocks_v1.md`](../raw-input/docs/UPE_Functional_Blocks_v1.md).
+
+## Open questions
+- None.
