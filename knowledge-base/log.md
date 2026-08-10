@@ -26,6 +26,7 @@ Record of batches as the bundle was deployed (harness `20260810-074805-upe-harmo
 6. **Architecture.** Created draft `architecture/master.md`, `architecture/context-map.md`, and `architecture/decisions/{index.md,adr-template.md,adr-0001-history.md}`.
 7. **Labs.** Created empty `labs/README.md` framework + manifest template.
 8. **Navigation.** Rewrote root `README.md` (KB-first); aligned `AGENTS.md` navigation wording; updated `index.md`/`log.md` per batch.
+9. **Usage guide.** Added `governance/usage-guide.md` (draft): navigation, frontmatter contract, authoring workflow, lab usage, common validation commands (markdownlint / check_links / check_frontmatter / okflint pointers), agent operating rules, pre-merge checklist, troubleshooting. Linked from `index.md`.
 
 ## Conventions
 - OKF path-as-ID; bundle-relative links; `upe.id` only for existing DDDM stable IDs.

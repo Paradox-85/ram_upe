@@ -22,6 +22,7 @@ This is the OKF entry point (progressive disclosure). All canonical content here
 - [`governance/principles.md`](governance/principles.md) — operating principles (KB-first, raw immutability, draft-only)
 - [`governance/glossary.md`](governance/glossary.md) — ubiquitous language
 - [`governance/metadata-profile.md`](governance/metadata-profile.md) — metadata contract
+- [`governance/usage-guide.md`](governance/usage-guide.md) — how to navigate, author, validate and evolve the bundle (start here before contributing)
 - [`governance/terminology-aliases.md`](governance/terminology-aliases.md) — alias map
 
 ## DDD collections
