@@ -110,7 +110,7 @@ To add or update knowledge:
 1. **Find the right concept** — use `index.md` and the glossary; prefer linking to an existing concept over creating a near-duplicate.
 2. **Create one file per concept** under the matching collection (e.g. a new capability → `capabilities/<slug>.md`). One normalized source statement per record.
 3. **Fill the frontmatter** per §3; set `status: draft`, `upe.lifecycle: draft` (or `idea`), `sources` pointing to the raw evidence.
-4. **Link with bundle-relative paths** (path without `.md`): `[text](../capabilities/validate-models)`. Prefer links over duplicating content.
+4. **Link with bundle-relative paths** (path without `.md`): `[text](../capabilities/enable-decision-making-and-innovation)`. Prefer links over duplicating content.
 5. **Preserve contradictions** — if sources disagree, record both claims with separate `sources` and note them under `## Open questions` in the body. Never silently reconcile.
 6. **Never edit `raw-input/**`** — evidence stays verbatim; fix problems by editing the active concept instead.
 7. **Update `index.md` and `log.md`** with every change (new file → add to index; any change → append a log entry, newest first, ISO-date group).
