@@ -1,88 +1,71 @@
 ---
-description: Gather, synthesize, and approve a durable session handoff document
+description: Synthesize and save a session handoff document into .pi/context/
 argument-hint: "[session slug or scope description]"
 ---
 
-# Session Handoff Cycle
+# Session Handoff Documentation
 
-Orchestrate a **Gather → Synthesize → Human Approval** workflow that creates one durable handoff document. All prompts, artifacts, and user-facing output must be in English, even when the scope is supplied in another language. Use only project-local GitHub Copilot agents. There are no fallback agents.
+You are orchestrating a **Gather → Synthesize → Save** pipeline that produces ONE handoff document (`.pi/context/<SESSION_SLUG>-handoff.md`) capturing what was done this session: technical and architectural decisions, rejected alternatives, and next steps — so a future agent or human can resume without rediscovery. The `context-builder` role owns the handoff structure and synthesis methodology; this workflow supplies only the session identity, the gathered sources, and the output path.
 
-## Phase 0 — Setup
+Informational only — no approval gate: corrections are applied on request. After presenting the document, stop.
 
-1. Determine repository root, branch, commit, and current date.
-2. If `$@` contains an existing artifact path or slug, reuse its slug. Otherwise generate `YYYY-MM-DD-<short-lowercase-hyphenated-scope>`.
-3. Target: `.pi/context/<SESSION_SLUG>-handoff.md`.
-4. Do not modify application source files.
+---
+## PHASE 0 — SETUP
 
-## Phase 1 — Gather Sources of Truth
+1. `bash("pwd")`.
+2. Determine `SESSION_SLUG`:
+   - If the user supplies a session slug or an artifact path (e.g. `.pi/implementation/20260615-134502-auth-refactor-impl.md`) → extract the slug `20260615-134502-auth-refactor`.
+   - Otherwise generate `YYYYMMDD-HHMMSS-<two-word-slug>` using the current datetime + a 2-word summary of the session scope.
+3. Set `OUTPUT_PATH=.pi/context/<SESSION_SLUG>-handoff.md`.
+4. Apply the global `.pi` artifact safety invariant before the first write (see AGENTS.md): inside a git repo, verify `git check-ignore -q "$OUTPUT_PATH"`. If this exact intended artifact is not ignored, STOP and ask the user to add an appropriate `.gitignore` rule. Tracked files elsewhere under `.pi/` are allowed. Never modify `.gitignore` yourself.
+5. `bash("mkdir -p .pi/context")`.
 
-Using read-only inspection, collect:
-- matching artifacts from `.pi/plan/`, `.pi/implementation/`, `.pi/review/`, `.pi/research/`, and `.pi/context/`;
-- `git status --short`, recent log entries, diff summary, and changed-file list;
-- original goal and explicit success criteria;
-- implemented changes and validation results;
-- decisions, rejected alternatives, assumptions, limitations, and open questions.
+## PHASE 1 — CONTEXT GATHERING (orchestrator, no subagent)
 
-Keep gathered facts separate from interpretation.
+Collect the sources of truth for the session (read-only tools only). Do NOT synthesize yet — just gather raw material. No artifact is saved in this phase.
 
-## Phase 2 — Synthesis
+- **Recent artifacts:** newest files in `.pi/plan/`, `.pi/implementation/`, `.pi/review/`, `.pi/research/`, `.pi/context/` matching `SESSION_SLUG` — read them.
+- **Recent audits:** if the session included an audit, read `.pi/audit/<SESSION_SLUG>/report.md` (and relevant `evidence/` files when they matter for decisions).
+- **Repo state:** `bash("git status --short")`, `bash("git log --oneline -20")`, `bash("git diff --stat")` (if within a git repo).
+- **Original goal/task:** from the context file's `Task:` header, the plan's goal section, or the `$@` argument.
+- **Decisions found:** scan impl files for "Applied decisions" and "Key Decisions" sections.
 
-Launch a foreground `context-builder` with the gathered material. Require exactly this structure and save it to `.pi/context/<SESSION_SLUG>-handoff.md`:
+Assemble a compact brief with all gathered inputs.
 
-# Handoff: <SESSION_SLUG>
+## PHASE 2 — HANDOFF SYNTHESIS (foreground context-builder)
 
-## 1. Session Metadata
-Slug, timestamps, repository version, branch, purpose, and recorded model/tool context.
+Spawn a **foreground** `context-builder` with the gathered sources. The context-builder's role contract defines the handoff document structure (13-field schema) — do NOT restate it here:
 
-## 2. Goal
-Concrete intended outcome and success statement.
+```text
+Agent({
+  subagent_type: "context-builder",
+  prompt: "SESSION_SLUG: <SESSION_SLUG>\nORIGINAL GOAL/TASK: <gathered goal>\n\nSOURCES OF TRUTH (gathered):\n<compact brief: plan/impl/review artifacts, git status, changed files, decisions found>\n\nWrite the session handoff document per your role contract. Save it to: .pi/context/<SESSION_SLUG>-handoff.md",
+  description: "Write session handoff"
+})
+```
 
-## 3. Summary
-What was actually completed.
+### Failure handling
+- `context-builder` errors / returns empty / produces no handoff artifact → retry ONCE with a fresh `context-builder` and the SAME prompt. One retry attempt per primary failure.
+- If both attempts fail → STOP: ask the user to choose "direct" (the orchestrator writes the handoff itself from the gathered material), "retry", or "abort".
 
-## 4. Files Touched
-Created and modified paths with reasons.
+## PHASE 3 — SAVE & REPORT / STOP
 
-## 5. Key Decisions
-What was chosen, why, and by whom when known.
+1. Display the full contents of `.pi/context/<SESSION_SLUG>-handoff.md`.
+2. State:
 
-## 6. Rejected Alternatives
-Options not chosen and why.
+```text
+═══════════════════════════════════════════════════════
+📄  HANDOFF DOCUMENT SAVED
+═══════════════════════════════════════════════════════
 
-## 7. Dependencies
-Upstream, downstream, deployment, and cross-session dependencies.
+📁 Artifact saved:
+  - Handoff: .pi/context/<SESSION_SLUG>-handoff.md
 
-## 8. Open Questions
-Unresolved decisions or required external input.
+If any section is wrong or missing, tell me and I will regenerate it.
+```
 
-## 9. Known Limitations and Technical Debt
-Discovered or introduced constraints and assumptions.
+3. Stop.
 
-## 10. Failure Modes
-Known ways the solution can fail and relevant safeguards.
-
-## 11. Validation Evidence
-Commands, results, runtime evidence, and unavailable checks.
-
-## 12. Cross-References
-Related plans, research, implementation summaries, reviews, and prior handoffs.
-
-## 13. Next Steps
-Ordered, actionable continuation steps.
-
-## 14. Notes
-Other durable context and revision information.
-
-Every heading must appear; use `None identified` when empty. If synthesis fails or no artifact is created, stop and offer `retry`, `direct`, or `abort`.
-
-## Phase 3 — Human Approval Gate
-
-Display the complete handoff and ask the user to choose:
-1. `approved` or `proceed` — accept it;
-2. `revise: <instructions>` — regenerate specified sections;
-3. paste replacement content — overwrite only after explicit confirmation;
-4. `abort` — cancel.
-
-Do not proceed beyond this gate without an explicit decision.
+---
 
 SESSION: $@

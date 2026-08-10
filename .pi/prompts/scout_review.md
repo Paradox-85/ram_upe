@@ -1,75 +1,80 @@
 ---
-description: Scout and synthesize an independent repository audit for human review
-argument-hint: "<audit target>"
+description: Focused independent audit — quick/medium research audit of a codebase area
+argument-hint: "<audit target: directory or codebase description>"
 ---
 
-# Scout and Review Cycle
+# Scout & Review (Independent Audit)
 
-Orchestrate a **Scout → Context → Independent Audit → Human Decision** workflow. This is read-only analysis, not implementation planning. All prompts, artifacts, and user-facing output must be in English, even when the audit target is supplied in another language. Use only project-local GitHub Copilot agents. There are no fallback agents.
+You are orchestrating a **Scout → Reviewer → Report** pipeline: an INDEPENDENT RESEARCH AUDIT (quick/medium depth), not a plan-to-implement cycle and not a work cycle.
 
-## Phase 0 — Setup
+The ONLY deliverable is the audit report at `.pi/audit/<SESSION_SLUG>/report.md`. Scout findings are ephemeral — passed to the reviewer, never persisted. No code is changed, no worker is spawned, no plan is produced. No approval gate: the report is read-only output; after presenting it, stop.
 
-1. Determine repository root, branch, commit, and working-tree state.
-2. Generate `SESSION_SLUG` as `YYYY-MM-DD-<short-lowercase-hyphenated-audit-target>`.
-3. Use:
-   - research: `.pi/research/<SESSION_SLUG>-audit-<topic>.md`;
-   - context: `.pi/context/<SESSION_SLUG>-audit-context.md`;
-   - audit: `.pi/review/<SESSION_SLUG>-audit.md`.
-4. Do not modify application code, configuration, or data.
+---
+## PHASE 0 — SETUP
 
-## Phase 1 — Parallel Investigation
+1. `bash("pwd")`.
+2. Generate `SESSION_SLUG = YYYYMMDD-HHMMSS-<two-word-slug>`.
+3. Before the first write, set `OUTPUT_PATH=.pi/audit/<SESSION_SLUG>/report.md`; inside a git repo verify this exact target with `git check-ignore -q "$OUTPUT_PATH"`. If it is not ignored, STOP and ask the user to add an appropriate `.gitignore` rule. Tracked files elsewhere under `.pi/` are allowed. Never modify `.gitignore` yourself.
+4. `bash("mkdir -p .pi/audit/<SESSION_SLUG>")`.
+5. Preserve the user's audit request verbatim as `AUDIT_TARGET`. It is immutable: agents may challenge assumptions, but no agent may silently replace the target with a different meta-task.
 
-Decompose the target into two to four independent questions, such as:
-- production entry points and critical paths;
-- weak, dead, hidden, duplicate, or disconnected code;
-- configuration precedence, routing, decisions, and fallbacks;
-- data integrity and migrations;
-- tests versus production behavior;
-- dependencies and build provenance;
-- security, reliability, performance, or documentation drift.
+## PHASE 1 — PARALLEL RESEARCH (background scouts)
 
-Launch all independent `scout` agents in one message with `run_in_background: true`. Each scout must save a unique research artifact and cite exact files and lines. Do not duplicate scout work in the orchestrator.
+Decompose `AUDIT_TARGET` into **2–4 independent investigation questions**: weak spots, gaps, inconsistencies, undocumented changes, runtime failure risks, architectural drift, deviation from conventions.
 
-If a critical scout fails, retry it once when the failure appears transient. Otherwise stop or explicitly record the missing evidence.
+For each question, spawn a background `scout` that returns its findings as its final response:
 
-## Phase 2 — Context Aggregation
+```text
+Agent({
+  subagent_type: "scout",
+  prompt: "AUDIT TARGET:\n<AUDIT_TARGET>\n\nINVESTIGATE (repository evidence):\n<specific question>\n\nReturn evidence-backed findings: files + line ranges, current behavior, inconsistencies, risks. Do NOT implement anything.",
+  description: "<short label>",
+  run_in_background: true
+})
+```
 
-Merge all research into `.pi/context/<SESSION_SLUG>-audit-context.md` with:
+Rules:
+- Questions must be independent — no scout depends on another's output.
+- Wait for ALL scouts: `get_subagent_result({ agent_id: "...", wait: true })`.
 
-# Audit Context: <SESSION_SLUG>
+### Failure handling
+- A scout errors / returns empty / provides no usable evidence → retry ONCE with a fresh `scout` and the same question. If both attempts fail, record `NOT EXAMINED: <dimension>` and pass it to the reviewer (PHASE 2). Never silently continue as if the dimension were covered.
+- Do not retry merely because findings are unfavorable. One retry attempt per primary failure.
 
-## Audit Goal and Scope
-## Repository Baseline
-## Research Findings
-## Critical Paths
-## Contradictions and Risks
-## Evidence Gaps
+## PHASE 2 — SYNTHESIS (foreground reviewer)
 
-Preserve contradictory evidence and uncertainty.
+Spawn a **foreground** `reviewer` with the audit target and all scout findings inline. The reviewer NEVER writes files — it returns the report as its final response:
 
-## Phase 3 — Audit Synthesis
+```text
+Agent({
+  subagent_type: "reviewer",
+  prompt: "AUDIT TARGET:\n<AUDIT_TARGET>\n\nEVIDENCE:\n<all scout findings, inline>\n\nTask-specific scope: independent EXTERNAL audit of the current overall state of the target (review type #4). READ-ONLY — do NOT apply fixes, do NOT write plans, do NOT write any files.\n\nNOT EXAMINED dimensions (from scout failures):\n<list, or \"(none)\">\n\nThe report MUST end with this coverage section:\n\n## Audit Coverage\n\nExamined:\n- ...\n\nNot examined:\n- ... (include every NOT EXAMINED dimension reported by the orchestrator)\n\nEvidence limitations:\n- ...\n\nReturn the complete audit report as your final response.",
+  description: "Audit codebase"
+})
+```
 
-Launch a foreground `reviewer` with the original target, complete context, repository baseline, and audit path. Require the reviewer to perform its repository-health review mode and independently verify material scout claims.
+Save the reviewer's complete returned output **verbatim** to `.pi/audit/<SESSION_SLUG>/report.md`. If the reviewer fails (empty output), retry the SAME prompt once with a fresh `reviewer`. Proceed only with a valid non-empty report.
 
-The report must include:
-- verdict and scope limitations;
-- evidence-backed strengths;
-- prioritized findings with severity and confidence;
-- exact file and line citations;
-- runtime or validation evidence where available;
-- concrete remediation directions without applying changes;
-- open questions and evidence gaps.
+## PHASE 3 — REPORT / STOP
 
-If the reviewer fails or produces no artifact, stop and offer `retry`, `direct`, or `abort`.
+1. Display the full contents of `.pi/audit/<SESSION_SLUG>/report.md`.
+2. State:
 
-## Phase 4 — Human Decision Gate
+```text
+═══════════════════════════════════════════════════════
+🔍  AUDIT COMPLETE
+═══════════════════════════════════════════════════════
 
-Display the complete audit and artifact paths, then ask the user to choose:
-1. `accept` — acknowledge the audit;
-2. `plan: <scope>` — create a remediation plan in a separate, approval-gated workflow;
-3. `re-audit: <instructions>` — run additional investigation;
-4. `abort` — stop.
+The audit is READ-ONLY — no code was changed.
 
-Do not spawn a worker or apply fixes in this workflow.
+📁 Deliverable:
+  - Report: .pi/audit/<SESSION_SLUG>/report.md
+
+To act on findings: run /spec to freeze fix requirements, then /harness.
+```
+
+3. Stop. Do NOT spawn any worker. Do NOT propose an implementation plan unless the user asks.
+
+---
 
 AUDIT: $@

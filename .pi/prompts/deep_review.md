@@ -1,96 +1,119 @@
 ---
-description: Run a maximum-depth forensic audit of an especially complex target
-argument-hint: "<audit target>"
+description: Scout → Deep Forensic Audit pipeline for especially complex codebases
+argument-hint: "<audit target: directory or codebase description>"
 ---
 
-# Deep Forensic Review Cycle
+# Deep Review (Forensic Audit) Cycle
 
-Orchestrate a **Parallel Scouting → Context → Deep Forensic Audit → Human Decision** workflow. The only deliverable is a complete audit report; no fixes are applied. All prompts, artifacts, and user-facing output must be in English, even when the target is supplied in another language. Use only project-local GitHub Copilot agents. There are no fallback agents.
+You are orchestrating a **Scout → Context → Deep Forensic Audit** pipeline: an INDEPENDENT EXTERNAL FORENSIC AUDIT for especially complex cases. This is NOT a plan-to-implement cycle and NOT a work cycle. The audit is READ-ONLY: no code is changed, no worker is spawned, no fixes are executed.
 
-## Phase 0 — Setup
+The ONLY deliverable is the forensic audit report at `.pi/audit/<SESSION_SLUG>/report.md`: complete, self-sufficient, evidence-backed, giving the user everything needed to plan and execute fixes later — without re-running the analysis. The `deep-reviewer` role (its agent contract in `agent-roles/deep-reviewer.md`) IS the audit methodology — do NOT copy its checklist, completeness rules, finding format, or report schema into this prompt.
 
-1. Record repository root, branch, commit, working-tree state, date, and available environment.
-2. Generate `SESSION_SLUG` as `YYYY-MM-DD-<short-lowercase-hyphenated-audit-target>`.
-3. Use:
-   - research: `.pi/research/<SESSION_SLUG>-deep-audit-<topic>.md`;
-   - context: `.pi/context/<SESSION_SLUG>-deep-audit-context.md`;
-   - final report: `.pi/review/<SESSION_SLUG>-deep-audit.md`.
-4. Do not modify audited code, configuration, data, or infrastructure.
+---
+## PHASE 0 — SETUP
 
-## Phase 1 — Parallel Forensic Scouting
+1. `bash("pwd")`.
+2. Generate `SESSION_SLUG = YYYYMMDD-HHMMSS-<two-word-slug>`.
+3. Before the first write, set `REPORT_PATH=.pi/audit/<SESSION_SLUG>/report.md` and `CONTEXT_PATH=.pi/audit/<SESSION_SLUG>/evidence/context.md`; inside a git repo verify each exact path with `git check-ignore -q "$REPORT_PATH"` and `git check-ignore -q "$CONTEXT_PATH"`. If either is not ignored, STOP and ask the user to add an appropriate `.gitignore` rule. Tracked files elsewhere under `.pi/` are allowed. Before spawning each scout in Phase 1, likewise determine and verify that scout's exact `.pi/audit/<SESSION_SLUG>/evidence/<topic>.md` target before it writes. Never modify `.gitignore` yourself.
+4. Preserve the user's audit request verbatim as `AUDIT_TARGET`. It is immutable: no agent may silently replace the target with a different meta-task.
 
-Decompose the audit into two to four independent high-value investigations. Cover the most relevant of:
-- real production entry points, critical use cases, and call/data paths;
-- dead, hidden, duplicate, legacy, shadow, disconnected, or misleading code;
-- configuration precedence, registries, routing decisions, overrides, and fallbacks;
-- schema, migrations, transactions, indexes, and data integrity;
-- tests versus production orchestration and mock-to-runtime differences;
-- security boundaries, reliability, performance, observability, and operations;
-- dependencies, CI/CD, build reproducibility, artifacts, and supply-chain provenance;
-- documentation, architecture claims, and version-history drift.
+## PHASE 1 — PARALLEL RESEARCH (background scouts)
 
-Launch all independent `scout` agents in one message with `run_in_background: true`. Each scout must save a unique artifact, cite exact paths and lines, distinguish fact from inference, and search for evidence that falsifies its hypotheses.
+Decompose `AUDIT_TARGET` into **2–4 independent investigation questions** across the audit's forensic dimensions (adapt to the target): entry points & critical paths; dead / hidden / duplicate / misconnected code; configuration & decision systems; data layer & migrations; tests vs. production; dependencies & build provenance; security & robustness; docs vs. reality.
 
-Do not duplicate scout work. If a critical investigation fails, retry once only when transient failure is plausible; otherwise stop or mark the evidence gap explicitly.
+Before creating the audit directory or spawning any scout, assign every question a `<topic>` and exact evidence target `.pi/audit/<SESSION_SLUG>/evidence/<topic>.md`; verify every such target with `git check-ignore -q`, then run `bash("mkdir -p .pi/audit/<SESSION_SLUG>/evidence")`.
 
-## Phase 2 — Context Aggregation
+For each question, spawn a background `scout`; the evidence path is part of the scout's contract:
 
-Merge all research into `.pi/context/<SESSION_SLUG>-deep-audit-context.md`. Include:
+```text
+Agent({
+  subagent_type: "scout",
+  prompt: "<specific research question with exact grep/find targets>\n\nSave your findings to: .pi/audit/<SESSION_SLUG>/evidence/<topic>.md",
+  description: "<5-word label>",
+  run_in_background: true
+})
+```
 
-# Deep Audit Context: <SESSION_SLUG>
+Rules:
+- Questions must be independent — no scout depends on another's output.
+- Scouts are read-only except for saving their own evidence file.
+- Wait for ALL scouts: `get_subagent_result({ agent_id: "...", wait: true })`.
 
-## Original Goal and Scope
-## Repository and Environment Baseline
-## Intended System
-## Actual Entry Points and Architecture
-## Critical Use-Case Traces
-## Research Findings by Topic
-## Contradictory Evidence
-## Commands and Runtime Evidence
-## Evidence Gaps and Exclusions
+### Failure handling
+- A scout errors / returns empty / produced no evidence artifact → retry ONCE with a fresh `scout` (same question, same evidence path). If both attempts fail, record the dimension:
 
-Do not silently reconcile contradictions or omit uncertainty.
+```text
+UNEXAMINED DIMENSIONS:
+- <dimension>: scout failed on both attempts
+```
 
-## Phase 3 — Deep Forensic Audit
+Pass this list to the deep-reviewer (PHASE 3): it MUST reflect every such dimension in its report under §13.2 Scope and Evidence / §13.12 Open Questions and Evidence Gaps of its role contract — "nothing silently skipped" is part of the audit contract.
+- Do not retry merely because findings are unfavorable. One retry attempt per primary failure.
 
-Launch a foreground `deep-reviewer` with:
-- original audit goal and explicit priorities;
-- complete aggregated context;
-- exact repository and environment baseline;
-- final report path `.pi/review/<SESSION_SLUG>-deep-audit.md`.
+## PHASE 2 — CONTEXT AGGREGATION
 
-Require the agent to apply every section of its system definition, including:
-- independent evidence verification;
-- reconstruction of intended and actual behavior;
-- system, dependency, data-flow, configuration, and trust-boundary mapping;
-- safe reproduction and end-to-end tracing where possible;
-- every mandatory review dimension;
-- cross-layer verification;
-- adversarial falsification questions;
-- complete finding classification and evidence;
-- use-case traceability and code relevance inventory;
-- root-cause synthesis, remediation roadmap, strengths, and evidence gaps;
-- final reviewer declaration.
+After all scouts complete:
 
-Report-completeness requirements:
-- The report is self-contained and is the only deliverable.
-- Every material claim has inline evidence: file and line, symbol, call chain, configuration key, command, test, trace, or artifact.
-- Every material finding explains expected behavior, actual behavior, root cause, impact, why it may appear correct, correction direction, and objective verification.
-- Every unexamined dimension, component, or use case is named with a reason.
-- Static inference is clearly separated from reproduced behavior.
-- No code changes, fixes, or worker execution are allowed.
-- Depth and completeness take precedence over brevity.
+1. Read all files from `.pi/audit/<SESSION_SLUG>/evidence/*.md`.
+2. Synthesize them into ONE merged context file — do NOT concatenate raw outputs; preserve file:line evidence, external URLs/provenance, constraints, and unresolved gaps:
 
-If the deep reviewer fails or no report exists, stop. Show the actual artifact state and offer `retry`, `direct`, or `abort`.
+```text
+.pi/audit/<SESSION_SLUG>/evidence/context.md
+```
 
-## Phase 4 — Human Decision Gate
+```markdown
+# Context: <SESSION_SLUG>
+Generated: <ISO datetime>
+Task: <AUDIT_TARGET>
 
-Display the complete report and artifact paths, then ask the user to choose:
-1. `accept` — acknowledge the audit;
-2. `plan: <scope>` — derive a separate remediation plan without executing it;
-3. `re-audit: <instructions>` — run additional scouts and repeat the audit;
-4. `abort` — stop.
+## Research Findings
 
-Do not spawn a worker or apply any remediation in this workflow.
+### <Topic 1>
+<content from scout 1>
+
+### <Topic 2>
+...
+```
+
+## PHASE 3 — DEEP FORENSIC AUDIT (foreground deep-reviewer)
+
+Spawn a **foreground** `deep-reviewer` with the full context. Its agent contract IS the methodology — do NOT copy it here:
+
+```text
+Agent({
+  subagent_type: "deep-reviewer",
+  prompt: "ORIGINAL GOAL (audit scope):\n<AUDIT_TARGET>\n\nCONTEXT (research findings):\n<full content of .pi/audit/<SESSION_SLUG>/evidence/context.md>\n\nUNEXAMINED DIMENSIONS (if any — from scout failures):\n<list, or \"(none)\">\n\nExecution context: <current directory or target directory being audited>\n\nApply your complete deep technical reviewer contract without omission. The report is the ONLY deliverable. Every UNEXAMINED DIMENSION above MUST be reflected in your report under §13.2 Scope and Evidence / §13.12 Open Questions and Evidence Gaps — nothing silently skipped.\n\nThis is a READ-ONLY audit. Do NOT apply any fixes or modifications to the audited code.\n\nSave your audit report to: .pi/audit/<SESSION_SLUG>/report.md",
+  description: "Deep forensic audit"
+})
+```
+
+### Failure handling
+- `deep-reviewer` errors / returns empty / produces no report artifact → retry ONCE with a fresh `deep-reviewer` and the SAME prompt. One retry attempt per primary failure.
+- If both attempts fail → STOP: there is no audit to present. Ask the user to choose "direct" (the orchestrator writes the report itself from the gathered context and evidence), "retry", or "abort".
+
+## PHASE 4 — FINAL REPORT / STOP
+
+1. Display the full contents of `.pi/audit/<SESSION_SLUG>/report.md`.
+2. State:
+
+```text
+═══════════════════════════════════════════════════════
+🔍  DEEP AUDIT COMPLETE
+═══════════════════════════════════════════════════════
+
+The audit is READ-ONLY — no code was changed. The report is the basis for fixes.
+
+📁 Artifact saved:
+  - Audit: .pi/audit/<SESSION_SLUG>/report.md
+  - Evidence/context: .pi/audit/<SESSION_SLUG>/evidence/
+
+To act on it:
+  1. Run /spec to freeze fix requirements, then /harness to execute them
+  2. Or fix manually from the audit
+```
+
+3. Stop. Do NOT spawn any worker. Do NOT apply any changes.
+
+---
 
 AUDIT: $@

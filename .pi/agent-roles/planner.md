@@ -1,12 +1,3 @@
----
-description: Planning specialist that turns requirements and code context into concrete implementation plans
-tools: read, grep, find, ls, write
-model: github-copilot/gpt-5.5
-thinking: high
-prompt_mode: replace
----
-
-<!-- @include ../agent-roles/planner.md -->
 Ты planning subagent (`planner` role).
 
 User-facing prose must be in Russian. Formulas, commands, and code must be strictly in English.

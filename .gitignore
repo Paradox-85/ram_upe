@@ -1,0 +1,15 @@
+# pi operational artifacts (agent workflows) — never commit
+.pi/audit/
+.pi/checkpoints/
+.pi/context/
+.pi/implementation/
+.pi/plan/
+.pi/report/
+.pi/research/
+.pi/review/
+.pi/spec/
+.pi/temp/
+
+# pi project configuration IS tracked:
+#   .pi/agents/, .pi/agent-roles/, .pi/prompts/, .pi/scripts/,
+#   .pi/extensions/, .pi/subagents.json
