@@ -14,7 +14,7 @@ upe:
   owner: "@chief-architect"
   relations:
     - type: derived-from
-      target: raw-input/knowledge-base/architecture/decisions/ADR-0001-docs-as-data.md
+      target: ../sources/legacy/knowledge-base/architecture/decisions/ADR-0001-docs-as-data.md
 ---
 
 # ADR-0001 — Docs-as-Data (History)
@@ -25,7 +25,7 @@ upe:
 Docs-as-Data with Markdown + Mermaid + Git as the source of truth (DDDM).
 
 ## Raw original
-- [`raw-input/knowledge-base/architecture/decisions/ADR-0001-docs-as-data.md`](../../raw-input/knowledge-base/architecture/decisions/ADR-0001-docs-as-data.md) — the authoritative, accepted ADR, kept verbatim.
+- [`../sources/legacy/knowledge-base/architecture/decisions/ADR-0001-docs-as-data.md`](https://dev.azure.com/ramboll-bim/_git/UPE?path=/sources/legacy/knowledge-base/architecture/decisions/ADR-0001-docs-as-data.md&version=GBmain) — the authoritative, accepted ADR, kept verbatim.
 
 ## Status
 This catalog record is `draft`; the raw ADR remains the accepted decision source. No promotion to approved in this cycle.

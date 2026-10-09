@@ -1,7 +1,7 @@
 ---
 type: architecture
 title: Master Architecture Integration View
-description: Draft integration architecture view over the Unified Project Execution KB — domain/capability collections, architecture-related solution candidates, decision catalog, and raw historical sources.
+description: Draft integration architecture view over the Unified Project Execution KB — domain/capability collections, architecture-related solution candidates, decision catalog, and historical evidence under sources/.
 tags: [architecture, integration-view, draft, upe]
 sources: []
 generated: 2026-08-10T07:48:05Z
@@ -18,6 +18,12 @@ upe:
 
 > **Status: draft.** This integration view relates the DDD concept collections and decisions. It does **not** restate the legacy approved master as approved fact; all canonical content is candidate.
 
+
+> **This file is a view, not the authority.** *Master Architecture* is the current governed
+> architectural state — the accepted decisions, contexts, capabilities, components, interfaces and
+> relationships held in this KB. `master.md` is the primary human-readable rendering of that state
+> and must not drift into an independent competing truth. If this view and the governed records
+> disagree, the records win.
 ## Purpose
 Provide the single entry point that connects, from the Unified Project Execution KB:
 
@@ -25,10 +31,11 @@ Provide the single entry point that connects, from the Unified Project Execution
 - **Capabilities:** 520 source-backed capability records (e.g. [`ability-to-add-users-to-project-team`](../capabilities/ability-to-add-users-to-project-team.md)) in `../capabilities/`.
 - **Concepts:** problems, use-cases, events, and solution-candidates backing the architecture.
 - **Decisions:** ADR catalog at [`decisions/`](decisions/index.md) (incl. historic ADR-0001).
-- **Raw evidence:** legacy architecture sources under `raw-input/` (immutable).
+- **Evidence:** immutable historical sources under [`../../sources/legacy/knowledge-base/`](https://dev.azure.com/ramboll-bim/_git/UPE?path=/sources/legacy/knowledge-base&version=GBmain) and the wider [`../../sources/`](https://dev.azure.com/ramboll-bim/_git/UPE?path=/sources/README.md&version=GBmain) corpus.
+- **Requirements:** the traceability layer at [`../requirements/`](../requirements/requirements-guide.md).
 
 ## Layered view (candidate, per raw sources)
-Candidate functional layers (from raw `master.md` / `UPE_Functional_Blocks_v1.md`):
+Candidate functional layers (from the legacy master in the evidence corpus and `sources/legacy/docs/UPE_Functional_Blocks_v1.md`):
 1. Collaboration UX (Portal, Dashboards, Copilot) — `m09` candidate domain.
 2. Process Orchestration (Workflows, Approvals) — `m08`.
 3. Intelligence & Data (AI/ML, Knowledge Graph, Data Quality) — `m06`, `m05`.
@@ -44,7 +51,7 @@ Candidate functional layers (from raw `master.md` / `UPE_Functional_Blocks_v1.md
 - [`microsoft-365-centric-stack`](../solution-candidates/microsoft-365-centric-stack.md)
 
 ## Decision catalog
-See [`decisions/index.md`](decisions/index.md) and the historic raw ADR-0001 (docs-as-data) referenced from [`decisions/adr-0001-history.md`](decisions/adr-0001-history.md).
+See [`decisions/index.md`](decisions/index.md) and the historic ADR-0001 (docs-as-data) held in the evidence corpus, referenced from [`decisions/adr-0001-history.md`](decisions/adr-0001-history.md).
 
 ## Open questions
 - Bounded-context boundaries for M01–M14 are unproven (see [`context-map.md`](context-map.md)).

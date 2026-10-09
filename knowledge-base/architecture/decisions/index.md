@@ -22,7 +22,7 @@ This catalog lists ADRs. New records follow the [`adr-template.md`](adr-template
 |---|---|---|---|
 | ADR-0001 | Docs-as-Data with Markdown+Mermaid+Git as source of truth | accepted (historic, raw) | [adr-0001-history.md](adr-0001-history.md) |
 
-> The raw **accepted** ADR-0001 is preserved unmodified under `raw-input/knowledge-base/architecture/decisions/ADR-0001-docs-as-data.md`; the catalog links to it as history. No new decisions are approved in this cycle.
+> The raw **accepted** ADR-0001 is preserved unmodified under `../sources/legacy/knowledge-base/architecture/decisions/ADR-0001-docs-as-data.md`; the catalog links to it as history. No new decisions are approved in this cycle.
 
 ## Template
 Use [`adr-template.md`](adr-template.md) for new records.

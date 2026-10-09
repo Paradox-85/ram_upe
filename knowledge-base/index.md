@@ -1,8 +1,8 @@
 ---
 type: navigation
-title: Knowledge Base Index
-description: Progressive-disclosure entry point to the Unified Project Execution knowledge bundle — collections, governance, architecture, decisions, labs, and raw corpus. All content is draft/candidate.
-tags: [index, navigation, okf, kb]
+title: UPE Knowledge Hub
+description: "Home page of the UPE Knowledge Hub: the human entry point to the governed UPE knowledge base, published as an Azure DevOps code wiki."
+tags: [index, navigation, wiki, home, upe]
 sources: []
 generated: 2026-08-10T07:48:05Z
 verified: false
@@ -11,41 +11,58 @@ stale_after: 2027-08-10
 upe:
   lifecycle: draft
   owner: "@chief-architect"
-  relations: []
+  relations:
+    - type: supports
+      target: governance/operating-model
+    - type: supports
+      target: contributing
 ---
 
-# Unified Project Execution — Knowledge Base
+# UPE Knowledge Hub
 
-This is the OKF entry point (progressive disclosure). All canonical content here is **draft** or **candidate**; the raw corpus under [`raw-input/`](raw-input/) is immutable evidence.
+The governed knowledge base for the **Unified Project Execution** environment. Everything here is
+`draft`/`candidate` unless a record says otherwise — nothing is `approved` yet.
+
+> **This wiki is a reading surface over the repository.** It is not a second source of truth.
+> Canonical knowledge lives in `knowledge-base/`; the wiki only makes it accessible.
 
 ## Start here
-- [`governance/principles.md`](governance/principles.md) — operating principles (KB-first, raw immutability, draft-only)
-- [`governance/glossary.md`](governance/glossary.md) — ubiquitous language
-- [`governance/metadata-profile.md`](governance/metadata-profile.md) — metadata contract
-- [`governance/usage-guide.md`](governance/usage-guide.md) — how to navigate, author, validate and evolve the bundle (start here before contributing)
-- [`governance/terminology-aliases.md`](governance/terminology-aliases.md) — alias map
 
-## DDD collections
-- [`domains/`](domains/) — 14 candidate functional domains (M01–M14), **functional-domain candidates, not bounded contexts**
-- [`capabilities/`](capabilities/) — 100+ source-backed capabilities
-- [`problems/`](problems/) — source-backed pain points / problems
-- [`use-cases/`](use-cases/) — source-backed use cases
-- [`events/`](events/) — source-backed business events
-- [`solution-candidates/`](solution-candidates/) — source-backed solution/module candidates
+| # | Section | Page |
+|---|---|---|
+| 1 | **Product overview** — what UPE is and is not | [Product Overview](product-overview.md) |
+| 2 | **Architecture** — current state, context map, decisions | [Architecture Overview](views/architecture-overview.md) · [master view](architecture/master.md) · [ADRs](architecture/decisions/) |
+| 3 | **Requirements** — business, functional, non-functional, constraints, stakeholder | [Requirements Coverage](views/requirements-coverage.md) · [collection](requirements/) |
+| 4 | **Capabilities** — the 520 atomic ability records, grouped | [Capability Map](views/capability-map.md) |
+| 5 | **GBA needs & coverage** — Transport and other GBAs | [GBA Needs & Coverage](views/gba-overview.md) |
+| 6 | **Architecture Committee** — backlog, decisions, review queue | [Architecture Committee](views/architecture-committee.md) |
+| 7 | **Vendors & technology** — vendor material held as evidence | [Vendors & Technology](views/vendor-overview.md) |
+| 8 | **Reports** — committee papers, status, published briefs | [Reports](views/reports.md) |
+| 9 | **Sources & evidence** — the original material behind everything | [Sources & Evidence](views/sources-and-evidence.md) |
+| 10 | **How to contribute** — where to put a document or an analysis | [How to Contribute](contributing.md) |
 
-## Architecture & decisions
-- [`architecture/master.md`](architecture/master.md) — draft integration architecture view
-- [`architecture/context-map.md`](architecture/context-map.md) — draft context map (M01–M14 = candidates only)
-- [`architecture/decisions/`](architecture/decisions/) — ADR catalog, template, and historic ADR-0001 reference
+Other entry points: [Open Decisions](views/open-decisions.md) ·
+[Roadmap projection](views/roadmap.md) · [Governance](governance/) · [Change log](log.md)
 
-## Labs
-- [`labs/README.md`](labs/README.md) — R&D lab contract (empty framework) + manifest template
+## What is canonical and what is not
 
-## Raw corpus (evidence)
-- [`raw-input/`](raw-input/) — immutable legacy artifacts (legacy knowledge-base, docs, src, prompts) that back these concepts.
+| Layer | Where | Status |
+|---|---|---|
+| Canonical knowledge | `knowledge-base/` (this wiki) | the only governed model — `draft` until reviewed |
+| Source evidence | [sources/](https://dev.azure.com/ramboll-bim/_git/UPE?path=/sources&version=GBmain) | evidence, **never** knowledge |
+| Analysis (human, AI) | [analysis/](https://dev.azure.com/ramboll-bim/_git/UPE?path=/analysis&version=GBmain) | **non-canonical** working output |
+| Reports | [reports/](https://dev.azure.com/ramboll-bim/_git/UPE?path=/reports&version=GBmain) | audience-facing, never canonical |
+| Labs / tools | [labs/](https://dev.azure.com/ramboll-bim/_git/UPE?path=/labs&version=GBmain) · [tools/](https://dev.azure.com/ramboll-bim/_git/UPE?path=/tools&version=GBmain) | experiments and utilities |
 
-## Change log
-- See [`log.md`](log.md) for a record of every batch.
+> **Analysis artifacts are non-canonical working outputs.** Canonical project knowledge is maintained
+> under the UPE Knowledge Base.
 
-## Status
-Everything above is `draft` (or `idea`) and must be treated as candidate knowledge, not approved architecture.
+New knowledge enters through one gate only:
+
+```text
+Sources → Analysis (human or AI) → Review → PROMOTION GATE → knowledge-base/
+```
+
+Nobody — human or AI — edits canonical knowledge directly; a finding is promoted by a human decision
+after review. See [How to Contribute](contributing.md) and the
+[operating model](governance/operating-model.md).

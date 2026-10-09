@@ -4,8 +4,8 @@ title: Automate member onboarding and access provisioning
 description: A project team member is added, granted role-based access, and provisioned to project tools automatically to shorten onboarding lead time.
 tags: [use-case, onboarding, access, provisioning, draft]
 sources:
-  - raw-input/knowledge-base/raw-input/interviews-summary.md
-  - raw-input/docs/UPE_Functional_Blocks_v1.md
+  - ../sources/ramboll/interviews-summary.md
+  - ../sources/legacy/docs/UPE_Functional_Blocks_v1.md
 generated: 2026-08-10T07:48:05Z
 verified: false
 status: draft
@@ -15,7 +15,7 @@ upe:
   owner: "@chief-architect"
   relations:
     - type: derived-from
-      target: raw-input/knowledge-base/raw-input/interviews-summary.md
+      target: ../sources/ramboll/interviews-summary.md
     - type: supports
       target: domains/m02-user-access-management
     - type: supports
@@ -35,7 +35,7 @@ Project manager / administrator.
 - Ability to auto-grant access to project tools based on role
 
 ## Source
-Interview finding in [`raw-input/knowledge-base/raw-input/interviews-summary.md`](../raw-input/knowledge-base/raw-input/interviews-summary.md) and functional block **2.1** in `raw-input/docs/UPE_Functional_Blocks_v1.md`.
+Interview finding in [`../sources/ramboll/interviews-summary.md`](https://dev.azure.com/ramboll-bim/_git/UPE?path=/sources/ramboll/interviews-summary.md&version=GBmain) and functional block **2.1** in `../sources/legacy/docs/UPE_Functional_Blocks_v1.md`.
 
 ## Open questions
 - Onboarding SLAs and approval routing not fully specified.

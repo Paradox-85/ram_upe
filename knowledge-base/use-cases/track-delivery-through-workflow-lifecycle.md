@@ -4,7 +4,7 @@ title: Track a delivery through its workflow lifecycle
 description: A delivery artifact (model, drawing, report) progresses through checklist steps and approvals so its state is visible to the team.
 tags: [use-case, workflow, delivery, event-driven, draft]
 sources:
-  - raw-input/knowledge-base/raw-input/event-driven work management system.md
+  - ../sources/ramboll/event-driven work management system.md
 generated: 2026-08-10T07:48:05Z
 verified: false
 status: draft
@@ -14,7 +14,7 @@ upe:
   owner: "@chief-architect"
   relations:
     - type: derived-from
-      target: raw-input/knowledge-base/raw-input/event-driven work management system.md
+      target: ../sources/ramboll/event-driven work management system.md
     - type: supports
       target: events/delivery-state-transitioned
     - type: supports
@@ -33,7 +33,7 @@ Designer/author + Project Manager (observability).
 - Ability to track deliverable status (not started, in progress, complete, delivered)
 
 ## Source
-**Prompt 1** in [`raw-input/knowledge-base/raw-input/event-driven work management system.md`](../raw-input/knowledge-base/raw-input/event-driven%20work%20management%20system.md).
+**Prompt 1** in [`../sources/ramboll/event-driven work management system.md`](https://dev.azure.com/ramboll-bim/_git/UPE?path=/sources/ramboll/event-driven%20work%20management%20system.md&version=GBmain).
 
 ## Open questions
 - Checklist variant rules per delivery type not fully enumerated.

@@ -4,7 +4,7 @@ title: Monolith architecture risk
 description: Risk that the UPE platform becomes a monolithic system, harming scalability, maintenance, and flexibility.
 tags: [problem, risk, architecture, draft]
 sources:
-  - raw-input/knowledge-base/raw-input/risks.md
+  - ../sources/ramboll/risks.md
 generated: 2026-08-10T07:48:05Z
 verified: false
 status: draft
@@ -14,7 +14,7 @@ upe:
   owner: "@chief-architect"
   relations:
     - type: derived-from
-      target: raw-input/knowledge-base/raw-input/risks.md
+      target: ../sources/ramboll/risks.md
 ---
 
 # Monolith architecture risk
@@ -23,7 +23,7 @@ upe:
 > **Risk:** Monolith architecture — the platform could be built as a single monolithic system instead of modular components.
 
 ## Source
-Risk item in the risk mindmap in [`raw-input/knowledge-base/raw-input/risks.md`](../raw-input/knowledge-base/raw-input/risks.md).
+Risk item in the risk mindmap in [`../sources/ramboll/risks.md`](https://dev.azure.com/ramboll-bim/_git/UPE?path=/sources/ramboll/risks.md&version=GBmain).
 
 ## Open questions
 - Considered a candidate design risk; modularity direction referenced in brainstorming module concept.

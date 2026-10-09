@@ -4,7 +4,7 @@ title: Ability to manage costs vs. capability trade-offs
 description: Source-backed capability statement extracted from the UPE Functional Blocks v1 pool.
 tags: [capability, functional-block]
 sources:
-  - raw-input/docs/UPE_Functional_Blocks_v1.md
+  - ../sources/legacy/docs/UPE_Functional_Blocks_v1.md
 generated: 2026-08-10T07:48:05Z
 verified: false
 status: draft
@@ -14,7 +14,7 @@ upe:
   owner: "@chief-architect"
   relations:
     - type: derived-from
-      target: raw-input/docs/UPE_Functional_Blocks_v1.md
+      target: ../sources/legacy/docs/UPE_Functional_Blocks_v1.md
   functional_block: 13.1 Technology Stack Recommendations
 ---
 
@@ -24,7 +24,7 @@ upe:
 > Ability to manage costs vs. capability trade-offs
 
 ## Source
-Functional block **13.1 Technology Stack Recommendations** in [`raw-input/docs/UPE_Functional_Blocks_v1.md`](../raw-input/docs/UPE_Functional_Blocks_v1.md).
+Functional block **13.1 Technology Stack Recommendations** in [`../sources/legacy/docs/UPE_Functional_Blocks_v1.md`](https://dev.azure.com/ramboll-bim/_git/UPE?path=/sources/legacy/docs/UPE_Functional_Blocks_v1.md&version=GBmain).
 
 ## Open questions
 - None.

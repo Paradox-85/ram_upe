@@ -34,6 +34,14 @@ Definitions use the **Unified Project Execution** (UPE) product context.
 - **Module** — a candidate implementation grouping; in this bundle only represented as `type: module` solution candidates when a recurring explicit module pattern is evidenced.
 - **OKF** — Open Knowledge Framework; the structure/conventions adopted from `GoogleCloudPlatform/knowledge-catalog/okf` (Apache-2.0).
 - **DDDM** — Dialogue-Driven Design Method; the LLM-native design method (Markdown+Mermaid+Git, stable IDs, lifecycle).
+- **Requirement** — a first-class canonical statement of what the business or platform needs, classified by `requirement.kind` (`business`, `functional`, `non-functional`, `stakeholder`, `constraint`). It is the traceability layer between evidence/problems and capabilities.
+- **Source** — a received evidence payload under `sources/`. A source is **not** knowledge: it supports knowledge.
+- **Source reference** — a canonical KB record (`evidence/src-*`, `type: source-reference`) holding *metadata about* a source: location, revision, hash, origin. Not to be confused with the payload itself.
+- **Analysis** — what a human or an AI concluded from sources. Always **non-canonical**; lives in `analysis/`. Human and AI analysis have identical standing.
+- **Promotion gate** — the human review step that turns a specific *finding* into canonical knowledge. Promotion is per finding, never per document, and never automatic.
+- **View** — a generated or curated, explicitly **non-authoritative** projection of canonical records (e.g. `views/capability-map.md`). A view renders records; it never overrides them.
+- **Report** — an audience-facing deliverable under `reports/`. Also non-canonical: a report references knowledge or analysis and cannot create it.
+- **Master Architecture** — the current governed architectural state (accepted decisions, contexts, capabilities, components, interfaces, relationships). `architecture/master.md` is its primary human-readable *view*, not the authority itself.
 
 ## Scope notes
 - `bounded context` is **unproven** for M01–M14; do not treat candidate domains as bounded contexts without explicit evidence.

@@ -4,7 +4,7 @@ title: Raise an approval request from an authoring tool add-in
 description: A designer, inside Revit/CAD, clicks "Request Approval" in a process-aware add-in, invoking a backend API and triggering the approval workflow.
 tags: [use-case, approval, authoring-tool, add-in, draft]
 sources:
-  - raw-input/knowledge-base/raw-input/event-driven work management system.md
+  - ../sources/ramboll/event-driven work management system.md
 generated: 2026-08-10T07:48:05Z
 verified: false
 status: draft
@@ -14,7 +14,7 @@ upe:
   owner: "@chief-architect"
   relations:
     - type: derived-from
-      target: raw-input/knowledge-base/raw-input/event-driven work management system.md
+      target: ../sources/ramboll/event-driven work management system.md
     - type: supports
       target: events/approval-requested
     - type: evaluates
@@ -30,7 +30,7 @@ upe:
 Designer (inside the authoring tool).
 
 ## Source
-**Prompt 1 / Answer 1** in [`raw-input/knowledge-base/raw-input/event-driven work management system.md`](../raw-input/knowledge-base/raw-input/event-driven%20work%20management%20system.md).
+**Prompt 1 / Answer 1** in [`../sources/ramboll/event-driven work management system.md`](https://dev.azure.com/ramboll-bim/_git/UPE?path=/sources/ramboll/event-driven%20work%20management%20system.md&version=GBmain).
 
 ## Open questions
 - Approval routing and reviewer-queue rules not exhaustively specified.

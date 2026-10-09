@@ -1,0 +1,19 @@
+{
+  "_comment": [
+    "Single source of truth for Azure DevOps / Wiki links. Do not scatter these URLs into pages.",
+    "Consumed by tools/wiki/make_links_wiki_safe.py and tools/kb-validate/check_wiki.py.",
+    "repo_web_url must stay identical to the 'azure' git remote so the links cannot drift."
+  ],
+  "repo_web_url": "https://dev.azure.com/ramboll-bim/_git/UPE",
+  "branch": "main",
+  "wiki_name": "UPE Knowledge Hub",
+  "wiki_path": "/knowledge-base",
+  "boards_url": "",
+  "pipelines_url": "",
+  "_boards_comment": [
+    "boards_url is intentionally empty: the project/team/board identifiers are unknown and MUST NOT",
+    "be invented. Set it once (e.g. https://dev.azure.com/ramboll-bim/<project>/_boards/board/t/<team>/<board>)",
+    "and the 'Architecture Committee' page will link it; until then that page renders an explicit",
+    "'to be configured' notice instead of a broken link."
+  ]
+}

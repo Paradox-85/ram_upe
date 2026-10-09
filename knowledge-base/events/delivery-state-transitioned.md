@@ -4,7 +4,7 @@ title: Delivery state transitioned
 description: A delivery artifact transitions to a new workflow state as checklist steps and approvals are completed.
 tags: [event, workflow, delivery, draft]
 sources:
-  - raw-input/knowledge-base/raw-input/event-driven work management system.md
+  - ../sources/ramboll/event-driven work management system.md
 generated: 2026-08-10T07:48:05Z
 verified: false
 status: draft
@@ -14,7 +14,7 @@ upe:
   owner: "@chief-architect"
   relations:
     - type: derived-from
-      target: raw-input/knowledge-base/raw-input/event-driven work management system.md
+      target: ../sources/ramboll/event-driven work management system.md
 ---
 
 # Delivery state transitioned
@@ -27,7 +27,7 @@ upe:
 - API-triggered transition request
 
 ## Source
-**Answer 1 (Event pipeline / example)** in [`raw-input/knowledge-base/raw-input/event-driven work management system.md`](../raw-input/knowledge-base/raw-input/event-driven%20work%20management%20system.md).
+**Answer 1 (Event pipeline / example)** in [`../sources/ramboll/event-driven work management system.md`](https://dev.azure.com/ramboll-bim/_git/UPE?path=/sources/ramboll/event-driven%20work%20management%20system.md&version=GBmain).
 
 ## Open questions
 - Full state machine (states/transitions) not yet standardized.

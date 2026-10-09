@@ -4,7 +4,7 @@ title: Initialize a project from a class-based template
 description: An authorized user creates a new project by selecting a project class/category so that the environment, tools, templates, and access are provisioned automatically.
 tags: [use-case, project-initialization, provisioning, draft]
 sources:
-  - raw-input/docs/UPE_Functional_Blocks_v1.md
+  - ../sources/legacy/docs/UPE_Functional_Blocks_v1.md
 generated: 2026-08-10T07:48:05Z
 verified: false
 status: draft
@@ -14,7 +14,7 @@ upe:
   owner: "@chief-architect"
   relations:
     - type: derived-from
-      target: raw-input/docs/UPE_Functional_Blocks_v1.md
+      target: ../sources/legacy/docs/UPE_Functional_Blocks_v1.md
     - type: supports
       target: domains/m01-project-lifecycle-environment-management
     - type: supports
@@ -34,7 +34,7 @@ Project administrator / authorized user.
 - Ability to auto-select and deploy project templates based on class
 
 ## Source
-Functional block **1.1 Project Initialization & Provisioning** in [`raw-input/docs/UPE_Functional_Blocks_v1.md`](../raw-input/docs/UPE_Functional_Blocks_v1.md).
+Functional block **1.1 Project Initialization & Provisioning** in [`../sources/legacy/docs/UPE_Functional_Blocks_v1.md`](https://dev.azure.com/ramboll-bim/_git/UPE?path=/sources/legacy/docs/UPE_Functional_Blocks_v1.md&version=GBmain).
 
 ## Open questions
 - Exact template-selection rules per class are not fully specified.

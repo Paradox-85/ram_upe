@@ -7,11 +7,11 @@ upe:
   owner: "@chief-architect"
   relations:
     - type: derived-from
-      target: raw-input/knowledge-base/master.md
+      target: ../sources/legacy/knowledge-base/master.md
 description: Candidate functional domain M14 for the Unified Project Execution platform (Special Capability Domains (BIM/GIS, Time, Contracts)).
 tags: [domain, candidate, upe]
 sources:
-  - raw-input/knowledge-base/master.md
+  - ../sources/legacy/knowledge-base/master.md
 generated: 2026-08-10T07:48:05Z
 verified: false
 status: draft
@@ -29,7 +29,7 @@ End-to-end project coverage
 Strategic
 
 ## Source
-Candidate row 14 from the master functional-domain table in [`raw-input/knowledge-base/master.md`](../raw-input/knowledge-base/master.md).
+Candidate row 14 from the master functional-domain table in [`../sources/legacy/knowledge-base/master.md`](https://dev.azure.com/ramboll-bim/_git/UPE?path=/sources/legacy/knowledge-base/master.md&version=GBmain).
 
 ## Open questions
 - Bounded-context boundary for M14 is unproven.

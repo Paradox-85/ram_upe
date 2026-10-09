@@ -15,3 +15,18 @@
 # pi project configuration IS tracked:
 #   .pi/agents/, .pi/agent-roles/, .pi/prompts/, .pi/scripts/,
 #   .pi/extensions/, .pi/subagents.json
+
+# Repository artifact roots ARE tracked (do not add them here):
+#   sources/     received evidence payload (immutable; one file per revision)
+#   analysis/    non-canonical analysis (human/ · ai/ · reviewed/)
+#   reports/     audience deliverables (working/ · architecture-committee/ · published/)
+#   labs/        experiments and prototypes
+#   tools/       maintained reusable utilities
+#   knowledge-base/   the ONLY canonical knowledge base
+
+# Python bytecode caches (tools/ is committed; caches are not)
+__pycache__/
+*.pyc
+
+# Microsoft Office lock/owner files (never evidence)
+~$*

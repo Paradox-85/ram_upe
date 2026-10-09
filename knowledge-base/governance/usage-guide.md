@@ -1,11 +1,11 @@
 ---
 type: governance
 title: Knowledge Base Usage Guide
-description: "Practical guide for humans and agents: bundle basis/version, structure, frontmatter contract, authoring, injection and query via custom Pi skills (kb-inject/kb-query, planned), validation, ADR and lab workflows, agent rules."
-tags: [governance, usage, guide, okf, ddd, navigation, authoring, validation]
+description: "Practical guide for humans and agents: bundle basis/version, repository artifact classes, structure, frontmatter contract, authoring, source intake, analysis and promotion workflow, validation, ADR and lab workflows, agent rules."
+tags: [governance, usage, guide, okf, ddd, navigation, authoring, validation, operating-model]
 sources:
-  - raw-input/knowledge-base/raw-input/DDD.md
-  - raw-input/knowledge-base/00_principles.md
+  - ../sources/ramboll/DDD.md
+  - ../sources/legacy/knowledge-base/00_principles.md
 generated: 2026-08-10T09:10:00Z
 verified: false
 status: draft
@@ -18,66 +18,107 @@ upe:
       target: governance/metadata-profile
     - type: supports
       target: index
+    - type: supports
+      target: governance/operating-model
 ---
 
 # Knowledge Base Usage Guide
 
-> Attribution: structure/conventions adopted from `GoogleCloudPlatform/knowledge-catalog/okf` (SPEC v0.2, Apache-2.0); no upstream content copied. DDD organization per `knowledge-base/raw-input/DDD.md` (architect-approved). All current content is **draft/candidate** — nothing in this bundle is `approved` yet.
+> Attribution: structure/conventions adopted from `GoogleCloudPlatform/knowledge-catalog/okf` (SPEC v0.2, Apache-2.0); no upstream content copied. DDD organization per `sources/ramboll/DDD.md` (architect-approved). All current content is **draft/candidate** — nothing in this bundle is `approved` yet.
 
 ## 1. What this bundle is
 
 `knowledge-base/` is the **single source of truth** for UPE knowledge, organized as one OKF v0.2 bundle with a DDD-inspired classification:
 
 - **OKF answers** *how knowledge is represented, identified, linked and exchanged*: Markdown + YAML frontmatter, path-as-ID, bundle-relative links, `index.md`/`log.md`, provenance/trust/freshness fields.
-- **DDD answers** *how the problem domain is partitioned*: the chain `Domains → Capabilities → Problems → Use Cases → Events → Solution Candidates → Reusable Modules` (per `raw-input/knowledge-base/raw-input/DDD.md`).
+- **DDD answers** *how the problem domain is partitioned*: the chain `Domains → Capabilities → Problems → Use Cases → Events → Solution Candidates → Reusable Modules` (per `sources/ramboll/DDD.md`).
 
-Two golden rules:
+Three golden rules:
 
-1. **KB-first** — knowledge is captured once here and referenced from everywhere else. No other directory (docs, labs, `.pi`) may introduce an architectural fact absent from the KB.
-2. **Raw is immutable** — `raw-input/**` is historical evidence. Never edit raw files, even to fix links or the legacy product name.
+1. **KB-first** — knowledge is captured once here and referenced from everywhere else. No other directory (`sources/`, `analysis/`, `reports/`, `labs/`, `.pi/`) may introduce an architectural fact absent from the KB.
+2. **Evidence is immutable** — `sources/**` is received evidence. Never edit a payload, even to fix links or the legacy product name.
+3. **Nothing becomes knowledge by itself** — human and AI analysis are equally non-canonical until a human promotion gate accepts a finding. See [`operating-model.md`](operating-model.md).
 
 ### 1.1 Basis, version and provenance
 
-The bundle was **redeployed from scratch** (harness `20260810-074805-upe-harmonization`, 2026-08-10) on these foundations:
+The bundle was **redeployed from scratch** (harness `20260810-074805-upe-harmonization`, 2026-08-10) on these foundations, and **re-based onto the hybrid operating model** (refactoring `20261009-104047-upe-refactor`, 2026-10-09):
 
 | Foundation | Detail |
 |---|---|
 | **Upstream format repo** | `GoogleCloudPlatform/knowledge-catalog` → `okf/SPEC.md` — **Open Knowledge Format v0.2** (Apache-2.0). Only structure/conventions adopted; **no upstream content copied** (attribution in `log.md`). Conformance: 3 rules (parseable frontmatter, non-empty `type`, reserved filenames); consumers tolerate broken links/unknown types/missing fields. |
-| **DDD input** | `knowledge-base/raw-input/DDD.md` — architect-approved (2026-08-10): the chain `Domains → Capabilities → Problems → Use Cases → Events → Solution Candidates → Reusable Modules` + 5 focus concepts. |
-| **Legacy DDDM corpus** | Old `knowledge-base/` (00_*.md, master.md, architecture, prompts) → source of stable IDs (`M01–M14`, `ADR-0001`), the authoritative lifecycle (`idea→draft→in-review→approved→superseded→deprecated`), 14 functional domains, 175+ capabilities — preserved verbatim under `raw-input/`. |
-| **Raw evidence** | 73 immutable files (`raw-input/knowledge-base/…`, `raw-input/docs/…`, `raw-input/src/…`, `raw-input/prompts/…`) backing every concept via `sources:`. |
-| **Governance** | Frozen spec §9 (draft-only, no promotion without explicit user approval, CI deferred), `AGENTS.md` approval boundaries, `governance/metadata-profile.md` as the single metadata authority. |
+| **DDD input** | `sources/ramboll/DDD.md` — architect-approved (2026-08-10): the chain `Domains → Capabilities → Problems → Use Cases → Events → Solution Candidates → Reusable Modules` + 5 focus concepts. |
+| **Legacy DDDM corpus** | Old `knowledge-base/` (00_*.md, master.md, architecture) → source of stable IDs (`M01–M14`, `ADR-0001`), the authoritative lifecycle (`idea→draft→in-review→approved→superseded→deprecated`), 14 functional domains, 520 capabilities — preserved verbatim under `sources/legacy/knowledge-base/`. |
+| **Evidence corpus** | Immutable payloads under `sources/**` (transported 2026-10-09 from `knowledge-base/raw-input/`, byte-preserved, path-mapped) backing every concept via `sources:`. |
+| **Governance** | Draft-only scope, no promotion without explicit user approval, `governance/metadata-profile.md` as the single metadata authority, `governance/operating-model.md` as the operating model. |
 
-## 2. Directory structure
+## 2. Repository structure
+
+The repository separates **four artifact classes with different lifecycles**. Only one of them is canonical.
 
 ```
-knowledge-base/
-├── index.md                         # entry point: progressive disclosure (start here)
-├── log.md                           # change log (newest first, ISO-date groups)
-├── governance/                      # rules and vocabulary — read before authoring
-│   ├── principles.md                # operating principles (KB-first, raw immutability, draft-only)
-│   ├── glossary.md                  # ubiquitous language
-│   ├── metadata-profile.md          # THE metadata contract (fields, types, lifecycle, relations)
-│   ├── usage-guide.md               # this file — how to use the bundle
-│   └── terminology-aliases.md       # legacy/ambiguous spellings → canonical terms
-├── architecture/                    # master architecture view (draft integration view)
-│   ├── master.md                    # integration view over concepts + decisions + raw sources
-│   ├── context-map.md               # DDD context-map framework; M01–M14 = candidates only
-│   └── decisions/                   # ADR catalog + template + historical ADR-0001 record
-├── domains/                         # 14 candidate functional domains M01–M14 (not bounded contexts)
-├── capabilities/                    # 500+ source-backed capability records (one statement each)
-├── problems/                        # pain points and gaps surfaced in evidence
-├── use-cases/                       # source-backed use cases, linked to capabilities/events
-├── events/                          # business events (automation/workflow context)
-├── solution-candidates/             # solution/module candidates with traceability
-├── labs/                            # R&D laboratory: manifests + experiments (framework only)
-│   └── _template/manifest.md        # lab manifest template (copy this for a new lab)
-└── raw-input/                       # IMMUTABLE historical evidence (73 files, path-preserved)
+/
+├── README.md                         # human entry point: where do I put things
+├── AGENTS.md                         # agent operating rules
+├── azure-pipelines.yml               # CI mirror to GitHub
+│
+├── sources/                          # CLASS A — received evidence (NEVER canonical)
+│   ├── README.md                     # intake contract
+│   ├── transport/                    # Transport GBA material
+│   ├── vendors/{autodesk,aveva,hexagon}/
+│   ├── meetings/                     # transcripts, workshops
+│   ├── ramboll/                      # Ramboll-internal source documents
+│   ├── standards/                    # external standards (e.g. ISO 19650)
+│   └── legacy/                       # historical docs + legacy DDDM corpus
+│
+├── analysis/                         # CLASS B — non-canonical analysis
+│   ├── README.md                     # metadata + lifecycle + promotion contract
+│   ├── human/<topic>/                # manual analysis
+│   ├── ai/<topic>/                   # durable AI analysis
+│   └── reviewed/<topic>/             # consolidated, review-ready
+│
+├── knowledge-base/                   # CLASS C — THE canonical KB
+│   ├── index.md log.md
+│   ├── governance/                   # principles, glossary, metadata, operating model, this guide
+│   ├── requirements/                 # first-class traceability layer
+│   ├── domains/                      # 14 candidate functional domains M01–M14
+│   ├── capabilities/                 # 520 source-backed capability records
+│   ├── problems/ use-cases/ events/ solution-candidates/
+│   ├── architecture/
+│   │   ├── master.md                 # primary human-readable integration view
+│   │   ├── context-map.md            # M01–M14 = candidates only
+│   │   └── decisions/                # ADR catalog + template + ADR-0001 history
+│   ├── evidence/                     # source-reference records (metadata about sources)
+│   └── views/                        # GENERATED human surface (non-authoritative)
+│
+├── reports/                          # CLASS D — audience deliverables (never canonical)
+│   ├── README.md
+│   ├── working/  architecture-committee/  published/
+│
+├── labs/                             # executable experiments (not knowledge)
+│   ├── README.md  _template/manifest.md
+│
+├── tools/                            # maintained reusable utilities
+│   └── kb-validate/                  # the validation gate
+│
+└── .pi/                              # agent execution state — NOT a knowledge layer
 ```
+
+**Where do I put…?** — the short answer:
+
+| Artefact | Location |
+|---|---|
+| a document I just received | `sources/<topic>/` |
+| my own assessment | `analysis/human/<topic>/` |
+| durable AI analysis | `analysis/ai/<topic>/` |
+| agent scratch/research | `.pi/` |
+| accepted reusable knowledge | `knowledge-base/` |
+| an Architecture Committee paper | `reports/architecture-committee/` |
+| a prototype | `labs/` |
+| a reusable utility | `tools/` |
 
 ## 3. Frontmatter contract (summary; full contract in `governance/metadata-profile.md`)
 
-Every active KB file (everything except `raw-input/**`) **must** start with YAML frontmatter:
+Every active KB file (`knowledge-base/**`, excluding the legacy corpus) **must** start with YAML frontmatter:
 
 ```yaml
 ---
@@ -85,175 +126,176 @@ type: capability                # type from the dictionary (see below)
 title: Short Title
 description: One-paragraph description of the concept.
 tags: [keyword1, keyword2]
-sources:                        # bundle-relative raw evidence backing this record
-  - raw-input/docs/UPE_Functional_Blocks_v1.md
-generated: 2026-08-10T09:00:00Z
+sources:                        # evidence backing this record
+  - ../sources/ramboll/upe-foundations.md
+generated: 2026-10-09T09:00:00Z
 verified: false
 status: draft                   # OKF projection: draft | stable | deprecated
-stale_after: 2027-08-10
+stale_after: 2027-10-09
 upe:
   id: M01                       # ONLY when an existing DDDM stable ID applies (M01–M14, ADR-*)
-  lifecycle: draft              # authoritative DDDM sequence: idea → draft → in-review → approved → superseded → deprecated
+  lifecycle: draft              # idea → draft → in-review → approved → superseded → deprecated
   owner: "@module-owner-m01"
   relations:                    # minimal typed vocabulary, {type, target}
     - type: supports
-      target: capabilities/enable-decision-making-and-innovation
+      target: domains/m01-project-lifecycle-environment-management
 ---
 ```
 
-**Type dictionary:** `domain`, `subdomain`, `capability`, `problem`, `use-case`, `event`, `solution-candidate`, `module` (DDD concepts) + `governance`, `architecture`, `decision`, `lab`, `navigation`, `log` (structural records).
+**Type dictionary:** `domain`, `subdomain`, `capability`, `problem`, `use-case`, `event`, `solution-candidate`, `module`, `requirement` (DDD concepts) + `governance`, `architecture`, `decision`, `lab`, `navigation`, `log`, `view`, `source-reference` (structural records).
 
-**Typed relations (allowed vocabulary — do not invent new types):** `supports`, `derived-from`, `evaluates`, `evidenced-by`, `refutes`, `decided-by`, `supersedes`, `derived-document-of`. Target is a bundle-relative path (without `.md`) or a stable ID. DDD context-map edge types are **not** in use yet.
+**Typed relations (allowed vocabulary — do not invent new types):** `supports`, `derived-from`, `evaluates`, `evidenced-by`, `refutes`, `decided-by`, `supersedes`, `derived-document-of`. Target is a bundle-relative path (without `.md`), a KB record path, or `../sources/...` for evidence. DDD context-map edge types are **not** in use yet.
 
 **Statuses:** new content uses `status: draft` and `upe.lifecycle: idea|draft`. **Never assign `approved` or `in-review`** in this phase — promotion is a gated human decision.
 
+**Analysis artifacts** follow a different, lighter contract and a different lifecycle (`working → review-ready → reviewed → superseded`) — see [`../../analysis/README.md`](https://dev.azure.com/ramboll-bim/_git/UPE?path=/analysis/README.md&version=GBmain). Never apply the canonical lifecycle to analysis, and never apply the analysis lifecycle to the KB.
+
 ## 4. Navigation (humans)
 
-1. **Start at `knowledge-base/index.md`** — progressive disclosure to every collection, governance, architecture, labs and raw corpus.
-2. **Read `governance/principles.md` + `governance/glossary.md`** before doing anything — they define the vocabulary and the rules.
-3. **For the current architecture:** `architecture/master.md` → `architecture/context-map.md` → `architecture/decisions/`.
-4. **For a business area:** pick a `domains/m0X-*.md`, follow its links to capabilities/problems/use-cases/events/solution-candidates.
-5. **For evidence:** every concept lists `sources:` — open the raw files under `raw-input/` to check provenance.
-6. **Search:** `grep -ri "<term>" knowledge-base --include="*.md"` or use the glossary aliases.
+1. **Start at `README.md`** — the where-to-put map, then `knowledge-base/index.md` for the bundle map.
+2. **Read `governance/principles.md` + `governance/glossary.md`** before doing anything — they define the vocabulary and rules.
+3. **Operating model:** `governance/operating-model.md` — the four artifact classes, the two surfaces, the promotion gate.
+4. **For the current architecture:** `architecture/master.md` → `architecture/context-map.md` → `architecture/decisions/`.
+5. **For a business area:** pick a `domains/m0X-*.md`, follow its links to capabilities/problems/use-cases/events/solution-candidates.
+6. **For a readable overview instead of atomic files:** `views/` (generated, non-authoritative).
+7. **For evidence:** every concept lists `sources:` — open the payload under `sources/`, or the `evidence/` record describing it.
+8. **Search:** `grep -ri "<term>" knowledge-base --include="*.md"` or use the glossary aliases.
 
 ## 5. Authoring workflow (agents and humans)
 
-To add or update knowledge:
+To add or update canonical knowledge:
 
 1. **Find the right concept** — use `index.md` and the glossary; prefer linking to an existing concept over creating a near-duplicate.
-2. **Create one file per concept** under the matching collection (e.g. a new capability → `capabilities/<slug>.md`). One normalized source statement per record.
-3. **Fill the frontmatter** per §3; set `status: draft`, `upe.lifecycle: draft` (or `idea`), `sources` pointing to the raw evidence.
-4. **Link with bundle-relative paths** (path-as-ID; use the `.md` suffix in Markdown links so validators resolve them): `[text](../capabilities/enable-decision-making-and-innovation.md)`. Prefer links over duplicating content.
-5. **Preserve contradictions** — if sources disagree, record both claims with separate `sources` and note them under `## Open questions` in the body. Never silently reconcile.
-6. **Never edit `raw-input/**`** — evidence stays verbatim; fix problems by editing the active concept instead.
+2. **Create one file per concept** under the matching collection (e.g. a new requirement → `requirements/<slug>.md`). One normalized source statement per record.
+3. **Fill the frontmatter** per §3; set `status: draft`, `upe.lifecycle: draft` (or `idea`), and `sources:` pointing at the evidence in `sources/`.
+4. **Link with paths that resolve** (path-as-ID; use the `.md` suffix in Markdown links so validators resolve them): `[text](../capabilities/enable-decision-making-and-innovation.md)`. Prefer links over duplicating content.
+5. **Preserve contradictions** — if sources disagree, record both claims with separate `sources` and note them under `## Open questions`. Never silently reconcile.
+6. **Never edit `sources/**`** — evidence stays verbatim; fix problems by editing the active concept instead.
 7. **Update `index.md` and `log.md`** with every change (new file → add to index; any change → append a log entry, newest first, ISO-date group).
-8. **Validate** (see §7) before committing.
+8. **Validate** (§7) before committing.
 
-## 6. R&D laboratory (labs/)
+### 5.1 Adding a new source document
 
-- `labs/` hosts experiments and prototypes. A lab is **not** a knowledge document: it may assert nothing canonical. Canonical conclusions/evidence go to the KB (as `evidence` records in a later cycle); a lab README never becomes a second KB.
-- **Start a lab:** copy `labs/_template/manifest.md` to `labs/<slug>/manifest.md` and fill:
-  - `upstream_intent` — any legitimate source: hypothesis, requirement/constraint, capability, architecture option/feature, ADR/decision (an ADR is **not** mandatory before an experiment);
-  - `lab_status` — `active | successful | rejected | superseded | abandoned`;
-  - `evidence_links` — where results/evidence live (prefer KB evidence records);
-  - run command/environment, outputs, decision influence, retention/deletability.
-- **Promotion to `tools/`** (reusable maintained code) requires: reuse intent, an owner, a documented interface, proportionate tests, and a decision/evidence basis. Throwaway probes stay in `labs/` or branch history.
+1. Place the payload under `sources/<topic>/` using `<iso-date>-<slug>.<ext>`. Never overwrite an existing revision.
+2. Add a `source-reference` record in `knowledge-base/evidence/` recording location, revision, hash and origin.
+3. Reference it from concepts (and from analyses) via `sources:`.
+4. Ask: *is this a source, or is it actually my analysis of a source?* If the file contains conclusions, it belongs in `analysis/`, not `sources/`.
+
+### 5.2 Promoting analysis into the KB
+
+Analysis — human or AI — becomes canonical only through the gate:
+
+```text
+SOURCE → ANALYSIS → CANDIDATE FINDING → HUMAN REVIEW → ACCEPT/MODIFY/REJECT → CANONICAL KB
+```
+
+Promotion is **per finding**. Create the KB record separately (it gets its own `sources:` and a `derived-from` relation to the analysis), then record the outcome in the analysis artifact's `promoted:` field. Agents must not perform this step on their own.
+
+## 6. R&D laboratory (`labs/`)
+
+- `labs/` hosts experiments and prototypes and lives **outside** the KB. A lab asserts nothing canonical; canonical conclusions go to the KB as records backed by evidence.
+- **Start a lab:** copy `../labs/_template/manifest.md` to `labs/<slug>/manifest.md` and fill in:
+  - `upstream_intent` — hypothesis, requirement/constraint, capability, architecture option or ADR (an ADR is **not** mandatory before an experiment);
+  - `lab_status` — `idea | planned | active | concluded | archived`;
+  - `evidence_links` — where results live (prefer KB evidence records);
+  - run command/environment, outputs, decision influence, retention.
+- **Promotion to `tools/`** (reusable maintained code) requires: reuse intent, an owner, a documented interface, a contract and proportionate validation. Throwaway probes stay in `labs/`.
 
 ## 7. Common commands (validation & maintenance)
 
 Run from the repository root (git-bash on Windows; quote paths with spaces/parentheses/`+`):
 
 ```bash
-# --- Repository / migration integrity ---
-git status --porcelain=v1                                   # clean worktree check
-git diff --summary --find-renames                           # moves detected as renames (no delete+add)
+# --- Knowledge-base validation gate (all three gates) ---
+python tools/kb-validate/run_all.py
+python tools/kb-validate/run_all.py --lint          # + markdownlint (needs npx)
 
-# --- Markdown lint (KB + README; raw excluded — it is immutable evidence) ---
-npx markdownlint-cli2 --config .pi/temp/markdownlint.json \
-  "knowledge-base/**/*.md" "!knowledge-base/raw-input/**" "README.md"
+# --- Individual gates ---
+python tools/kb-validate/check_frontmatter.py       # type/status/lifecycle/upe.id contract
+python tools/kb-validate/check_links.py             # every local Markdown link resolves
+python tools/kb-validate/check_sources.py           # every sources:/relations target resolves
 
-# --- Internal links (every non-raw KB link must resolve) ---
-python .pi/temp/check_links.py
+# --- Repository integrity ---
+git status --porcelain=v1                           # clean worktree check
+git diff --summary --find-renames                   # moves detected as renames (no delete+add)
 
-# --- Frontmatter contract (type required, upe.id unique, no approved, allowed statuses) ---
-python .pi/temp/check_frontmatter.py
-
-# --- Product-name hygiene (no "Unified Production Environment" outside raw/annotated exceptions) ---
-git grep -n 'Unified Production Environment' -- ':!knowledge-base/raw-input'
-
-# --- README ghost-path check ---
-git grep -nE 'modules/|backlog/|sessions/|prototypes/' README.md
-
-# --- Legacy `.plans` reference check (should be empty in active files) ---
-git grep -nE '(^|[^[:alnum:]_])\.plans/' -- . ':!knowledge-base/raw-input/**' ':!.pi/plan/legacy/**'
+# --- Hygiene greps ---
+git grep -n 'Unified Production Environment' -- ':!sources'     # product-name hygiene
+git grep -nE 'modules/|backlog/|sessions/' README.md AGENTS.md  # ghost-path check
+git grep -nE '(^|[^[:alnum:]_])\.plans/' -- . ':!sources/**' ':!.pi/**'
 ```
 
-**Optional external tooling** (for the future CI spec — do not install permanently in this phase):
-- `okflint` (PyPI `okflint`, mattdav/okflint): `okflint audit`, `okflint validate --manifest okf-base.yaml`, `okflint index` — manifest-driven OKF conformance (rule codes F001/F002/R001/R002; v0.1/v0.2 core rules identical).
-- `markdown-link-check`: add `"replacementPatterns": [{"pattern": "^/", "replacement": "{{BASEURL}}/"}]` for root-relative links.
-- `okfcli/okf` (Go) and `playcode/okf-lint` (cross-links + staleness) as alternatives.
+`check_sources.py` exists because provenance paths were previously unchecked — a dangling
+`sources:` entry could survive indefinitely. See `tools/kb-validate/README.md`.
 
-## 8. Injection & query via custom Pi skills (planned)
+**Optional external tooling** (not required, do not install permanently):
+- `okflint` (PyPI `okflint`, mattdav/okflint): `okflint audit`, `okflint validate --manifest okf-base.yaml`.
+- `markdown-link-check` — add `"replacementPatterns": [{"pattern": "^/", "replacement": "{{BASEURL}}/"}]` for root-relative links.
 
-> **Status: PLANNED, not yet implemented.** Injection and deterministic query will be provided by two **project-scoped custom Pi skills** — `kb-inject` and `kb-query` — living in `.pi/skills/` (design per plan `.pi/plan/20260810-095945-kb-access-plan.md`; activation via `/skill:kb-inject` / `/skill:kb-query`). Until they land, use the manual workflow of §5 and grep triage of §4.
+## 8. Injection & sourcing conventions
 
-### 8.1 Where things go (injection map)
+### 8.1 Where things go
 
 | Input | Destination | What we get |
 |---|---|---|
-| New raw material (file) | `knowledge-base/raw-input/<approved-subpath>/<name>` (bytes unchanged, `--dry-run` preview) | sha256 recorded, overwrite refused, checkpoint entry, `NEWPATH=` stdout line |
-| Staged raw evidence | (reference in `sources:`) | immutable provenance for the concept |
-| New concept/ADR | `knowledge-base/<collection>/<slug>.md` (allowed: domains, capabilities, problems, use-cases, events, solution-candidates, architecture/decisions) | draft-only OKF+`upe:` record with required sections |
-| State/checkpoint | `.pi/temp/kb-state.json` (gitignored) | `{"version":1,"updated_at",paths:[{path,sha256}]}` |
+| New source payload (file) | `sources/<topic>/<iso-date>-<slug>.<ext>` (bytes unchanged, never overwritten) | immutable evidence + registered provenance |
+| Source registration | `knowledge-base/evidence/src-<topic>-<slug>.md` | canonical metadata about the source (location, revision, hash) |
+| New canonical concept | `knowledge-base/<collection>/<slug>.md` (allowed: `requirements`, `domains`, `capabilities`, `problems`, `use-cases`, `events`, `solution-candidates`, `architecture/decisions`) | draft OKF+`upe:` record with required sections |
+| Analysis (human or AI) | `analysis/{human,ai}/<topic>/<iso-date>-<slug>.md` | non-canonical, provenance-recorded work product |
+| Reviewed analysis | `analysis/reviewed/<topic>/…` | promotion staging |
+| Audience deliverable | `reports/{working,architecture-committee,published}/<iso-date>-<slug>.md` | presentation layer, never canonical |
+| Generated human surface | `knowledge-base/views/<name>.md` via `tools/kb-views/generate.py` | non-authoritative projection |
 
-### 8.2 `kb-inject` subcommands (planned)
+Rules: a source payload is never transformed on intake; nothing under `analysis/`, `reports/`, `sources/` or `labs/` is canonical; **no auto-approval, no auto-index/log** — `index.md`/`log.md` stay human-maintained (§5 step 7).
 
-```bash
-python .pi/skills/kb-inject/scripts/kb_inject.py stage \
-  --input <local-file> --dest knowledge-base/raw-input/<subpath> --dry-run   # preview: dest + sha256
-python .pi/skills/kb-inject/scripts/kb_inject.py stage \
-  --input <local-file> --dest knowledge-base/raw-input/<subpath>             # write (no overwrite)
-python .pi/skills/kb-inject/scripts/kb_inject.py scaffold \
-  --type capability --title "…" --slug <slug> --source raw-input/<path> --owner @<owner>
-python .pi/skills/kb-inject/scripts/kb_inject.py validate    # frontmatter contract checks
-python .pi/skills/kb-inject/scripts/kb_inject.py status      # counts per collection/type/lifecycle + last checkpoint
-```
-Rules: `stage` never transforms bytes and never overwrites; `scaffold` emits only `status: draft` / `upe.lifecycle: idea|draft` / `verified: false` and refuses wrong types, existing targets, raw targets, and paths outside `knowledge-base`; **no auto-approval, no auto-index/log** (index/log stay human-maintained, see §5 step 7).
+### 8.2 Planned custom Pi skills
 
-### 8.3 `kb-query` subcommands (planned)
-
-```bash
-python .pi/skills/kb-query/scripts/query_kb.py --root knowledge-base \
-  --under <dir> --type <t> --lifecycle <l> --status <s> --tag <t> [--text "<term>"] [--json]
-python .pi/skills/kb-query/scripts/query_kb.py --root knowledge-base --check-index   # index.md covers all active records
-# Approved/agreed architectural decisions (canonical predicate — empty until approvals exist):
-python .pi/skills/kb-query/scripts/query_kb.py --root knowledge-base \
-  --under architecture/decisions --type decision --lifecycle approved --status stable --json
-# Historic (non-authoritative) evidence, e.g. ADR-0001:
-python .pi/skills/kb-query/scripts/query_kb.py --root knowledge-base \
-  --include-raw --under raw-input/knowledge-base/architecture/decisions --type decision --status accepted --json
-```
-Behavior: scans only `*.md` **headers** (in-memory frontmatter index, bodies never opened), excludes `raw-input/**` by default, returns compact records (`id`, path, title, description, type, status, lifecycle, sources) as Markdown or UTF-8 JSON plus `answer_type` (`direct`/`list`/`gap`) and `should_read` paths. It is read-only and never validates or mutates the bundle. **An empty result for the approved predicate is correct** — promotion is a gated human act, not a query outcome.
-
-### 8.4 Implementation principles (frozen design)
-
-- Parsing: PyYAML `yaml.safe_load` on the first frontmatter document; UTF-8 end-to-end (Cyrillic-safe); JSON with `ensure_ascii=False`; parse errors reported with the file path.
-- Patterns mirror the master-KB `scripts/kb` (sha256 + JSON checkpoint, stdout contract) and `obsidian-wiki`'s *schema/workflow* (in-memory header index, tiered query answers) — **but field names stay OKF v0.2** (`sources`, `verified`, `status`, `stale_after`) + UPE `upe:`; obsidian-wiki's v0.1 trust vocabulary (`base_confidence`, `[[wikilinks]]`) is intentionally NOT adopted.
-- Skills are project-scoped (`.pi/skills/`), self-contained (no new pip deps beyond PyYAML), and structured as one `kb.py`-style entry per skill so a future promotion to a root `scripts/kb` CLI is a pure wrapper change.
+Inject/query skills (`kb-inject`, `kb-query`) were designed in plan
+`20260810-095945-kb-access-plan.md` and are **not yet implemented**. Until they land, use the
+manual workflow of §5, the intake rules of §8.1, and grep triage of §4.
 
 ## 9. Architecture decisions (ADR)
 
 - Decisions are recorded in `architecture/decisions/` as `ADR-{NNNN}` records using `decisions/adr-template.md` (sections: Context, Options, Decision, Consequences, Evidence, Status, Open questions).
-- Historical `ADR-0001` (docs-as-data) lives in raw (`raw-input/knowledge-base/architecture/decisions/ADR-0001-docs-as-data.md`) and is referenced from `decisions/adr-0001-history.md` via `derived-from`.
+- Historical `ADR-0001` (docs-as-data) lives in the evidence corpus and is referenced from `decisions/adr-0001-history.md` via `derived-from`.
 - Decision lifecycle: `idea/hypothesis → research/option → ADR draft → lab evidence → review → accepted/rejected → master architecture & docs update`.
+- **Only humans accept an ADR.** AI may draft one.
 
 ## 10. Agent operating rules (summary)
 
-1. **Read before writing:** `AGENTS.md` → `knowledge-base/index.md` → `governance/principles.md` + `governance/glossary.md` → `architecture/master.md`/`context-map.md` → the relevant concept.
-2. **Temporary work goes to `.pi/`** (research, context, plans, reviews) — never into the KB.
-3. **Promote only distilled facts/evidence** into KB concepts, with `sources:` and `draft` status; never copy whole reports into the KB.
-4. **Never fabricate** sources, verification, or approval; never set `approved`.
-5. **Before merging a change:** all §7 checks pass; `index.md`/`log.md` updated; affected architecture views/decisions updated; raw untouched.
-6. **Obsolete knowledge:** mark `upe.lifecycle: superseded|deprecated` (gated) or record the replacement relation — never delete evidence.
+1. **Read before writing:** `AGENTS.md` → `README.md` → `knowledge-base/index.md` → `governance/principles.md` + `governance/glossary.md` → `governance/operating-model.md` → the relevant concept.
+2. **Search the canonical KB first**; search `sources/` when you need the original evidence.
+3. **Durable AI business/project analysis goes to `analysis/ai/<topic>/`**; agent execution state goes to `.pi/`. These are different things.
+4. **Never treat analysis as accepted truth.** Promote only distilled findings, with `sources:` and `draft` status; never copy a whole report into the KB.
+5. **Never fabricate** sources, verification or approval; never set `approved`; never accept an ADR; never change approved domain boundaries.
+6. **Propose promotion with provenance** rather than performing it; the human gate decides.
+7. **Update views after canonical knowledge changes**, and `index.md`/`log.md` with every change.
+8. **Preserve DDD/OKF semantics and stable IDs** — no new ID schemes.
+9. **Before merging:** all §7 gates pass, `index.md`/`log.md` updated, affected architecture views/decisions updated, `sources/` untouched.
+10. **Obsolete knowledge:** mark `upe.lifecycle: superseded|deprecated` (gated) or record the replacement relation — never delete evidence.
 
-## 11. Pre-merge checklist (humans)
+## 11. Pre-merge checklist
 
 - [ ] Frontmatter complete and conforming (§3); `type` present; `upe.id` unique if set
-- [ ] `sources:` link to real raw evidence; body links resolve (bundle-relative)
+- [ ] `sources:` resolve (payload in `sources/` or an `evidence/` record); body links resolve
 - [ ] `status: draft`, `upe.lifecycle: idea|draft`; no `approved`
 - [ ] Contradictions preserved with attribution + `## Open questions` where needed
 - [ ] `index.md` updated; `log.md` entry added
-- [ ] markdownlint / check_links / check_frontmatter pass (§7)
+- [ ] `python tools/kb-validate/run_all.py` passes (frontmatter, links, provenance)
 - [ ] No `.pi/**` artifacts staged in the commit (except the frozen `.pi/plan/legacy/**` exception)
-- [ ] Raw files untouched
+- [ ] No analysis, report or view treated as canonical; evidence payloads untouched
+- [ ] Not a duplicate: no `_new`/`_final`/`_latest` sibling
 
 ## 12. Troubleshooting
 
 | Symptom | Cause / fix |
 |---|---|
-| `markdownlint` errors in raw files | Raw is intentionally excluded (`!knowledge-base/raw-input/**`); never edit raw to satisfy a linter |
-| `check_links.py` reports a broken link | Link target moved with the bundle; update the active concept link (raw links are exempt) |
-| `check_frontmatter.py` reports duplicate `upe.id` | Two records reuse a DDDM ID; only one may carry it — link the other with `derived-from`/`supports` instead |
-| `.plans` grep hits | Annotated historical mentions only (raw, `.pi/plan/legacy/**`, `.pi/review/**`); active files must be clean |
+| `markdownlint` errors in evidence payloads | Evidence is excluded from the gate; never edit a source to satisfy a linter |
+| `check_links.py` reports a broken link | The target moved; update the active concept's link. Evidence paths are exempt only inside `sources/` |
+| `check_sources.py` reports `UNRESOLVED_SOURCE` | A `sources:` entry points at a path that no longer exists — fix the record, or add the missing `evidence/` record |
+| `check_sources.py` reports `UNRESOLVED_RELATION` | A `upe.relations` target does not resolve; use a bundle-relative concept path or `../sources/...` |
+| `check_frontmatter.py` reports duplicate `upe.id` | Two records reuse a DDDM ID; only one may carry it — link the other with `derived-from`/`supports` |
 | Windows quoting | Always double-quote paths with spaces/`+`/parentheses in git-bash; use `--` before paths in `git mv`/`git rm` |
-| Where to ask | `governance/glossary.md` for vocabulary; `architecture/decisions/` for decisions; `labs/` for experiments; raw for evidence |
+| "Where does my analysis go?" | If a human wrote it → `analysis/human/<topic>/`; if an agent produced durable output → `analysis/ai/<topic>/`; if it is agent scratch → `.pi/` |
+| "Can I edit this source file?" | No. Add a new dated revision and register it |
+| Where to ask | `governance/glossary.md` for vocabulary; `governance/operating-model.md` for workflow; `architecture/decisions/` for decisions; `labs/` for experiments; `sources/` for evidence |

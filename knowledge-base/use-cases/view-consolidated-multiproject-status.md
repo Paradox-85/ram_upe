@@ -4,8 +4,8 @@ title: View consolidated multi-project task and status view
 description: A user across several projects gets a consolidated view (Planner-style) of tasks and project status to track workload and issues.
 tags: [use-case, multi-project, dashboard, observability, draft]
 sources:
-  - raw-input/docs/UPE_Functional_Blocks_v1.md
-  - raw-input/docs/brainstorming.md
+  - ../sources/legacy/docs/UPE_Functional_Blocks_v1.md
+  - ../sources/meetings/brainstorming.md
 generated: 2026-08-10T07:48:05Z
 verified: false
 status: draft
@@ -15,7 +15,7 @@ upe:
   owner: "@chief-architect"
   relations:
     - type: derived-from
-      target: raw-input/docs/UPE_Functional_Blocks_v1.md
+      target: ../sources/legacy/docs/UPE_Functional_Blocks_v1.md
     - type: supports
       target: capabilities/ability-to-aggregate-tasks-across-all-projects
     - type: supports
@@ -35,7 +35,7 @@ Project member working across multiple projects.
 - Ability to provide consolidated view (like MS Planner)
 
 ## Source
-Functional block **9.3 Multi-Project & Multi-Context Support** in [`raw-input/docs/UPE_Functional_Blocks_v1.md`](../raw-input/docs/UPE_Functional_Blocks_v1.md) and project-scoped user-friendliness in `raw-input/docs/brainstorming.md`.
+Functional block **9.3 Multi-Project & Multi-Context Support** in [`../sources/legacy/docs/UPE_Functional_Blocks_v1.md`](https://dev.azure.com/ramboll-bim/_git/UPE?path=/sources/legacy/docs/UPE_Functional_Blocks_v1.md&version=GBmain) and project-scoped user-friendliness in `../sources/meetings/brainstorming.md`.
 
 ## Open questions
 - Planner vs. unified-task-list trade-off is open.

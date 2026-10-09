@@ -4,7 +4,7 @@ title: Governance and approval process friction
 description: Approvals, access lists, and procedure adoption add effort; people resist procedures that add work and lead times are long.
 tags: [problem, governance, approval, draft]
 sources:
-  - raw-input/knowledge-base/raw-input/interviews-summary.md
+  - ../sources/ramboll/interviews-summary.md
 generated: 2026-08-10T07:48:05Z
 verified: false
 status: draft
@@ -14,7 +14,7 @@ upe:
   owner: "@chief-architect"
   relations:
     - type: derived-from
-      target: raw-input/knowledge-base/raw-input/interviews-summary.md
+      target: ../sources/ramboll/interviews-summary.md
 ---
 
 # Governance and approval process friction
@@ -23,7 +23,7 @@ upe:
 > Governance, approvals and access lists (incl. JV systems) need clearer, faster processes; people resist procedures that add effort, so lowering the bar and making standards built-in is important. Interviewees ask for an approval process that shortens lead time and better tools to implement procedures rather than only documenting them. [UPE Interviews source 2, 4]
 
 ## Source
-Interview finding in [`raw-input/knowledge-base/raw-input/interviews-summary.md`](../raw-input/knowledge-base/raw-input/interviews-summary.md).
+Interview finding in [`../sources/ramboll/interviews-summary.md`](https://dev.azure.com/ramboll-bim/_git/UPE?path=/sources/ramboll/interviews-summary.md&version=GBmain).
 
 ## Open questions
 - Approval SLAs and JV access specifics are not exhaustively enumerated.
